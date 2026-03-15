@@ -271,6 +271,51 @@ li {
   border-left: 3px solid var(--accent-base);
 }
 
+/* Accordion Styles */
+.unit-header {
+  cursor: pointer;
+  position: relative;
+  padding-right: 2.5rem;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.unit-header:hover {
+  opacity: 0.8;
+}
+
+.unit-header::after {
+  content: '▼';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.unit-header.expanded::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.unit-content {
+  display: none;
+  overflow: hidden;
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+.unit-content.expanded {
+  display: block;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
     </style>
 </head>
 <body>
@@ -8819,93 +8864,159 @@ Level: CEFR A1 (Elementary)</p>
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-          // 1. Smooth scrolling for anchors
+          const contentArea = document.querySelector('.content-area');
+          const contentWrapper = document.querySelector('.content-wrapper');
+          const sidebar = document.getElementById('sidebar');
+          const toggleBtn = document.getElementById('sidebarToggle');
           const navLinks = document.querySelectorAll('.nav-link');
-          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-              anchor.addEventListener('click', function (e) {
-                  e.preventDefault();
-                  const targetId = this.getAttribute('href').substring(1);
-                  const targetElement = document.getElementById(targetId);
-                  if (targetElement) {
-                      targetElement.scrollIntoView({
-                          behavior: 'smooth'
-                      });
+          const toc = document.querySelector('.toc');
+
+          // --- 1. Structure Units into Accordions ---
+          const headers = Array.from(contentWrapper.querySelectorAll('h2'));
+          const units = headers.filter(h => h.textContent.includes('UNIT'));
+
+          units.forEach((unitHeader, index) => {
+              unitHeader.classList.add('unit-header');
+              
+              // Create wrapper for unit content
+              const wrapper = document.createElement('div');
+              wrapper.className = 'unit-content';
+              wrapper.id = 'content-' + unitHeader.id;
+
+              // Move siblings until next unit or major header into wrapper
+              let curr = unitHeader.nextElementSibling;
+              while (curr && !curr.matches('h1, h2')) {
+                  const next = curr.nextElementSibling;
+                  wrapper.appendChild(curr);
+                  curr = next;
+              }
+              unitHeader.parentNode.insertBefore(wrapper, curr);
+
+              // Click to toggle
+              unitHeader.addEventListener('click', () => {
+                  const isExpanded = unitHeader.classList.contains('expanded');
+                  
+                  // Collapse all
+                  units.forEach(u => {
+                      u.classList.remove('expanded');
+                      const c = document.getElementById('content-' + u.id);
+                      if (c) c.classList.remove('expanded');
+                  });
+
+                  // If it wasn't expanded, expand now
+                  if (!isExpanded) {
+                      unitHeader.classList.add('expanded');
+                      wrapper.classList.add('expanded');
+                      unitHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
               });
           });
 
-          // 2. Sidebar Toggle and Mobile handling
-          const toggleBtn = document.getElementById('sidebarToggle');
-          const sidebar = document.getElementById('sidebar');
-          
-          toggleBtn.addEventListener('click', () => {
-              sidebar.classList.toggle('collapsed');
-          });
+          // --- 2. Side Menu Click Handling ---
+          document.querySelectorAll('.nav-link').forEach(link => {
+              link.addEventListener('click', function (e) {
+                  const href = this.getAttribute('href');
+                  if (!href.startsWith('#')) return;
+                  
+                  e.preventDefault();
+                  const targetId = href.substring(1);
+                  const targetElement = document.getElementById(targetId);
+                  
+                  if (targetElement) {
+                      // Find which unit this element belongs to
+                      let unitToExpand = null;
+                      if (targetElement.classList.contains('unit-header')) {
+                          unitToExpand = targetElement;
+                      } else {
+                          // Check if it's inside a unit-content
+                          const parentContent = targetElement.closest('.unit-content');
+                          if (parentContent) {
+                              const headerId = parentContent.id.replace('content-', '');
+                              unitToExpand = document.getElementById(headerId);
+                          } else {
+                              // If not in content, maybe it's a section before any unit
+                          }
+                      }
 
-          // Start collapsed on mobile
-          if (window.innerWidth <= 768) {
-              sidebar.classList.add('collapsed');
-          }
+                      if (unitToExpand) {
+                          // Collapse all first
+                          units.forEach(u => {
+                              u.classList.remove('expanded');
+                              const c = document.getElementById('content-' + u.id);
+                              if (c) c.classList.remove('expanded');
+                          });
+                          
+                          // Expand the correct one
+                          unitToExpand.classList.add('expanded');
+                          const content = document.getElementById('content-' + unitToExpand.id);
+                          if (content) content.classList.add('expanded');
+                      }
 
-          // Close sidebar on mobile when a link is clicked
-          navLinks.forEach(link => {
-              link.addEventListener('click', () => {
+                      // Wait a bit for expansion before scrolling if needed, but smooth scroll handles it usually
+                      setTimeout(() => {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                      }, 50);
+                  }
+
+                  // Mobile handling
                   if (window.innerWidth <= 768) {
                       sidebar.classList.add('collapsed');
                   }
               });
           });
 
-          // 3. Scrollspy - Highlight active link and scroll sidebar independently
-          const contentArea = document.querySelector('.content-area');
-          const toc = document.querySelector('.toc');
-          // All section headings
+          // --- 3. Sidebar Toggle ---
+          toggleBtn.addEventListener('click', () => {
+              sidebar.classList.toggle('collapsed');
+          });
+
+          if (window.innerWidth <= 768) {
+              sidebar.classList.add('collapsed');
+          }
+
+          // --- 4. Scrollspy ---
           const sections = Array.from(document.querySelectorAll('h1[id], h2[id], h3[id]'));
           
-          if (!contentArea || sections.length === 0) return;
-
-          let isScrollingTOC = false;
-
-          contentArea.addEventListener('scroll', () => {
-              let currentSectionId = '';
-              
-              for (const section of sections) {
-                  const rect = section.getBoundingClientRect();
-                  // Check if heading is in the upper part of the wrapper
-                  if (rect.top <= 150) {
-                      currentSectionId = section.id;
-                  } else {
-                      break; // Since they are in order, we can break early
-                  }
-              }
-              
-              if (!currentSectionId && sections.length > 0) {
-                 currentSectionId = sections[0].id;
-              }
-
-              let activeLinkUpdated = false;
-
-              navLinks.forEach(link => {
-                  if (link.getAttribute('href') === '#' + currentSectionId) {
-                      if (!link.classList.contains('active')) {
-                          link.classList.add('active');
-                          activeLinkUpdated = true;
-                          
-                          // Scroll TOC to keep active link in view
-                          const linkRect = link.getBoundingClientRect();
-                          const tocRect = toc.getBoundingClientRect();
-                          
-                          if (linkRect.top < tocRect.top) {
-                              toc.scrollTop -= (tocRect.top - linkRect.top) + 20;
-                          } else if (linkRect.bottom > tocRect.bottom) {
-                              toc.scrollTop += (linkRect.bottom - tocRect.bottom) + 20;
-                          }
+          if (contentArea && sections.length > 0) {
+              contentArea.addEventListener('scroll', () => {
+                  let currentSectionId = '';
+                  
+                  for (const section of sections) {
+                      const rect = section.getBoundingClientRect();
+                      if (rect.top <= 150) {
+                          currentSectionId = section.id;
+                      } else {
+                          break;
                       }
-                  } else {
-                      link.classList.remove('active');
                   }
+                  
+                  if (!currentSectionId && sections.length > 0) {
+                     currentSectionId = sections[0].id;
+                  }
+
+                  navLinks.forEach(link => {
+                      if (link.getAttribute('href') === '#' + currentSectionId) {
+                          if (!link.classList.contains('active')) {
+                              link.classList.add('active');
+                              
+                              const linkRect = link.getBoundingClientRect();
+                              const tocRect = toc.getBoundingClientRect();
+                              
+                              if (linkRect.top < tocRect.top) {
+                                  toc.scrollTop -= (tocRect.top - linkRect.top) + 20;
+                              } else if (linkRect.bottom > tocRect.bottom) {
+                                  toc.scrollTop += (linkRect.bottom - tocRect.bottom) + 20;
+                              }
+                          }
+                      } else {
+                          link.classList.remove('active');
+                      }
+                  });
               });
-          });
+          }
       });
     </script>
 </body>
