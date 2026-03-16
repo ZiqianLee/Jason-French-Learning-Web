@@ -3,64 +3,2084 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A2 Level - French Journey</title>
+    <title>Canadian French A2 Level Complete Textbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Shared Styles from A1 */
+
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --accent-base: #3b82f6;
-            --font-heading: 'Outfit', sans-serif;
-            --font-body: 'Inter', sans-serif;
-        }
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --accent-base: #3b82f6;
+  
+  --title-h1: linear-gradient(135deg, #f43f5e, #ec4899);
+  --title-h2: linear-gradient(135deg, #6366f1, #a855f7);
+  --title-h3: linear-gradient(135deg, #10b981, #14b8a6);
+  --title-h4: linear-gradient(135deg, #f59e0b, #f43f5e);
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            padding: 2rem;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        h1 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #6366f1, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
 
-        .btn-home {
-            margin-top: 2rem;
-            padding: 0.75rem 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--bg-tertiary);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
 
-        .btn-home:hover {
-            background: var(--accent-base);
-            transform: translateY(-2px);
-        }
+.sidebar {
+  width: 320px;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--bg-tertiary);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.sidebar-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.toc {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.nav-link:hover {
+  background-color: var(--bg-tertiary);
+  color: #fff;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  scroll-behavior: smooth;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+/* Typography & Markdown Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+h1 { font-size: 2.5rem; background-image: var(--title-h1); }
+h2 { font-size: 2rem; background-image: var(--title-h2); }
+h3 { font-size: 1.5rem; background-image: var(--title-h3); }
+h4 { font-size: 1.25rem; background-image: var(--title-h4); }
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow-x: auto;
+  display: block;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table-container table {
+  margin: 0;
+  display: table;
+}
+
+th {
+  background-color: var(--bg-tertiary);
+  color: #fff;
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+td {
+  background-color: rgba(30, 41, 59, 0.5);
+  padding: 1rem;
+  border-bottom: 1px solid var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--bg-tertiary);
+  margin: 3rem 0;
+}
+
+ul, ol {
+  margin-bottom: 1.25rem;
+  padding-left: 2rem;
+  color: var(--text-secondary);
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Animations */
+.content-wrapper {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary); 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary); 
+}
+
+/* Sidebar Toggle and Responsiveness */
+.sidebar {
+  transition: margin-left 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+.sidebar.collapsed {
+  margin-left: -320px;
+}
+.sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.2s ease;
+}
+.sidebar-toggle:hover {
+  background: var(--bg-tertiary);
+}
+.sidebar-header {
+  padding: 1.5rem 1.5rem 1.5rem 4rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100vh;
+    z-index: 1100;
+    left: 0;
+    width: 280px;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+  }
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  .content-area {
+    padding: 1rem;
+    padding-top: 4rem;
+  }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.1rem; }
+  
+  .sidebar-header {
+    padding: 1rem 1rem 1rem 3.5rem;
+  }
+  
+  .sidebar-header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-area {
+    padding: 0.75rem;
+    padding-top: 4rem;
+  }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  p, li { font-size: 0.95rem; }
+}
+
+.nav-link.active {
+  background-color: var(--bg-tertiary);
+  color: #fff;
+  font-weight: 600;
+  border-left: 3px solid var(--accent-base);
+}
+
+.home-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-tertiary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.home-btn:hover {
+  background: var(--accent-base);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* TOC Hierarchy */
+.nav-link.depth-1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  color: var(--text-primary);
+}
+
+.nav-link.depth-2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding-left: 2rem;
+}
+
+.nav-link.depth-3 {
+  font-size: 0.85rem;
+  padding-left: 3rem;
+  opacity: 0.9;
+}
+
+/* Accordion Styles */
+.unit-header {
+  cursor: pointer;
+  position: relative;
+  padding-right: 2.5rem;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.unit-header:hover {
+  opacity: 0.8;
+}
+
+/* Sidebar Overlay for Mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+  display: block;
+  opacity: 1;
+}
+
+.unit-header::after {
+  content: '▼';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.unit-header.expanded::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.unit-content {
+  display: none;
+  overflow: hidden;
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+.unit-content.expanded {
+  display: block;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+    
     </style>
 </head>
 <body>
-    <h1>A2 Level Content</h1>
-    <p>We are currently working hard to bring you the most comprehensive A2 Canadian French guide. Stay tuned!</p>
-    <a href="index.html" class="btn-home">Return to Home</a>
+    <button class="sidebar-toggle" id="sidebarToggle" title="Toggle Menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 French Journey</h2>
+            </div>
+            <a href="index.html" class="home-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Return to Home
+            </a>
+            <nav class="toc">
+                <ul>
+<li><a href="#h-a2-textbook" class="nav-link depth-1">Canadian French A2 Level</a></li>
+<li><a href="#h-a2-guide" class="nav-link depth-2">A Comprehensive Guide</a></li>
+<li><a href="#h-a2-toc" class="nav-link depth-2">TABLE OF CONTENTS</a></li>
+<li><a href="#h-part-i-reviewing" class="nav-link depth-1">PART I: REVIEWING &amp; DEEPENING</a></li>
+<li><a href="#h-unit-1-a1-review" class="nav-link depth-2">UNIT 1: REVIEW OF A1 ESSENTIALS</a></li>
+<li><a href="#h-1-1-key-verbs-review" class="nav-link depth-3">1.1 Key Verbs Review</a></li>
+<li><a href="#h-1-2-essential-vocabulary" class="nav-link depth-3">1.2 Essential Vocabulary Recap</a></li>
+<li><a href="#h-1-3-sentence-building" class="nav-link depth-3">1.3 Building Longer Sentences</a></li>
+<li><a href="#h-1-4-cdn-french-a1-review" class="nav-link depth-3">1.4 Canadian French Review (🍁)</a></li>
+<li><a href="#h-unit-2-imparfait" class="nav-link depth-2">UNIT 2: THE IMPARFAIT</a></li>
+<li><a href="#h-2-1-intro-imparfait" class="nav-link depth-3">2.1 Introduction to the Imparfait</a></li>
+<li><a href="#h-2-2-forming-imparfait" class="nav-link depth-3">2.2 Forming the Imparfait</a></li>
+<li><a href="#h-2-3-uses-imparfait" class="nav-link depth-3">2.3 Uses of the Imparfait</a></li>
+<li><a href="#h-2-4-imparfait-vs-pc" class="nav-link depth-3">2.4 Imparfait vs. Passé Composé</a></li>
+<li><a href="#h-2-5-cdn-imparfait" class="nav-link depth-3">2.5 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-3-futur-simple" class="nav-link depth-2">UNIT 3: FUTUR SIMPLE</a></li>
+<li><a href="#h-3-1-intro-futur" class="nav-link depth-3">3.1 Introduction to Futur Simple</a></li>
+<li><a href="#h-3-2-regular-futur" class="nav-link depth-3">3.2 Regular Verb Conjugations</a></li>
+<li><a href="#h-3-3-irregular-futur" class="nav-link depth-3">3.3 Irregular Stems</a></li>
+<li><a href="#h-3-4-uses-futur" class="nav-link depth-3">3.4 Uses of Futur Simple</a></li>
+<li><a href="#h-3-5-cdn-futur" class="nav-link depth-3">3.5 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-4-recent-past-near-future" class="nav-link depth-2">UNIT 4: PASSÉ RÉCENT &amp; VENIR DE</a></li>
+<li><a href="#h-4-1-passe-recent" class="nav-link depth-3">4.1 Passé Récent</a></li>
+<li><a href="#h-4-2-etre-en-train-de" class="nav-link depth-3">4.2 Être en train de</a></li>
+<li><a href="#h-4-3-timeline-expressions" class="nav-link depth-3">4.3 Timeline Expressions</a></li>
+<li><a href="#h-4-4-cdn-recent" class="nav-link depth-3">4.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-part-ii-daily-life" class="nav-link depth-1">PART II: EXPANDING DAILY LIFE</a></li>
+<li><a href="#h-unit-5-shopping" class="nav-link depth-2">UNIT 5: SHOPPING &amp; MONEY</a></li>
+<li><a href="#h-5-1-store-vocabulary" class="nav-link depth-3">5.1 Store Vocabulary</a></li>
+<li><a href="#h-5-2-asking-prices" class="nav-link depth-3">5.2 Asking About Prices</a></li>
+<li><a href="#h-5-3-clothing" class="nav-link depth-3">5.3 Clothing &amp; Sizes</a></li>
+<li><a href="#h-5-4-paying" class="nav-link depth-3">5.4 Paying &amp; Transactions</a></li>
+<li><a href="#h-5-5-cdn-shopping" class="nav-link depth-3">5.5 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-6-housing" class="nav-link depth-2">UNIT 6: HOUSING &amp; HOME</a></li>
+<li><a href="#h-6-1-rooms" class="nav-link depth-3">6.1 Rooms &amp; Furniture</a></li>
+<li><a href="#h-6-2-describing-home" class="nav-link depth-3">6.2 Describing Your Home</a></li>
+<li><a href="#h-6-3-renting" class="nav-link depth-3">6.3 Renting an Apartment</a></li>
+<li><a href="#h-6-4-cdn-housing" class="nav-link depth-3">6.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-7-transport" class="nav-link depth-2">UNIT 7: TRANSPORTATION</a></li>
+<li><a href="#h-7-1-transport-vocab" class="nav-link depth-3">7.1 Transportation Vocabulary</a></li>
+<li><a href="#h-7-2-giving-directions" class="nav-link depth-3">7.2 Giving &amp; Asking Directions</a></li>
+<li><a href="#h-7-3-public-transit" class="nav-link depth-3">7.3 Public Transit in Quebec</a></li>
+<li><a href="#h-7-4-cdn-transport" class="nav-link depth-3">7.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-8-weather" class="nav-link depth-2">UNIT 8: WEATHER &amp; CLIMATE</a></li>
+<li><a href="#h-8-1-weather-vocab" class="nav-link depth-3">8.1 Weather Vocabulary</a></li>
+<li><a href="#h-8-2-describing-weather" class="nav-link depth-3">8.2 Describing the Weather</a></li>
+<li><a href="#h-8-3-seasons-quebec" class="nav-link depth-3">8.3 Seasons in Quebec</a></li>
+<li><a href="#h-8-4-cdn-weather" class="nav-link depth-3">8.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-part-iii-social" class="nav-link depth-1">PART III: SOCIAL INTERACTIONS</a></li>
+<li><a href="#h-unit-9-invitations" class="nav-link depth-2">UNIT 9: INVITATIONS &amp; EVENTS</a></li>
+<li><a href="#h-9-1-inviting" class="nav-link depth-3">9.1 Inviting Someone</a></li>
+<li><a href="#h-9-2-accepting-declining" class="nav-link depth-3">9.2 Accepting &amp; Declining</a></li>
+<li><a href="#h-9-3-event-vocab" class="nav-link depth-3">9.3 Event Vocabulary</a></li>
+<li><a href="#h-9-4-cdn-invitations" class="nav-link depth-3">9.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-10-phone" class="nav-link depth-2">UNIT 10: PHONE CALLS &amp; MESSAGES</a></li>
+<li><a href="#h-10-1-phone-vocab" class="nav-link depth-3">10.1 Phone Vocabulary</a></li>
+<li><a href="#h-10-2-making-calls" class="nav-link depth-3">10.2 Making &amp; Receiving Calls</a></li>
+<li><a href="#h-10-3-texting" class="nav-link depth-3">10.3 Text Messages &amp; Email</a></li>
+<li><a href="#h-10-4-cdn-phone" class="nav-link depth-3">10.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-11-instructions" class="nav-link depth-2">UNIT 11: GIVING INSTRUCTIONS</a></li>
+<li><a href="#h-11-1-imperatif" class="nav-link depth-3">11.1 The Impératif</a></li>
+<li><a href="#h-11-2-giving-advice" class="nav-link depth-3">11.2 Giving Advice</a></li>
+<li><a href="#h-11-3-recipes" class="nav-link depth-3">11.3 Recipes &amp; Instructions</a></li>
+<li><a href="#h-11-4-cdn-instructions" class="nav-link depth-3">11.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-12-comparisons" class="nav-link depth-2">UNIT 12: COMPARISONS &amp; SUPERLATIVES</a></li>
+<li><a href="#h-12-1-comparatif" class="nav-link depth-3">12.1 The Comparatif</a></li>
+<li><a href="#h-12-2-superlatif" class="nav-link depth-3">12.2 The Superlatif</a></li>
+<li><a href="#h-12-3-irregular-comparisons" class="nav-link depth-3">12.3 Irregular Comparisons</a></li>
+<li><a href="#h-12-4-cdn-comparisons" class="nav-link depth-3">12.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-part-iv-health" class="nav-link depth-1">PART IV: HEALTH &amp; SERVICES</a></li>
+<li><a href="#h-unit-13-body-health" class="nav-link depth-2">UNIT 13: BODY &amp; HEALTH</a></li>
+<li><a href="#h-13-1-body-parts" class="nav-link depth-3">13.1 Body Parts</a></li>
+<li><a href="#h-13-2-symptoms" class="nav-link depth-3">13.2 Describing Symptoms</a></li>
+<li><a href="#h-13-3-health-expressions" class="nav-link depth-3">13.3 Health Expressions</a></li>
+<li><a href="#h-13-4-cdn-health" class="nav-link depth-3">13.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-14-doctor" class="nav-link depth-2">UNIT 14: AT THE DOCTOR</a></li>
+<li><a href="#h-14-1-appointment" class="nav-link depth-3">14.1 Making an Appointment</a></li>
+<li><a href="#h-14-2-consultation" class="nav-link depth-3">14.2 The Consultation</a></li>
+<li><a href="#h-14-3-pharmacy" class="nav-link depth-3">14.3 At the Pharmacy</a></li>
+<li><a href="#h-14-4-cdn-doctor" class="nav-link depth-3">14.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-15-banking" class="nav-link depth-2">UNIT 15: BANKING &amp; ADMIN</a></li>
+<li><a href="#h-15-1-bank-vocab" class="nav-link depth-3">15.1 Banking Vocabulary</a></li>
+<li><a href="#h-15-2-transactions" class="nav-link depth-3">15.2 Common Transactions</a></li>
+<li><a href="#h-15-3-admin-tasks" class="nav-link depth-3">15.3 Administrative Tasks</a></li>
+<li><a href="#h-15-4-cdn-banking" class="nav-link depth-3">15.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-16-emergencies" class="nav-link depth-2">UNIT 16: EMERGENCY SITUATIONS</a></li>
+<li><a href="#h-16-1-emergency-vocab" class="nav-link depth-3">16.1 Emergency Vocabulary</a></li>
+<li><a href="#h-16-2-calling-help" class="nav-link depth-3">16.2 Calling for Help</a></li>
+<li><a href="#h-16-3-describing-problems" class="nav-link depth-3">16.3 Describing Problems</a></li>
+<li><a href="#h-16-4-cdn-emergencies" class="nav-link depth-3">16.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-part-v-travel" class="nav-link depth-1">PART V: TRAVEL &amp; CULTURE</a></li>
+<li><a href="#h-unit-17-travel" class="nav-link depth-2">UNIT 17: TRAVEL PLANNING</a></li>
+<li><a href="#h-17-1-travel-vocab" class="nav-link depth-3">17.1 Travel Vocabulary</a></li>
+<li><a href="#h-17-2-booking" class="nav-link depth-3">17.2 Booking &amp; Reservations</a></li>
+<li><a href="#h-17-3-packing" class="nav-link depth-3">17.3 Packing &amp; Preparation</a></li>
+<li><a href="#h-17-4-cdn-travel" class="nav-link depth-3">17.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-18-hotel-airport" class="nav-link depth-2">UNIT 18: HOTEL &amp; AIRPORT</a></li>
+<li><a href="#h-18-1-hotel" class="nav-link depth-3">18.1 Hotel Vocabulary</a></li>
+<li><a href="#h-18-2-checking-in" class="nav-link depth-3">18.2 Checking In &amp; Out</a></li>
+<li><a href="#h-18-3-airport" class="nav-link depth-3">18.3 At the Airport</a></li>
+<li><a href="#h-18-4-cdn-hotel" class="nav-link depth-3">18.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-19-quebec-culture" class="nav-link depth-2">UNIT 19: QUEBEC CULTURE</a></li>
+<li><a href="#h-19-1-festivals" class="nav-link depth-3">19.1 Major Quebec Festivals</a></li>
+<li><a href="#h-19-2-traditions" class="nav-link depth-3">19.2 Traditions &amp; Customs</a></li>
+<li><a href="#h-19-3-cuisine" class="nav-link depth-3">19.3 Québécois Cuisine</a></li>
+<li><a href="#h-19-4-cdn-culture" class="nav-link depth-3">19.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-unit-20-review-b1" class="nav-link depth-2">UNIT 20: REVIEW &amp; B1 PREP</a></li>
+<li><a href="#h-20-1-grammar-review" class="nav-link depth-3">20.1 Grammar Review</a></li>
+<li><a href="#h-20-2-vocab-review" class="nav-link depth-3">20.2 Vocabulary Review</a></li>
+<li><a href="#h-20-3-b1-preview" class="nav-link depth-3">20.3 What to Expect at B1</a></li>
+<li><a href="#h-20-4-study-tips" class="nav-link depth-3">20.4 Study Tips</a></li>
+<li><a href="#h-a2-conclusion" class="nav-link depth-1">CONCLUSION</a></li>
+</ul>
+            </nav>
+        </aside>
+        <main class="content-area">
+            <div class="content-wrapper">
+
+<h1 id="h-a2-textbook">Canadian French A2 Level Complete Textbook</h1>
+<h2 id="h-a2-guide">A Comprehensive Guide for English Speakers</h2>
+<hr>
+<h2 id="h-a2-toc">TABLE OF CONTENTS</h2>
+<p><strong>PART I: REVIEWING &amp; DEEPENING</strong></p>
+<ul>
+<li>Unit 1: Review of A1 Essentials</li>
+<li>Unit 2: The Imparfait (Imperfect Tense)</li>
+<li>Unit 3: Futur Simple (Simple Future)</li>
+<li>Unit 4: Passé Récent &amp; Venir de</li>
+</ul>
+<p><strong>PART II: EXPANDING DAILY LIFE</strong></p>
+<ul>
+<li>Unit 5: Shopping &amp; Money</li>
+<li>Unit 6: Housing &amp; Home</li>
+<li>Unit 7: Transportation &amp; Directions</li>
+<li>Unit 8: Weather &amp; Climate</li>
+</ul>
+<p><strong>PART III: SOCIAL INTERACTIONS</strong></p>
+<ul>
+<li>Unit 9: Invitations &amp; Events</li>
+<li>Unit 10: Phone Calls &amp; Messages</li>
+<li>Unit 11: Giving Instructions &amp; Advice</li>
+<li>Unit 12: Comparisons &amp; Superlatives</li>
+</ul>
+<p><strong>PART IV: HEALTH &amp; SERVICES</strong></p>
+<ul>
+<li>Unit 13: Body &amp; Health</li>
+<li>Unit 14: At the Doctor &amp; Pharmacy</li>
+<li>Unit 15: Banking &amp; Administrative Tasks</li>
+<li>Unit 16: Emergency Situations</li>
+</ul>
+<p><strong>PART V: TRAVEL &amp; CULTURE</strong></p>
+<ul>
+<li>Unit 17: Travel Planning</li>
+<li>Unit 18: At the Hotel &amp; Airport</li>
+<li>Unit 19: Quebec Culture &amp; Festivals</li>
+<li>Unit 20: Review &amp; B1 Preparation</li>
+</ul>
+<hr>
+
+<h1 id="h-part-i-reviewing">PART I: REVIEWING &amp; DEEPENING</h1>
+
+<h2 id="h-unit-1-a1-review">UNIT 1: REVIEW OF A1 ESSENTIALS</h2>
+
+<h3 id="h-1-1-key-verbs-review">1.1 Key Verbs Review</h3>
+<p>Before advancing to A2, let&#39;s review the most important verbs from A1. Mastery of <strong>être</strong> (to be) and <strong>avoir</strong> (to have) is essential for everything that follows.</p>
+
+<table>
+<thead><tr><th>Pronoun</th><th>Être (to be)</th><th>Avoir (to have)</th><th>Aller (to go)</th><th>Faire (to do/make)</th></tr></thead>
+<tbody>
+<tr><td>Je</td><td>suis</td><td>ai</td><td>vais</td><td>fais</td></tr>
+<tr><td>Tu</td><td>es</td><td>as</td><td>vas</td><td>fais</td></tr>
+<tr><td>Il/Elle/On</td><td>est</td><td>a</td><td>va</td><td>fait</td></tr>
+<tr><td>Nous</td><td>sommes</td><td>avons</td><td>allons</td><td>faisons</td></tr>
+<tr><td>Vous</td><td>êtes</td><td>avez</td><td>allez</td><td>faites</td></tr>
+<tr><td>Ils/Elles</td><td>sont</td><td>ont</td><td>vont</td><td>font</td></tr>
+</tbody></table>
+
+<p><strong>Review Examples:</strong></p>
+<ul>
+<li><strong>Je suis étudiant à l&#39;Université de Montréal depuis deux ans.</strong> (I have been a student at the University of Montreal for two years.)</li>
+<li><strong>Nous avons trois enfants qui vont à l&#39;école primaire dans notre quartier.</strong> (We have three children who go to elementary school in our neighbourhood.)</li>
+<li><strong>Est-ce que tu vas au dépanneur pour acheter du lait avant que le magasin ferme?</strong> (Are you going to the corner store to buy milk before the store closes?)</li>
+<li><strong>Qu&#39;est-ce que vous faites pendant la fin de semaine quand il fait beau dehors?</strong> (What do you do on weekends when the weather is nice outside?)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A Monday Morning at the Office:</strong></p>
+<p><em>C&#39;est lundi matin au bureau. Vous arrivez et vous saluez vos collègues.</em></p>
+<p>&quot;Salut Marc! Comment ça va ce matin?&quot;<br>&quot;Ça va bien, merci! J&#39;ai passé une belle fin de semaine au chalet avec ma famille.&quot;<br>&quot;Ah oui? Qu&#39;est-ce que vous avez fait?&quot;<br>&quot;On a fait du ski de fond et les enfants ont joué dehors dans la neige toute la journée.&quot;<br>&quot;Super! Moi, je suis allé au Carnaval de Québec avec des amis. C&#39;était vraiment le fun!&quot;</p>
+<p><em>(It&#39;s Monday morning at the office. You arrive and greet your colleagues. &quot;Hi Marc! How are you this morning?&quot; &quot;I&#39;m good, thanks! I spent a nice weekend at the cottage with my family.&quot; &quot;Oh yeah? What did you do?&quot; &quot;We went cross-country skiing and the kids played outside in the snow all day.&quot; &quot;Great! I went to the Quebec Winter Carnival with friends. It was really fun!&quot;)</em></p>
+
+<h3 id="h-1-2-essential-vocabulary">1.2 Essential Vocabulary Recap</h3>
+<p>At A2, you should already know these basic categories. Here is a quick refresher with expanded examples:</p>
+
+<p><strong>Greetings (Expanded):</strong></p>
+<ul>
+<li><strong>Allô!</strong> – Hello! (informal, very Québécois) (Hello!)</li>
+<li><strong>Comment ça va, toi?</strong> – How are you? (informal) (How are you?)</li>
+<li><strong>Pas pire, et toi?</strong> – Not bad, and you? (typical Québécois response) (Not bad, and you?)</li>
+<li><strong>Bonne journée!</strong> – Have a good day! (Have a good day!)</li>
+</ul>
+
+<p><strong>Daily Life Vocabulary:</strong></p>
+<table>
+<thead><tr><th>French</th><th>English</th><th>Example Sentence</th></tr></thead>
+<tbody>
+<tr><td>le déjeuner</td><td>breakfast (QC) / lunch (FR)</td><td>Je prends mon déjeuner à sept heures. (I eat breakfast at seven.)</td></tr>
+<tr><td>le dîner</td><td>lunch (QC) / dinner (FR)</td><td>On dîne ensemble à midi? (Shall we have lunch together at noon?)</td></tr>
+<tr><td>le souper</td><td>dinner/supper (QC)</td><td>Le souper est prêt à six heures. (Dinner is ready at six.)</td></tr>
+<tr><td>la job</td><td>the job (QC, feminine)</td><td>J&#39;aime ma job au centre-ville. (I like my job downtown.)</td></tr>
+<tr><td>le char</td><td>the car (QC, informal)</td><td>Mon char est au garage. (My car is at the garage.)</td></tr>
+<tr><td>le dépanneur</td><td>corner store (QC)</td><td>Je vais au dépanneur chercher du pain. (I&#39;m going to the corner store to get bread.)</td></tr>
+</tbody></table>
+
+<h3 id="h-1-3-sentence-building">1.3 Building Longer Sentences</h3>
+<p>At A2, you need to move beyond simple subject-verb-object sentences. Here are key connectors:</p>
+
+<table>
+<thead><tr><th>Connector</th><th>Meaning</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>parce que</td><td>because</td><td>Je reste à la maison parce qu&#39;il neige beaucoup. (I&#39;m staying home because it&#39;s snowing a lot.)</td></tr>
+<tr><td>donc</td><td>therefore/so</td><td>Il fait froid, donc je mets mon manteau. (It&#39;s cold, so I put on my coat.)</td></tr>
+<tr><td>mais</td><td>but</td><td>Je veux sortir, mais je suis fatiguée. (I want to go out, but I&#39;m tired.)</td></tr>
+<tr><td>quand</td><td>when</td><td>Quand il pleut, je prends l&#39;autobus. (When it rains, I take the bus.)</td></tr>
+<tr><td>si</td><td>if</td><td>Si tu veux, on peut aller au cinéma ce soir. (If you want, we can go to the cinema tonight.)</td></tr>
+<tr><td>pendant que</td><td>while</td><td>Je cuisine pendant que les enfants font leurs devoirs. (I cook while the children do their homework.)</td></tr>
+<tr><td>avant de</td><td>before (+ infinitive)</td><td>Avant de partir, n&#39;oublie pas tes clés! (Before leaving, don&#39;t forget your keys!)</td></tr>
+<tr><td>après</td><td>after</td><td>Après le souper, on regarde la télé ensemble. (After dinner, we watch TV together.)</td></tr>
+</tbody></table>
+
+<p><strong>Practice with longer sentences:</strong></p>
+<ul>
+<li><strong>Je vais au gymnase trois fois par semaine parce que je veux rester en forme pour jouer au hockey avec mes amis.</strong> (I go to the gym three times a week because I want to stay in shape to play hockey with my friends.)</li>
+<li><strong>Ma sœur habite à Québec, mais elle travaille à Montréal, donc elle prend le train tous les lundis matin.</strong> (My sister lives in Quebec City, but she works in Montreal, so she takes the train every Monday morning.)</li>
+</ul>
+
+<h3 id="h-1-4-cdn-french-a1-review">1.4 Canadian French Review (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong> Remember that Quebec French has its own rhythm and vocabulary. Key differences from France French that you learned at A1:</p>
+<ul>
+<li><strong>Tu/Vous:</strong> Quebecers use <strong>&quot;tu&quot;</strong> much more quickly and widely than in France. It is common to say <strong>&quot;tu&quot;</strong> to strangers in casual settings.</li>
+<li><strong>Affrication:</strong> The sounds &quot;t&quot; and &quot;d&quot; before &quot;i&quot; and &quot;u&quot; become &quot;ts&quot; and &quot;dz&quot;: <strong>&quot;tu&quot;</strong> sounds like <strong>&quot;tsu&quot;</strong>, <strong>&quot;dire&quot;</strong> sounds like <strong>&quot;dzire&quot;</strong>.</li>
+<li><strong>Meal names:</strong> In Quebec, <strong>déjeuner</strong> = breakfast, <strong>dîner</strong> = lunch, <strong>souper</strong> = dinner. In France, <strong>petit-déjeuner</strong> = breakfast, <strong>déjeuner</strong> = lunch, <strong>dîner</strong> = dinner.</li>
+<li><strong>&quot;Icitte&quot;</strong> instead of &quot;ici&quot; (here), <strong>&quot;pis&quot;</strong> instead of &quot;puis&quot; (then/and).</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Ordering at a Québécois Restaurant:</strong></p>
+<p><em>Vous êtes dans un petit restaurant à Trois-Rivières avec un ami.</em></p>
+<p>&quot;Bonjour! Bienvenue chez nous! Qu&#39;est-ce que je peux vous servir?&quot;<br>&quot;Salut! On va prendre deux poutines, s&#39;il vous plaît.&quot;<br>&quot;Parfait! Vous voulez-tu quelque chose à boire avec ça?&quot;<br>&quot;Oui, deux Pepsi, s&#39;il vous plaît.&quot;<br>&quot;Correct! Ça va être prêt dans cinq minutes.&quot;</p>
+<p><em>(You are in a small restaurant in Trois-Rivières with a friend. &quot;Hello! Welcome! What can I serve you?&quot; &quot;Hi! We&#39;ll have two poutines, please.&quot; &quot;Perfect! Do you want something to drink with that?&quot; &quot;Yes, two Pepsis, please.&quot; &quot;All right! It will be ready in five minutes.&quot;)</em></p>
+
+<hr>
+<h2 id="h-unit-2-imparfait">UNIT 2: THE IMPARFAIT (IMPERFECT TENSE)</h2>
+
+<h3 id="h-2-1-intro-imparfait">2.1 Introduction to the Imparfait</h3>
+<p>The <strong>imparfait</strong> (imperfect tense) is used to describe ongoing or repeated actions in the past, habits, descriptions, and background information. Think of it as &quot;was doing&quot; or &quot;used to do&quot; in English.</p>
+
+<p><strong>When to use the imparfait:</strong></p>
+<ul>
+<li><strong>Habits in the past:</strong> Quand j&#39;étais jeune, je jouais dehors tous les jours. (When I was young, I used to play outside every day.)</li>
+<li><strong>Descriptions:</strong> Il faisait beau et le soleil brillait sur le fleuve Saint-Laurent. (The weather was nice and the sun was shining on the St. Lawrence River.)</li>
+<li><strong>Ongoing actions:</strong> Pendant que je mangeais, le téléphone a sonné. (While I was eating, the phone rang.)</li>
+<li><strong>States of mind/emotion:</strong> Elle était triste parce que son ami était parti. (She was sad because her friend had left.)</li>
+<li><strong>Age in the past:</strong> Quand j&#39;avais dix ans, j&#39;habitais à Gatineau. (When I was ten, I lived in Gatineau.)</li>
+</ul>
+
+<h3 id="h-2-2-forming-imparfait">2.2 Forming the Imparfait</h3>
+<p>To form the imparfait, take the <strong>nous</strong> form of the present tense, remove <strong>-ons</strong>, and add the imparfait endings:</p>
+
+<table>
+<thead><tr><th>Pronoun</th><th>Ending</th><th>Parler (parl-)</th><th>Finir (finiss-)</th><th>Prendre (pren-)</th></tr></thead>
+<tbody>
+<tr><td>Je</td><td>-ais</td><td>parlais</td><td>finissais</td><td>prenais</td></tr>
+<tr><td>Tu</td><td>-ais</td><td>parlais</td><td>finissais</td><td>prenais</td></tr>
+<tr><td>Il/Elle/On</td><td>-ait</td><td>parlait</td><td>finissait</td><td>prenait</td></tr>
+<tr><td>Nous</td><td>-ions</td><td>parlions</td><td>finissions</td><td>prenions</td></tr>
+<tr><td>Vous</td><td>-iez</td><td>parliez</td><td>finissiez</td><td>preniez</td></tr>
+<tr><td>Ils/Elles</td><td>-aient</td><td>parlaient</td><td>finissaient</td><td>prenaient</td></tr>
+</tbody></table>
+
+<p><strong>Important:</strong> The only irregular verb in the imparfait is <strong>être</strong>:</p>
+<table>
+<thead><tr><th>Pronoun</th><th>Être (imparfait)</th></tr></thead>
+<tbody>
+<tr><td>J&#39;</td><td>étais</td></tr>
+<tr><td>Tu</td><td>étais</td></tr>
+<tr><td>Il/Elle/On</td><td>était</td></tr>
+<tr><td>Nous</td><td>étions</td></tr>
+<tr><td>Vous</td><td>étiez</td></tr>
+<tr><td>Ils/Elles</td><td>étaient</td></tr>
+</tbody></table>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Quand j&#39;étais petite, ma grand-mère me racontait des histoires tous les soirs avant de dormir.</strong> (When I was little, my grandmother used to tell me stories every night before sleeping.)</li>
+<li><strong>Nous habitions dans une petite maison à côté du lac et nous allions pêcher chaque samedi.</strong> (We used to live in a small house next to the lake and we went fishing every Saturday.)</li>
+<li><strong>Il neigeait beaucoup et les enfants faisaient des bonhommes de neige dans la cour.</strong> (It was snowing a lot and the children were making snowmen in the yard.)</li>
+</ul>
+
+<h3 id="h-2-3-uses-imparfait">2.3 Uses of the Imparfait</h3>
+<p><strong>1. Describing habits and routines in the past:</strong></p>
+<ul>
+<li><strong>Chaque été, on allait au chalet de mes grands-parents à Charlevoix.</strong> (Every summer, we used to go to my grandparents&#39; cottage in Charlevoix.)</li>
+<li><strong>Le dimanche, mon père préparait toujours des crêpes pour le déjeuner.</strong> (On Sundays, my father always used to make crêpes for breakfast.)</li>
+</ul>
+
+<p><strong>2. Describing people, places, weather, and feelings:</strong></p>
+<ul>
+<li><strong>La maison était grande avec un jardin magnifique plein de fleurs de toutes les couleurs.</strong> (The house was big with a magnificent garden full of flowers of all colours.)</li>
+<li><strong>Il faisait moins trente degrés et le vent soufflait très fort dans les rues de Montréal.</strong> (It was minus thirty degrees and the wind was blowing very hard in the streets of Montreal.)</li>
+</ul>
+
+<p><strong>3. Setting the scene for a story:</strong></p>
+<ul>
+<li><strong>C&#39;était un beau matin d&#39;automne. Les feuilles étaient rouges et orange, et l&#39;air sentait le froid.</strong> (It was a beautiful autumn morning. The leaves were red and orange, and the air smelled cold.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Remembering Childhood in Quebec:</strong></p>
+<p><em>Vous parlez avec votre ami de votre enfance au Québec.</em></p>
+<p>&quot;Tu te souviens quand on était jeunes? On jouait au hockey dans la rue après l&#39;école.&quot;<br>&quot;Oui! Et ma mère criait toujours: &#39;Rentrez, c&#39;est l&#39;heure du souper!&#39;&quot;<br>&quot;Et l&#39;hiver, on construisait des forts de neige énormes dans la cour.&quot;<br>&quot;C&#39;est vrai. On avait tellement de fun. Mon père nous emmenait à la cabane à sucre chaque printemps.&quot;<br>&quot;Ah oui, le sirop d&#39;érable! Ma grand-mère faisait de la tire sur la neige. C&#39;était le meilleur moment de l&#39;année!&quot;</p>
+<p><em>(You are talking with your friend about your childhood in Quebec. &quot;Do you remember when we were young? We used to play hockey in the street after school.&quot; &quot;Yes! And my mother always used to yell: &#39;Come in, it&#39;s suppertime!&#39;&quot; &quot;And in winter, we used to build huge snow forts in the yard.&quot; &quot;That&#39;s true. We had so much fun. My father used to take us to the sugar shack every spring.&quot; &quot;Oh yes, maple syrup! My grandmother used to make taffy on the snow. It was the best time of the year!&quot;)</em></p>
+
+<h3 id="h-2-4-imparfait-vs-pc">2.4 Imparfait vs. Passé Composé</h3>
+<p>This is one of the most important distinctions in French. The <strong>passé composé</strong> is used for completed actions, while the <strong>imparfait</strong> is for ongoing/habitual past actions.</p>
+
+<table>
+<thead><tr><th>Imparfait (Background/Ongoing)</th><th>Passé Composé (Completed Event)</th></tr></thead>
+<tbody>
+<tr><td>Je regardais la télé... (I was watching TV...)</td><td>...quand mon ami est arrivé. (...when my friend arrived.)</td></tr>
+<tr><td>Il pleuvait... (It was raining...)</td><td>...quand je suis sorti du bureau. (...when I left the office.)</td></tr>
+<tr><td>Nous mangions au restaurant... (We were eating at the restaurant...)</td><td>...quand le serveur a renversé l&#39;eau. (...when the waiter spilled the water.)</td></tr>
+</tbody></table>
+
+<p><strong>Key signals for imparfait:</strong> toujours (always), souvent (often), chaque jour (every day), d&#39;habitude (usually), quand j&#39;étais jeune (when I was young), pendant que (while).</p>
+<p><strong>Key signals for passé composé:</strong> hier (yesterday), soudain (suddenly), tout à coup (all of a sudden), une fois (once), ce jour-là (that day).</p>
+
+<p><strong>Practice examples:</strong></p>
+<ul>
+<li><strong>D&#39;habitude, je prenais le métro, mais hier, j&#39;ai pris un taxi parce qu&#39;il faisait trop froid.</strong> (Usually, I used to take the metro, but yesterday I took a taxi because it was too cold.)</li>
+<li><strong>Nous étions au parc quand il a commencé à neiger très fort.</strong> (We were at the park when it started to snow very hard.)</li>
+<li><strong>Elle lisait un livre pendant que son frère faisait ses devoirs, et soudain, le chat a sauté sur la table.</strong> (She was reading a book while her brother was doing his homework, and suddenly the cat jumped on the table.)</li>
+</ul>
+
+<h3 id="h-2-5-cdn-imparfait">2.5 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong> In spoken Quebec French, the imparfait is used very naturally and frequently in everyday conversation.</p>
+<ul>
+<li>Quebecers often use <strong>&quot;on&quot;</strong> instead of <strong>&quot;nous&quot;</strong> in casual speech: <strong>&quot;On allait toujours au chalet&quot;</strong> instead of <strong>&quot;Nous allions toujours au chalet.&quot;</strong> (We always used to go to the cottage.)</li>
+<li>The expression <strong>&quot;dans le temps&quot;</strong> means &quot;back then&quot;: <strong>&quot;Dans le temps, y avait pas d&#39;internet.&quot;</strong> (Back then, there was no internet.)</li>
+<li>In casual Quebec French, <strong>&quot;il&quot;</strong> is often shortened to <strong>&quot;y&quot;</strong>: <strong>&quot;Y faisait frette en maudit!&quot;</strong> (It was really cold!) – &quot;frette&quot; is Québécois for &quot;froid&quot; (cold).</li>
+</ul>
+
+<hr>
+<h2 id="h-unit-3-futur-simple">UNIT 3: FUTUR SIMPLE (SIMPLE FUTURE)</h2>
+
+<h3 id="h-3-1-intro-futur">3.1 Introduction to Futur Simple</h3>
+<p>The <strong>futur simple</strong> is used to talk about events that will happen in the future. While at A1 you learned <strong>aller + infinitive</strong> (near future), the futur simple is used for more formal or distant future events.</p>
+<p><strong>Comparison:</strong></p>
+<ul>
+<li><strong>Near future (aller +inf):</strong> Je vais manger bientôt. (I&#39;m going to eat soon.) – informal, immediate</li>
+<li><strong>Futur simple:</strong> Je mangerai quand j&#39;aurai le temps. (I will eat when I have time.) – more formal, distant</li>
+</ul>
+
+<h3 id="h-3-2-regular-futur">3.2 Regular Verb Conjugations</h3>
+<p>For regular verbs, add the futur endings to the <strong>full infinitive</strong>:</p>
+
+<table>
+<thead><tr><th>Pronoun</th><th>Ending</th><th>Parler</th><th>Finir</th><th>Vendre</th></tr></thead>
+<tbody>
+<tr><td>Je</td><td>-ai</td><td>parlerai</td><td>finirai</td><td>vendrai</td></tr>
+<tr><td>Tu</td><td>-as</td><td>parleras</td><td>finiras</td><td>vendras</td></tr>
+<tr><td>Il/Elle/On</td><td>-a</td><td>parlera</td><td>finira</td><td>vendra</td></tr>
+<tr><td>Nous</td><td>-ons</td><td>parlerons</td><td>finirons</td><td>vendrons</td></tr>
+<tr><td>Vous</td><td>-ez</td><td>parlerez</td><td>finirez</td><td>vendrez</td></tr>
+<tr><td>Ils/Elles</td><td>-ont</td><td>parleront</td><td>finiront</td><td>vendront</td></tr>
+</tbody></table>
+
+<p><strong>Note:</strong> For -RE verbs, drop the final <strong>e</strong> before adding endings: vendre → vendr- + ai = vendrai.</p>
+
+<h3 id="h-3-3-irregular-futur">3.3 Irregular Stems</h3>
+<p>Some common verbs have irregular stems in the futur simple. You must memorize these:</p>
+
+<table>
+<thead><tr><th>Verb</th><th>Irregular Stem</th><th>Example (je)</th><th>Translation</th></tr></thead>
+<tbody>
+<tr><td>être</td><td>ser-</td><td>je serai</td><td>I will be</td></tr>
+<tr><td>avoir</td><td>aur-</td><td>j&#39;aurai</td><td>I will have</td></tr>
+<tr><td>aller</td><td>ir-</td><td>j&#39;irai</td><td>I will go</td></tr>
+<tr><td>faire</td><td>fer-</td><td>je ferai</td><td>I will do/make</td></tr>
+<tr><td>pouvoir</td><td>pourr-</td><td>je pourrai</td><td>I will be able to</td></tr>
+<tr><td>vouloir</td><td>voudr-</td><td>je voudrai</td><td>I will want</td></tr>
+<tr><td>devoir</td><td>devr-</td><td>je devrai</td><td>I will have to</td></tr>
+<tr><td>savoir</td><td>saur-</td><td>je saurai</td><td>I will know</td></tr>
+<tr><td>venir</td><td>viendr-</td><td>je viendrai</td><td>I will come</td></tr>
+<tr><td>voir</td><td>verr-</td><td>je verrai</td><td>I will see</td></tr>
+</tbody></table>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>L&#39;année prochaine, j&#39;irai à Percé pour voir le rocher et les fous de Bassan.</strong> (Next year, I will go to Percé to see the rock and the gannets.)</li>
+<li><strong>Quand tu auras dix-huit ans, tu pourras voter aux élections provinciales.</strong> (When you are eighteen, you will be able to vote in provincial elections.)</li>
+<li><strong>Nous ferons une grande fête quand ma sœur reviendra de son voyage en Europe.</strong> (We will have a big party when my sister comes back from her trip to Europe.)</li>
+</ul>
+
+<h3 id="h-3-4-uses-futur">3.4 Uses of Futur Simple</h3>
+<p><strong>1. Predictions and promises:</strong></p>
+<ul>
+<li><strong>Demain, il neigera toute la journée selon la météo.</strong> (Tomorrow, it will snow all day according to the weather forecast.)</li>
+<li><strong>Je te promets que je serai à l&#39;heure pour ton spectacle ce soir.</strong> (I promise you I will be on time for your show tonight.)</li>
+</ul>
+<p><strong>2. After &quot;quand&quot; and &quot;si&quot; constructions:</strong></p>
+<ul>
+<li><strong>Quand j&#39;arriverai à Montréal, je t&#39;appellerai tout de suite.</strong> (When I arrive in Montreal, I will call you right away.)</li>
+<li><strong>Si tu étudies bien, tu réussiras ton examen de français.</strong> (If you study well, you will pass your French exam.) – Note: after &quot;si&quot;, use present tense, NOT futur.</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Planning a Summer Trip:</strong></p>
+<p><em>Vous planifiez un voyage d&#39;été avec vos amis.</em></p>
+<p>&quot;Qu&#39;est-ce qu&#39;on fera cet été? Avez-vous des idées?&quot;<br>&quot;Moi, j&#39;aimerais aller aux Îles-de-la-Madeleine. On pourra faire du kayak et manger du homard!&quot;<br>&quot;Bonne idée! On prendra le traversier ou l&#39;avion?&quot;<br>&quot;Le traversier, c&#39;est moins cher. Le voyage durera environ cinq heures.&quot;<br>&quot;Parfait! Je réserverai un chalet pour une semaine. Ça sera incroyable!&quot;</p>
+<p><em>(You are planning a summer trip with your friends. &quot;What will we do this summer? Do you have any ideas?&quot; &quot;I would like to go to the Magdalen Islands. We&#39;ll be able to kayak and eat lobster!&quot; &quot;Good idea! Will we take the ferry or the plane?&quot; &quot;The ferry, it&#39;s less expensive. The trip will last about five hours.&quot; &quot;Perfect! I will book a cottage for a week. It will be incredible!&quot;)</em></p>
+
+<h3 id="h-3-5-cdn-futur">3.5 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong> In everyday spoken Quebec French, the futur simple is relatively rare. Quebecers strongly prefer the <strong>futur proche</strong> (aller + infinitive) for most future statements:</p>
+<ul>
+<li><strong>Standard:</strong> Je parlerai avec lui demain. (I will speak with him tomorrow.)</li>
+<li><strong>Québécois (common):</strong> Je vais y parler demain. / M&#39;a y parler demain. (I&#39;m going to talk to him tomorrow.)</li>
+</ul>
+<p>The contraction <strong>&quot;m&#39;a&quot;</strong> (from &quot;je m&#39;en vais&quot;) is very common in informal Quebec French to express the near future: <strong>&quot;M&#39;a faire ça tantôt.&quot;</strong> (I&#39;ll do that later.)</p>
+<p>However, the futur simple is still important for formal writing, news, and professional communication in Quebec.</p>
+
+<hr>
+<h2 id="h-unit-4-recent-past-near-future">UNIT 4: PASSÉ RÉCENT &amp; VENIR DE</h2>
+
+<h3 id="h-4-1-passe-recent">4.1 Passé Récent (Venir de + Infinitive)</h3>
+<p>The <strong>passé récent</strong> expresses something that just happened. It uses <strong>venir de + infinitive</strong>:</p>
+
+<table>
+<thead><tr><th>Pronoun</th><th>Venir de</th><th>Example</th><th>Translation</th></tr></thead>
+<tbody>
+<tr><td>Je</td><td>viens de</td><td>Je viens de manger.</td><td>I just ate.</td></tr>
+<tr><td>Tu</td><td>viens de</td><td>Tu viens d&#39;arriver?</td><td>Did you just arrive?</td></tr>
+<tr><td>Il/Elle</td><td>vient de</td><td>Elle vient de partir.</td><td>She just left.</td></tr>
+<tr><td>Nous</td><td>venons de</td><td>Nous venons de finir.</td><td>We just finished.</td></tr>
+<tr><td>Vous</td><td>venez de</td><td>Vous venez de téléphoner?</td><td>Did you just call?</td></tr>
+<tr><td>Ils/Elles</td><td>viennent de</td><td>Ils viennent de rentrer.</td><td>They just came back.</td></tr>
+</tbody></table>
+
+<p><strong>More examples:</strong></p>
+<ul>
+<li><strong>Je viens de recevoir un courriel de mon professeur de français à propos de l&#39;examen final.</strong> (I just received an email from my French teacher about the final exam.)</li>
+<li><strong>Les voisins viennent de déménager dans une maison plus grande dans le quartier Limoilou.</strong> (The neighbours just moved to a bigger house in the Limoilou neighbourhood.)</li>
+</ul>
+
+<h3 id="h-4-2-etre-en-train-de">4.2 Être en train de (Ongoing Actions)</h3>
+<p>To express an action that is happening right now, use <strong>être en train de + infinitive</strong>:</p>
+<ul>
+<li><strong>Je suis en train de cuisiner le souper pour toute la famille.</strong> (I am in the middle of cooking dinner for the whole family.)</li>
+<li><strong>Les enfants sont en train de jouer dehors malgré la pluie.</strong> (The children are playing outside despite the rain.)</li>
+<li><strong>Ne me dérange pas, je suis en train d&#39;étudier pour mon examen de demain.</strong> (Don&#39;t bother me, I&#39;m studying for my exam tomorrow.)</li>
+</ul>
+
+<h3 id="h-4-3-timeline-expressions">4.3 Timeline Expressions</h3>
+<p>Combining tenses to express a timeline:</p>
+
+<table>
+<thead><tr><th>Timeline</th><th>Structure</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Just happened</td><td>venir de + inf.</td><td>Je viens de finir mon travail. (I just finished my work.)</td></tr>
+<tr><td>Happening now</td><td>être en train de + inf.</td><td>Je suis en train de me reposer. (I am resting.)</td></tr>
+<tr><td>About to happen</td><td>aller + inf.</td><td>Je vais sortir bientôt. (I am going to go out soon.)</td></tr>
+<tr><td>Will happen</td><td>futur simple</td><td>Ce soir, je regarderai un film. (Tonight, I will watch a movie.)</td></tr>
+</tbody></table>
+
+<p><strong>🇫🇷 Real-Life Scene – A Busy Day in Sherbrooke:</strong></p>
+<p><em>Votre ami vous appelle pendant une journée très chargée.</em></p>
+<p>&quot;Allô! Qu&#39;est-ce que tu fais?&quot;<br>&quot;Je suis en train de faire l&#39;épicerie au IGA. Je viens de déposer les enfants à la garderie.&quot;<br>&quot;Est-ce que tu veux prendre un café après?&quot;<br>&quot;Oui! Je vais finir dans vingt minutes. On se retrouvera au Tim Hortons sur la rue King?&quot;<br>&quot;Parfait! J&#39;arrive tantôt!&quot;</p>
+<p><em>(Your friend calls you during a very busy day. &quot;Hello! What are you doing?&quot; &quot;I&#39;m in the middle of grocery shopping at IGA. I just dropped off the kids at daycare.&quot; &quot;Do you want to grab a coffee after?&quot; &quot;Yes! I&#39;ll be done in twenty minutes. We&#39;ll meet at the Tim Hortons on King Street?&quot; &quot;Perfect! I&#39;ll be there soon!&quot;)</em></p>
+
+<h3 id="h-4-4-cdn-recent">4.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>&quot;Tantôt&quot;</strong> in Quebec French can mean &quot;earlier today&quot; or &quot;later today&quot;, depending on context. In France, it is rarely used.</li>
+<li><strong>&quot;Là là&quot;</strong> is a common filler: <strong>&quot;Je viens de finir, là là.&quot;</strong> (I just finished, you know.)</li>
+<li>The expression <strong>&quot;faire l&#39;épicerie&quot;</strong> (to do the grocery shopping) is Québécois. In France, people say <strong>&quot;faire les courses.&quot;</strong></li>
+<li><strong>&quot;La garderie&quot;</strong> (daycare) is a very common word in Quebec, where the government subsidizes daycare at $8.85/day (as of 2024).</li>
+</ul>
+
+
+<h2 id="h-unit-5-shopping">UNIT 5: SHOPPING &amp; MONEY</h2>
+
+<h3 id="h-5-1-store-vocabulary">5.1 Store Vocabulary</h3>
+<p>Quebec has its own distinct shopping vocabulary. Here are essential words for shopping in la Belle Province:</p>
+<table>
+<thead><tr><th>French (Quebec)</th><th>French (France)</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>le magasin</td><td>le magasin</td><td>store/shop</td></tr>
+<tr><td>le dépanneur</td><td>l&#39;épicerie de quartier</td><td>corner store / convenience store</td></tr>
+<tr><td>le centre d&#39;achats</td><td>le centre commercial</td><td>shopping mall</td></tr>
+<tr><td>la pharmacie</td><td>la pharmacie</td><td>pharmacy</td></tr>
+<tr><td>la quincaillerie</td><td>le magasin de bricolage</td><td>hardware store</td></tr>
+<tr><td>la tabagie</td><td>le bureau de tabac</td><td>tobacco / magazine shop</td></tr>
+<tr><td>la buanderie</td><td>la laverie</td><td>laundromat</td></tr>
+<tr><td>la SAQ</td><td>le caviste</td><td>liquor store (Société des alcools du Québec)</td></tr>
+<tr><td>les aubaines</td><td>les soldes</td><td>sales / bargains</td></tr>
+<tr><td>le spécial</td><td>la promotion</td><td>sale / special offer</td></tr>
+</tbody></table>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Je vais au centre d&#39;achats pour trouver un cadeau d&#39;anniversaire pour ma mère.</strong> (I&#39;m going to the mall to find a birthday gift for my mother.)</li>
+<li><strong>Il y a de bonnes aubaines au Canadian Tire cette semaine sur les outils de jardinage.</strong> (There are good sales at Canadian Tire this week on garden tools.)</li>
+<li><strong>Est-ce que tu peux passer au dépanneur me chercher un sac de lait?</strong> (Can you stop by the corner store to get me a bag of milk?)</li>
+</ul>
+
+<h3 id="h-5-2-asking-prices">5.2 Asking About Prices</h3>
+<p><strong>Useful phrases:</strong></p>
+<ul>
+<li><strong>Combien ça coûte?</strong> (How much does it cost?)</li>
+<li><strong>C&#39;est combien?</strong> (How much is it?)</li>
+<li><strong>Ça fait combien en tout?</strong> (How much is it in total?)</li>
+<li><strong>Est-ce que c&#39;est en spécial?</strong> (Is it on sale?) – Québécois expression</li>
+<li><strong>Avez-vous quelque chose de moins cher?</strong> (Do you have something cheaper?)</li>
+<li><strong>C&#39;est trop cher pour moi, malheureusement.</strong> (It&#39;s too expensive for me, unfortunately.)</li>
+</ul>
+
+<p><strong>Talking about prices:</strong></p>
+<ul>
+<li><strong>Ça coûte vingt-cinq dollars et quarante-neuf sous.</strong> (It costs twenty-five dollars and forty-nine cents.) – Note: In Quebec, &quot;sous&quot; = cents.</li>
+<li><strong>Les taxes ne sont pas incluses dans le prix affiché au Québec.</strong> (Taxes are not included in the displayed price in Quebec.)</li>
+<li><strong>La TPS est de cinq pour cent et la TVQ est de 9,975 pour cent.</strong> (The GST is five percent and the QST is 9.975 percent.)</li>
+</ul>
+
+<h3 id="h-5-3-clothing">5.3 Clothing &amp; Sizes</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un chandail</td><td>a sweater (QC) / un pull (FR)</td></tr>
+<tr><td>un manteau d&#39;hiver</td><td>a winter coat</td></tr>
+<tr><td>des bas</td><td>socks (QC) / des chaussettes (FR)</td></tr>
+<tr><td>des souliers</td><td>shoes (QC) / des chaussures (FR)</td></tr>
+<tr><td>une tuque</td><td>a winter hat / beanie (QC)</td></tr>
+<tr><td>des mitaines</td><td>mittens (QC) / des moufles (FR)</td></tr>
+<tr><td>un pantalon</td><td>pants / trousers</td></tr>
+<tr><td>une robe</td><td>a dress</td></tr>
+<tr><td>une jupe</td><td>a skirt</td></tr>
+<tr><td>des bottes</td><td>boots</td></tr>
+</tbody></table>
+
+<p><strong>Trying on clothes:</strong></p>
+<ul>
+<li><strong>Est-ce que je peux essayer cette robe en taille moyen, s&#39;il vous plaît?</strong> (Can I try on this dress in medium, please?)</li>
+<li><strong>C&#39;est trop petit. Avez-vous la taille au-dessus?</strong> (It&#39;s too small. Do you have the next size up?)</li>
+<li><strong>Où sont les cabines d&#39;essayage?</strong> (Where are the fitting rooms?)</li>
+</ul>
+
+<h3 id="h-5-4-paying">5.4 Paying &amp; Transactions</h3>
+<ul>
+<li><strong>Je vais payer par carte de débit, s&#39;il vous plaît.</strong> (I will pay by debit card, please.)</li>
+<li><strong>Acceptez-vous les cartes de crédit?</strong> (Do you accept credit cards?)</li>
+<li><strong>Je voudrais un reçu, s&#39;il vous plaît.</strong> (I would like a receipt, please.)</li>
+<li><strong>Est-ce que je peux retourner cet article si ça ne fait pas?</strong> (Can I return this item if it doesn&#39;t fit?)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Shopping at the Centre d&#39;achats:</strong></p>
+<p><em>Vous êtes dans un magasin de vêtements au centre d&#39;achats Laurier à Québec.</em></p>
+<p>&quot;Bonjour! Est-ce que je peux vous aider?&quot;<br>&quot;Oui, je cherche un chandail chaud pour l&#39;hiver. Quelque chose en laine, si possible.&quot;<br>&quot;Bien sûr! On a de beaux chandails en laine mérinos. Quelle taille faites-vous?&quot;<br>&quot;Je fais du moyen, habituellement. C&#39;est combien, celui-ci?&quot;<br>&quot;Il est à soixante-quinze dollars, mais il est en spécial cette semaine à cinquante-cinq.&quot;<br>&quot;Parfait! Je vais l&#39;essayer. Où sont les cabines?&quot;<br>&quot;Juste au fond, à droite.&quot;</p>
+<p><em>(You are in a clothing store at the Laurier shopping centre in Quebec City. &quot;Hello! Can I help you?&quot; &quot;Yes, I&#39;m looking for a warm sweater for winter. Something wool, if possible.&quot; &quot;Of course! We have beautiful merino wool sweaters. What size are you?&quot; &quot;I&#39;m usually a medium. How much is this one?&quot; &quot;It&#39;s seventy-five dollars, but it&#39;s on sale this week for fifty-five.&quot; &quot;Perfect! I&#39;ll try it on. Where are the fitting rooms?&quot; &quot;Right at the back, on the right.&quot;)</em></p>
+
+<h3 id="h-5-5-cdn-shopping">5.5 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>&quot;Magasiner&quot;</strong> means &quot;to shop&quot; in Quebec French. In France, they say <strong>&quot;faire du shopping&quot;</strong> or <strong>&quot;faire les boutiques.&quot;</strong></li>
+<li>Prices in Quebec are in <strong>Canadian dollars (CAD)</strong>. Remember that taxes (TPS + TVQ ≈ 15%) are added at the register, not included in the price tag.</li>
+<li><strong>&quot;Un sac de lait&quot;</strong> (a bag of milk) – Milk comes in bags in Quebec, not just in cartons!</li>
+<li><strong>&quot;Piastre&quot;</strong> is informal Québécois for &quot;dollar&quot;: <strong>&quot;Ça coûte dix piastres.&quot;</strong> (It costs ten bucks.)</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-6-housing">UNIT 6: HOUSING &amp; HOME</h2>
+
+<h3 id="h-6-1-rooms">6.1 Rooms &amp; Furniture</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>la cuisine</td><td>the kitchen</td></tr>
+<tr><td>le salon</td><td>the living room</td></tr>
+<tr><td>la chambre à coucher</td><td>the bedroom</td></tr>
+<tr><td>la salle de bain</td><td>the bathroom</td></tr>
+<tr><td>la salle à manger</td><td>the dining room</td></tr>
+<tr><td>le sous-sol</td><td>the basement</td></tr>
+<tr><td>le grenier</td><td>the attic</td></tr>
+<tr><td>le balcon</td><td>the balcony</td></tr>
+<tr><td>le corridor / le couloir</td><td>the hallway</td></tr>
+<tr><td>le garde-robe</td><td>the closet (QC) / le placard (FR)</td></tr>
+</tbody></table>
+
+<p><strong>Furniture:</strong></p>
+<ul>
+<li><strong>un divan</strong> – a couch (QC) / un canapé (FR)</li>
+<li><strong>un lit</strong> – a bed</li>
+<li><strong>une commode</strong> – a dresser</li>
+<li><strong>une table de cuisine</strong> – a kitchen table</li>
+<li><strong>un poêle</strong> – a stove (QC) / une cuisinière (FR)</li>
+<li><strong>un frigidaire / un frigo</strong> – a fridge</li>
+<li><strong>une laveuse</strong> – a washing machine (QC) / un lave-linge (FR)</li>
+<li><strong>une sécheuse</strong> – a dryer (QC) / un sèche-linge (FR)</li>
+</ul>
+
+<h3 id="h-6-2-describing-home">6.2 Describing Your Home</h3>
+<ul>
+<li><strong>J&#39;habite dans un quatre et demie au deuxième étage d&#39;un triplex dans le quartier Rosemont.</strong> (I live in a 4½ apartment on the second floor of a triplex in the Rosemont neighbourhood.)</li>
+<li><strong>Notre maison a trois chambres, deux salles de bain et un grand sous-sol fini.</strong> (Our house has three bedrooms, two bathrooms, and a large finished basement.)</li>
+<li><strong>L&#39;appartement est lumineux avec de grandes fenêtres qui donnent sur le parc.</strong> (The apartment is bright with large windows overlooking the park.)</li>
+</ul>
+
+<p><strong>Quebec apartment numbering:</strong> In Quebec, apartments are measured by the number of rooms plus a half (the bathroom). A <strong>trois et demie (3½)</strong> has a kitchen, living room, one bedroom, and one bathroom. A <strong>cinq et demie (5½)</strong> has a kitchen, living room, three bedrooms, and a bathroom.</p>
+
+<h3 id="h-6-3-renting">6.3 Renting an Apartment</h3>
+<p><strong>Key vocabulary:</strong></p>
+<ul>
+<li><strong>un bail</strong> – a lease</li>
+<li><strong>le loyer</strong> – the rent</li>
+<li><strong>le propriétaire</strong> – the landlord</li>
+<li><strong>le locataire</strong> – the tenant</li>
+<li><strong>les charges / les services inclus</strong> – utilities included</li>
+<li><strong>un déménagement</strong> – a move</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Apartment Hunting in Montreal:</strong></p>
+<p><em>Vous cherchez un appartement à Montréal et vous appelez un propriétaire.</em></p>
+<p>&quot;Bonjour, j&#39;appelle pour le quatre et demie sur la rue Saint-Denis. Est-ce qu&#39;il est encore disponible?&quot;<br>&quot;Oui, il est toujours disponible! Le loyer est de neuf cent cinquante par mois.&quot;<br>&quot;Est-ce que le chauffage et l&#39;eau chaude sont inclus?&quot;<br>&quot;Oui, le chauffage est inclus, mais l&#39;électricité est à votre charge.&quot;<br>&quot;D&#39;accord. Est-ce que je pourrais visiter l&#39;appartement samedi matin?&quot;<br>&quot;Bien sûr! À dix heures, ça vous va?&quot;<br>&quot;Parfait, à samedi!&quot;</p>
+<p><em>(You are looking for an apartment in Montreal and you call a landlord. &quot;Hello, I&#39;m calling about the 4½ on Saint-Denis Street. Is it still available?&quot; &quot;Yes, it&#39;s still available! The rent is nine hundred and fifty a month.&quot; &quot;Is the heating and hot water included?&quot; &quot;Yes, the heating is included, but electricity is at your expense.&quot; &quot;Okay. Could I visit the apartment Saturday morning?&quot; &quot;Of course! At ten, does that work for you?&quot; &quot;Perfect, see you Saturday!&quot;)</em></p>
+
+<h3 id="h-6-4-cdn-housing">6.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, <strong>July 1st</strong> is traditionally <strong>&quot;le jour du déménagement&quot;</strong> (moving day), when most leases end and begin. Thousands of Quebecers move on the same day!</li>
+<li>The <strong>&quot;Régie du logement&quot;</strong> (now called the <strong>Tribunal administratif du logement</strong>) is the government body that protects tenant rights in Quebec.</li>
+<li><strong>&quot;Un bloc&quot;</strong> is Québécois for &quot;un immeuble d&#39;appartements&quot; (an apartment building).</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-7-transport">UNIT 7: TRANSPORTATION &amp; DIRECTIONS</h2>
+
+<h3 id="h-7-1-transport-vocab">7.1 Transportation Vocabulary</h3>
+<table>
+<thead><tr><th>French (Quebec)</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un char / une auto</td><td>a car</td></tr>
+<tr><td>un autobus</td><td>a bus</td></tr>
+<tr><td>le métro</td><td>the subway</td></tr>
+<tr><td>un bicycle / un vélo</td><td>a bicycle</td></tr>
+<tr><td>le train de banlieue</td><td>the commuter train</td></tr>
+<tr><td>un taxi</td><td>a taxi</td></tr>
+<tr><td>le traversier</td><td>the ferry (QC) / le ferry (FR)</td></tr>
+<tr><td>une motoneige</td><td>a snowmobile</td></tr>
+<tr><td>un VUS</td><td>an SUV</td></tr>
+<tr><td>un permis de conduire</td><td>a driver&#39;s licence</td></tr>
+</tbody></table>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Je prends le métro tous les matins pour aller travailler au centre-ville de Montréal.</strong> (I take the metro every morning to go to work downtown Montreal.)</li>
+<li><strong>En hiver, beaucoup de Québécois utilisent leurs motoneiges pour se déplacer dans les régions rurales.</strong> (In winter, many Quebecers use their snowmobiles to get around in rural areas.)</li>
+</ul>
+
+<h3 id="h-7-2-giving-directions">7.2 Giving &amp; Asking Directions</h3>
+<ul>
+<li><strong>Excusez-moi, comment est-ce que je peux me rendre à la gare centrale?</strong> (Excuse me, how can I get to the central station?)</li>
+<li><strong>Tournez à gauche au prochain feu de circulation, puis continuez tout droit pendant deux coins de rue.</strong> (Turn left at the next traffic light, then continue straight for two blocks.)</li>
+<li><strong>C&#39;est juste en face de la pharmacie Jean Coutu, à côté du dépanneur.</strong> (It&#39;s right across from the Jean Coutu pharmacy, next to the corner store.)</li>
+</ul>
+
+<p><strong>Direction vocabulary:</strong></p>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>tout droit</td><td>straight ahead</td></tr>
+<tr><td>à gauche</td><td>to the left</td></tr>
+<tr><td>à droite</td><td>to the right</td></tr>
+<tr><td>au coin de</td><td>at the corner of</td></tr>
+<tr><td>en face de</td><td>across from</td></tr>
+<tr><td>à côté de</td><td>next to</td></tr>
+<tr><td>le feu de circulation</td><td>traffic light (QC) / le feu rouge (FR)</td></tr>
+<tr><td>un coin de rue</td><td>a street corner / block (QC)</td></tr>
+</tbody></table>
+
+<h3 id="h-7-3-public-transit">7.3 Public Transit in Quebec</h3>
+<p>Montreal has an extensive public transit system operated by the <strong>STM</strong> (Société de transport de Montréal):</p>
+<ul>
+<li><strong>Le métro de Montréal a quatre lignes: la verte, l&#39;orange, la bleue et la jaune.</strong> (The Montreal metro has four lines: the green, orange, blue, and yellow.)</li>
+<li><strong>Une carte OPUS est nécessaire pour prendre le métro et l&#39;autobus à Montréal.</strong> (An OPUS card is needed to take the metro and bus in Montreal.)</li>
+<li><strong>Le REM est un nouveau train léger qui relie la Rive-Sud au centre-ville et à l&#39;aéroport.</strong> (The REM is a new light rail that connects the South Shore to downtown and the airport.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Taking the Bus in Laval:</strong></p>
+<p><em>Vous êtes à un arrêt d&#39;autobus à Laval et vous demandez de l&#39;aide à un passant.</em></p>
+<p>&quot;Excusez-moi, est-ce que le 55 passe par ici?&quot;<br>&quot;Non, le 55, c&#39;est l&#39;arrêt de l&#39;autre côté de la rue. Ici, c&#39;est le 42.&quot;<br>&quot;Merci! Est-ce que le 42 va au métro Montmorency?&quot;<br>&quot;Oui, le 42 s&#39;arrête juste devant le métro. Ça prend environ quinze minutes.&quot;<br>&quot;Super, merci beaucoup!&quot;</p>
+<p><em>(You are at a bus stop in Laval and you ask a passerby for help. &quot;Excuse me, does the 55 pass through here?&quot; &quot;No, the 55 is the stop on the other side of the street. This one is the 42.&quot; &quot;Thank you! Does the 42 go to Montmorency metro?&quot; &quot;Yes, the 42 stops right in front of the metro. It takes about fifteen minutes.&quot; &quot;Great, thank you very much!&quot;)</em></p>
+
+<h3 id="h-7-4-cdn-transport">7.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>&quot;Embarquer&quot;</strong> means &quot;to get on&quot; (a bus, car) in Quebec. In France, they say <strong>&quot;monter dans.&quot;</strong> Example: <strong>&quot;Embarque dans le char!&quot;</strong> (Get in the car!)</li>
+<li><strong>&quot;Débarquer&quot;</strong> means &quot;to get off&quot;: <strong>&quot;Je débarque au prochain arrêt.&quot;</strong> (I&#39;m getting off at the next stop.)</li>
+<li>In Quebec, winter driving is serious. <strong>&quot;Les pneus d&#39;hiver&quot;</strong> (winter tires) are mandatory by law from December 1 to March 15.</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-8-weather">UNIT 8: WEATHER &amp; CLIMATE</h2>
+
+<h3 id="h-8-1-weather-vocab">8.1 Weather Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Il fait beau.</td><td>The weather is nice.</td></tr>
+<tr><td>Il fait chaud.</td><td>It&#39;s hot.</td></tr>
+<tr><td>Il fait froid. / Il fait frette. (QC)</td><td>It&#39;s cold.</td></tr>
+<tr><td>Il pleut.</td><td>It&#39;s raining.</td></tr>
+<tr><td>Il neige.</td><td>It&#39;s snowing.</td></tr>
+<tr><td>Il vente. (QC) / Il y a du vent.</td><td>It&#39;s windy.</td></tr>
+<tr><td>Il y a un orage.</td><td>There is a storm.</td></tr>
+<tr><td>Il y a du verglas.</td><td>There is freezing rain / black ice.</td></tr>
+<tr><td>une tempête de neige</td><td>a snowstorm / blizzard</td></tr>
+<tr><td>la poudrerie</td><td>blowing snow (QC)</td></tr>
+<tr><td>le facteur vent / éolien</td><td>wind chill factor</td></tr>
+</tbody></table>
+
+<h3 id="h-8-2-describing-weather">8.2 Describing the Weather</h3>
+<ul>
+<li><strong>Aujourd&#39;hui, il fait moins quinze avec le facteur éolien. C&#39;est dangereux de rester dehors trop longtemps.</strong> (Today, it&#39;s minus fifteen with the wind chill. It&#39;s dangerous to stay outside too long.)</li>
+<li><strong>Demain, on annonce une grosse tempête de neige avec trente centimètres de neige.</strong> (Tomorrow, they&#39;re forecasting a big snowstorm with thirty centimetres of snow.)</li>
+<li><strong>En été à Montréal, il fait souvent trente degrés avec beaucoup d&#39;humidité.</strong> (In summer in Montreal, it&#39;s often thirty degrees with a lot of humidity.)</li>
+</ul>
+
+<h3 id="h-8-3-seasons-quebec">8.3 Seasons in Quebec</h3>
+<p>Quebec has dramatically different seasons:</p>
+<ul>
+<li><strong>L&#39;hiver</strong> (Winter: November-March): Very cold, lots of snow. <strong>L&#39;hiver québécois est long et rigoureux, avec des températures qui peuvent descendre à moins quarante degrés.</strong> (Quebec winter is long and harsh, with temperatures that can drop to minus forty degrees.)</li>
+<li><strong>Le printemps</strong> (Spring: April-May): Maple syrup season! <strong>Au printemps, on va à la cabane à sucre pour manger de la tire d&#39;érable.</strong> (In spring, we go to the sugar shack to eat maple taffy.)</li>
+<li><strong>L&#39;été</strong> (Summer: June-August): Festival season. <strong>L&#39;été à Montréal est rempli de festivals: le Festival de jazz, Juste pour rire, et Osheaga.</strong> (Summer in Montreal is full of festivals: the Jazz Festival, Just for Laughs, and Osheaga.)</li>
+<li><strong>L&#39;automne</strong> (Fall: September-October): Beautiful foliage. <strong>Les couleurs d&#39;automne dans les Laurentides sont spectaculaires avec le rouge, l&#39;orange et le jaune des érables.</strong> (The autumn colours in the Laurentians are spectacular with the red, orange, and yellow of the maples.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A Winter Day in Saguenay:</strong></p>
+<p><em>Vous regardez les nouvelles à la télé un matin d&#39;hiver.</em></p>
+<p>&quot;Il fait moins vingt-cinq ce matin au Saguenay avec un facteur éolien de moins trente-huit.&quot;<br>&quot;Mon Dieu! C&#39;est frette en maudit! Je ne sors pas de la maison aujourd&#39;hui.&quot;<br>&quot;On annonce aussi de la poudrerie cet après-midi. Les routes vont être dangereuses.&quot;<br>&quot;J&#39;espère qu&#39;ils vont fermer les écoles. Les autobus scolaires ne devraient pas rouler par un temps pareil.&quot;<br>&quot;Tu as raison. Restons au chaud et faisons du chocolat chaud!&quot;</p>
+<p><em>(You are watching the news on TV on a winter morning. &quot;It&#39;s minus twenty-five this morning in Saguenay with a wind chill of minus thirty-eight.&quot; &quot;My God! It&#39;s really cold! I&#39;m not leaving the house today.&quot; &quot;They&#39;re also calling for blowing snow this afternoon. The roads will be dangerous.&quot; &quot;I hope they close the schools. School buses shouldn&#39;t run in weather like this.&quot; &quot;You&#39;re right. Let&#39;s stay warm and make hot chocolate!&quot;)</em></p>
+
+<h3 id="h-8-4-cdn-weather">8.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>&quot;Frette&quot;</strong> is the Québécois word for &quot;very cold&quot;. Standard French uses &quot;froid.&quot;</li>
+<li><strong>&quot;Y mouille&quot;</strong> means &quot;it&#39;s raining&quot; in informal Quebec French (instead of &quot;il pleut&quot;).</li>
+<li>Quebec uses <strong>Celsius</strong>, not Fahrenheit. Zero degrees Celsius is the freezing point.</li>
+<li><strong>&quot;La sloche&quot;</strong> (from English &quot;slush&quot;) is the wet, slushy snow on the streets in spring.</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-9-invitations">UNIT 9: INVITATIONS &amp; EVENTS</h2>
+
+<h3 id="h-9-1-inviting">9.1 Inviting Someone</h3>
+<p><strong>Formal invitations:</strong></p>
+<ul>
+<li><strong>Est-ce que vous aimeriez venir souper chez nous samedi soir?</strong> (Would you like to come for dinner at our place Saturday evening?)</li>
+<li><strong>Nous organisons une fête pour l&#39;anniversaire de Marie. Seriez-vous disponible le 15 mars?</strong> (We are organizing a party for Marie&#39;s birthday. Would you be available on March 15th?)</li>
+</ul>
+<p><strong>Informal invitations:</strong></p>
+<ul>
+<li><strong>Hey, ça te tente de venir prendre une bière tantôt?</strong> (Hey, do you feel like coming over for a beer later?)</li>
+<li><strong>On va chez Alexandre ce soir. Tu viens-tu?</strong> (We&#39;re going to Alexandre&#39;s tonight. Are you coming?)</li>
+<li><strong>Ça te dit d&#39;aller au cinéma après le souper?</strong> (Do you feel like going to the movies after dinner?)</li>
+</ul>
+
+<h3 id="h-9-2-accepting-declining">9.2 Accepting &amp; Declining</h3>
+<p><strong>Accepting:</strong></p>
+<ul>
+<li><strong>Oui, avec plaisir! À quelle heure est-ce qu&#39;on se retrouve?</strong> (Yes, with pleasure! What time do we meet?)</li>
+<li><strong>Bonne idée! J&#39;apporte quelque chose? Du vin ou un dessert?</strong> (Good idea! Should I bring something? Wine or a dessert?)</li>
+<li><strong>Super! J&#39;ai ben hâte!</strong> (Great! I can&#39;t wait!) – &quot;ben&quot; = &quot;bien&quot; in Quebec</li>
+</ul>
+<p><strong>Declining politely:</strong></p>
+<ul>
+<li><strong>C&#39;est vraiment gentil, mais malheureusement je ne peux pas ce jour-là.</strong> (That&#39;s really kind, but unfortunately I can&#39;t that day.)</li>
+<li><strong>J&#39;aurais bien aimé, mais j&#39;ai déjà quelque chose de prévu.</strong> (I would have liked to, but I already have something planned.)</li>
+<li><strong>Peut-être une prochaine fois? Je suis libre la semaine prochaine.</strong> (Maybe next time? I&#39;m free next week.)</li>
+</ul>
+
+<h3 id="h-9-3-event-vocab">9.3 Event Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>une fête</td><td>a party</td></tr>
+<tr><td>un party (QC)</td><td>a party (informal, from English)</td></tr>
+<tr><td>un spectacle</td><td>a show / performance</td></tr>
+<tr><td>un souper entre amis</td><td>a dinner party with friends</td></tr>
+<tr><td>un épluchette de blé d&#39;Inde</td><td>a corn roast (QC tradition)</td></tr>
+<tr><td>un BBQ</td><td>a barbecue</td></tr>
+<tr><td>un 5 à 7</td><td>a happy hour / after-work drinks (QC)</td></tr>
+</tbody></table>
+
+<p><strong>🇫🇷 Real-Life Scene – Planning a Surprise Party:</strong></p>
+<p><em>Vous organisez une fête surprise pour votre ami.</em></p>
+<p>&quot;Psst! On organise un party surprise pour Guillaume. C&#39;est sa fête vendredi!&quot;<br>&quot;Ah oui? Super! Qu&#39;est-ce que je peux apporter?&quot;<br>&quot;Si tu pouvais apporter un gâteau, ça serait parfait. Moi, je m&#39;occupe des décorations.&quot;<br>&quot;D&#39;accord! À quelle heure?&quot;<br>&quot;Arrive à sept heures. Guillaume va arriver vers sept heures et demie. On va tous crier &#39;Surprise!&#39; quand il va ouvrir la porte.&quot;<br>&quot;Ha ha, il ne se doute de rien! Ça va être tellement drôle!&quot;</p>
+<p><em>(You are organizing a surprise party for your friend. &quot;Hey! We&#39;re organizing a surprise party for Guillaume. It&#39;s his birthday Friday!&quot; &quot;Oh really? Great! What can I bring?&quot; &quot;If you could bring a cake, that would be perfect. I&#39;m taking care of the decorations.&quot; &quot;Okay! What time?&quot; &quot;Arrive at seven. Guillaume is going to arrive around seven thirty. We&#39;re all going to yell &#39;Surprise!&#39; when he opens the door.&quot; &quot;Ha ha, he doesn&#39;t suspect anything! It&#39;s going to be so funny!&quot;)</em></p>
+
+<h3 id="h-9-4-cdn-invitations">9.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>&quot;Ça te tente?&quot;</strong> is the most common way to invite someone informally in Quebec. It literally means &quot;Does it tempt you?&quot;</li>
+<li><strong>&quot;Un 5 à 7&quot;</strong> (cinq à sept) is a Québécois tradition – after-work socializing from 5 to 7 PM, often at a bar or restaurant.</li>
+<li><strong>&quot;C&#39;est sa fête&quot;</strong> means &quot;It&#39;s his/her birthday&quot; in Quebec. In France, one more often says <strong>&quot;C&#39;est son anniversaire.&quot;</strong></li>
+<li><strong>&quot;Avoir hâte&quot;</strong> means &quot;to look forward to&quot; or &quot;can&#39;t wait&quot;: <strong>&quot;J&#39;ai hâte à Noël!&quot;</strong> (I can&#39;t wait for Christmas!)</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-10-phone">UNIT 10: PHONE CALLS &amp; MESSAGES</h2>
+
+<h3 id="h-10-1-phone-vocab">10.1 Phone Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un cellulaire (QC) / un portable (FR)</td><td>a cell phone</td></tr>
+<tr><td>un texto / un message texte</td><td>a text message</td></tr>
+<tr><td>un courriel (QC) / un e-mail (FR)</td><td>an email</td></tr>
+<tr><td>la boîte vocale</td><td>voicemail</td></tr>
+<tr><td>raccrocher</td><td>to hang up</td></tr>
+<tr><td>appeler / téléphoner</td><td>to call</td></tr>
+<tr><td>sonner</td><td>to ring</td></tr>
+<tr><td>un indicatif régional</td><td>an area code</td></tr>
+</tbody></table>
+
+<h3 id="h-10-2-making-calls">10.2 Making &amp; Receiving Calls</h3>
+<p><strong>Making a call:</strong></p>
+<ul>
+<li><strong>Allô, est-ce que je pourrais parler à Madame Tremblay, s&#39;il vous plaît?</strong> (Hello, could I speak to Mrs. Tremblay, please?)</li>
+<li><strong>Bonjour, je voudrais prendre un rendez-vous avec le docteur Gagnon.</strong> (Hello, I would like to make an appointment with Dr. Gagnon.)</li>
+<li><strong>C&#39;est de la part de qui?</strong> (Who is calling?) – Common question from the person answering.</li>
+</ul>
+<p><strong>Receiving a call:</strong></p>
+<ul>
+<li><strong>Allô?</strong> – Standard way to answer the phone in Quebec.</li>
+<li><strong>Un instant, je vous le passe.</strong> (One moment, I&#39;ll put him/her on.)</li>
+<li><strong>Il/Elle n&#39;est pas disponible en ce moment. Voulez-vous laisser un message?</strong> (He/She is not available right now. Would you like to leave a message?)</li>
+</ul>
+
+<h3 id="h-10-3-texting">10.3 Text Messages &amp; Email</h3>
+<p><strong>Common texting abbreviations in French:</strong></p>
+<table>
+<thead><tr><th>Abbreviation</th><th>Full Form</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>slt</td><td>salut</td><td>hi</td></tr>
+<tr><td>stp / svp</td><td>s&#39;il te plaît / s&#39;il vous plaît</td><td>please</td></tr>
+<tr><td>bcp</td><td>beaucoup</td><td>a lot / very much</td></tr>
+<tr><td>mdr</td><td>mort de rire</td><td>LOL (dying of laughter)</td></tr>
+<tr><td>pcq / pck</td><td>parce que</td><td>because</td></tr>
+<tr><td>rdv</td><td>rendez-vous</td><td>appointment / meeting</td></tr>
+<tr><td>dsl</td><td>désolé(e)</td><td>sorry</td></tr>
+<tr><td>ajd</td><td>aujourd&#39;hui</td><td>today</td></tr>
+</tbody></table>
+
+<p><strong>Writing a simple email:</strong></p>
+<p><strong>Objet:</strong> Demande de renseignements (Subject: Information request)</p>
+<p><strong>Bonjour Madame Lavoie,</strong></p>
+<p>Je vous écris pour demander des renseignements au sujet des cours de francisation offerts par votre organisme. Pourriez-vous m&#39;envoyer les horaires et les tarifs, s&#39;il vous plaît?</p>
+<p>Merci beaucoup de votre aide.</p>
+<p>Cordialement,<br>Jean Dupont</p>
+<p><em>(Hello Mrs. Lavoie, I am writing to ask for information about the French classes offered by your organization. Could you send me the schedules and rates, please? Thank you very much for your help. Best regards, Jean Dupont)</em></p>
+
+<p><strong>🇫🇷 Real-Life Scene – Calling to Book a Restaurant:</strong></p>
+<p><em>Vous téléphonez pour réserver une table dans un restaurant à Gatineau.</em></p>
+<p>&quot;Allô, Restaurant Le Pied de cochon, bonsoir!&quot;<br>&quot;Bonsoir! Je voudrais réserver une table pour quatre personnes pour vendredi soir, s&#39;il vous plaît.&quot;<br>&quot;Bien sûr! Pour quelle heure?&quot;<br>&quot;Dix-neuf heures, si c&#39;est possible.&quot;<br>&quot;Parfait! C&#39;est à quel nom?&quot;<br>&quot;Bélanger. B-É-L-A-N-G-E-R.&quot;<br>&quot;C&#39;est noté! À vendredi, Monsieur Bélanger!&quot;</p>
+<p><em>(You call to reserve a table at a restaurant in Gatineau. &quot;Hello, Le Pied de cochon Restaurant, good evening!&quot; &quot;Good evening! I would like to reserve a table for four people for Friday evening, please.&quot; &quot;Of course! For what time?&quot; &quot;Seven PM, if possible.&quot; &quot;Perfect! Under what name?&quot; &quot;Bélanger. B-É-L-A-N-G-E-R.&quot; &quot;It&#39;s noted! See you Friday, Mr. Bélanger!&quot;)</em></p>
+
+<h3 id="h-10-4-cdn-phone">10.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, the word <strong>&quot;courriel&quot;</strong> (from &quot;courrier électronique&quot;) is the official term for &quot;email.&quot; It was coined in Quebec and is now used in official documents across all of French-speaking Canada.</li>
+<li>Phone numbers in Canada follow the format <strong>(514) 555-1234</strong>. Common Quebec area codes include: 514/438 (Montreal), 418/581 (Quebec City), 450/579 (suburbs), 819/873 (regional).</li>
+<li>When spelling names on the phone, Quebecers sometimes use English letter names rather than the <strong>&quot;alphabet téléphonique&quot;</strong> (phonetic alphabet).</li>
+</ul>
+
+<h1 id="h-part-iii-social">PART III: SOCIAL INTERACTIONS</h1>
+
+<h2 id="h-unit-11-instructions">UNIT 11: GIVING INSTRUCTIONS &amp; ADVICE</h2>
+
+<h3 id="h-11-1-imperatif">11.1 The Impératif (Commands)</h3>
+<p>The <strong>impératif</strong> is used to give orders, instructions, or advice. It exists in three forms: <strong>tu</strong>, <strong>nous</strong>, and <strong>vous</strong>. The subject pronoun is dropped.</p>
+
+<table>
+<thead><tr><th>Verb</th><th>Tu form</th><th>Nous form</th><th>Vous form</th></tr></thead>
+<tbody>
+<tr><td>parler (to speak)</td><td>Parle!</td><td>Parlons!</td><td>Parlez!</td></tr>
+<tr><td>finir (to finish)</td><td>Finis!</td><td>Finissons!</td><td>Finissez!</td></tr>
+<tr><td>attendre (to wait)</td><td>Attends!</td><td>Attendons!</td><td>Attendez!</td></tr>
+<tr><td>être (to be)</td><td>Sois!</td><td>Soyons!</td><td>Soyez!</td></tr>
+<tr><td>avoir (to have)</td><td>Aie!</td><td>Ayons!</td><td>Ayez!</td></tr>
+</tbody></table>
+
+<p><strong>Important:</strong> For -ER verbs and &quot;aller&quot;, the <strong>tu</strong> form drops the final <strong>-s</strong>:</p>
+<ul>
+<li><strong>Mange tes légumes avant de quitter la table!</strong> (Eat your vegetables before leaving the table!)</li>
+<li><strong>Va à l&#39;épicerie chercher du pain et du beurre, s&#39;il te plaît.</strong> (Go to the grocery store to get bread and butter, please.)</li>
+<li><strong>BUT:</strong> When followed by <strong>y</strong> or <strong>en</strong>, the -s returns: <strong>Vas-y!</strong> (Go ahead!) <strong>Manges-en!</strong> (Eat some!)</li>
+</ul>
+
+<p><strong>Negative commands:</strong></p>
+<ul>
+<li><strong>Ne touche pas à ça! C&#39;est chaud!</strong> (Don&#39;t touch that! It&#39;s hot!)</li>
+<li><strong>Ne parle pas la bouche pleine, c&#39;est impoli.</strong> (Don&#39;t talk with your mouth full, it&#39;s rude.)</li>
+<li><strong>N&#39;oubliez pas d&#39;éteindre les lumières avant de partir du bureau.</strong> (Don&#39;t forget to turn off the lights before leaving the office.)</li>
+</ul>
+
+<h3 id="h-11-2-giving-advice">11.2 Giving Advice</h3>
+<p><strong>Structures for giving advice:</strong></p>
+<ul>
+<li><strong>Tu devrais + infinitive:</strong> Tu devrais prendre des cours de français au cégep. (You should take French classes at the CEGEP.)</li>
+<li><strong>Il faut + infinitive:</strong> Il faut mettre de la crème solaire quand il fait chaud. (One must put on sunscreen when it&#39;s hot.)</li>
+<li><strong>Je te conseille de + infinitive:</strong> Je te conseille de visiter le Vieux-Québec en hiver, c&#39;est magnifique. (I advise you to visit Old Quebec in winter, it&#39;s magnificent.)</li>
+<li><strong>À ta place, je + conditional:</strong> À ta place, je prendrais le métro au lieu du taxi. (If I were you, I would take the metro instead of a taxi.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Giving Directions to a Tourist:</strong></p>
+<p><em>Un touriste vous demande comment aller au Château Frontenac.</em></p>
+<p>&quot;Excusez-moi, comment est-ce que je peux me rendre au Château Frontenac?&quot;<br>&quot;C&#39;est facile! Continuez tout droit sur cette rue pendant trois coins de rue.&quot;<br>&quot;D&#39;accord, et après?&quot;<br>&quot;Tournez à gauche sur la rue Saint-Louis. Marchez pendant environ cinq minutes et vous allez voir le Château en face de vous.&quot;<br>&quot;Merci beaucoup! C&#39;est loin d&#39;ici?&quot;<br>&quot;Non, c&#39;est à environ dix minutes à pied. Et prenez votre temps, il y a de belles boutiques en chemin!&quot;</p>
+<p><em>(A tourist asks you how to get to the Château Frontenac. &quot;Excuse me, how can I get to the Château Frontenac?&quot; &quot;It&#39;s easy! Continue straight on this street for three blocks.&quot; &quot;Okay, and then?&quot; &quot;Turn left on Saint-Louis Street. Walk for about five minutes and you will see the Château in front of you.&quot; &quot;Thank you very much! Is it far from here?&quot; &quot;No, it&#39;s about ten minutes on foot. And take your time, there are beautiful shops along the way!&quot;)</em></p>
+
+<h3 id="h-11-3-recipes">11.3 Following Recipes &amp; Instructions</h3>
+<p>The impératif is used extensively in recipes. Here is a simple <strong>poutine</strong> recipe:</p>
+<p><strong>Recette de Poutine Classique</strong> (Classic Poutine Recipe)</p>
+<ul>
+<li><strong>Coupez les pommes de terre en frites épaisses.</strong> (Cut the potatoes into thick fries.)</li>
+<li><strong>Faites frire les frites dans l&#39;huile chaude jusqu&#39;à ce qu&#39;elles soient dorées et croustillantes.</strong> (Fry the fries in hot oil until they are golden and crispy.)</li>
+<li><strong>Préparez la sauce brune en mélangeant le bouillon de bœuf avec la farine et le beurre.</strong> (Prepare the brown gravy by mixing beef broth with flour and butter.)</li>
+<li><strong>Mettez les frites dans un grand bol et ajoutez les grains de fromage par-dessus.</strong> (Put the fries in a large bowl and add the cheese curds on top.)</li>
+<li><strong>Versez la sauce chaude sur les frites et le fromage. Servez immédiatement!</strong> (Pour the hot gravy over the fries and cheese. Serve immediately!)</li>
+</ul>
+
+<h3 id="h-11-4-cdn-instructions">11.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>&quot;Grains de fromage&quot;</strong> or <strong>&quot;fromage en crottes&quot;</strong> (cheese curds) are essential for poutine and uniquely Québécois. They should squeak when you bite them – that&#39;s how you know they&#39;re fresh!</li>
+<li>In Quebec, the impératif is often softened with <strong>&quot;donc&quot;</strong>: <strong>&quot;Viens donc!&quot;</strong> (Come on!, in a friendly way), <strong>&quot;Regarde donc ça!&quot;</strong> (Just look at that!)</li>
+<li>A <strong>cégep</strong> (collège d&#39;enseignement général et professionnel) is a Quebec pre-university/vocational college unique to the province.</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-12-comparisons">UNIT 12: COMPARISONS &amp; SUPERLATIVES</h2>
+
+<h3 id="h-12-1-comparatif">12.1 The Comparatif</h3>
+<p>Comparisons let you describe differences and similarities between things.</p>
+
+<table>
+<thead><tr><th>Type</th><th>Structure</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>More than (+)</td><td>plus + adj. + que</td><td>Montréal est plus grande que Québec. (Montreal is bigger than Quebec City.)</td></tr>
+<tr><td>Less than (-)</td><td>moins + adj. + que</td><td>L&#39;autobus est moins rapide que le métro. (The bus is less fast than the metro.)</td></tr>
+<tr><td>As much as (=)</td><td>aussi + adj. + que</td><td>Le français est aussi important que l&#39;anglais au Canada. (French is as important as English in Canada.)</td></tr>
+</tbody></table>
+
+<p><strong>Comparing quantities:</strong></p>
+<ul>
+<li><strong>plus de + noun + que:</strong> Il y a plus de neige à Québec qu&#39;à Montréal. (There is more snow in Quebec City than in Montreal.)</li>
+<li><strong>moins de + noun + que:</strong> Il y a moins de circulation le dimanche que le lundi. (There is less traffic on Sunday than on Monday.)</li>
+<li><strong>autant de + noun + que:</strong> J&#39;ai autant de livres français que de livres anglais. (I have as many French books as English books.)</li>
+</ul>
+
+<p><strong>Comparing actions (verbs):</strong></p>
+<ul>
+<li><strong>verb + plus que:</strong> Mon frère mange plus que moi au souper. (My brother eats more than me at dinner.)</li>
+<li><strong>verb + moins que:</strong> Je dors moins que ma sœur pendant la semaine. (I sleep less than my sister during the week.)</li>
+<li><strong>verb + autant que:</strong> Elle travaille autant que son mari à la maison. (She works as much as her husband at home.)</li>
+</ul>
+
+<h3 id="h-12-2-superlatif">12.2 The Superlatif</h3>
+<p>Superlatives express &quot;the most&quot; or &quot;the least&quot;:</p>
+
+<table>
+<thead><tr><th>Type</th><th>Structure</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>The most</td><td>le/la/les plus + adj.</td><td>Le Mont-Tremblant est la plus belle station de ski au Québec. (Mont-Tremblant is the most beautiful ski resort in Quebec.)</td></tr>
+<tr><td>The least</td><td>le/la/les moins + adj.</td><td>Janvier est le mois le moins agréable pour conduire. (January is the least pleasant month for driving.)</td></tr>
+</tbody></table>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Montréal est la ville la plus peuplée du Québec avec environ deux millions d&#39;habitants.</strong> (Montreal is the most populated city in Quebec with about two million inhabitants.)</li>
+<li><strong>Poutine est le plat le plus connu de la cuisine québécoise dans le monde entier.</strong> (Poutine is the most well-known dish of Québécois cuisine worldwide.)</li>
+<li><strong>Le lac Saint-Jean est l&#39;un des plus grands lacs du Québec.</strong> (Lake Saint-Jean is one of the largest lakes in Quebec.)</li>
+</ul>
+
+<h3 id="h-12-3-irregular-comparisons">12.3 Irregular Comparisons</h3>
+<table>
+<thead><tr><th>Adjective</th><th>Comparative</th><th>Superlative</th></tr></thead>
+<tbody>
+<tr><td>bon (good)</td><td>meilleur(e) (better)</td><td>le/la meilleur(e) (the best)</td></tr>
+<tr><td>mauvais (bad)</td><td>pire (worse)</td><td>le/la pire (the worst)</td></tr>
+<tr><td>bien (well - adverb)</td><td>mieux (better)</td><td>le mieux (the best)</td></tr>
+</tbody></table>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>La poutine de ce restaurant est meilleure que celle qu&#39;on fait à la maison.</strong> (The poutine at this restaurant is better than the one we make at home.)</li>
+<li><strong>Le pire moment pour conduire à Montréal, c&#39;est l&#39;heure de pointe le vendredi soir.</strong> (The worst time to drive in Montreal is rush hour on Friday evening.)</li>
+<li><strong>Tu parles mieux français qu&#39;avant! Tu as beaucoup progressé.</strong> (You speak French better than before! You have progressed a lot.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Comparing Cities in Quebec:</strong></p>
+<p><em>Vous discutez avec un ami sur les meilleures villes où vivre au Québec.</em></p>
+<p>&quot;Pour toi, c&#39;est quoi la meilleure ville où vivre au Québec?&quot;<br>&quot;Moi, je dirais Québec. C&#39;est plus tranquille que Montréal et les gens sont super gentils.&quot;<br>&quot;Oui, mais Montréal a plus de restaurants et plus de spectacles. La vie culturelle est plus riche.&quot;<br>&quot;C&#39;est vrai, mais le coût de la vie est aussi plus cher à Montréal. Les loyers sont moins abordables.&quot;<br>&quot;Et Sherbrooke? C&#39;est la ville la moins chère des trois et c&#39;est quand même une belle ville.&quot;<br>&quot;Tu as raison. Chaque ville a ses avantages!&quot;</p>
+<p><em>(You are discussing with a friend about the best cities to live in Quebec. &quot;For you, what&#39;s the best city to live in Quebec?&quot; &quot;For me, I would say Quebec City. It&#39;s more peaceful than Montreal and the people are really nice.&quot; &quot;Yes, but Montreal has more restaurants and more shows. The cultural life is richer.&quot; &quot;That&#39;s true, but the cost of living is also more expensive in Montreal. Rents are less affordable.&quot; &quot;And Sherbrooke? It&#39;s the least expensive city of the three and it&#39;s still a beautiful city.&quot; &quot;You&#39;re right. Every city has its advantages!&quot;)</em></p>
+
+<h3 id="h-12-4-cdn-comparisons">12.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In informal Quebec French, <strong>&quot;ben&quot;</strong> (from &quot;bien&quot;) is often used to intensify: <strong>&quot;C&#39;est ben meilleur!&quot;</strong> (It&#39;s way better!)</li>
+<li><strong>&quot;Pas mal&quot;</strong> is used as &quot;pretty/quite&quot;: <strong>&quot;C&#39;est pas mal bon!&quot;</strong> (It&#39;s pretty good!)</li>
+<li><strong>&quot;En masse&quot;</strong> means &quot;a lot&quot; or &quot;plenty&quot;: <strong>&quot;Y a du monde en masse!&quot;</strong> (There are plenty of people!)</li>
+</ul>
+<hr>
+
+<h1 id="h-part-iv-health">PART IV: HEALTH &amp; SERVICES</h1>
+
+<h2 id="h-unit-13-body-health">UNIT 13: BODY &amp; HEALTH</h2>
+
+<h3 id="h-13-1-body-parts">13.1 Body Parts</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>la tête</td><td>the head</td></tr>
+<tr><td>les yeux (un œil)</td><td>the eyes (an eye)</td></tr>
+<tr><td>le nez</td><td>the nose</td></tr>
+<tr><td>la bouche</td><td>the mouth</td></tr>
+<tr><td>les oreilles</td><td>the ears</td></tr>
+<tr><td>le cou</td><td>the neck</td></tr>
+<tr><td>les épaules</td><td>the shoulders</td></tr>
+<tr><td>le bras</td><td>the arm</td></tr>
+<tr><td>la main</td><td>the hand</td></tr>
+<tr><td>les doigts</td><td>the fingers</td></tr>
+<tr><td>le dos</td><td>the back</td></tr>
+<tr><td>le ventre</td><td>the stomach/belly</td></tr>
+<tr><td>la jambe</td><td>the leg</td></tr>
+<tr><td>le genou</td><td>the knee</td></tr>
+<tr><td>le pied</td><td>the foot</td></tr>
+<tr><td>la cheville</td><td>the ankle</td></tr>
+</tbody></table>
+
+<h3 id="h-13-2-symptoms">13.2 Describing Symptoms</h3>
+<p>Use <strong>&quot;avoir mal à + body part&quot;</strong> to express pain:</p>
+<ul>
+<li><strong>J&#39;ai mal à la tête depuis ce matin. Je pense que j&#39;ai attrapé un rhume.</strong> (I&#39;ve had a headache since this morning. I think I caught a cold.)</li>
+<li><strong>Mon fils a mal au ventre parce qu&#39;il a mangé trop de bonbons hier soir à l&#39;Halloween.</strong> (My son has a stomachache because he ate too much candy last night on Halloween.)</li>
+<li><strong>Elle a mal à la gorge et elle a de la fièvre. Elle devrait aller voir le médecin.</strong> (She has a sore throat and she has a fever. She should go see the doctor.)</li>
+</ul>
+
+<p><strong>Common health expressions:</strong></p>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>J&#39;ai la grippe.</td><td>I have the flu.</td></tr>
+<tr><td>J&#39;ai un rhume.</td><td>I have a cold.</td></tr>
+<tr><td>Je tousse beaucoup.</td><td>I&#39;m coughing a lot.</td></tr>
+<tr><td>J&#39;ai de la fièvre.</td><td>I have a fever.</td></tr>
+<tr><td>Je suis fatigué(e).</td><td>I&#39;m tired.</td></tr>
+<tr><td>J&#39;ai des allergies.</td><td>I have allergies.</td></tr>
+<tr><td>Je me suis blessé(e).</td><td>I hurt myself.</td></tr>
+<tr><td>Je me sens mal.</td><td>I feel sick/unwell.</td></tr>
+</tbody></table>
+
+<h3 id="h-13-3-health-expressions">13.3 Health Expressions</h3>
+<ul>
+<li><strong>Est-ce que tu te sens bien? Tu as l&#39;air pâle.</strong> (Are you feeling okay? You look pale.)</li>
+<li><strong>Je ne me sens pas bien du tout. Je pense que je devrais rester à la maison aujourd&#39;hui.</strong> (I don&#39;t feel well at all. I think I should stay home today.)</li>
+<li><strong>Mon médecin m&#39;a dit de me reposer pendant au moins trois jours.</strong> (My doctor told me to rest for at least three days.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Calling in Sick:</strong></p>
+<p><em>Vous appelez votre patron parce que vous êtes malade.</em></p>
+<p>&quot;Allô, bonjour Marc. C&#39;est Julie. Je suis désolée, mais je ne pourrai pas venir au bureau aujourd&#39;hui.&quot;<br>&quot;Oh non! Qu&#39;est-ce qui se passe?&quot;<br>&quot;Je pense que j&#39;ai la grippe. J&#39;ai de la fièvre et j&#39;ai mal partout.&quot;<br>&quot;Ah, le virus de la grippe circule beaucoup en ce moment. Repose-toi bien et va voir le docteur si ça ne s&#39;améliore pas.&quot;<br>&quot;Merci Marc. J&#39;espère être de retour demain ou après-demain.&quot;<br>&quot;Ne t&#39;inquiète pas. Ta santé, c&#39;est le plus important. Prends soin de toi!&quot;</p>
+<p><em>(You call your boss because you are sick. &quot;Hello, good morning Marc. It&#39;s Julie. I&#39;m sorry, but I won&#39;t be able to come to the office today.&quot; &quot;Oh no! What&#39;s going on?&quot; &quot;I think I have the flu. I have a fever and I ache everywhere.&quot; &quot;Ah, the flu virus is going around a lot right now. Rest well and go see the doctor if it doesn&#39;t improve.&quot; &quot;Thank you Marc. I hope to be back tomorrow or the day after.&quot; &quot;Don&#39;t worry. Your health is the most important thing. Take care of yourself!&quot;)</em></p>
+
+<h3 id="h-13-4-cdn-health">13.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, the healthcare system is public and covered by the <strong>RAMQ</strong> (Régie de l&#39;assurance maladie du Québec). You need a <strong>&quot;carte soleil&quot;</strong> (sun card / health insurance card) to access services.</li>
+<li><strong>&quot;Un CLSC&quot;</strong> (Centre local de services communautaires) is a community health centre found in every neighbourhood in Quebec.</li>
+<li>Informal: <strong>&quot;Être maganné(e)&quot;</strong> means to feel worn out or beaten up: <strong>&quot;Je suis pas mal maganné aujourd&#39;hui.&quot;</strong> (I&#39;m feeling pretty beat up today.)</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-14-doctor">UNIT 14: AT THE DOCTOR &amp; PHARMACY</h2>
+
+<h3 id="h-14-1-appointment">14.1 Making an Appointment</h3>
+<ul>
+<li><strong>Bonjour, je voudrais prendre un rendez-vous avec le docteur Lapointe, s&#39;il vous plaît.</strong> (Hello, I would like to make an appointment with Dr. Lapointe, please.)</li>
+<li><strong>Est-ce qu&#39;il y a de la disponibilité cette semaine? C&#39;est assez urgent.</strong> (Is there any availability this week? It&#39;s quite urgent.)</li>
+<li><strong>Je n&#39;ai pas de médecin de famille. Est-ce que je peux aller à la clinique sans rendez-vous?</strong> (I don&#39;t have a family doctor. Can I go to the walk-in clinic?)</li>
+</ul>
+
+<h3 id="h-14-2-consultation">14.2 The Consultation</h3>
+<p><strong>Common doctor-patient dialogue:</strong></p>
+<ul>
+<li><strong>Doctor:</strong> Qu&#39;est-ce qui vous amène aujourd&#39;hui? (What brings you in today?)</li>
+<li><strong>Patient:</strong> J&#39;ai mal à la gorge depuis trois jours et je tousse beaucoup la nuit. (I&#39;ve had a sore throat for three days and I cough a lot at night.)</li>
+<li><strong>Doctor:</strong> Est-ce que vous avez de la fièvre? (Do you have a fever?)</li>
+<li><strong>Patient:</strong> Oui, j&#39;ai pris ma température ce matin et j&#39;avais 38,5 degrés. (Yes, I took my temperature this morning and I had 38.5 degrees.)</li>
+<li><strong>Doctor:</strong> Je vais vous examiner. Ouvrez la bouche et dites &quot;Ah.&quot; (I&#39;m going to examine you. Open your mouth and say &quot;Ah.&quot;)</li>
+<li><strong>Doctor:</strong> Vous avez une infection de la gorge. Je vais vous prescrire des antibiotiques. (You have a throat infection. I&#39;m going to prescribe antibiotics.)</li>
+</ul>
+
+<h3 id="h-14-3-pharmacy">14.3 At the Pharmacy</h3>
+<ul>
+<li><strong>Bonjour, j&#39;ai une prescription du docteur Lapointe. Est-ce que vous pouvez la remplir?</strong> (Hello, I have a prescription from Dr. Lapointe. Can you fill it?)</li>
+<li><strong>Combien de temps est-ce que ça va prendre?</strong> (How long will it take?)</li>
+<li><strong>Comment est-ce que je dois prendre ce médicament?</strong> (How should I take this medication?)</li>
+<li><strong>Pharmacien:</strong> Prenez un comprimé deux fois par jour, matin et soir, avec de la nourriture. (Take one tablet twice a day, morning and evening, with food.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – At the Walk-In Clinic:</strong></p>
+<p><em>Vous allez à une clinique sans rendez-vous à Longueuil.</em></p>
+<p>&quot;Bonjour, bienvenue à la clinique médicale du boulevard. Avez-vous votre carte soleil?&quot;<br>&quot;Oui, la voici.&quot;<br>&quot;Merci. Quel est le motif de votre visite?&quot;<br>&quot;J&#39;ai mal au dos depuis une semaine et ça ne s&#39;améliore pas avec le repos.&quot;<br>&quot;D&#39;accord, asseyez-vous dans la salle d&#39;attente. Le docteur va vous voir dans environ quarante-cinq minutes.&quot;<br>&quot;Quarante-cinq minutes! C&#39;est long!&quot;<br>&quot;Je sais, on a beaucoup de patients aujourd&#39;hui. Désolée pour l&#39;attente.&quot;</p>
+<p><em>(You go to a walk-in clinic in Longueuil. &quot;Hello, welcome to the Boulevard medical clinic. Do you have your health insurance card?&quot; &quot;Yes, here it is.&quot; &quot;Thank you. What is the reason for your visit?&quot; &quot;I&#39;ve had back pain for a week and it&#39;s not improving with rest.&quot; &quot;Okay, sit in the waiting room. The doctor will see you in about forty-five minutes.&quot; &quot;Forty-five minutes! That&#39;s long!&quot; &quot;I know, we have a lot of patients today. Sorry for the wait.&quot;)</em></p>
+
+<h3 id="h-14-4-cdn-doctor">14.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, <strong>&quot;une clinique sans rendez-vous&quot;</strong> (walk-in clinic) is very common because many people do not have a <strong>&quot;médecin de famille&quot;</strong> (family doctor).</li>
+<li><strong>&quot;Jean Coutu&quot;</strong> and <strong>&quot;Pharmaprix&quot;</strong> (Shoppers Drug Mart in English) are the two most common pharmacy chains in Quebec. They also sell snacks, cosmetics, and household items.</li>
+<li>In Quebec French, <strong>&quot;une prescription&quot;</strong> is commonly used instead of <strong>&quot;une ordonnance&quot;</strong> (as in France).</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-15-banking">UNIT 15: BANKING &amp; ADMINISTRATIVE TASKS</h2>
+
+<h3 id="h-15-1-bank-vocab">15.1 Banking Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un compte bancaire</td><td>a bank account</td></tr>
+<tr><td>un compte chèques</td><td>a chequing account</td></tr>
+<tr><td>un compte d&#39;épargne</td><td>a savings account</td></tr>
+<tr><td>une carte de débit</td><td>a debit card</td></tr>
+<tr><td>une carte de crédit</td><td>a credit card</td></tr>
+<tr><td>un guichet automatique</td><td>an ATM</td></tr>
+<tr><td>un virement</td><td>a transfer</td></tr>
+<tr><td>un prêt / une hypothèque</td><td>a loan / a mortgage</td></tr>
+<tr><td>le taux d&#39;intérêt</td><td>the interest rate</td></tr>
+<tr><td>un relevé de compte</td><td>an account statement</td></tr>
+</tbody></table>
+
+<h3 id="h-15-2-transactions">15.2 Common Transactions</h3>
+<ul>
+<li><strong>Je voudrais déposer ce chèque dans mon compte chèques, s&#39;il vous plaît.</strong> (I would like to deposit this cheque into my chequing account, please.)</li>
+<li><strong>Est-ce que je peux retirer deux cents dollars au guichet?</strong> (Can I withdraw two hundred dollars at the counter?)</li>
+<li><strong>Je voudrais faire un virement de mon compte d&#39;épargne à mon compte chèques.</strong> (I would like to make a transfer from my savings account to my chequing account.)</li>
+<li><strong>Mon relevé de compte montre des frais que je ne reconnais pas. Pouvez-vous vérifier?</strong> (My account statement shows charges I don&#39;t recognize. Can you check?)</li>
+</ul>
+
+<h3 id="h-15-3-admin-tasks">15.3 Administrative Tasks</h3>
+<ul>
+<li><strong>Je dois renouveler mon permis de conduire. Où est le bureau de la SAAQ le plus proche?</strong> (I need to renew my driver&#39;s licence. Where is the nearest SAAQ office?)</li>
+<li><strong>J&#39;ai besoin de faire mon changement d&#39;adresse auprès de Postes Canada et du gouvernement.</strong> (I need to do my change of address with Canada Post and the government.)</li>
+<li><strong>Est-ce que je peux payer mes impôts en ligne ou je dois aller au bureau?</strong> (Can I pay my taxes online or do I have to go to the office?)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Opening a Bank Account:</strong></p>
+<p><em>Vous venez d&#39;arriver au Québec et vous ouvrez un compte bancaire à la Caisse Desjardins.</em></p>
+<p>&quot;Bonjour! En quoi est-ce que je peux vous aider?&quot;<br>&quot;Bonjour, je viens d&#39;arriver au Québec et j&#39;aimerais ouvrir un compte bancaire.&quot;<br>&quot;Bien sûr! Avez-vous vos pièces d&#39;identité? Passeport et permis de travail?&quot;<br>&quot;Oui, les voici.&quot;<br>&quot;Parfait. On va ouvrir un compte chèques et un compte d&#39;épargne. Vous allez aussi recevoir une carte de débit Interac.&quot;<br>&quot;Est-ce qu&#39;il y a des frais mensuels?&quot;<br>&quot;Le forfait de base est à quatre dollars quatre-vingt-quinze par mois, avec des transactions illimitées.&quot;</p>
+<p><em>(You have just arrived in Quebec and you are opening a bank account at Caisse Desjardins. &quot;Hello! How can I help you?&quot; &quot;Hello, I just arrived in Quebec and I would like to open a bank account.&quot; &quot;Of course! Do you have your identification documents? Passport and work permit?&quot; &quot;Yes, here they are.&quot; &quot;Perfect. We will open a chequing account and a savings account. You will also receive an Interac debit card.&quot; &quot;Are there monthly fees?&quot; &quot;The basic plan is four dollars ninety-five a month, with unlimited transactions.&quot;)</em></p>
+
+<h3 id="h-15-4-cdn-banking">15.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>Desjardins</strong> is a cooperative financial group based in Quebec and is the largest federation of credit unions in North America. Many Quebecers bank with Desjardins rather than traditional banks.</li>
+<li>The <strong>SAAQ</strong> (Société de l&#39;assurance automobile du Québec) handles driver&#39;s licences and vehicle registration in Quebec.</li>
+<li><strong>&quot;Interac&quot;</strong> is the Canadian debit card network. Paying by &quot;Interac&quot; is equivalent to paying by debit card.</li>
+<li>The <strong>&quot;NAS&quot;</strong> (numéro d&#39;assurance sociale) is the Social Insurance Number, required for working and paying taxes in Canada.</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-16-emergencies">UNIT 16: EMERGENCY SITUATIONS</h2>
+
+<h3 id="h-16-1-emergency-vocab">16.1 Emergency Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>Appelez le 911!</td><td>Call 911!</td></tr>
+<tr><td>Au secours!</td><td>Help!</td></tr>
+<tr><td>une urgence</td><td>an emergency</td></tr>
+<tr><td>les pompiers</td><td>the firefighters</td></tr>
+<tr><td>la police</td><td>the police</td></tr>
+<tr><td>une ambulance</td><td>an ambulance</td></tr>
+<tr><td>un accident</td><td>an accident</td></tr>
+<tr><td>un vol</td><td>a theft</td></tr>
+<tr><td>un incendie</td><td>a fire</td></tr>
+<tr><td>les premiers soins</td><td>first aid</td></tr>
+</tbody></table>
+
+<h3 id="h-16-2-calling-help">16.2 Calling for Help</h3>
+<p><strong>When calling 911:</strong></p>
+<ul>
+<li><strong>Allô, c&#39;est une urgence! Il y a eu un accident de voiture sur l&#39;autoroute 20 près de la sortie Drummondville.</strong> (Hello, this is an emergency! There was a car accident on Highway 20 near the Drummondville exit.)</li>
+<li><strong>J&#39;ai besoin d&#39;une ambulance. Une personne s&#39;est évanouie dans le métro à la station Berri-UQAM.</strong> (I need an ambulance. A person fainted in the metro at the Berri-UQAM station.)</li>
+<li><strong>Il y a un incendie dans l&#39;immeuble à côté du mien. Je vois de la fumée qui sort des fenêtres du troisième étage.</strong> (There is a fire in the building next to mine. I see smoke coming from the third-floor windows.)</li>
+</ul>
+
+<h3 id="h-16-3-describing-problems">16.3 Describing Problems</h3>
+<ul>
+<li><strong>On m&#39;a volé mon portefeuille dans le métro pendant l&#39;heure de pointe.</strong> (Someone stole my wallet in the metro during rush hour.)</li>
+<li><strong>J&#39;ai perdu mes clés quelque part entre le bureau et la station de métro.</strong> (I lost my keys somewhere between the office and the metro station.)</li>
+<li><strong>Ma voiture est tombée en panne sur l&#39;autoroute et je ne peux pas la déplacer.</strong> (My car broke down on the highway and I can&#39;t move it.)</li>
+<li><strong>Il y a une fuite d&#39;eau dans mon appartement. L&#39;eau coule du plafond de la cuisine.</strong> (There is a water leak in my apartment. Water is flowing from the kitchen ceiling.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Car Trouble in Winter:</strong></p>
+<p><em>Votre voiture ne démarre pas par un matin de grand froid.</em></p>
+<p>&quot;Ah non! Le char part pas! Il fait trop frette!&quot;<br>&quot;As-tu essayé de le booster avec des câbles?&quot;<br>&quot;Non, j&#39;ai pas de câbles. Est-ce que tu peux venir me donner un boost?&quot;<br>&quot;Oui, j&#39;arrive dans dix minutes. Mais si ça marche pas, appelle le CAA.&quot;<br>&quot;T&#39;as raison. J&#39;aurais dû brancher le chauffe-moteur hier soir!&quot;<br>&quot;Ben oui, quand y fait moins trente, faut toujours le brancher!&quot;</p>
+<p><em>(Your car won&#39;t start on a very cold morning. &quot;Oh no! The car won&#39;t start! It&#39;s too cold!&quot; &quot;Did you try to boost it with cables?&quot; &quot;No, I don&#39;t have cables. Can you come give me a boost?&quot; &quot;Yes, I&#39;ll be there in ten minutes. But if it doesn&#39;t work, call CAA.&quot; &quot;You&#39;re right. I should have plugged in the block heater last night!&quot; &quot;Yeah, when it&#39;s minus thirty, you always have to plug it in!&quot;)</em></p>
+
+<h3 id="h-16-4-cdn-emergencies">16.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, the emergency number is <strong>911</strong>, just like in the rest of Canada and the US.</li>
+<li>A <strong>&quot;chauffe-moteur&quot;</strong> (block heater) is an electric heater plugged into a car&#39;s engine overnight in extreme cold to prevent the engine from freezing. You will see electrical outlets in parking lots throughout Quebec!</li>
+<li>The <strong>CAA</strong> (Canadian Automobile Association) provides roadside assistance.</li>
+<li><strong>&quot;Booster&quot;</strong> or <strong>&quot;donner un boost&quot;</strong> means to jump-start a car with cables – a very common winter occurrence in Quebec.</li>
+<li><strong>&quot;Le char part pas&quot;</strong> is typical spoken Quebec French for &quot;La voiture ne démarre pas&quot; (The car won&#39;t start).</li>
+</ul>
+
+<h1 id="h-part-v-travel">PART V: TRAVEL &amp; CULTURE</h1>
+
+<h2 id="h-unit-17-travel">UNIT 17: TRAVEL PLANNING</h2>
+
+<h3 id="h-17-1-travel-vocab">17.1 Travel Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un voyage</td><td>a trip</td></tr>
+<tr><td>un billet d&#39;avion</td><td>a plane ticket</td></tr>
+<tr><td>un passeport</td><td>a passport</td></tr>
+<tr><td>une valise</td><td>a suitcase</td></tr>
+<tr><td>un sac à dos</td><td>a backpack</td></tr>
+<tr><td>une réservation</td><td>a reservation</td></tr>
+<tr><td>l&#39;aéroport</td><td>the airport</td></tr>
+<tr><td>la gare</td><td>the train station</td></tr>
+<tr><td>un aller simple</td><td>a one-way ticket</td></tr>
+<tr><td>un aller-retour</td><td>a round-trip ticket</td></tr>
+<tr><td>les vacances</td><td>vacation/holidays</td></tr>
+<tr><td>un itinéraire</td><td>an itinerary</td></tr>
+</tbody></table>
+
+<h3 id="h-17-2-booking">17.2 Booking &amp; Reservations</h3>
+<ul>
+<li><strong>Je voudrais réserver un billet aller-retour Montréal-Québec pour le quinze juillet.</strong> (I would like to book a round-trip ticket from Montreal to Quebec City for July 15th.)</li>
+<li><strong>Est-ce qu&#39;il y a des tarifs réduits pour les étudiants?</strong> (Are there reduced rates for students?)</li>
+<li><strong>Je préfère un siège côté fenêtre, s&#39;il vous plaît.</strong> (I prefer a window seat, please.)</li>
+<li><strong>Jusqu&#39;à quand est-ce que je peux annuler ma réservation sans frais?</strong> (Until when can I cancel my reservation without fees?)</li>
+</ul>
+
+<h3 id="h-17-3-packing">17.3 Packing &amp; Preparation</h3>
+<ul>
+<li><strong>N&#39;oublie pas d&#39;apporter ton manteau d&#39;hiver et ta tuque si tu viens au Québec en janvier.</strong> (Don&#39;t forget to bring your winter coat and your beanie if you come to Quebec in January.)</li>
+<li><strong>J&#39;ai fait ma valise hier soir. J&#39;ai mis des vêtements chauds et mon appareil photo.</strong> (I packed my suitcase last night. I put warm clothes and my camera.)</li>
+<li><strong>Est-ce que tu as vérifié la météo pour notre destination? Il paraît qu&#39;il va pleuvoir toute la semaine.</strong> (Did you check the weather for our destination? It seems it&#39;s going to rain all week.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Planning a Road Trip on the Route des Fromages:</strong></p>
+<p><em>Vous planifiez un road trip dans les Cantons-de-l&#39;Est avec votre conjoint(e).</em></p>
+<p>&quot;Ça te dit de faire un road trip dans les Cantons-de-l&#39;Est cette fin de semaine?&quot;<br>&quot;Oui! On pourrait faire la Route des Fromages et visiter des fromageries.&quot;<br>&quot;Bonne idée! On pourrait partir vendredi après le travail et revenir dimanche soir.&quot;<br>&quot;Parfait. J&#39;ai trouvé un gîte touristique à Knowlton. C&#39;est cent vingt dollars par nuit.&quot;<br>&quot;C&#39;est correct. Je vais préparer un itinéraire avec les fromageries qu&#39;on veut visiter. Et on pourra s&#39;arrêter pour dîner à Magog, au bord du lac Memphrémagog.&quot;<br>&quot;Super! J&#39;ai hâte! N&#39;oublie pas de faire le plein d&#39;essence avant de partir.&quot;</p>
+<p><em>(You are planning a road trip in the Eastern Townships with your partner. &quot;Do you feel like doing a road trip in the Eastern Townships this weekend?&quot; &quot;Yes! We could do the Cheese Route and visit cheese factories.&quot; &quot;Good idea! We could leave Friday after work and come back Sunday evening.&quot; &quot;Perfect. I found a B&amp;B in Knowlton. It&#39;s one hundred and twenty dollars a night.&quot; &quot;That&#39;s fine. I&#39;ll prepare an itinerary with the cheese factories we want to visit. And we can stop for lunch in Magog, by Lake Memphremagog.&quot; &quot;Great! I can&#39;t wait! Don&#39;t forget to fill up on gas before we leave.&quot;)</em></p>
+
+<h3 id="h-17-4-cdn-travel">17.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>A <strong>&quot;gîte touristique&quot;</strong> is a bed and breakfast (B&amp;B). The term <strong>&quot;chambre d&#39;hôtes&quot;</strong> is more common in France.</li>
+<li><strong>&quot;Faire le plein&quot;</strong> means to fill up the gas tank. Gas stations in Quebec are often called <strong>&quot;des postes d&#39;essence&quot;</strong> or <strong>&quot;des stations-service.&quot;</strong></li>
+<li>The <strong>Cantons-de-l&#39;Est</strong> (Eastern Townships) is a popular tourist region south-east of Montreal, known for its scenic countryside, wine, cheese, and craft beer.</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-18-hotel-airport">UNIT 18: AT THE HOTEL &amp; AIRPORT</h2>
+
+<h3 id="h-18-1-hotel">18.1 Hotel Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>une chambre simple</td><td>a single room</td></tr>
+<tr><td>une chambre double</td><td>a double room</td></tr>
+<tr><td>la réception</td><td>the front desk</td></tr>
+<tr><td>la clé de la chambre</td><td>the room key</td></tr>
+<tr><td>le petit-déjeuner inclus</td><td>breakfast included</td></tr>
+<tr><td>le stationnement</td><td>parking (QC) / le parking (FR)</td></tr>
+<tr><td>le Wi-Fi gratuit</td><td>free Wi-Fi</td></tr>
+<tr><td>le service aux chambres</td><td>room service</td></tr>
+</tbody></table>
+
+<h3 id="h-18-2-checking-in">18.2 Checking In &amp; Out</h3>
+<ul>
+<li><strong>Bonjour, j&#39;ai une réservation au nom de Tremblay pour deux nuits.</strong> (Hello, I have a reservation under the name Tremblay for two nights.)</li>
+<li><strong>À quelle heure est le départ? Est-ce que je peux laisser mes bagages après le check-out?</strong> (What time is checkout? Can I leave my luggage after checkout?)</li>
+<li><strong>Est-ce que le déjeuner est inclus dans le prix de la chambre?</strong> (Is breakfast included in the room price?)</li>
+<li><strong>Le Wi-Fi ne fonctionne pas dans ma chambre. Pourriez-vous vérifier, s&#39;il vous plaît?</strong> (The Wi-Fi is not working in my room. Could you check, please?)</li>
+</ul>
+
+<h3 id="h-18-3-airport">18.3 At the Airport</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>l&#39;enregistrement</td><td>check-in</td></tr>
+<tr><td>la porte d&#39;embarquement</td><td>the boarding gate</td></tr>
+<tr><td>la carte d&#39;embarquement</td><td>the boarding pass</td></tr>
+<tr><td>les bagages à main</td><td>carry-on luggage</td></tr>
+<tr><td>la douane</td><td>customs</td></tr>
+<tr><td>le contrôle de sécurité</td><td>security checkpoint</td></tr>
+<tr><td>un vol direct</td><td>a direct flight</td></tr>
+<tr><td>une escale / une correspondance</td><td>a layover / a connection</td></tr>
+<tr><td>le décalage horaire</td><td>jet lag</td></tr>
+</tbody></table>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Mon vol pour Paris part de l&#39;aéroport Trudeau à huit heures du matin. Je dois y être au moins deux heures avant.</strong> (My flight to Paris leaves from Trudeau Airport at eight in the morning. I have to be there at least two hours before.)</li>
+<li><strong>Le vol a été retardé de deux heures à cause d&#39;une tempête de neige. Tous les passagers doivent attendre dans le terminal.</strong> (The flight was delayed by two hours because of a snowstorm. All passengers must wait in the terminal.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Checking into a Hotel in Quebec City:</strong></p>
+<p><em>Vous arrivez à un hôtel dans le Vieux-Québec après un long voyage.</em></p>
+<p>&quot;Bonsoir! Bienvenue à l&#39;Hôtel du Vieux-Québec.&quot;<br>&quot;Bonsoir! J&#39;ai une réservation au nom de Bergeron pour trois nuits.&quot;<br>&quot;Oui, je vois votre réservation. Chambre 305, au troisième étage avec vue sur le fleuve Saint-Laurent.&quot;<br>&quot;Magnifique! Est-ce qu&#39;il y a un stationnement pour notre voiture?&quot;<br>&quot;Oui, le stationnement souterrain est à vingt-cinq dollars par nuit. Voici vos clés. Les ascenseurs sont juste là, à gauche.&quot;<br>&quot;Merci beaucoup. À quelle heure est servi le déjeuner demain matin?&quot;<br>&quot;De sept heures à dix heures, dans la salle à manger au premier étage. Bonne nuit!&quot;</p>
+<p><em>(You arrive at a hotel in Old Quebec after a long trip. &quot;Good evening! Welcome to the Hotel du Vieux-Québec.&quot; &quot;Good evening! I have a reservation under the name Bergeron for three nights.&quot; &quot;Yes, I see your reservation. Room 305, on the third floor with a view of the St. Lawrence River.&quot; &quot;Wonderful! Is there parking for our car?&quot; &quot;Yes, underground parking is twenty-five dollars per night. Here are your keys. The elevators are right there, on the left.&quot; &quot;Thank you very much. What time is breakfast served tomorrow morning?&quot; &quot;From seven to ten, in the dining room on the first floor. Good night!&quot;)</em></p>
+
+<h3 id="h-18-4-cdn-hotel">18.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>Montreal&#39;s international airport is officially <strong>Aéroport international Pierre-Elliott-Trudeau de Montréal</strong> (YUL), commonly known as &quot;Trudeau Airport.&quot;</li>
+<li>In Quebec, <strong>&quot;stationnement&quot;</strong> is used instead of <strong>&quot;parking&quot;</strong> (as in France).</li>
+<li>Remember: <strong>&quot;déjeuner&quot;</strong> in Quebec means breakfast (served in the morning), not lunch as in France.</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-19-quebec-culture">UNIT 19: QUEBEC CULTURE &amp; FESTIVALS</h2>
+
+<h3 id="h-19-1-festivals">19.1 Major Quebec Festivals</h3>
+<table>
+<thead><tr><th>Festival</th><th>When</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Le Carnaval de Québec</td><td>February</td><td>Le plus grand carnaval d&#39;hiver au monde avec Bonhomme Carnaval, les courses de canot sur glace et la tire d&#39;érable. (The largest winter carnival in the world with Bonhomme Carnaval, ice canoe races, and maple taffy.)</td></tr>
+<tr><td>Le Festival de jazz de Montréal</td><td>Late June - July</td><td>Un des plus grands festivals de jazz au monde avec des spectacles gratuits dans le Quartier des spectacles. (One of the largest jazz festivals in the world with free shows in the Quartier des spectacles.)</td></tr>
+<tr><td>Juste pour rire</td><td>July</td><td>Le plus grand festival d&#39;humour au monde, avec des spectacles en français et en anglais. (The largest comedy festival in the world, with shows in French and English.)</td></tr>
+<tr><td>La Fête nationale du Québec</td><td>June 24</td><td>La fête nationale des Québécois, aussi appelée la Saint-Jean-Baptiste. Il y a des spectacles, des feux d&#39;artifice et des défilés. (The national holiday of Quebecers, also called Saint-Jean-Baptiste Day. There are shows, fireworks, and parades.)</td></tr>
+<tr><td>Le Festival d&#39;été de Québec</td><td>July</td><td>Un grand festival de musique en plein air à Québec avec des artistes internationaux. (A large outdoor music festival in Quebec City with international artists.)</td></tr>
+</tbody></table>
+
+<h3 id="h-19-2-traditions">19.2 Traditions &amp; Customs</h3>
+<ul>
+<li><strong>La cabane à sucre:</strong> Au printemps, les Québécois vont à la cabane à sucre pour manger un repas traditionnel avec du jambon, des fèves au lard, des oreilles de crisse et de la tire d&#39;érable sur la neige. (In spring, Quebecers go to the sugar shack to eat a traditional meal with ham, baked beans, fried pork rinds, and maple taffy on snow.)</li>
+<li><strong>Le temps des fêtes:</strong> La période de Noël et du Nouvel An est très importante au Québec. Les familles se réunissent pour de grands repas, incluant la tourtière, le ragoût de boulettes et la bûche de Noël. (The holiday season is very important in Quebec. Families gather for big meals, including meat pie, meatball stew, and Yule log cake.)</li>
+<li><strong>Le hockey:</strong> Le hockey est le sport national au Québec. Les Canadiens de Montréal sont l&#39;équipe la plus suivie. (Hockey is the national sport in Quebec. The Montreal Canadiens are the most followed team.)</li>
+</ul>
+
+<h3 id="h-19-3-cuisine">19.3 Québécois Cuisine</h3>
+<table>
+<thead><tr><th>Dish</th><th>Description (French)</th><th>Description (English)</th></tr></thead>
+<tbody>
+<tr><td>La poutine</td><td>Des frites, du fromage en grains et de la sauce brune.</td><td>Fries, cheese curds, and brown gravy.</td></tr>
+<tr><td>La tourtière</td><td>Un pâté à la viande traditionnel du temps des fêtes.</td><td>A traditional meat pie for the holidays.</td></tr>
+<tr><td>La soupe aux pois</td><td>Une soupe épaisse aux pois jaunes avec du jambon.</td><td>A thick pea soup with ham.</td></tr>
+<tr><td>Les cretons</td><td>Un pâté de porc épicé servi sur du pain grillé au déjeuner.</td><td>A spiced pork spread served on toast for breakfast.</td></tr>
+<tr><td>Le pâté chinois</td><td>Des couches de bœuf haché, de maïs et de purée de pommes de terre.</td><td>Layers of ground beef, corn, and mashed potatoes.</td></tr>
+<tr><td>La tire d&#39;érable</td><td>Du sirop d&#39;érable bouilli versé sur la neige.</td><td>Boiled maple syrup poured over snow.</td></tr>
+<tr><td>Le pouding chômeur</td><td>Un gâteau au sirop d&#39;érable très riche et sucré.</td><td>A rich, sweet maple syrup cake.</td></tr>
+</tbody></table>
+
+<p><strong>🇫🇷 Real-Life Scene – A Visit to the Sugar Shack:</strong></p>
+<p><em>C&#39;est le printemps et vous allez à la cabane à sucre avec des amis.</em></p>
+<p>&quot;On est arrivés! Regarde, les érables sont déjà entaillés et la sève coule dans les chaudières!&quot;<br>&quot;Ça sent tellement bon! J&#39;ai faim!&quot;<br>&quot;Moi aussi! On va commencer par la soupe aux pois, du jambon dans le sirop, des fèves au lard et des oreilles de crisse.&quot;<br>&quot;Et pour le dessert?&quot;<br>&quot;Du pouding chômeur et de la tire sur la neige, bien sûr!&quot;<br>&quot;Miam! C&#39;est le meilleur repas de l&#39;année! Vive le temps des sucres!&quot;</p>
+<p><em>(It&#39;s spring and you go to the sugar shack with friends. &quot;We&#39;re here! Look, the maples are already tapped and the sap is flowing into the buckets!&quot; &quot;It smells so good! I&#39;m hungry!&quot; &quot;Me too! We&#39;re going to start with pea soup, ham in syrup, baked beans, and fried pork rinds.&quot; &quot;And for dessert?&quot; &quot;Maple syrup cake and taffy on snow, of course!&quot; &quot;Yum! It&#39;s the best meal of the year! Long live sugar season!&quot;)</em></p>
+
+<h3 id="h-19-4-cdn-culture">19.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>&quot;Le temps des sucres&quot;</strong> (sugar season) runs from late February to April, when maple sap flows. Quebec produces about 70% of the world&#39;s maple syrup!</li>
+<li><strong>&quot;Bonhomme Carnaval&quot;</strong> is the iconic snowman mascot of the Quebec Winter Carnival.</li>
+<li><strong>&quot;La Saint-Jean&quot;</strong> (June 24) is Quebec&#39;s national holiday – not Canada Day (July 1). It is a very important day of celebration and pride for Quebecers.</li>
+<li><strong>&quot;Les Canadiens&quot;</strong> or <strong>&quot;le CH&quot;</strong> or <strong>&quot;le Tricolore&quot;</strong> are all names for the Montreal Canadiens hockey team.</li>
+</ul>
+<hr>
+
+<h2 id="h-unit-20-review-b1">UNIT 20: REVIEW &amp; B1 PREPARATION</h2>
+
+<h3 id="h-20-1-grammar-review">20.1 Grammar Review</h3>
+<p>Here is a summary of the key grammar concepts covered in A2:</p>
+<table>
+<thead><tr><th>Concept</th><th>Formation</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Imparfait</td><td>nous stem + endings (-ais, -ais, -ait, -ions, -iez, -aient)</td><td>Je parlais français quand j&#39;étais petit. (I used to speak French when I was little.)</td></tr>
+<tr><td>Futur simple</td><td>infinitive + endings (-ai, -as, -a, -ons, -ez, -ont)</td><td>Demain, j&#39;irai au marché. (Tomorrow, I will go to the market.)</td></tr>
+<tr><td>Passé récent</td><td>venir de + infinitive</td><td>Je viens d&#39;arriver. (I just arrived.)</td></tr>
+<tr><td>En train de</td><td>être en train de + infinitive</td><td>Je suis en train de manger. (I am eating.)</td></tr>
+<tr><td>Impératif</td><td>conjugated verb (no subject pronoun)</td><td>Mange! Mangeons! Mangez! (Eat!)</td></tr>
+<tr><td>Comparatif</td><td>plus/moins/aussi + adj. + que</td><td>Montréal est plus grande que Québec. (Montreal is bigger than Quebec City.)</td></tr>
+<tr><td>Superlatif</td><td>le/la/les plus/moins + adj.</td><td>C&#39;est le plus beau parc de la ville. (It&#39;s the most beautiful park in the city.)</td></tr>
+</tbody></table>
+
+<h3 id="h-20-2-vocab-review">20.2 Vocabulary Review</h3>
+<p>At the end of A2, you should be comfortable with vocabulary in these areas:</p>
+<ul>
+<li><strong>Shopping &amp; money:</strong> stores, prices, clothing, payments</li>
+<li><strong>Housing:</strong> rooms, furniture, renting, moving</li>
+<li><strong>Transportation:</strong> vehicles, directions, public transit</li>
+<li><strong>Weather &amp; seasons:</strong> temperatures, forecasts, Quebec climate</li>
+<li><strong>Social life:</strong> invitations, phone calls, events</li>
+<li><strong>Health:</strong> body parts, symptoms, doctor visits</li>
+<li><strong>Services:</strong> banking, administration, emergencies</li>
+<li><strong>Travel &amp; culture:</strong> booking, hotels, airports, Quebec traditions</li>
+</ul>
+
+<h3 id="h-20-3-b1-preview">20.3 What to Expect at B1</h3>
+<p>At B1, you will learn to:</p>
+<ul>
+<li>Express opinions and argue a point of view using more complex structures.</li>
+<li>Use the <strong>subjonctif</strong> and <strong>conditionnel</strong> to express wishes, doubts, and hypotheses.</li>
+<li>Understand and discuss media, news, and current events in Quebec and the francophone world.</li>
+<li>Write longer texts: formal letters, reports, and essays.</li>
+<li>Talk about abstract topics like the environment, politics, and society.</li>
+</ul>
+
+<h3 id="h-20-4-study-tips">20.4 Study Tips</h3>
+<ul>
+<li><strong>Regardez des séries québécoises</strong> comme &quot;Série noire,&quot; &quot;Les Invincibles,&quot; ou &quot;District 31&quot; pour vous habituer à l&#39;accent et aux expressions. (Watch Québécois TV shows to get used to the accent and expressions.)</li>
+<li><strong>Écoutez la radio de Radio-Canada</strong> (ICI Première) pour entendre du français québécois dans des contextes variés. (Listen to Radio-Canada radio to hear Quebec French in various contexts.)</li>
+<li><strong>Pratiquez avec des Québécois.</strong> Ne soyez pas timide! Les Québécois sont généralement très patients et contents quand quelqu&#39;un essaie de parler français. (Practice with Quebecers. Don&#39;t be shy! Quebecers are generally very patient and happy when someone tries to speak French.)</li>
+<li><strong>Tenez un journal en français.</strong> Écrivez quelques phrases chaque jour sur ce que vous avez fait. (Keep a journal in French. Write a few sentences each day about what you did.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Reflecting on Your French Learning Journey:</strong></p>
+<p><em>Vous parlez avec votre professeur de français à la fin du cours A2.</em></p>
+<p>&quot;Félicitations! Tu as terminé le niveau A2! Comment tu te sens?&quot;<br>&quot;Je suis vraiment content! Au début, je comprenais presque rien quand les gens parlaient vite.&quot;<br>&quot;Et maintenant?&quot;<br>&quot;Maintenant, je suis capable de suivre une conversation normale et de me débrouiller au magasin, au restaurant et au téléphone.&quot;<br>&quot;C&#39;est excellent! Tu es prêt pour le B1. Ça va être plus difficile, mais tu as une bonne base.&quot;<br>&quot;Merci! J&#39;ai vraiment hâte de continuer. Le français québécois, c&#39;est vraiment le fun à apprendre!&quot;</p>
+<p><em>(You are talking with your French teacher at the end of the A2 course. &quot;Congratulations! You have finished the A2 level! How do you feel?&quot; &quot;I&#39;m really happy! In the beginning, I understood almost nothing when people spoke fast.&quot; &quot;And now?&quot; &quot;Now, I am able to follow a normal conversation and manage at the store, the restaurant, and on the phone.&quot; &quot;That&#39;s excellent! You are ready for B1. It will be more difficult, but you have a good foundation.&quot; &quot;Thank you! I really can&#39;t wait to continue. Quebec French is really fun to learn!&quot;)</em></p>
+<hr>
+
+<h1 id="h-a2-conclusion">CONCLUSION</h1>
+<p>Congratulations on completing the A2 level! You now have a solid foundation in everyday Canadian French. You can handle basic conversations about daily life, navigate shopping, transportation, and health situations, and appreciate Quebec&#39;s rich culture and traditions.</p>
+<p>Your next step is B1, where you will deepen your grammar, expand your expression, and begin tackling more complex topics. <strong>Bonne continuation et lâche pas!</strong> (Keep going and don&#39;t give up!)</p>
+
+            </div>
+        </main>
+    </div>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', () => {
+          const contentArea = document.querySelector('.content-area');
+          const contentWrapper = document.querySelector('.content-wrapper');
+          const sidebar = document.getElementById('sidebar');
+          const toggleBtn = document.getElementById('sidebarToggle');
+          const navLinks = document.querySelectorAll('.nav-link');
+          const toc = document.querySelector('.toc');
+
+          // --- 1. Structure Units into Accordions ---
+          const headers = Array.from(contentWrapper.querySelectorAll('h2'));
+          const units = headers.filter(h => h.textContent.includes('UNIT'));
+
+          units.forEach((unitHeader, index) => {
+              unitHeader.classList.add('unit-header');
+              
+              // Create wrapper for unit content
+              const wrapper = document.createElement('div');
+              wrapper.className = 'unit-content';
+              wrapper.id = 'content-' + unitHeader.id;
+
+              // Move siblings until next unit or major header into wrapper
+              let curr = unitHeader.nextElementSibling;
+              while (curr && !curr.matches('h1, h2')) {
+                  const next = curr.nextElementSibling;
+                  wrapper.appendChild(curr);
+                  curr = next;
+              }
+              unitHeader.parentNode.insertBefore(wrapper, curr);
+
+              // Click to toggle
+              unitHeader.addEventListener('click', () => {
+                  const isExpanded = unitHeader.classList.contains('expanded');
+                  
+                  // Collapse all
+                  units.forEach(u => {
+                      u.classList.remove('expanded');
+                      const c = document.getElementById('content-' + u.id);
+                      if (c) c.classList.remove('expanded');
+                  });
+
+                  // If it wasn't expanded, expand now
+                  if (!isExpanded) {
+                      unitHeader.classList.add('expanded');
+                      wrapper.classList.add('expanded');
+                      unitHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+              });
+          });
+
+          const overlay = document.getElementById('sidebarOverlay');
+          
+          function toggleSidebar(forceCollapse) {
+              const isCollapsed = sidebar.classList.contains('collapsed');
+              const shouldCollapse = forceCollapse !== undefined ? forceCollapse : !isCollapsed;
+              
+              if (shouldCollapse) {
+                  sidebar.classList.add('collapsed');
+                  overlay.classList.remove('visible');
+                  setTimeout(() => { if (!overlay.classList.contains('visible')) overlay.style.display = 'none'; }, 300);
+              } else {
+                  sidebar.classList.remove('collapsed');
+                  if (window.innerWidth <= 768) {
+                      overlay.style.display = 'block';
+                      setTimeout(() => overlay.classList.add('visible'), 10);
+                  }
+              }
+          }
+
+          // --- 2. Side Menu Click Handling ---
+          document.querySelectorAll('.nav-link').forEach(link => {
+              link.addEventListener('click', function (e) {
+                  const href = this.getAttribute('href');
+                  if (!href.startsWith('#')) return;
+                  
+                  e.preventDefault();
+                  const targetId = href.substring(1);
+                  const targetElement = document.getElementById(targetId);
+                  
+                  if (targetElement) {
+                      // Find which unit this element belongs to
+                      let unitToExpand = null;
+                      if (targetElement.classList.contains('unit-header')) {
+                          unitToExpand = targetElement;
+                      } else {
+                          // Check if it's inside a unit-content
+                          const parentContent = targetElement.closest('.unit-content');
+                          if (parentContent) {
+                              const headerId = parentContent.id.replace('content-', '');
+                              unitToExpand = document.getElementById(headerId);
+                          } else {
+                              // If not in content, maybe it's a section before any unit
+                          }
+                      }
+
+                      if (unitToExpand) {
+                          // Collapse all first
+                          units.forEach(u => {
+                              u.classList.remove('expanded');
+                              const c = document.getElementById('content-' + u.id);
+                              if (c) c.classList.remove('expanded');
+                          });
+                          
+                          // Expand the correct one
+                          unitToExpand.classList.add('expanded');
+                          const content = document.getElementById('content-' + unitToExpand.id);
+                          if (content) content.classList.add('expanded');
+                      }
+
+                      // Wait a bit for expansion before scrolling if needed, but smooth scroll handles it usually
+                      setTimeout(() => {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                      }, 50);
+                  }
+
+                  // Mobile handling
+                  if (window.innerWidth <= 768) {
+                      toggleSidebar(true);
+                  }
+              });
+          });
+
+          // --- 3. Sidebar Toggle ---
+          toggleBtn.addEventListener('click', () => {
+              toggleSidebar();
+          });
+
+          overlay.addEventListener('click', () => {
+              toggleSidebar(true);
+          });
+
+          if (window.innerWidth <= 768) {
+              sidebar.classList.add('collapsed');
+          }
+
+          // --- 4. Orientation & Resize Handling ---
+          let lastWidth = window.innerWidth;
+          window.addEventListener('resize', () => {
+              if (window.innerWidth !== lastWidth) {
+                  if (window.innerWidth > 768 && lastWidth <= 768) {
+                      // Moving to desktop
+                      sidebar.classList.remove('collapsed');
+                      overlay.classList.remove('visible');
+                      overlay.style.display = 'none';
+                  } else if (window.innerWidth <= 768 && lastWidth > 768) {
+                      // Moving to mobile
+                      sidebar.classList.add('collapsed');
+                  }
+                  lastWidth = window.innerWidth;
+              }
+          });
+
+          // --- 5. Scrollspy ---
+          const sections = Array.from(document.querySelectorAll('h1[id], h2[id], h3[id]'));
+          
+          if (contentArea && sections.length > 0) {
+              contentArea.addEventListener('scroll', () => {
+                  let currentSectionId = '';
+                  
+                  for (const section of sections) {
+                      const rect = section.getBoundingClientRect();
+                      if (rect.top <= 150) {
+                          currentSectionId = section.id;
+                      } else {
+                          break;
+                      }
+                  }
+                  
+                  if (!currentSectionId && sections.length > 0) {
+                     currentSectionId = sections[0].id;
+                  }
+
+                  navLinks.forEach(link => {
+                      if (link.getAttribute('href') === '#' + currentSectionId) {
+                          if (!link.classList.contains('active')) {
+                              link.classList.add('active');
+                              
+                              const linkRect = link.getBoundingClientRect();
+                              const tocRect = toc.getBoundingClientRect();
+                              
+                              if (linkRect.top < tocRect.top) {
+                                  toc.scrollTop -= (tocRect.top - linkRect.top) + 20;
+                              } else if (linkRect.bottom > tocRect.bottom) {
+                                  toc.scrollTop += (linkRect.bottom - tocRect.bottom) + 20;
+                              }
+                          }
+                      } else {
+                          link.classList.remove('active');
+                      }
+                  });
+              });
+          }
+      });
+    
+    </script>
 </body>
 </html>

@@ -3,63 +3,1799 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B1 Level - French Journey</title>
+    <title>Canadian French B1 Level Complete Textbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --accent-base: #3b82f6;
-            --font-heading: 'Outfit', sans-serif;
-            --font-body: 'Inter', sans-serif;
-        }
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --accent-base: #3b82f6;
+  
+  --title-h1: linear-gradient(135deg, #f43f5e, #ec4899);
+  --title-h2: linear-gradient(135deg, #6366f1, #a855f7);
+  --title-h3: linear-gradient(135deg, #10b981, #14b8a6);
+  --title-h4: linear-gradient(135deg, #f59e0b, #f43f5e);
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            padding: 2rem;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        h1 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #10b981, #14b8a6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
 
-        .btn-home {
-            margin-top: 2rem;
-            padding: 0.75rem 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--bg-tertiary);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
 
-        .btn-home:hover {
-            background: var(--accent-base);
-            transform: translateY(-2px);
-        }
+.sidebar {
+  width: 320px;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--bg-tertiary);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.sidebar-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.toc {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.nav-link:hover {
+  background-color: var(--bg-tertiary);
+  color: #fff;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  scroll-behavior: smooth;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+/* Typography & Markdown Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+h1 { font-size: 2.5rem; background-image: var(--title-h1); }
+h2 { font-size: 2rem; background-image: var(--title-h2); }
+h3 { font-size: 1.5rem; background-image: var(--title-h3); }
+h4 { font-size: 1.25rem; background-image: var(--title-h4); }
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow-x: auto;
+  display: block;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table-container table {
+  margin: 0;
+  display: table;
+}
+
+th {
+  background-color: var(--bg-tertiary);
+  color: #fff;
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+td {
+  background-color: rgba(30, 41, 59, 0.5);
+  padding: 1rem;
+  border-bottom: 1px solid var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--bg-tertiary);
+  margin: 3rem 0;
+}
+
+ul, ol {
+  margin-bottom: 1.25rem;
+  padding-left: 2rem;
+  color: var(--text-secondary);
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Animations */
+.content-wrapper {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary); 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary); 
+}
+
+/* Sidebar Toggle and Responsiveness */
+.sidebar {
+  transition: margin-left 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+.sidebar.collapsed {
+  margin-left: -320px;
+}
+.sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.2s ease;
+}
+.sidebar-toggle:hover {
+  background: var(--bg-tertiary);
+}
+.sidebar-header {
+  padding: 1.5rem 1.5rem 1.5rem 4rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100vh;
+    z-index: 1100;
+    left: 0;
+    width: 280px;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+  }
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  .content-area {
+    padding: 1rem;
+    padding-top: 4rem;
+  }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.1rem; }
+  
+  .sidebar-header {
+    padding: 1rem 1rem 1rem 3.5rem;
+  }
+  
+  .sidebar-header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-area {
+    padding: 0.75rem;
+    padding-top: 4rem;
+  }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  p, li { font-size: 0.95rem; }
+}
+
+.nav-link.active {
+  background-color: var(--bg-tertiary);
+  color: #fff;
+  font-weight: 600;
+  border-left: 3px solid var(--accent-base);
+}
+
+.home-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-tertiary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.home-btn:hover {
+  background: var(--accent-base);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* TOC Hierarchy */
+.nav-link.depth-1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  color: var(--text-primary);
+}
+
+.nav-link.depth-2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding-left: 2rem;
+}
+
+.nav-link.depth-3 {
+  font-size: 0.85rem;
+  padding-left: 3rem;
+  opacity: 0.9;
+}
+
+/* Accordion Styles */
+.unit-header {
+  cursor: pointer;
+  position: relative;
+  padding-right: 2.5rem;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.unit-header:hover {
+  opacity: 0.8;
+}
+
+/* Sidebar Overlay for Mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+  display: block;
+  opacity: 1;
+}
+
+.unit-header::after {
+  content: '▼';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.unit-header.expanded::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.unit-content {
+  display: none;
+  overflow: hidden;
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+.unit-content.expanded {
+  display: block;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+    
     </style>
 </head>
 <body>
-    <h1>B1 Level Content</h1>
-    <p>Take your French to the next level with our upcoming B1 guide. Under construction!</p>
-    <a href="index.html" class="btn-home">Return to Home</a>
+    <button class="sidebar-toggle" id="sidebarToggle" title="Toggle Menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 French Journey</h2>
+            </div>
+            <a href="index.html" class="home-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Return to Home
+            </a>
+            <nav class="toc">
+                <ul>
+<li><a href="#h-b1-textbook" class="nav-link depth-1">Canadian French B1 Level</a></li>
+<li><a href="#h-b1-guide" class="nav-link depth-2">A Comprehensive Guide</a></li>
+<li><a href="#h-b1-toc" class="nav-link depth-2">TABLE OF CONTENTS</a></li>
+<li><a href="#h-b1-part-i" class="nav-link depth-1">PART I: ADVANCED TENSES</a></li>
+<li><a href="#h-b1-u1" class="nav-link depth-2">UNIT 1: PLUS-QUE-PARFAIT</a></li>
+<li><a href="#h-b1-1-1" class="nav-link depth-3">1.1 Introduction</a></li>
+<li><a href="#h-b1-1-2" class="nav-link depth-3">1.2 Formation</a></li>
+<li><a href="#h-b1-1-3" class="nav-link depth-3">1.3 Uses &amp; Examples</a></li>
+<li><a href="#h-b1-1-4" class="nav-link depth-3">1.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u2" class="nav-link depth-2">UNIT 2: CONDITIONNEL PRÉSENT</a></li>
+<li><a href="#h-b1-2-1" class="nav-link depth-3">2.1 Introduction</a></li>
+<li><a href="#h-b1-2-2" class="nav-link depth-3">2.2 Formation</a></li>
+<li><a href="#h-b1-2-3" class="nav-link depth-3">2.3 Uses &amp; Si Clauses</a></li>
+<li><a href="#h-b1-2-4" class="nav-link depth-3">2.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u3" class="nav-link depth-2">UNIT 3: SUBJONCTIF PRÉSENT</a></li>
+<li><a href="#h-b1-3-1" class="nav-link depth-3">3.1 Introduction</a></li>
+<li><a href="#h-b1-3-2" class="nav-link depth-3">3.2 Formation</a></li>
+<li><a href="#h-b1-3-3" class="nav-link depth-3">3.3 When to Use the Subjonctif</a></li>
+<li><a href="#h-b1-3-4" class="nav-link depth-3">3.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u4" class="nav-link depth-2">UNIT 4: FUTUR ANTÉRIEUR</a></li>
+<li><a href="#h-b1-4-1" class="nav-link depth-3">4.1 Introduction</a></li>
+<li><a href="#h-b1-4-2" class="nav-link depth-3">4.2 Formation</a></li>
+<li><a href="#h-b1-4-3" class="nav-link depth-3">4.3 Uses &amp; Examples</a></li>
+<li><a href="#h-b1-4-4" class="nav-link depth-3">4.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-part-ii" class="nav-link depth-1">PART II: COMPLEX EXPRESSION</a></li>
+<li><a href="#h-b1-u5" class="nav-link depth-2">UNIT 5: EXPRESSING OPINIONS</a></li>
+<li><a href="#h-b1-5-1" class="nav-link depth-3">5.1 Giving Opinions</a></li>
+<li><a href="#h-b1-5-2" class="nav-link depth-3">5.2 Agreeing &amp; Disagreeing</a></li>
+<li><a href="#h-b1-5-3" class="nav-link depth-3">5.3 Debating a Topic</a></li>
+<li><a href="#h-b1-5-4" class="nav-link depth-3">5.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u6" class="nav-link depth-2">UNIT 6: CAUSE &amp; CONSEQUENCE</a></li>
+<li><a href="#h-b1-6-1" class="nav-link depth-3">6.1 Expressing Cause</a></li>
+<li><a href="#h-b1-6-2" class="nav-link depth-3">6.2 Expressing Consequence</a></li>
+<li><a href="#h-b1-6-3" class="nav-link depth-3">6.3 Practice &amp; Examples</a></li>
+<li><a href="#h-b1-6-4" class="nav-link depth-3">6.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u7" class="nav-link depth-2">UNIT 7: HYPOTHESES &amp; CONDITIONS</a></li>
+<li><a href="#h-b1-7-1" class="nav-link depth-3">7.1 Si Clauses Overview</a></li>
+<li><a href="#h-b1-7-2" class="nav-link depth-3">7.2 Real Conditions (Present)</a></li>
+<li><a href="#h-b1-7-3" class="nav-link depth-3">7.3 Unreal Conditions (Imparfait)</a></li>
+<li><a href="#h-b1-7-4" class="nav-link depth-3">7.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u8" class="nav-link depth-2">UNIT 8: REPORTED SPEECH</a></li>
+<li><a href="#h-b1-8-1" class="nav-link depth-3">8.1 Direct vs. Indirect Speech</a></li>
+<li><a href="#h-b1-8-2" class="nav-link depth-3">8.2 Tense Changes</a></li>
+<li><a href="#h-b1-8-3" class="nav-link depth-3">8.3 Practice &amp; Examples</a></li>
+<li><a href="#h-b1-8-4" class="nav-link depth-3">8.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-part-iii" class="nav-link depth-1">PART III: SOCIETY &amp; MEDIA</a></li>
+<li><a href="#h-b1-u9" class="nav-link depth-2">UNIT 9: MEDIA &amp; NEWS</a></li>
+<li><a href="#h-b1-9-1" class="nav-link depth-3">9.1 Media Vocabulary</a></li>
+<li><a href="#h-b1-9-2" class="nav-link depth-3">9.2 Understanding News</a></li>
+<li><a href="#h-b1-9-3" class="nav-link depth-3">9.3 Discussing Current Events</a></li>
+<li><a href="#h-b1-9-4" class="nav-link depth-3">9.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u10" class="nav-link depth-2">UNIT 10: ENVIRONMENT</a></li>
+<li><a href="#h-b1-10-1" class="nav-link depth-3">10.1 Environment Vocabulary</a></li>
+<li><a href="#h-b1-10-2" class="nav-link depth-3">10.2 Talking About Climate</a></li>
+<li><a href="#h-b1-10-3" class="nav-link depth-3">10.3 Green Living</a></li>
+<li><a href="#h-b1-10-4" class="nav-link depth-3">10.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u11" class="nav-link depth-2">UNIT 11: WORK &amp; CAREER</a></li>
+<li><a href="#h-b1-11-1" class="nav-link depth-3">11.1 Job Search Vocabulary</a></li>
+<li><a href="#h-b1-11-2" class="nav-link depth-3">11.2 Writing a CV &amp; Cover Letter</a></li>
+<li><a href="#h-b1-11-3" class="nav-link depth-3">11.3 Job Interviews</a></li>
+<li><a href="#h-b1-11-4" class="nav-link depth-3">11.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u12" class="nav-link depth-2">UNIT 12: EDUCATION</a></li>
+<li><a href="#h-b1-12-1" class="nav-link depth-3">12.1 Education System in Quebec</a></li>
+<li><a href="#h-b1-12-2" class="nav-link depth-3">12.2 Academic Vocabulary</a></li>
+<li><a href="#h-b1-12-3" class="nav-link depth-3">12.3 University Life</a></li>
+<li><a href="#h-b1-12-4" class="nav-link depth-3">12.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-part-iv" class="nav-link depth-1">PART IV: NARRATIVE &amp; EMOTION</a></li>
+<li><a href="#h-b1-u13" class="nav-link depth-2">UNIT 13: STORYTELLING</a></li>
+<li><a href="#h-b1-13-1" class="nav-link depth-3">13.1 Narrative Tenses</a></li>
+<li><a href="#h-b1-13-2" class="nav-link depth-3">13.2 Story Structure</a></li>
+<li><a href="#h-b1-13-3" class="nav-link depth-3">13.3 Connectors for Narratives</a></li>
+<li><a href="#h-b1-13-4" class="nav-link depth-3">13.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u14" class="nav-link depth-2">UNIT 14: FEELINGS &amp; EMOTIONS</a></li>
+<li><a href="#h-b1-14-1" class="nav-link depth-3">14.1 Emotion Vocabulary</a></li>
+<li><a href="#h-b1-14-2" class="nav-link depth-3">14.2 Expressing Feelings</a></li>
+<li><a href="#h-b1-14-3" class="nav-link depth-3">14.3 Reacting to Situations</a></li>
+<li><a href="#h-b1-14-4" class="nav-link depth-3">14.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u15" class="nav-link depth-2">UNIT 15: RELATIONSHIPS</a></li>
+<li><a href="#h-b1-15-1" class="nav-link depth-3">15.1 Relationship Vocabulary</a></li>
+<li><a href="#h-b1-15-2" class="nav-link depth-3">15.2 Describing Relationships</a></li>
+<li><a href="#h-b1-15-3" class="nav-link depth-3">15.3 Conflict &amp; Resolution</a></li>
+<li><a href="#h-b1-15-4" class="nav-link depth-3">15.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u16" class="nav-link depth-2">UNIT 16: COMPLAINTS &amp; APOLOGIES</a></li>
+<li><a href="#h-b1-16-1" class="nav-link depth-3">16.1 Making Complaints</a></li>
+<li><a href="#h-b1-16-2" class="nav-link depth-3">16.2 Apologizing</a></li>
+<li><a href="#h-b1-16-3" class="nav-link depth-3">16.3 Finding Solutions</a></li>
+<li><a href="#h-b1-16-4" class="nav-link depth-3">16.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-part-v" class="nav-link depth-1">PART V: QUEBEC CULTURE</a></li>
+<li><a href="#h-b1-u17" class="nav-link depth-2">UNIT 17: QUEBEC HISTORY</a></li>
+<li><a href="#h-b1-17-1" class="nav-link depth-3">17.1 Key Historical Events</a></li>
+<li><a href="#h-b1-17-2" class="nav-link depth-3">17.2 Historical Vocabulary</a></li>
+<li><a href="#h-b1-17-3" class="nav-link depth-3">17.3 Discussing History</a></li>
+<li><a href="#h-b1-17-4" class="nav-link depth-3">17.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u18" class="nav-link depth-2">UNIT 18: ARTS &amp; MUSIC</a></li>
+<li><a href="#h-b1-18-1" class="nav-link depth-3">18.1 Quebec Music Scene</a></li>
+<li><a href="#h-b1-18-2" class="nav-link depth-3">18.2 Literature &amp; Cinema</a></li>
+<li><a href="#h-b1-18-3" class="nav-link depth-3">18.3 Expressing Artistic Opinions</a></li>
+<li><a href="#h-b1-18-4" class="nav-link depth-3">18.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u19" class="nav-link depth-2">UNIT 19: POLITICS &amp; SOCIETY</a></li>
+<li><a href="#h-b1-19-1" class="nav-link depth-3">19.1 Political Vocabulary</a></li>
+<li><a href="#h-b1-19-2" class="nav-link depth-3">19.2 Quebec Political System</a></li>
+<li><a href="#h-b1-19-3" class="nav-link depth-3">19.3 Discussing Social Issues</a></li>
+<li><a href="#h-b1-19-4" class="nav-link depth-3">19.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b1-u20" class="nav-link depth-2">UNIT 20: REVIEW &amp; B2 PREP</a></li>
+<li><a href="#h-b1-20-1" class="nav-link depth-3">20.1 Grammar Summary</a></li>
+<li><a href="#h-b1-20-2" class="nav-link depth-3">20.2 Vocabulary Summary</a></li>
+<li><a href="#h-b1-20-3" class="nav-link depth-3">20.3 What to Expect at B2</a></li>
+<li><a href="#h-b1-20-4" class="nav-link depth-3">20.4 Study Tips</a></li>
+<li><a href="#h-b1-conclusion" class="nav-link depth-1">CONCLUSION</a></li>
+</ul>
+            </nav>
+        </aside>
+        <main class="content-area">
+            <div class="content-wrapper">
+
+<h1 id="h-b1-textbook">Canadian French B1 Level Complete Textbook</h1>
+<h2 id="h-b1-guide">A Comprehensive Guide for English Speakers</h2>
+<hr>
+<h2 id="h-b1-toc">TABLE OF CONTENTS</h2>
+<p><strong>PART I: ADVANCED TENSES</strong> – Plus-que-parfait, Conditionnel, Subjonctif, Futur Antérieur</p>
+<p><strong>PART II: COMPLEX EXPRESSION</strong> – Opinions, Cause &amp; Consequence, Hypotheses, Reported Speech</p>
+<p><strong>PART III: SOCIETY &amp; MEDIA</strong> – Media, Environment, Work, Education</p>
+<p><strong>PART IV: NARRATIVE &amp; EMOTION</strong> – Storytelling, Feelings, Relationships, Complaints</p>
+<p><strong>PART V: QUEBEC CULTURE</strong> – History, Arts, Politics, Review</p>
+<hr>
+
+<h1 id="h-b1-part-i">PART I: ADVANCED TENSES</h1>
+
+<h2 id="h-b1-u1">UNIT 1: LE PLUS-QUE-PARFAIT (PLUPERFECT)</h2>
+
+<h3 id="h-b1-1-1">1.1 Introduction</h3>
+<p>The <strong>plus-que-parfait</strong> describes an action that happened <strong>before</strong> another past action. In English, it corresponds to &quot;had done&quot; something.</p>
+<ul>
+<li><strong>Quand je suis arrivé à la gare, le train était déjà parti.</strong> (When I arrived at the station, the train had already left.)</li>
+<li><strong>Elle m&#39;a dit qu&#39;elle avait visité le Vieux-Montréal la veille.</strong> (She told me that she had visited Old Montreal the day before.)</li>
+</ul>
+
+<h3 id="h-b1-1-2">1.2 Formation</h3>
+<p>The plus-que-parfait = <strong>imparfait of avoir/être + past participle</strong>.</p>
+<table>
+<thead><tr><th>Pronoun</th><th>With Avoir (parler)</th><th>With Être (aller)</th></tr></thead>
+<tbody>
+<tr><td>J&#39;</td><td>avais parlé</td><td>étais allé(e)</td></tr>
+<tr><td>Tu</td><td>avais parlé</td><td>étais allé(e)</td></tr>
+<tr><td>Il/Elle/On</td><td>avait parlé</td><td>était allé(e)</td></tr>
+<tr><td>Nous</td><td>avions parlé</td><td>étions allé(e)s</td></tr>
+<tr><td>Vous</td><td>aviez parlé</td><td>étiez allé(e)(s)</td></tr>
+<tr><td>Ils/Elles</td><td>avaient parlé</td><td>étaient allé(e)s</td></tr>
+</tbody></table>
+<p><strong>Remember:</strong> The same verbs that take <strong>être</strong> in the passé composé also take être in the plus-que-parfait (DR MRS VANDERTRAMP verbs + reflexive verbs).</p>
+
+<h3 id="h-b1-1-3">1.3 Uses &amp; Examples</h3>
+<ul>
+<li><strong>Action before another past action:</strong> Il avait déjà mangé quand sa femme est rentrée du travail. (He had already eaten when his wife came home from work.)</li>
+<li><strong>Explaining a past situation:</strong> Nous étions fatigués parce que nous avions marché pendant cinq heures dans le parc de la Jacques-Cartier. (We were tired because we had walked for five hours in Jacques-Cartier Park.)</li>
+<li><strong>Regrets with &quot;si seulement&quot;:</strong> Si seulement j&#39;avais étudié plus, j&#39;aurais réussi mon examen au cégep. (If only I had studied more, I would have passed my exam at CEGEP.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A Missed Opportunity:</strong></p>
+<p><em>Vous racontez une journée malchanceuse à votre colocataire.</em></p>
+<p>&quot;Tu ne devineras jamais ce qui m&#39;est arrivé aujourd&#39;hui!&quot;<br>&quot;Quoi?&quot;<br>&quot;J&#39;avais oublié mon portefeuille à la maison. Quand je suis arrivé au restaurant pour mon entrevue, je n&#39;avais pas mes pièces d&#39;identité.&quot;<br>&quot;Oh non! Et qu&#39;est-ce que tu as fait?&quot;<br>&quot;J&#39;avais déjà appelé pour confirmer le matin, alors ils m&#39;ont quand même reçu. Mais en plus, j&#39;avais pris le mauvais autobus et je suis arrivé vingt minutes en retard!&quot;<br>&quot;Ça, c&#39;est une journée de même! Au moins, tu y es allé. C&#39;est l&#39;important.&quot;</p>
+<p><em>(You are telling your roommate about an unlucky day. &quot;You&#39;ll never guess what happened to me today!&quot; &quot;What?&quot; &quot;I had forgotten my wallet at home. When I arrived at the restaurant for my interview, I didn&#39;t have my ID.&quot; &quot;Oh no! And what did you do?&quot; &quot;I had already called to confirm in the morning, so they still saw me. But on top of that, I had taken the wrong bus and I arrived twenty minutes late!&quot; &quot;That&#39;s one of those days! At least you went. That&#39;s what matters.&quot;)</em></p>
+
+<h3 id="h-b1-1-4">1.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In spoken Quebec French, the plus-que-parfait is used naturally: <strong>&quot;J&#39;avais-tu oublié ça, moi!&quot;</strong> (Had I ever forgotten that!) – The &quot;-tu&quot; here is used as an emphasis marker, not a question.</li>
+<li><strong>&quot;De même&quot;</strong> is a typical Québécois expression meaning &quot;like that&quot;: <strong>&quot;Une journée de même&quot;</strong> = a day like that.</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u2">UNIT 2: LE CONDITIONNEL PRÉSENT</h2>
+
+<h3 id="h-b1-2-1">2.1 Introduction</h3>
+<p>The <strong>conditionnel présent</strong> expresses what &quot;would&quot; happen. It is used for polite requests, wishes, hypothetical situations, and giving advice.</p>
+
+<h3 id="h-b1-2-2">2.2 Formation</h3>
+<p>Conditionnel = <strong>futur simple stem + imparfait endings</strong> (-ais, -ais, -ait, -ions, -iez, -aient).</p>
+<table>
+<thead><tr><th>Pronoun</th><th>Parler</th><th>Avoir</th><th>Être</th><th>Pouvoir</th></tr></thead>
+<tbody>
+<tr><td>Je</td><td>parlerais</td><td>aurais</td><td>serais</td><td>pourrais</td></tr>
+<tr><td>Tu</td><td>parlerais</td><td>aurais</td><td>serais</td><td>pourrais</td></tr>
+<tr><td>Il/Elle/On</td><td>parlerait</td><td>aurait</td><td>serait</td><td>pourrait</td></tr>
+<tr><td>Nous</td><td>parlerions</td><td>aurions</td><td>serions</td><td>pourrions</td></tr>
+<tr><td>Vous</td><td>parleriez</td><td>auriez</td><td>seriez</td><td>pourriez</td></tr>
+<tr><td>Ils/Elles</td><td>parleraient</td><td>auraient</td><td>seraient</td><td>pourraient</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-2-3">2.3 Uses &amp; Si Clauses</h3>
+<p><strong>1. Polite requests:</strong></p>
+<ul>
+<li><strong>Est-ce que vous pourriez m&#39;indiquer le chemin pour aller au Musée des beaux-arts, s&#39;il vous plaît?</strong> (Could you show me the way to the Museum of Fine Arts, please?)</li>
+<li><strong>Je voudrais un café au lait et un croissant aux amandes, s&#39;il vous plaît.</strong> (I would like a café au lait and an almond croissant, please.)</li>
+</ul>
+<p><strong>2. Wishes and desires:</strong></p>
+<ul>
+<li><strong>J&#39;aimerais tellement visiter la Gaspésie cet été pour voir le rocher Percé.</strong> (I would love so much to visit the Gaspé Peninsula this summer to see Percé Rock.)</li>
+</ul>
+<p><strong>3. Si + imparfait → conditionnel (unreal conditions):</strong></p>
+<ul>
+<li><strong>Si j&#39;avais plus de temps libre, je prendrais des cours de peinture au centre communautaire.</strong> (If I had more free time, I would take painting classes at the community centre.)</li>
+<li><strong>Si nous habitions à Montréal, nous irions au Festival de jazz chaque année.</strong> (If we lived in Montreal, we would go to the Jazz Festival every year.)</li>
+</ul>
+<p><strong>4. Giving advice:</strong></p>
+<ul>
+<li><strong>À ta place, je demanderais une augmentation de salaire à mon patron.</strong> (If I were you, I would ask my boss for a raise.)</li>
+<li><strong>Tu devrais essayer la poutine au canard confit chez ce restaurant, elle est incroyable.</strong> (You should try the duck confit poutine at that restaurant, it&#39;s incredible.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Dreaming About Winning the Lottery:</strong></p>
+<p><em>Vous discutez avec vos amis de ce que vous feriez si vous gagniez à la loterie.</em></p>
+<p>&quot;Si je gagnais dix millions à la Loto-Québec, j&#39;achèterais un chalet au bord du lac Massawippi!&quot;<br>&quot;Moi, je voyagerais partout dans le monde. J&#39;irais en France, au Japon et en Australie.&quot;<br>&quot;Moi, je quitterais ma job et j&#39;ouvrirais une microbrasserie dans les Laurentides.&quot;<br>&quot;Et toi, Julie?&quot;<br>&quot;Je donnerais une partie à des organismes de charité et j&#39;investirais le reste. Je ne changerais pas trop ma vie, mais je serais plus tranquille.&quot;</p>
+<p><em>(You are discussing with your friends what you would do if you won the lottery. &quot;If I won ten million from Loto-Québec, I would buy a cottage on the shores of Lake Massawippi!&quot; &quot;Me, I would travel all over the world. I would go to France, Japan, and Australia.&quot; &quot;Me, I would quit my job and I would open a microbrewery in the Laurentians.&quot; &quot;And you, Julie?&quot; &quot;I would give part to charities and invest the rest. I wouldn&#39;t change my life too much, but I would be more at peace.&quot;)</em></p>
+
+<h3 id="h-b1-2-4">2.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>Loto-Québec</strong> is the provincial lottery corporation. <strong>&quot;Le 6/49&quot;</strong> and <strong>&quot;Lotto Max&quot;</strong> are popular lottery games.</li>
+<li>In Quebec, <strong>&quot;une microbrasserie&quot;</strong> (microbrewery) is a cultural phenomenon. Quebec has over 250 microbreweries, and craft beer is very popular.</li>
+<li>The expression <strong>&quot;lâcher sa job&quot;</strong> is informal Québécois for &quot;quitting one&#39;s job.&quot;</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u3">UNIT 3: LE SUBJONCTIF PRÉSENT</h2>
+
+<h3 id="h-b1-3-1">3.1 Introduction</h3>
+<p>The <strong>subjonctif</strong> is a mood (not a tense) used to express subjectivity: wishes, doubts, emotions, necessity, and opinions. It appears after specific trigger expressions, always preceded by <strong>que</strong>.</p>
+
+<h3 id="h-b1-3-2">3.2 Formation</h3>
+<p>Take the <strong>ils/elles</strong> form of the present tense, remove <strong>-ent</strong>, and add subjonctif endings:</p>
+<table>
+<thead><tr><th>Pronoun</th><th>Ending</th><th>Parler (parl-)</th><th>Finir (finiss-)</th></tr></thead>
+<tbody>
+<tr><td>que je</td><td>-e</td><td>parle</td><td>finisse</td></tr>
+<tr><td>que tu</td><td>-es</td><td>parles</td><td>finisses</td></tr>
+<tr><td>qu&#39;il/elle</td><td>-e</td><td>parle</td><td>finisse</td></tr>
+<tr><td>que nous</td><td>-ions</td><td>parlions</td><td>finissions</td></tr>
+<tr><td>que vous</td><td>-iez</td><td>parliez</td><td>finissiez</td></tr>
+<tr><td>qu&#39;ils/elles</td><td>-ent</td><td>parlent</td><td>finissent</td></tr>
+</tbody></table>
+
+<p><strong>Common irregular subjonctif forms:</strong></p>
+<table>
+<thead><tr><th>Verb</th><th>que je</th><th>que nous</th></tr></thead>
+<tbody>
+<tr><td>être</td><td>sois</td><td>soyons</td></tr>
+<tr><td>avoir</td><td>aie</td><td>ayons</td></tr>
+<tr><td>aller</td><td>aille</td><td>allions</td></tr>
+<tr><td>faire</td><td>fasse</td><td>fassions</td></tr>
+<tr><td>pouvoir</td><td>puisse</td><td>puissions</td></tr>
+<tr><td>savoir</td><td>sache</td><td>sachions</td></tr>
+<tr><td>vouloir</td><td>veuille</td><td>voulions</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-3-3">3.3 When to Use the Subjonctif</h3>
+<p><strong>1. After expressions of necessity:</strong></p>
+<ul>
+<li><strong>Il faut que tu apprennes le français si tu veux vivre au Québec.</strong> (You must learn French if you want to live in Quebec.)</li>
+<li><strong>Il est nécessaire que nous fassions des efforts pour protéger l&#39;environnement.</strong> (It is necessary that we make efforts to protect the environment.)</li>
+</ul>
+<p><strong>2. After expressions of emotion:</strong></p>
+<ul>
+<li><strong>Je suis content que tu puisses venir à ma fête de graduation.</strong> (I am happy that you can come to my graduation party.)</li>
+<li><strong>C&#39;est dommage qu&#39;il faille attendre si longtemps à l&#39;urgence de l&#39;hôpital.</strong> (It&#39;s a shame that one has to wait so long at the hospital emergency room.)</li>
+</ul>
+<p><strong>3. After expressions of doubt:</strong></p>
+<ul>
+<li><strong>Je doute qu&#39;il fasse beau demain. La météo annonce de la pluie verglaçante.</strong> (I doubt it will be nice tomorrow. The forecast calls for freezing rain.)</li>
+</ul>
+<p><strong>4. After expressions of desire/wish:</strong></p>
+<ul>
+<li><strong>Je veux que mes enfants aillent dans une école francophone au Québec.</strong> (I want my children to go to a French-language school in Quebec.)</li>
+</ul>
+<p><strong>5. After certain conjunctions:</strong> bien que (although), pour que (so that), avant que (before), à moins que (unless):</p>
+<ul>
+<li><strong>Bien que Montréal soit une grande ville, on peut y trouver des quartiers très calmes.</strong> (Although Montreal is a big city, you can find very quiet neighbourhoods there.)</li>
+<li><strong>Je t&#39;envoie l&#39;adresse pour que tu puisses me retrouver facilement.</strong> (I&#39;m sending you the address so that you can find me easily.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Planning a Move to Quebec:</strong></p>
+<p><em>Un immigrant discute avec un conseiller en immigration.</em></p>
+<p>&quot;Pour que votre demande soit acceptée, il faut que vous passiez un test de français.&quot;<br>&quot;D&#39;accord. Est-ce qu&#39;il est nécessaire que j&#39;aie un niveau B2?&quot;<br>&quot;Il est préférable que vous ayez au moins un B1 oral. Le gouvernement veut que les immigrants puissent s&#39;intégrer rapidement.&quot;<br>&quot;Je comprends. J&#39;étudie le français depuis un an. J&#39;espère que mon niveau soit suffisant.&quot;<br>&quot;Je suis sûr que vous réussirez! Il est important que vous continuiez à pratiquer, surtout l&#39;écoute et la conversation.&quot;</p>
+<p><em>(An immigrant is talking with an immigration advisor. &quot;For your application to be accepted, you must pass a French test.&quot; &quot;Okay. Is it necessary that I have a B2 level?&quot; &quot;It is preferable that you have at least an oral B1. The government wants immigrants to be able to integrate quickly.&quot; &quot;I understand. I&#39;ve been studying French for a year. I hope my level is sufficient.&quot; &quot;I&#39;m sure you will succeed! It is important that you continue to practice, especially listening and conversation.&quot;)</em></p>
+
+<h3 id="h-b1-3-4">3.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In spoken Quebec French, the subjonctif is sometimes avoided in casual speech, replaced with the indicatif: <strong>&quot;Faut que je vais&quot;</strong> (informal) instead of <strong>&quot;Il faut que j&#39;aille&quot;</strong> (correct). Be aware of this but learn the correct form!</li>
+<li>Quebec immigrants often take <strong>&quot;cours de francisation&quot;</strong> (French classes for immigrants), offered free by the government through the MIFI (Ministère de l&#39;Immigration, de la Francisation et de l&#39;Intégration).</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u4">UNIT 4: LE FUTUR ANTÉRIEUR</h2>
+
+<h3 id="h-b1-4-1">4.1 Introduction</h3>
+<p>The <strong>futur antérieur</strong> expresses an action that &quot;will have been completed&quot; before another future action. It is the future equivalent of the plus-que-parfait.</p>
+
+<h3 id="h-b1-4-2">4.2 Formation</h3>
+<p>Futur antérieur = <strong>futur simple of avoir/être + past participle</strong>.</p>
+<table>
+<thead><tr><th>Pronoun</th><th>With Avoir (finir)</th><th>With Être (partir)</th></tr></thead>
+<tbody>
+<tr><td>J&#39;</td><td>aurai fini</td><td>serai parti(e)</td></tr>
+<tr><td>Tu</td><td>auras fini</td><td>seras parti(e)</td></tr>
+<tr><td>Il/Elle/On</td><td>aura fini</td><td>sera parti(e)</td></tr>
+<tr><td>Nous</td><td>aurons fini</td><td>serons parti(e)s</td></tr>
+<tr><td>Vous</td><td>aurez fini</td><td>serez parti(e)(s)</td></tr>
+<tr><td>Ils/Elles</td><td>auront fini</td><td>seront parti(e)s</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-4-3">4.3 Uses &amp; Examples</h3>
+<ul>
+<li><strong>Before another future action:</strong> Quand tu arriveras, j&#39;aurai déjà préparé le souper. (When you arrive, I will have already prepared dinner.)</li>
+<li><strong>Assumption about the past:</strong> Il n&#39;est pas encore arrivé. Il aura pris le mauvais autobus. (He hasn&#39;t arrived yet. He will have taken the wrong bus. [i.e., He must have taken the wrong bus.])</li>
+<li><strong>Deadline:</strong> D&#39;ici la fin du mois, nous aurons terminé tous les travaux de rénovation de la cuisine. (By the end of the month, we will have finished all the kitchen renovation work.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – End of Semester:</strong></p>
+<p><em>Deux étudiants au cégep discutent avant les examens finaux.</em></p>
+<p>&quot;Quand est-ce que tu auras fini tes examens?&quot;<br>&quot;J&#39;aurai tout terminé vendredi prochain. Et toi?&quot;<br>&quot;Moi, j&#39;aurai fini mercredi. Mon dernier examen, c&#39;est philo.&quot;<br>&quot;La philo, c&#39;est tough! Quand tu auras réussi, on fêtera ça en allant au 5 à 7!&quot;<br>&quot;Bonne idée! D&#39;ici là, j&#39;aurai lu trois cents pages de Camus et j&#39;aurai écrit deux dissertations.&quot;</p>
+<p><em>(Two CEGEP students are talking before final exams. &quot;When will you have finished your exams?&quot; &quot;I will have finished everything next Friday. And you?&quot; &quot;Me, I will have finished Wednesday. My last exam is philosophy.&quot; &quot;Philosophy is tough! When you pass, we&#39;ll celebrate by going to a happy hour!&quot; &quot;Good idea! By then, I will have read three hundred pages of Camus and I will have written two essays.&quot;)</em></p>
+
+<h3 id="h-b1-4-4">4.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>The futur antérieur is mostly used in writing and formal speech in Quebec. In conversation, Quebecers prefer simpler structures.</li>
+<li><strong>&quot;Philo&quot;</strong> refers to the mandatory philosophy courses at cégep. All Quebec students must take two philosophy courses and one ethics course.</li>
+<li><strong>&quot;Tough&quot;</strong> (pronounced like the English word) is commonly used in Quebec French to mean &quot;difficult&quot;: <strong>&quot;C&#39;est tough!&quot;</strong></li>
+</ul>
+
+<h1 id="h-b1-part-ii">PART II: COMPLEX EXPRESSION</h1>
+
+<h2 id="h-b1-u5">UNIT 5: EXPRESSING OPINIONS</h2>
+
+<h3 id="h-b1-5-1">5.1 Giving Opinions</h3>
+<p>At the B1 level, expressing your opinion requires more nuance than simply saying "j'aime" or "je n'aime pas." Here are sophisticated ways to introduce your point of view:</p>
+<ul>
+<li><strong>À mon avis, / D'après moi, / Selon moi,</strong> – In my opinion, / According to me,</li>
+<li><strong>Je pense que / Je crois que / Je trouve que</strong> + indicatif – I think that / I believe that / I find that</li>
+<li><strong>Il me semble que</strong> + indicatif – It seems to me that</li>
+<li><strong>Pour ma part, / En ce qui me concerne,</strong> – For my part, / As far as I'm concerned,</li>
+<li><strong>Je suis convaincu(e) que</strong> + indicatif – I am convinced that</li>
+</ul>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>À mon avis, les transports en commun à Montréal devraient être gratuits pour les étudiants.</strong> (In my opinion, public transit in Montreal should be free for students.)</li>
+<li><strong>En ce qui me concerne, la poutine de ce casse-croûte est la meilleure de la province.</strong> (As far as I'm concerned, the poutine at this snack bar is the best in the province.)</li>
+</ul>
+<p><strong>Note on the Subjonctif:</strong> When you express an opinion <strong>negatively</strong>, you must use the subjonctif:</p>
+<ul>
+<li>Je pense que le gouvernement <strong>fait</strong> un bon travail. (indicatif)</li>
+<li>Je ne pense pas que le gouvernement <strong>fasse</strong> un bon travail. (subjonctif)</li>
+</ul>
+
+<h3 id="h-b1-5-2">5.2 Agreeing &amp; Disagreeing</h3>
+<p><strong>Agreeing:</strong></p>
+<ul>
+<li><strong>Je suis tout à fait d'accord avec toi / vous.</strong> (I completely agree with you.)</li>
+<li><strong>C'est exactement ce que je pense.</strong> (That's exactly what I think.)</li>
+<li><strong>Vous avez tout à fait raison.</strong> (You are absolutely right.)</li>
+<li><strong>Sans aucun doute. / Absolument.</strong> (Without a doubt. / Absolutely.)</li>
+</ul>
+<p><strong>Disagreeing:</strong></p>
+<ul>
+<li><strong>Je ne suis pas (du tout) d'accord.</strong> (I don't agree at all.)</li>
+<li><strong>Je ne partage pas cet avis.</strong> (I don't share this opinion.)</li>
+<li><strong>Vous avez tort.</strong> (You are wrong.)</li>
+<li><strong>C'est faux. / Je ne trouve pas.</strong> (That's false. / I don't think so.)</li>
+</ul>
+<p><strong>Partial agreement:</strong></p>
+<ul>
+<li><strong>Oui, mais d'un autre côté...</strong> (Yes, but on the other hand...)</li>
+<li><strong>Je comprends votre point de vue, cependant...</strong> (I understand your point of view, however...)</li>
+</ul>
+
+<h3 id="h-b1-5-3">5.3 Debating a Topic</h3>
+<p>When debating, use logical connectors to structure your arguments:</p>
+<ul>
+<li><strong>D'abord, / Premièrement,</strong> (First of all, / Firstly,)</li>
+<li><strong>Ensuite, / De plus,</strong> (Then, / Furthermore,)</li>
+<li><strong>En revanche, / Par contre,</strong> (On the other hand,)</li>
+<li><strong>Néanmoins, / Cependant,</strong> (Nevertheless, / However,)</li>
+<li><strong>Pour conclure, / En résumé,</strong> (To conclude, / In summary,)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing Work from Home:</strong></p>
+<p><em>Vous discutez du télétravail avec des collègues pendant la pause café.</em></p>
+<p>"Selon moi, le télétravail devrait être un droit pour tous les employés de bureau. On gagne tellement de temps de transport!"<br>"Je suis d'accord avec toi sur le temps de transport. Par contre, je trouve qu'on perd l'esprit d'équipe. À mon avis, un modèle hybride est préférable."<br>"C'est exactement ce que je pense. Deux jours au bureau et trois jours à la maison, c'est l'idéal."<br>"Je ne partage pas votre avis. En ce qui me concerne, je préfère être au bureau tous les jours. Chez moi, il y a trop de distractions."</p>
+<p><em>(You are discussing teleworking with colleagues during the coffee break. "According to me, teleworking should be a right for all office employees. We save so much commuting time!" "I agree with you on the commuting time. On the other hand, I find that we lose team spirit. In my opinion, a hybrid model is preferable." "That's exactly what I think. Two days at the office and three days at home is ideal." "I don't share your opinion. As far as I'm concerned, I prefer to be at the office every day. At my place, there are too many distractions.")</em></p>
+
+<h3 id="h-b1-5-4">5.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, <strong>"C'est clair que"</strong> (It's clear that) and <strong>"C'est sûr que"</strong> (It's sure that) are very common ways to introduce a strong opinion.</li>
+<li>To agree strongly, a Quebecer might say <strong>"Mets-en!"</strong> (You bet! / Absolutely!).</li>
+<li><strong>"Avoir raison"</strong> (to be right) and <strong>"avoir tort"</strong> (to be wrong) are the standard expressions, but informally someone might say <strong>"T'as pas tort"</strong> (You're not wrong).</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u6">UNIT 6: CAUSE &amp; CONSEQUENCE</h2>
+
+<h3 id="h-b1-6-1">6.1 Expressing Cause</h3>
+<p>To explain <em>why</em> something happens, you can use these expressions:</p>
+<ul>
+<li><strong>Parce que</strong> (Because) – Answers the question "Pourquoi?" and introduces a neutral cause.</li>
+<li><strong>Puisque</strong> (Since / As) – Indicates a cause that is already known or obvious to the listener.</li>
+<li><strong>Comme</strong> (As / Since) – Always placed at the <strong>beginning</strong> of a sentence.</li>
+<li><strong>À cause de + noun</strong> (Because of) – Introduces a <strong>negative</strong> or neutral cause.</li>
+<li><strong>Grâce à + noun</strong> (Thanks to) – Introduces a <strong>positive</strong> cause.</li>
+<li><strong>En raison de + noun</strong> (Due to) – Formal/administrative cause.</li>
+</ul>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Parce que:</strong> Je ne sors pas ce soir parce que je suis malade. (I'm not going out tonight because I'm sick.)</li>
+<li><strong>Comme:</strong> Comme il neige beaucoup, l'école est fermée. (Since it's snowing a lot, school is closed.)</li>
+<li><strong>Puisque:</strong> Puisque tu es déjà au dépanneur, achète du lait. (Since you're already at the corner store, buy some milk.)</li>
+<li><strong>À cause de:</strong> Le vol a été annulé à cause de la tempête. (The flight was canceled because of the storm.)</li>
+<li><strong>Grâce à:</strong> J'ai trouvé un bon emploi grâce à mon réseau de contacts. (I found a good job thanks to my network of contacts.)</li>
+</ul>
+
+<h3 id="h-b1-6-2">6.2 Expressing Consequence</h3>
+<p>To explain the <em>result</em> of an action or situation:</p>
+<ul>
+<li><strong>Donc</strong> (So / Therefore) – Logical conclusion.</li>
+<li><strong>Alors</strong> (So) – Common in spoken language.</li>
+<li><strong>Par conséquent, / En conséquence,</strong> (Consequently, / As a result,) – Formal.</li>
+<li><strong>C'est pour ça que / C'est la raison pour laquelle</strong> (That's why / That is the reason why)</li>
+<li><strong>Si bien que</strong> (So much so that / With the result that)</li>
+</ul>
+
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Donc:</strong> Je n'ai pas étudié, donc j'ai échoué à l'examen. (I didn't study, so I failed the exam.)</li>
+<li><strong>C'est pour ça que:</strong> Le pont est fermé. C'est pour ça qu'il y a autant de trafic. (The bridge is closed. That's why there is so much traffic.)</li>
+<li><strong>Par conséquent:</strong> L'entreprise a perdu beaucoup d'argent; par conséquent, il y aura des congédiements. (The company lost a lot of money; consequently, there will be layoffs.)</li>
+</ul>
+
+<h3 id="h-b1-6-3">6.3 Practice &amp; Examples</h3>
+<p>Combining cause and consequence allows for complex storytelling:</p>
+<ul>
+<li><strong>Comme je n'avais plus d'argent, j'ai dû trouver un deuxième emploi. C'est pour ça que je n'ai plus de temps libre pour mes loisirs.</strong> (Since I had no more money, I had to find a second job. That's why I no longer have free time for my hobbies.)</li>
+<li><strong>Les routes étaient glissantes à cause du verglas, si bien que plusieurs accidents se sont produits.</strong> (The roads were slippery because of the black ice, with the result that several accidents occurred.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Explaining a Delay:</strong></p>
+<p><em>Vous expliquez à votre patron pourquoi vous êtes en retard.</em></p>
+<p>"Excusez-moi pour mon retard, monsieur. Le métro était en panne ce matin."<br>"Ah oui? Qu'est-ce qui s'est passé?"<br>"Il y a eu un problème électrique sur la ligne orange. Comme c'était l'heure de pointe, il y avait énormément de monde."<br>"C'est pour ça que le bureau est si vide. La moitié de l'équipe prend cette ligne."<br>"Exactement, donc j'ai dû prendre un taxi. Heureusement, je suis arrivé grâce à un chauffeur qui connaissait un raccourci."</p>
+<p><em>(You explain to your boss why you are late. "Excuse me for my delay, sir. The metro broke down this morning." "Oh yes? What happened?" "There was an electrical problem on the orange line. As it was rush hour, there were a huge number of people." "That's why the office is so empty. Half the team takes that line." "Exactly, so I had to take a taxi. Fortunately, I arrived thanks to a driver who knew a shortcut.")</em></p>
+
+<h3 id="h-b1-6-4">6.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>"Fait que"</strong> / <strong>"Fa'que"</strong>: This is undoubtedly one of the most common expressions in spoken Quebec French. It replaces "donc" or "alors".
+<ul><li><strong>"J'étais fatigué, fa'que je suis allé me coucher."</strong> (I was tired, so I went to bed.)</li></ul></li>
+<li><strong>"À cause que"</strong> is often heard in informal speech instead of "parce que", though it is grammatically incorrect in standard French: <strong>"Je l'aime pas à cause qu'il parle trop."</strong></li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u7">UNIT 7: HYPOTHESES &amp; CONDITIONS</h2>
+
+<h3 id="h-b1-7-1">7.1 Si Clauses Overview</h3>
+<p>In French, "Si" (If) clauses are used to express conditions. The tense of the main clause depends on the tense used in the "Si" clause. There are three main types: possible, unlikely/unreal present, and impossible/unreal past.</p>
+
+<h3 id="h-b1-7-2">7.2 Real Conditions (Present/Future)</h3>
+<p>Describes a condition that is possible or likely to happen.</p>
+<p><strong>Structure: Si + Présent → Futur Simple (or Présent / Impératif)</strong></p>
+<ul>
+<li><strong>Si + Présent → Futur:</strong> Si j'ai le temps ce soir, je t'appellerai. (If I have time tonight, I will call you.) <em>Highly likely.</em></li>
+<li><strong>Si + Présent → Présent:</strong> S'il pleut, je prends toujours mon parapluie. (If it rains, I always take my umbrella.) <em>General truth/habit.</em></li>
+<li><strong>Si + Présent → Impératif:</strong> Si tu vas au supermarché, achète des pommes. (If you go to the supermarket, buy apples.) <em>Command based on a condition.</em></li>
+</ul>
+
+<h3 id="h-b1-7-3">7.3 Unreal Conditions (Imparfait/Conditionnel)</h3>
+<p>Describes a hypothetical situation that is contrary to fact in the present (e.g., "If I were rich...").</p>
+<p><strong>Structure: Si + Imparfait → Conditionnel Présent</strong></p>
+<ul>
+<li><strong>Si j'étais le Premier ministre, je baisserais les impôts.</strong> (If I were the Prime Minister, I would lower taxes.) <em>But I am not the Prime Minister.</em></li>
+<li><strong>Si nous avions une voiture, nous irions en Gaspésie cet été.</strong> (If we had a car, we would go to the Gaspésie this summer.) <em>But we don't have a car.</em></li>
+<li><strong>S'il faisait beau, on pourrait manger sur la terrasse.</strong> (If the weather were nice, we could eat on the terrace.) <em>But the weather is bad.</em></li>
+</ul>
+<p><strong>Mnemonic:</strong> Think "S-I-C" (Si + Imparfait → Conditionnel).</p>
+
+<p><strong>Other Conditional Conjunctions:</strong></p>
+<ul>
+<li><strong>À condition que + subjonctif:</strong> (Provided that) Je viendrai à condition que tu m'aides avec mes devoirs. (I will come provided that you help me with my homework.)</li>
+<li><strong>Au cas où + conditionnel:</strong> (In case) Prends ce parapluie au cas où il pleuvrait. (Take this umbrella in case it rains.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing Housing Options:</strong></p>
+<p><em>Un couple discute de l'achat éventuel d'une maison.</em></p>
+<p>"Si les taux d'intérêt baissent cette année, on achètera une maison l'année prochaine."<br>"Je l'espère. Si on avait déjà acheté il y a cinq ans, la maison vaudrait beaucoup plus cher aujourd'hui."<br>"C'est sûr. Mais si on achetait en banlieue, on aurait un plus grand terrain. Qu'est-ce que tu en penses?"<br>"Si on va en banlieue, on devra acheter une deuxième voiture. Si tu me demandes mon avis, je préférerais rester près d'une station de métro."</p>
+<p><em>(A couple discusses the possible purchase of a house. "If interest rates drop this year, we will buy a house next year." "I hope so. If we had already bought five years ago, the house would be worth much more today." "For sure. But if we bought in the suburbs, we would have a bigger yard. What do you think?" "If we go to the suburbs, we will have to buy a second car. If you ask my opinion, I would prefer to stay near a metro station.")</em></p>
+
+<h3 id="h-b1-7-4">7.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>Quebecers often elide the "il" in "S'il": <strong>"S'y fait beau"</strong> instead of <strong>"S'il fait beau"</strong> (If the weather is nice).</li>
+<li><strong>Hypercorrection:</strong> Some francophones mistakenly put the conditional after "si" (e.g., "Si j'aurais su..."). The famous rule taught in schools is <strong>"Les 'si' n'aiment pas les 'rais'."</strong> (The "si"s don't like the "-rais" endings). Always use Imparfait after Si!</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u8">UNIT 8: REPORTED SPEECH (DISCOURS INDIRECT)</h2>
+
+<h3 id="h-b1-8-1">8.1 Direct vs. Indirect Speech</h3>
+<p>Reported speech (discours indirect) is used to tell someone what another person said without quoting them directly. This involves changing pronouns and occasionally the verb tenses.</p>
+
+<p><strong>Reporting Verbs:</strong> dire (to say), affirmer (to state), répondre (to answer), déclarer (to declare), demander (to ask).</p>
+
+<p><strong>Present Reporting:</strong> When the reporting verb is in the present (e.g., il dit que...), the tense of the quote does not change, only the pronouns.</p>
+<ul>
+<li><strong>Direct:</strong> Paul déclare: "Je suis fatigué." (Paul declares: "I am tired.")</li>
+<li><strong>Indirect:</strong> Paul déclare qu'il est fatigué. (Paul declares that he is tired.)</li>
+</ul>
+
+<p><strong>Types of sentences:</strong></p>
+<ul>
+<li>Statements use <strong>que</strong>: Elle dit qu'elle vient. (She says that she's coming.)</li>
+<li>Questions use <strong>si</strong> (if it's a Yes/No question): Je lui demande <strong>s'il</strong> vient. (I ask him if he's coming.)</li>
+<li>Question words remain (où, quand, comment): Il demande <strong>où</strong> tu habites. (He asks where you live.)</li>
+<li>Commands use <strong>de + infinitive</strong>: Le médecin me dit <strong>de me reposer</strong>. (The doctor tells me to rest.)</li>
+</ul>
+
+<h3 id="h-b1-8-2">8.2 Tense Changes in the Past</h3>
+<p>When the reporting verb is in a past tense (e.g., il a dit, il disait), the tense of the reported speech must shift back in time (la concordance des temps).</p>
+
+<table>
+<thead><tr><th>Direct Speech Tense</th><th>Shifts to...</th><th>Indirect Speech Tense</th></tr></thead>
+<tbody>
+<tr><td>Présent</td><td>→</td><td>Imparfait</td></tr>
+<tr><td>Passé composé</td><td>→</td><td>Plus-que-parfait</td></tr>
+<tr><td>Futur simple</td><td>→</td><td>Conditionnel présent</td></tr>
+<tr><td>Imparfait</td><td>→</td><td>Imparfait (No change)</td></tr>
+<tr><td>Conditionnel</td><td>→</td><td>Conditionnel (No change)</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-8-3">8.3 Practice &amp; Examples</h3>
+<p><strong>Présent → Imparfait</strong><br>
+Direct: Il a dit: "Je <strong>vais</strong> au cinéma."<br>
+Indirect: Il a dit qu'il <strong>allait</strong> au cinéma. (He said he was going to the movies.)</p>
+
+<p><strong>Passé Composé → Plus-que-parfait</strong><br>
+Direct: Marie m'a dit: "J'<strong>ai fini</strong> mon travail."<br>
+Indirect: Marie m'a dit qu'elle <strong>avait fini</strong> son travail. (Marie told me she had finished her work.)</p>
+
+<p><strong>Futur Simple → Conditionnel</strong><br>
+Direct: Le météorologue a annoncé: "Il <strong>neigera</strong> demain."<br>
+Indirect: Le météorologue a annoncé qu'il <strong>neigerait</strong> le lendemain. (The meteorologist announced that it would snow the next day.)</p>
+
+<p><strong>Note on Time Expressions:</strong> When shifting to the past, time trackers also change:</p>
+<ul>
+<li>aujourd'hui → ce jour-là (that day)</li>
+<li>hier → la veille (the day before)</li>
+<li>demain → le lendemain (the next day)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Relaying Gossip:</strong></p>
+<p><em>Vous rapportez une conversation à un ami.</em></p>
+<p>"Est-ce que tu as parlé à Sophie récemment?"<br>"Oui, hier. Elle m'a dit qu'elle allait changer d'emploi bientôt."<br>"Vraiment? Et pourquoi?"<br>"Elle a expliqué que son patron ne la respectait pas et qu'elle avait trouvé un poste ailleurs. Elle m'a demandé si je connaissais quelqu'un pour la remplacer!"<br>"Wow. Et qu'est-ce qu'elle fera ensuite?"<br>"Elle a affirmé qu'elle prendrait un mois de vacances avant de commencer sa nouvelle job."</p>
+<p><em>(You are reporting a conversation to a friend. "Did you speak to Sophie recently?" "Yes, yesterday. She told me she was going to change jobs soon." "Really? And why?" "She explained that her boss didn't respect her and that she had found a position elsewhere. She asked me if I knew someone to replace her!" "Wow. And what will she do next?" "She stated that she would take a month of vacation before starting her new job.")</em></p>
+
+<h3 id="h-b1-8-4">8.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In spoken Quebec French, reported questions are often formed without the "si," using direct speech intonation with a "que" in front: <strong>"Il m'a demandé qu'est-ce que je faisais."</strong> instead of <strong>"Il m'a demandé ce que je faisais."</strong> (Grammatically, "ce que" is the correct form for reported "qu'est-ce que").</li>
+<li>The verb <strong>"jaser"</strong> is very common in Quebec meaning "to chat/converse": <strong>"On a jasé pendant des heures."</strong> (We chatted for hours.)</li>
+</ul>
+<hr>
+
+<h1 id="h-b1-part-iii">PART III: SOCIETY &amp; MEDIA</h1>
+
+<h2 id="h-b1-u9">UNIT 9: MEDIA &amp; NEWS</h2>
+
+<h3 id="h-b1-9-1">9.1 Media Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>les actualités (f. pl.) / les nouvelles</td><td>the news</td></tr>
+<tr><td>un quotidien / un journal</td><td>a daily newspaper</td></tr>
+<tr><td>un réseau social (des réseaux sociaux)</td><td>a social network</td></tr>
+<tr><td>la une (à la une)</td><td>the front page (on the front page)</td></tr>
+<tr><td>un fait divers</td><td>a minor news item / local news story</td></tr>
+<tr><td>une émission de télévision</td><td>a television show</td></tr>
+<tr><td>le téléjournal / le journal télévisé</td><td>the TV news broadcast</td></tr>
+<tr><td>un animateur / une animatrice</td><td>a host / presenter</td></tr>
+<tr><td>un sondage</td><td>a poll / survey</td></tr>
+<tr><td>la liberté de la presse</td><td>freedom of the press</td></tr>
+<tr><td>une fausse nouvelle</td><td>fake news</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-9-2">9.2 Understanding News</h3>
+<p>When reading French news, you will encounter the passive voice frequently.</p>
+<p><strong>La Voix Passive (Passive Voice):</strong> formed with <strong>être + past participle</strong>.</p>
+<ul>
+<li><strong>Active:</strong> Le gouvernement a adopté la loi. (The government adopted the law.)</li>
+<li><strong>Passive:</strong> La loi <strong>a été adoptée</strong> par le gouvernement. (The law was adopted by the government.)</li>
+</ul>
+<p>Note: The past participle agrees with the subject in the passive voice.</p>
+<ul>
+<li><strong>Plusieurs manifestations sont prévues ce week-end.</strong> (Several protests are planned this weekend.)</li>
+<li><strong>Le suspect a été arrêté par les autorités.</strong> (The suspect was arrested by the authorities.)</li>
+</ul>
+
+<h3 id="h-b1-9-3">9.3 Discussing Current Events</h3>
+<ul>
+<li><strong>As-tu entendu parler de la nouvelle loi sur la laïcité?</strong> (Have you heard about the new secularism law?)</li>
+<li><strong>J'ai lu un article très intéressant dans La Presse ce matin concernant l'inflation.</strong> (I read a very interesting article in La Presse this morning regarding inflation.)</li>
+<li><strong>D'après les sondages, le parti sortant pourrait perdre les prochaines élections.</strong> (According to the polls, the incumbent party might lose the next elections.)</li>
+<li><strong>Les médias sociaux jouent un rôle de plus en plus grand dans la désinformation.</strong> (Social media plays a growing role in disinformation.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing the News over Coffee:</strong></p>
+<p><em>Vous lisez les nouvelles sur votre tablette et en discutez avec votre conjoint(e).</em></p>
+<p>"Est-ce que tu as vu les nouvelles ce matin?"<br>"Non, pas encore. Qu'est-ce qui se passe?"<br>"Radio-Canada rapporte qu'il y a une grève importante dans le secteur de l'éducation. Les écoles pourraient être fermées toute la semaine."<br>"C'est la troisième grève cette année! Je comprends que les professeurs veuillent de meilleures conditions, mais c'est difficile pour les parents."<br>"Le ministre a déclaré que les négociations avançaient, mais le syndicat affirme le contraire."<br>"On verra bien. Tiens-moi au courant si la grève est confirmée."</p>
+<p><em>(You read the news on your tablet and discuss it with your partner. "Did you see the news this morning?" "No, not yet. What's going on?" "Radio-Canada reports that there is a major strike in the education sector. Schools could be closed all week." "That's the third strike this year! I understand that teachers want better conditions, but it's hard for parents." "The minister stated that negotiations were progressing, but the union says otherwise." "We'll see. Keep me posted if the strike is confirmed.")</em></p>
+
+<h3 id="h-b1-9-4">9.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>La Presse</strong> (now entirely digital) and <strong>Le Journal de Montréal/Québec</strong> are the most read French-language dailies in North America.</li>
+<li><strong>Radio-Canada</strong> is the French-language branch of the Canadian Broadcasting Corporation (CBC), the national public broadcaster.</li>
+<li><strong>"Le téléjournal"</strong> specifically refers to the flagship news program on Radio-Canada.</li>
+<li><strong>Le devoir</strong> is an independent daily newspaper known for its intellectual and cultural focus.</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u10">UNIT 10: ENVIRONMENT</h2>
+
+<h3 id="h-b1-10-1">10.1 Environment Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>l'environnement (m.)</td><td>the environment</td></tr>
+<tr><td>le changement climatique / les changements climatiques</td><td>climate change</td></tr>
+<tr><td>le réchauffement de la planète</td><td>global warming</td></tr>
+<tr><td>l'effet de serre (m.) / les gaz à effet de serre (GES)</td><td>the greenhouse effect / GHG emissions</td></tr>
+<tr><td>la pollution</td><td>pollution</td></tr>
+<tr><td>le recyclage / trier les déchets</td><td>recycling / to sort the trash</td></tr>
+<tr><td>les énergies renouvelables</td><td>renewable energies</td></tr>
+<tr><td>l'hydroélectricité (f.)</td><td>hydroelectricity</td></tr>
+<tr><td>une voiture électrique / hybride</td><td>an electric / hybrid car</td></tr>
+<tr><td>le transport en commun</td><td>public transportation</td></tr>
+<tr><td>une piste cyclable</td><td>a bike path</td></tr>
+<tr><td>le développement durable</td><td>sustainable development</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-10-2">10.2 Talking About Climate</h3>
+<ul>
+<li><strong>Les changements climatiques provoquent des hivers de plus en plus imprévisibles au Québec.</strong> (Climate change is causing increasingly unpredictable winters in Quebec.)</li>
+<li><strong>La fonte des glaces dans l'Arctique menace plusieurs espèces animales, dont l'ours polaire.</strong> (The melting of ice in the Arctic threatens several animal species, including the polar bear.)</li>
+<li><strong>Il faut réduire nos émissions de gaz à effet de serre pour limiter le réchauffement climatique.</strong> (We must reduce our greenhouse gas emissions to limit global warming.)</li>
+<li><strong>Le Québec a un avantage écologique énorme grâce à sa production d'hydroélectricité.</strong> (Quebec has a huge ecological advantage thanks to its hydroelectric production.)</li>
+</ul>
+
+<h3 id="h-b1-10-3">10.3 Green Living Expressions</h3>
+<ul>
+<li><strong>Faire du covoiturage:</strong> L'entreprise encourage ses employés à faire du covoiturage pour se rendre au travail. (The company encourages its employees to carpool to get to work.)</li>
+<li><strong>Consommer local:</strong> J'essaie de consommer local en achetant mes légumes directement aux fermiers du coin. (I try to consume locally by buying my vegetables directly from local farmers.)</li>
+<li><strong>Avoir une empreinte écologique:</strong> Manger moins de viande est une excellente façon de réduire son empreinte écologique. (Eating less meat is an excellent way to reduce one's ecological footprint.)</li>
+<li><strong>Une initiative verte:</strong> La ville de Montréal multiplie les initiatives vertes, par exemple en ajoutant un bac brun pour le compostage. (The city of Montreal is multiplying green initiatives, for example by adding a brown bin for composting.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing Recycling &amp; Composting:</strong></p>
+<p><em>Un nouveau locataire demande des informations sur les poubelles à son voisin.</em></p>
+<p>"Bonjour! Je viens d'emménager au deuxième. Pourriez-vous me dire comment fonctionne la collecte des déchets ici?"<br>"Bienvenue! C'est assez simple. Le bac noir, c'est pour les déchets ultimes. Le bac vert, c'est pour le recyclage : papier, carton, plastique et verre."<br>"Et le petit bac brun?"<br>"Ça, c'est pour les matières organiques, le compost. On y met les restes de table de cuisine, les coquilles d'œufs, le marc de café, etc. Le camion passe tous les jeudis matin pour le recyclage et le compost."<br>"C'est parfait. C'est important de faire sa part pour l'environnement. Je me suis aussi abonné à Bixi pour aller au travail."<br>"Très bonne idée! Les pistes cyclables sont excellentes dans notre quartier."</p>
+<p><em>(A new tenant asks his neighbor for information about the garbage bins. "Hello! I just moved in on the second floor. Could you tell me how garbage collection works here?" "Welcome! It's quite simple. The black bin is for final waste. The green bin is for recycling: paper, cardboard, plastic, and glass." "And the small brown bin?" "That is for organic matter, compost. We put kitchen table scraps, eggshells, coffee grounds, etc. The truck comes every Thursday morning for recycling and compost." "That's perfect. It's important to do our part for the environment. I also subscribed to Bixi to go to work." "Very good idea! The bike paths are excellent in our neighborhood.")</em></p>
+
+<h3 id="h-b1-10-4">10.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>Hydro-Québec:</strong> A state-owned public utility that provides almost all of Quebec's electricity. Because it uses hydroelectric dams, Quebec's energy grid is one of the cleanest in the world.</li>
+<li><strong>Bixi:</strong> The public bicycle sharing system in Montreal (and other cities). The name is a portmanteau of "BIcycle" and "taXI".</li>
+<li><strong>Le bac vert / le bac brun:</strong> Municipalities provide specific colored bins for recycling (green/blue) and composting (brown).</li>
+</ul>
+
+<h2 id="h-b1-u11">UNIT 11: WORK &amp; CAREER</h2>
+
+<h3 id="h-b1-11-1">11.1 Job Search Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un emploi / une job (QC)</td><td>a job</td></tr>
+<tr><td>un poste</td><td>a position</td></tr>
+<tr><td>une offre d'emploi</td><td>a job offer / posting</td></tr>
+<tr><td>un(e) candidat(e)</td><td>an applicant / candidate</td></tr>
+<tr><td>un curriculum vitae (CV)</td><td>a resume / CV</td></tr>
+<tr><td>une lettre de présentation</td><td>a cover letter</td></tr>
+<tr><td>une entrevue (QC) / un entretien (FR)</td><td>an interview</td></tr>
+<tr><td>un employeur / une employeuse</td><td>an employer</td></tr>
+<tr><td>un(e) employé(e)</td><td>an employee</td></tr>
+<tr><td>le chômage</td><td>unemployment</td></tr>
+<tr><td>un salaire</td><td>a salary</td></tr>
+<tr><td>les avantages sociaux</td><td>benefits (insurance, etc.)</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-11-2">11.2 Writing a CV &amp; Cover Letter</h3>
+<p>When applying for a job in Quebec, you must send a <strong>CV</strong> and a <strong>lettre de présentation</strong>.</p>
+<ul>
+<li><strong>Ouvrez avec une formule de politesse:</strong> Madame, Monsieur, (Dear Sir/Madam,)</li>
+<li><strong>Parlez de vos compétences:</strong> Je possède une excellente maîtrise des outils informatiques et je parle couramment l'anglais et le français. (I possess an excellent mastery of software tools and I speak English and French fluently.)</li>
+<li><strong>Exprimez votre motivation:</strong> Je suis très intéressé(e) par ce poste car il correspond parfaitement à mes qualifications. (I am very interested in this position because it perfectly matches my qualifications.)</li>
+<li><strong>Concluez formellement:</strong> Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées. (Formal sign-off: Sincerely yours.)</li>
+</ul>
+
+<h3 id="h-b1-11-3">11.3 Job Interviews</h3>
+<ul>
+<li><strong>Quelles sont vos forces et vos faiblesses?</strong> (What are your strengths and weaknesses?)</li>
+<li><strong>Pouvez-vous me parler d'une situation où vous avez dû résoudre un conflit?</strong> (Can you tell me about a situation where you had to resolve a conflict?)</li>
+<li><strong>Où vous voyez-vous dans cinq ans?</strong> (Where do you see yourself in five years?)</li>
+<li><strong>J'ai cinq ans d'expérience dans le domaine du service à la clientèle.</strong> (I have five years of experience in the customer service field.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A Job Interview:</strong></p>
+<p><em>Vous passez une entrevue pour un poste en marketing.</em></p>
+<p>"Pourquoi avez-vous appliqué pour ce poste chez nous?"<br>"Votre entreprise est reconnue pour son innovation. Comme j'ai beaucoup d'expérience en marketing numérique, je suis convaincu que je pourrais contribuer à votre croissance."<br>"C'est intéressant. Comment gérez-vous le stress et les délais serrés?"<br>"Je suis quelqu'un de très organisé. Je priorise mes tâches chaque matin, ce qui me permet de rester calme même quand les délais sont courts."<br>"Très bien. Avez-vous des questions pour nous?"<br>"Oui, j'aimerais savoir à quoi ressemble une journée type dans ce département."</p>
+<p><em>(You are interviewing for a marketing position. "Why did you apply for this position with us?" "Your company is known for its innovation. Since I have a lot of experience in digital marketing, I am convinced that I could contribute to your growth." "That's interesting. How do you manage stress and tight deadlines?" "I am a very organized person. I prioritize my tasks every morning, which allows me to stay calm even when deadlines are short." "Very well. Do you have any questions for us?" "Yes, I would like to know what a typical day looks like in this department.")</em></p>
+
+<h3 id="h-b1-11-4">11.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, people "apply" for a job: <strong>appliquer sur un poste</strong>. In France, they <strong>postuler</strong> for a job.</li>
+<li>The word <strong>job</strong> is feminine in Quebec: <strong>une bonne job</strong>. (In France, it's masculine: <strong>un petit job</strong>).</li>
+<li><strong>"Faire du temps supplémentaire"</strong> or <strong>"faire de l'overtime"</strong> means working extra hours.</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u12">UNIT 12: EDUCATION</h2>
+
+<h3 id="h-b1-12-1">12.1 The Education System in Quebec</h3>
+<p>Quebec has a unique education system in North America:</p>
+<ol>
+<li><strong>École primaire:</strong> 6 years (Grades 1-6)</li>
+<li><strong>École secondaire:</strong> 5 years (Secondary 1-5, ending at Grade 11).</li>
+<li><strong>Cégep:</strong> 2 years (Pre-university) or 3 years (Technical/Vocational). You must complete cégep to go to university.</li>
+<li><strong>Université:</strong> 3 or 4 years for an undergraduate degree (baccalauréat).</li>
+</ol>
+
+<h3 id="h-b1-12-2">12.2 Academic Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un étudiant / une étudiante</td><td>a student (university/college)</td></tr>
+<tr><td>un élève / une élève</td><td>a pupil (primary/secondary)</td></tr>
+<tr><td>les devoirs</td><td>homework</td></tr>
+<tr><td>un cours / une classe</td><td>a class / a course</td></tr>
+<tr><td>un diplôme</td><td>a degree / diploma</td></tr>
+<tr><td>le baccalauréat (le bac)</td><td>bachelor's degree</td></tr>
+<tr><td>un enseignant / une enseignante</td><td>a teacher</td></tr>
+<tr><td>un professeur (un prof)</td><td>a professor (high school/university)</td></tr>
+<tr><td>un examen intra / final</td><td>a midterm / final exam</td></tr>
+<tr><td>une bourse d'études</td><td>a scholarship</td></tr>
+<tr><td>les frais de scolarité</td><td>tuition fees</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-12-3">12.3 University Life</h3>
+<ul>
+<li><strong>Je fais un baccalauréat en administration des affaires à l'UQAM.</strong> (I am doing a bachelor's degree in business administration at UQAM.)</li>
+<li><strong>Il faut obtenir soixante crédits pour terminer ce programme.</strong> (You must obtain sixty credits to complete this program.)</li>
+<li><strong>J'ai coulé mon examen de mathématiques, je devrai reprendre le cours l'année prochaine.</strong> (I failed my math exam, I'll have to retake the course next year.)</li>
+<li><strong>La session d'automne commence fin août et se termine en décembre.</strong> (The fall semester starts in late August and ends in December.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing University Plans:</strong></p>
+<p><em>Deux étudiants au cégep parlent de leurs choix pour l'université.</em></p>
+<p>"Est-ce que tu as envoyé tes demandes d'admission pour l'université?"<br>"Oui, j'ai appliqué en génie mécanique à Polytechnique et à l'ÉTS. Et toi?"<br>"Moi, je veux aller à l'Université Laval en droit. Mais les critères d'admission sont très stricts. J'espère que ma cote R sera assez haute."<br>"C'est sûr! Tu as d'excellentes notes. Qu'est-ce que tu feras si tu n'es pas accepté?"<br>"J'ai mis sciences politiques comme deuxième choix, au cas où."</p>
+<p><em>(Two CEGEP students are talking about their choices for university. "Did you send your university admission applications?" "Yes, I applied for mechanical engineering at Polytechnique and ÉTS. And you?" "Me, I want to go to Université Laval for law. But the admission criteria are very strict. I hope my R-score will be high enough." "For sure! You have excellent grades. What will you do if you are not accepted?" "I put political science as a second choice, just in case.")</em></p>
+
+<h3 id="h-b1-12-4">12.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>La cote R:</strong> A statistical method used in Quebec to classify college students' academic performance for university admissions.</li>
+<li><strong>BAC:</strong> In Quebec, "le BAC" refers to a bachelor's degree (university). In France, "le bac" is the high school exit exam.</li>
+<li><strong>"Couler un examen"</strong> is Quebec slang for failing an exam. In France, they say <strong>"rater un examen."</strong></li>
+</ul>
+<hr>
+
+<h1 id="h-b1-part-iv">PART IV: NARRATIVE &amp; EMOTION</h1>
+
+<h2 id="h-b1-u13">UNIT 13: STORYTELLING</h2>
+
+<h3 id="h-b1-13-1">13.1 Narrative Tenses</h3>
+<p>To tell a story effectively in French, you must mix the <strong>imparfait</strong> and the <strong>passé composé</strong> (or the passé simple in formal literature).</p>
+<ul>
+<li><strong>Imparfait:</strong> The background, the setting, descriptions, weather, age, ongoing actions, and states of mind. ("It was raining," "She was happy.")</li>
+<li><strong>Passé Composé:</strong> The main events, sudden actions, interruptions, and completed actions that move the plot forward. ("The phone rang," "He opened the door.")</li>
+</ul>
+
+<p><strong>Example Story:</strong></p>
+<p><em>C'était l'hiver. <strong>Il faisait</strong> tellement froid et <strong>la neige tombait</strong> depuis ce matin-là. (Setting: Imparfait). Je <strong>marchais</strong> tranquillement vers le métro quand, soudain, j'<strong>ai glissé</strong> sur une plaque de glace. (Interruption: PC). Je <strong>suis tombé</strong> par terre et j'<strong>ai échappé</strong> mon café. (Action: PC). Heureusement, je n'<strong>étais</strong> pas blessé (State: Imparfait), mais mon manteau <strong>était</strong> complètement ruiné!</em></p>
+<p>(It was winter. It was so cold and the snow had been falling since that morning. I was walking quietly towards the metro when, suddenly, I slipped on a patch of ice. I fell on the ground and dropped my coffee. Fortunately, I was not hurt, but my coat was completely ruined!)</p>
+
+<h3 id="h-b1-13-2">13.2 Story Structure</h3>
+<ul>
+<li><strong>La situation initiale (The beginning):</strong> Use the imparfait to set the scene.</li>
+<li><strong>L'élément déclencheur (The inciting incident):</strong> Un jour, soudain, tout à coup... (One day, suddenly...) + passé composé.</li>
+<li><strong>Les péripéties (The rising action):</strong> A series of events using the passé composé.</li>
+<li><strong>Le dénouement (The resolution):</strong> The final outcome.</li>
+<li><strong>La situation finale (The end):</strong> How things are now.</li>
+</ul>
+
+<h3 id="h-b1-13-3">13.3 Connectors for Narratives</h3>
+<table>
+<thead><tr><th>Connector</th><th>Meaning</th></tr></thead>
+<tbody>
+<tr><td>D'abord,</td><td>First,</td></tr>
+<tr><td>Soudain, / Tout à coup,</td><td>Suddenly, / All of a sudden,</td></tr>
+<tr><td>Pendant ce temps,</td><td>Meanwhile,</td></tr>
+<tr><td>Dès que</td><td>As soon as</td></tr>
+<tr><td>Au moment où</td><td>Just as / At the moment when</td></tr>
+<tr><td>Finalement, / À la fin,</td><td>Finally, / In the end,</td></tr>
+</tbody></table>
+
+<p><strong>🇫🇷 Real-Life Scene – Telling an Anecdote:</strong></p>
+<p><em>Vous racontez une anecdote amusante à vos collègues.</em></p>
+<p>"Il faut que je vous raconte ce qui m'est arrivé en fin de semaine!"<br>"Vas-y, on t'écoute."<br>"J'étais au supermarché, je faisais mes courses tranquillement. Soudain, j'ai vu quelqu'un qui ressemblait exactement à mon frère. Je me suis approché par-derrière, je lui ai tapé sur l'épaule et j'ai dit : 'Hé le grand, qu'est-ce que tu fais là?'"<br>"Oh non..."<br>"Oui! L'homme s'est retourné et c'était un inconnu total! J'étais tellement gêné que je suis devenu tout rouge. Je me suis excusé mille fois et j'ai couru me cacher dans la rangée des céréales!"</p>
+<p><em>(You tell a funny anecdote to your colleagues. "I have to tell you what happened to me this weekend!" "Go ahead, we're listening." "I was at the supermarket, doing my shopping quietly. Suddenly, I saw someone who looked exactly like my brother. I approached from behind, tapped him on the shoulder and said: 'Hey big guy, what are you doing here?'" "Oh no..." "Yes! The man turned around and it was a total stranger! I was so embarrassed that I turned completely red. I apologized a thousand times and ran to hide in the cereal aisle!")</em></p>
+
+<h3 id="h-b1-13-4">13.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>"En fin de semaine"</strong> means "this weekend" in Quebec. In France, they say "ce week-end."</li>
+<li><strong>"Gêné"</strong> in Quebec strongly implies "embarrassed" (as in the story above), whereas in France it often just means "bothered" or "shy."</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u14">UNIT 14: FEELINGS &amp; EMOTIONS</h2>
+
+<h3 id="h-b1-14-1">14.1 Emotion Vocabulary</h3>
+<table>
+<thead><tr><th>Emotion</th><th>Adjective (m/f)</th><th>Noun</th></tr></thead>
+<tbody>
+<tr><td>Joy</td><td>joyeux(euse), heureux(euse)</td><td>la joie, le bonheur</td></tr>
+<tr><td>Sadness</td><td>triste, déprimé(e)</td><td>la tristesse, la dépression</td></tr>
+<tr><td>Anger</td><td>fâché(e), en colère</td><td>la colère</td></tr>
+<tr><td>Fear</td><td>effrayé(e), peureux(euse)</td><td>la peur</td></tr>
+<tr><td>Surprise</td><td>surpris(e), étonné(e)</td><td>la surprise, l'étonnement</td></tr>
+<tr><td>Embarrassment</td><td>gêné(e), honteux(euse)</td><td>la honte, la gêne</td></tr>
+<tr><td>Worry</td><td>inquiet(ète), anxieux(euse)</td><td>l'inquiétude, l'anxiété</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-14-2">14.2 Expressing Feelings (with Subjonctif)</h3>
+<p>Remember that when you state an emotion about <em>something else</em> happening, you must use <strong>que + subjonctif</strong>.</p>
+<ul>
+<li><strong>Je suis heureux que mon équipe gagne le match.</strong> (I am happy that my team is winning the game.)</li>
+<li><strong>Nous sommes désolés que tu doives partir si tôt.</strong> (We are sorry that you have to leave so early.)</li>
+<li><strong>Elle a peur qu'il y ait encore une tempête de neige.</strong> (She is afraid that there might be another snowstorm.)</li>
+</ul>
+<p><strong>Note:</strong> If the subject of both verbs is the <em>same</em>, use <strong>de + infinitive</strong>.</p>
+<ul>
+<li><strong>Je suis heureux d'être ici.</strong> (I am happy to be here. - <em>I</em> am happy, <em>I</em> am here.)</li>
+</ul>
+
+<h3 id="h-b1-14-3">14.3 Reacting to Situations</h3>
+<ul>
+<li><strong>C'est incroyable!</strong> (That's incredible!)</li>
+<li><strong>Quelle bonne/mauvaise nouvelle!</strong> (What good/bad news!)</li>
+<li><strong>Ça me rend fou!</strong> (That drives me crazy!)</li>
+<li><strong>C'est dommage.</strong> (That's a shame/too bad.)</li>
+<li><strong>Quel soulagement!</strong> (What a relief!)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Consoling a Friend:</strong></p>
+<p><em>Votre ami(e) vient de perdre son emploi.</em></p>
+<p>"Salut, ça va? Tu as l'air vraiment abattu."<br>"Non, ça ne va pas du tout. Je viens d'apprendre que je perds mon emploi. La compagnie fait des coupures."<br>"Oh mon Dieu, je suis tellement désolé d'entendre ça. Quelle mauvaise nouvelle! Comment te sens-tu?"<br>"Je suis fâché, mais surtout inquiet pour l'avenir. J'ai un gros loyer à payer."<br>"C'est tout à fait normal que tu sois inquiet. Mais tu es super compétent, je suis convaincu que tu vas retrouver quelque chose rapidement."<br>"J'espère... C'est juste un choc, tu sais."<br>"Je comprends. Je suis là pour toi. Ça te ferait du bien d'aller prendre un café?"</p>
+<p><em>(Your friend just lost their job. "Hi, are you okay? You look really down." "No, I'm not doing well at all. I just learned that I'm losing my job. The company is making cuts." "Oh my God, I am so sorry to hear that. What bad news! How do you feel?" "I'm angry, but mostly worried for the future. I have a big rent to pay." "It is completely normal that you are worried. But you are super competent, I am convinced you will find something quickly." "I hope so... It's just a shock, you know." "I understand. I'm here for you. Would it do you good to go grab a coffee?")</em></p>
+
+<h3 id="h-b1-14-4">14.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>"Être en maudit" / "Être en tabarnak"</strong> (vulgar) means to be <em>very</em> angry. (Only use the latter around close friends!).</li>
+<li><strong>"Avoir de la peine"</strong> is the common way to say "to feel sad" or "to have a heavy heart."</li>
+<li><strong>"Avoir le goût de..."</strong> means "to feel like doing something" (e.g., J'ai le goût de pleurer - I feel like crying).</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u15">UNIT 15: RELATIONSHIPS</h2>
+
+<h3 id="h-b1-15-1">15.1 Relationship Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un chum (QC) / un petit ami</td><td>a boyfriend</td></tr>
+<tr><td>une blonde (QC) / une petite amie</td><td>a girlfriend</td></tr>
+<tr><td>le conjoint / la conjointe</td><td>the partner / spouse</td></tr>
+<tr><td>l'amitié (f.)</td><td>friendship</td></tr>
+<tr><td>les fiançailles</td><td>engagement</td></tr>
+<tr><td>le mariage</td><td>marriage / wedding</td></tr>
+<tr><td>le divorce</td><td>divorce</td></tr>
+<tr><td>un(e) colocataire (un coloc)</td><td>a roommate</td></tr>
+<tr><td>s'entendre bien/mal avec</td><td>to get along well/badly with</td></tr>
+<tr><td>tomber en amour avec (QC)</td><td>to fall in love with</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-15-2">15.2 Describing Relationships</h3>
+<ul>
+<li><strong>Ma blonde et moi, ça fait cinq ans qu'on est ensemble.</strong> (My girlfriend and I have been together for five years.)</li>
+<li><strong>Je m'entends super bien avec mes colocs. On cuisine souvent ensemble le soir.</strong> (I get along really well with my roommates. We often cook together in the evening.)</li>
+<li><strong>Julie a rompu avec son chum la semaine dernière. C'était une séparation difficile.</strong> (Julie broke up with her boyfriend last week. It was a difficult separation.)</li>
+<li><strong>Il a demandé sa conjointe en mariage pendant leurs vacances au Mexique.</strong> (He proposed to his partner during their vacation in Mexico.)</li>
+</ul>
+
+<h3 id="h-b1-15-3">15.3 Conflict &amp; Resolution</h3>
+<ul>
+<li><strong>se disputer (avec quelqu'un):</strong> Mes parents se disputent souvent à propos de l'argent. (My parents often argue about money.)</li>
+<li><strong>faire un compromis:</strong> Dans un couple, il est important de savoir faire des compromis. (In a couple, it is important to know how to make compromises.)</li>
+<li><strong>se réconcilier:</strong> Après une grosse chicane, ils se sont finalement réconciliés. (After a big fight, they finally reconciled.)</li>
+<li><strong>pardonner (à quelqu'un):</strong> Je te pardonne, mais je ne veux plus que ça se reproduise. (I forgive you, but I don't want it to happen again.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Gossip About a Breakup:</strong></p>
+<p><em>Deux amis discutent d'un couple qui vient de se séparer.</em></p>
+<p>"As-tu entendu la nouvelle? Martin et Sophie ne sont plus ensemble."<br>"Quoi?! Tu niaises! Ils avaient l'air tellement heureux."<br>"Apparemment, ils se chicanaient tout le temps depuis qu'ils ont acheté la maison. Le stress des rénovations a tué leur couple."<br>"C'est triste. Ça faisait combien de temps qu'ils étaient en couple?"<br>"Presque sept ans. Sophie a déjà pris ses affaires et est retournée vivre chez ses parents pour l'instant."<br>"Ouf. Je vais lui envoyer un message pour voir si elle a besoin de quelque chose."</p>
+<p><em>(Two friends discuss a couple that just separated. "Did you hear the news? Martin and Sophie are no longer together." "What?! You're kidding! They seemed so happy." "Apparently, they were fighting all the time since they bought the house. The stress of renovations killed their relationship." "It's sad. How long had they been a couple?" "Almost seven years. Sophie already took her things and went back to live with her parents for now." "Oof. I'm going to send her a message to see if she needs anything.")</em></p>
+
+<h3 id="h-b1-15-4">15.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>Chum</strong> and <strong>blonde</strong> are the universal terms for boyfriend/girlfriend in Quebec slang. Interestingly, a woman's "blonde" can be her female romantic partner, but a woman can also call her straight female friends her "chums de filles."</li>
+<li><strong>Une chicane:</strong> A very common Québécois word for a fight or an argument. "On a eu une grosse chicane."</li>
+<li><strong>Tu niaises!</strong> = You're kidding! / You're messing with me!</li>
+<li><strong>"Être en couple"</strong> is standard, but Quebecers also say <strong>"sortir ensemble"</strong> (to date/be together).</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u16">UNIT 16: COMPLAINTS &amp; APOLOGIES</h2>
+
+<h3 id="h-b1-16-1">16.1 Making Complaints</h3>
+<p>Expressing dissatisfaction politely but firmly:</p>
+<ul>
+<li><strong>Je ne suis pas satisfait(e) de ce service/produit.</strong> (I am not satisfied with this service/product.)</li>
+<li><strong>Je voudrais faire une réclamation.</strong> (I would like to make a complaint.)</li>
+<li><strong>Il y a une erreur sur ma facture, on m'a chargé en double.</strong> (There is an error on my bill, I was charged twice.)</li>
+<li><strong>C'est inacceptable que la livraison soit en retard de deux semaines.</strong> (It is unacceptable that the delivery is two weeks late.)</li>
+</ul>
+
+<h3 id="h-b1-16-2">16.2 Apologizing</h3>
+<p>Taking responsibility and smoothing things over:</p>
+<ul>
+<li><strong>Je vous présente mes excuses.</strong> (I offer you my apologies.)</li>
+<li><strong>Je suis sincèrement désolé(e) pour ce désagrément.</strong> (I am sincerely sorry for this inconvenience.)</li>
+<li><strong>C'est entièrement de ma faute, je m'en excuse.</strong> (It is entirely my fault, I apologize for it.)</li>
+<li><strong>Veuillez m'excuser pour le retard.</strong> (Please excuse me for the delay.)</li>
+</ul>
+
+<h3 id="h-b1-16-3">16.3 Finding Solutions</h3>
+<ul>
+<li><strong>Que proposez-vous pour régler cette situation?</strong> (What do you propose to resolve this situation?)</li>
+<li><strong>Nous allons vous rembourser immédiatement.</strong> (We will refund you immediately.)</li>
+<li><strong>Je peux vous offrir un crédit sur votre prochain achat en guise de compensation.</strong> (I can offer you a credit on your next purchase as compensation.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Complaining at a Restaurant:</strong></p>
+<p><em>Vous parlez au gérant parce que votre repas était froid.</em></p>
+<p>"Excusez-moi, est-ce que je pourrais parler au gérant, s'il vous plaît?"<br>"C'est moi. Est-ce qu'il y a un problème?"<br>"Oui. J'ai commandé mon steak médium-saignant il y a presque une heure. Non seulement l'attente a été très longue, mais l'assiette vient d'arriver et la viande est complètement froide."<br>"Je suis vraiment navré, monsieur. La cuisine a eu un problème technique avec les fours ce soir, mais ce n'est pas une excuse. Laissez-moi rapporter cette assiette."<br>"Merci. Je comprends que ça puisse arriver, mais je n'ai plus tellement d'appétit maintenant."<br>"Je comprends tout à fait. Je vais annuler cette commande sur votre facture et je vous offre le dessert et le café pour compenser ce désagrément."</p>
+<p><em>(You speak to the manager because your meal was cold. "Excuse me, could I speak to the manager, please?" "That's me. Is there a problem?" "Yes. I ordered my steak medium-rare almost an hour ago. Not only was the wait very long, but the plate just arrived and the meat is completely cold." "I am truly sorry, sir. The kitchen had a technical problem with the ovens tonight, but that is no excuse. Let me take this plate back." "Thank you. I understand that it can happen, but I don't have much of an appetite now." "I completely understand. I will cancel this order on your bill and I offer you dessert and coffee to compensate for this inconvenience.")</em></p>
+
+<h3 id="h-b1-16-4">16.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>"Chialer"</strong> is a very common Québécois slang word for "to complain/whine": <strong>"Arrête de chialer, c'est pas si pire."</strong> (Stop complaining, it's not that bad.)</li>
+<li>In customer service in Quebec, staff might say <strong>"Désolé pour ça"</strong> (Sorry about that) which is a direct calque from English, whereas standard French prefers <strong>"Je suis désolé de cela."</strong></li>
+<li><strong>Charger:</strong> In Quebec, it's common to use "charger" (to charge a fee) instead of "facturer."</li>
+</ul>
+
+<h1 id="h-b1-part-v">PART V: QUEBEC CULTURE</h1>
+
+<h2 id="h-b1-u17">UNIT 17: QUEBEC HISTORY</h2>
+
+<h3 id="h-b1-17-1">17.1 Key Historical Events</h3>
+<p>To understand modern Quebec, you need a basic vocabulary of its history:</p>
+<ul>
+<li><strong>La Nouvelle-France (1534 - 1763):</strong> The era of French colonization, founded by Jacques Cartier and later Samuel de Champlain.</li>
+<li><strong>La Conquête (1759 - 1760):</strong> The British conquest of New France, culminating in the Battle of the Plains of Abraham (la bataille des plaines d'Abraham).</li>
+<li><strong>La Révolution tranquille (1960s):</strong> The "Quiet Revolution"—a period of rapid secularization and modernization, leading to the creation of the modern Quebec welfare state.</li>
+<li><strong>La Loi 101 (1977):</strong> The Charter of the French Language, making French the official language of Quebec.</li>
+</ul>
+
+<h3 id="h-b1-17-2">17.2 Historical Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>le patrimoine</td><td>heritage</td></tr>
+<tr><td>les ancêtres</td><td>ancestors</td></tr>
+<tr><td>la colonisation</td><td>colonization</td></tr>
+<tr><td>un colon / un pionnier</td><td>a settler / pioneer</td></tr>
+<tr><td>une bataille</td><td>a battle</td></tr>
+<tr><td>l'indépendance (f.)</td><td>independence</td></tr>
+<tr><td>la souveraineté</td><td>sovereignty</td></tr>
+<tr><td>un référendum</td><td>a referendum</td></tr>
+<tr><td>la laïcité</td><td>secularism</td></tr>
+<tr><td>un traité</td><td>a treaty</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-17-3">17.3 Discussing History</h3>
+<ul>
+<li><strong>La Révolution tranquille a profondément transformé la société québécoise.</strong> (The Quiet Revolution profoundly transformed Quebec society.)</li>
+<li><strong>Avant les années 1960, l'Église catholique contrôlait l'éducation et les hôpitaux.</strong> (Before the 1960s, the Catholic Church controlled education and hospitals.)</li>
+<li><strong>Le Québec a tenu deux référendums sur la souveraineté, en 1980 et en 1995.</strong> (Quebec held two referendums on sovereignty, in 1980 and 1995.)</li>
+<li><strong>Le Vieux-Québec est un site du patrimoine mondial de l'UNESCO.</strong> (Old Quebec is a UNESCO World Heritage site.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A Museum Visit:</strong></p>
+<p><em>Vous visitez le Musée de la civilisation à Québec avec un guide.</em></p>
+<p>"Bienvenue dans l'exposition sur la Nouvelle-France. Plus de dix mille colons français sont venus s'installer ici avant 1760."<br>"C'est fascinant. Est-ce que la plupart des Québécois francophones descendent de ces premiers colons?"<br>"Oui, en grande partie. C'est pour ça que la généalogie est très populaire au Québec."<br>"Qu'est-ce qui s'est passé avec les Premières Nations pendant cette période?"<br>"Les Français ont formé des alliances avec certaines nations autochtones pour le commerce de la fourrure. C'est une partie complexe et importante de notre histoire."</p>
+<p><em>(You are visiting the Museum of Civilization in Quebec City with a guide. "Welcome to the exhibition on New France. More than ten thousand French settlers came to settle here before 1760." "It's fascinating. Do most francophone Quebecers descend from these first settlers?" "Yes, largely. That is why genealogy is very popular in Quebec." "What happened with the First Nations during this period?" "The French formed alliances with certain Indigenous nations for the fur trade. It is a complex and important part of our history.")</em></p>
+
+<h3 id="h-b1-17-4">17.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>"Je me souviens"</strong> (I remember) is the official motto of Quebec, printed on all license plates. It refers to remembering Quebec's history and heritage.</li>
+<li><strong>Les Premières Nations</strong> (First Nations), <strong>les Inuits</strong>, and <strong>les Métis</strong> are the recognized Indigenous peoples in Canada. The term "Indien" is considered outdated and offensive.</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u18">UNIT 18: ARTS &amp; MUSIC</h2>
+
+<h3 id="h-b1-18-1">18.1 The Quebec Music Scene</h3>
+<p>Quebec has a vibrant and distinct music industry, separate from both France and English Canada.</p>
+<ul>
+<li><strong>La chanson populaire:</strong> Celine Dion is famous worldwide, but artists like Les Cowboys Fringants, Jean Leloup, and Charlotte Cardin are massive in Quebec.</li>
+<li><strong>Le rap québ (Quebec rap):</strong> Very popular among youth, blending French, English, and street slang (e.g., Alaclair Ensemble, Loud).</li>
+<li><strong>La musique traditionnelle (trad):</strong> Folk music featuring the fiddle, accordion, and foot-tapping (la podorythmie). (e.g., La Bottine Souriante).</li>
+</ul>
+
+<h3 id="h-b1-18-2">18.2 Literature &amp; Cinema</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un réalisateur / une réalisatrice</td><td>a film director</td></tr>
+<tr><td>un roman (policier/historique)</td><td>a (detective/historical) novel</td></tr>
+<tr><td>un écrivain / un auteur</td><td>a writer / author</td></tr>
+<tr><td>une pièce de théâtre</td><td>a play</td></tr>
+<tr><td>un chef-d'œuvre</td><td>a masterpiece</td></tr>
+<tr><td>le scénario</td><td>the script / screenplay</td></tr>
+<tr><td>un poème / la poésie</td><td>a poem / poetry</td></tr>
+<tr><td>les sous-titres</td><td>subtitles</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-18-3">18.3 Expressing Artistic Opinions</h3>
+<ul>
+<li><strong>J'ai été très touché par ce film de Denis Villeneuve. Le scénario est brillant.</strong> (I was very moved by this film by Denis Villeneuve. The script is brilliant.)</li>
+<li><strong>Ce roman de Michel Tremblay dépeint de façon très réaliste le Montréal des années 60.</strong> (This novel by Michel Tremblay depicts 1960s Montreal very realistically.)</li>
+<li><strong>La performance des acteurs était médiocre, mais les effets spéciaux étaient impressionnants.</strong> (The actors' performance was mediocre, but the special effects were impressive.)</li>
+<li><strong>C'est un incontournable de la culture québécoise.</strong> (It is a must-see/must-read of Quebec culture.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing a Movie:</strong></p>
+<p><em>Vous sortez du cinéma après avoir vu un film québécois.</em></p>
+<p>"Alors, comment as-tu trouvé le film?"<br>"J'ai adoré! Xavier Dolan a vraiment un style unique. La cinématographie était magnifique."<br>"Moi, j'ai eu de la difficulté avec l'accent au début. Ils parlaient tellement vite."<br>"C'est vrai que le joual était très prononcé. Heureusement, le contexte aidait à comprendre."<br>"Oui, l'histoire était très touchante. D'ailleurs, la bande sonore était excellente aussi."<br>"On pourrait acheter l'album! Et si on allait prendre un verre pour en discuter?"</p>
+<p><em>(You leave the cinema after seeing a Quebec film. "So, how did you find the film?" "I loved it! Xavier Dolan really has a unique style. The cinematography was beautiful." "Me, I had difficulty with the accent at first. They spoke so fast." "It's true that the joual was very pronounced. Fortunately, the context helped to understand." "Yes, the story was very touching. Besides, the soundtrack was excellent too." "We could buy the album! What if we went for a drink to discuss it?")</em></p>
+
+<h3 id="h-b1-18-4">18.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>Le joual:</strong> The working-class sociolect of Montreal French, characterized by specific vocabulary, grammar, and pronunciation. It was heavily used in plays by Michel Tremblay (like <em>Les Belles-Sœurs</em>) to represent authentic Quebec voices.</li>
+<li><strong>L'ADISQ:</strong> The association that runs the "Gala de l'ADISQ" (the Quebec equivalent of the Grammys or the Victoires de la musique).</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u19">UNIT 19: POLITICS &amp; SOCIETY</h2>
+
+<h3 id="h-b1-19-1">19.1 Political Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un parti politique</td><td>a political party</td></tr>
+<tr><td>les élections (provinciales/fédérales)</td><td>(provincial/federal) elections</td></tr>
+<tr><td>voter pour/contre</td><td>to vote for/against</td></tr>
+<tr><td>le Premier ministre</td><td>the Prime Minister / Premier</td></tr>
+<tr><td>le gouvernement</td><td>the government</td></tr>
+<tr><td>une loi / un projet de loi</td><td>a law / a bill</td></tr>
+<tr><td>le maire / la mairesse</td><td>the mayor</td></tr>
+<tr><td>une manifestation / faire la grève</td><td>a protest / to go on strike</td></tr>
+<tr><td>les impôts / les taxes</td><td>(income) taxes / (sales) taxes</td></tr>
+<tr><td>un syndicat</td><td>a labor union</td></tr>
+</tbody></table>
+
+<h3 id="h-b1-19-2">19.2 The Quebec Political System</h3>
+<p>Quebec has three levels of government:</p>
+<ol>
+<li><strong>Fédéral (Ottawa):</strong> Deals with currency, military, foreign affairs, and criminal law. Prime Minister: Le Premier ministre du Canada.</li>
+<li><strong>Provincial (Québec):</strong> Deals with health, education, natural resources, and civil law. Premier: Le Premier ministre du Québec. (The provincial legislature is called <em>l'Assemblée nationale</em>).</li>
+<li><strong>Municipal (Les municipalités):</strong> Deals with local roads, garbage collection, and zoning. Leader: Le maire / la mairesse.</li>
+</ol>
+
+<h3 id="h-b1-19-3">19.3 Discussing Social Issues</h3>
+<ul>
+<li><strong>Le système de santé manque cruellement de personnel infirmier.</strong> (The healthcare system is severely lacking nursing staff.)</li>
+<li><strong>Le projet de loi sur le logement suscite beaucoup de débats à l'Assemblée nationale.</strong> (The housing bill is generating a lot of debate at the National Assembly.)</li>
+<li><strong>Les syndicats ont déclenché une grève pour obtenir de meilleurs salaires.</strong> (The unions have launched a strike to obtain better salaries.)</li>
+<li><strong>Il est crucial d'investir davantage dans l'éducation et les infrastructures.</strong> (It is crucial to invest more in education and infrastructures.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing Housing:</strong></p>
+<p><em>Deux collègues discutent de la crise du logement pendant la pause.</em></p>
+<p>"Sérieusement, as-tu vu le prix des loyers à Montréal dernièrement? C'est rendu fou!"<br>"Oui, c'est inabordable pour les jeunes familles. Le gouvernement doit intervenir."<br>"À mon avis, les politiciens ne font pas assez pour construire des logements sociaux. Les promoteurs préfèrent construire des condos de luxe."<br>"Je suis d'accord. Lors des prochaines élections municipales, je vais voter pour le parti qui propose un vrai plan pour l'habitation."<br>"Moi aussi. Si ça continue comme ça, on va tous devoir s'éloigner en région."</p>
+<p><em>(Two colleagues discuss the housing crisis during the break. "Seriously, have you seen the price of rent in Montreal lately? It's gone crazy!" "Yes, it's unaffordable for young families. The government must intervene." "In my opinion, politicians aren't doing enough to build social housing. Developers prefer to build luxury condos." "I agree. During the next municipal elections, I'm going to vote for the party that proposes a real plan for housing." "Me too. If this continues, we will all have to move far out to the regions.")</em></p>
+
+<h3 id="h-b1-19-4">19.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>C'est rendu fou:</strong> A very common Québécois construction. "Rendu (adjective)" means "has become (adjective)."</li>
+<li><strong>Les régions:</strong> Refers to all the areas of Quebec situated outside the major urban centers of Montreal and Quebec City.</li>
+<li>In Quebec, the leader of the province is called "Le Premier ministre" (just like the leader of Canada). In English, we use "Premier" for the province and "Prime Minister" for the country to avoid confusion, but French uses the same title for both.</li>
+</ul>
+<hr>
+
+<h2 id="h-b1-u20">UNIT 20: REVIEW &amp; B2 PREP</h2>
+
+<h3 id="h-b1-20-1">20.1 Grammar Summary</h3>
+<p>By the end of B1, you should be able to comfortably use these tenses and modes:</p>
+<ul>
+<li><strong>Plus-que-parfait (avait fait):</strong> To describe an action before a past action.</li>
+<li><strong>Conditionnel présent (ferait):</strong> For hypotheses, advice, and politeness.</li>
+<li><strong>Subjonctif présent (fasse):</strong> After expressions of emotion, doubt, and obligation.</li>
+<li><strong>Futur antérieur (aura fait):</strong> For an action completed before a future time.</li>
+<li><strong>Discours indirect (il a dit qu'il partait):</strong> To report what someone said, shifting tenses appropriately.</li>
+</ul>
+
+<h3 id="h-b1-20-2">20.2 Vocabulary Summary</h3>
+<p>You can now discuss complex societal topics:</p>
+<ul>
+<li><strong>Work &amp; Education:</strong> Cover letters, interviews, university programs.</li>
+<li><strong>Media &amp; Environment:</strong> News broadcasts, climate change, recycling.</li>
+<li><strong>Relationships &amp; Emotions:</strong> Conflict resolution, expressing psychological states.</li>
+<li><strong>Culture &amp; Politics:</strong> History, cinema, government structure, social issues.</li>
+</ul>
+
+<h3 id="h-b1-20-3">20.3 What to Expect at B2</h3>
+<p>At the B2 level (Upper Intermediate), you will move towards fluency and nuance:</p>
+<ul>
+<li><strong>Argumentation détaillée:</strong> Structuring complex arguments and participating in rapid debates.</li>
+<li><strong>Compréhension subtile:</strong> Understanding humour, irony, implicit meanings, and fast-paced colloquial speech.</li>
+<li><strong>La voix passive et le subjonctif passé:</strong> More complex grammatical structures.</li>
+<li><strong>Vocabulaire spécialisé:</strong> Mastering vocabulary for abstract concepts, science, law, and business.</li>
+</ul>
+
+<h3 id="h-b1-20-4">20.4 Study Tips for Advancing to B2</h3>
+<ul>
+<li><strong>Lisez la presse francophone tous les jours:</strong> Le Devoir, La Presse, Radio-Canada. Focus on op-ed pieces (les articles d'opinion).</li>
+<li><strong>Écoutez des balados (podcasts):</strong> "Aujourd'hui l'histoire" or "Les années lumière" to build specialized vocabulary.</li>
+<li><strong>Participez à des débats:</strong> Try to explain your views on complex issues to francophone friends without switching to English.</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Evaluating Your Progress:</strong></p>
+<p><em>Vous discutez de votre français avec un collègue francophone.</em></p>
+<p>"Ton français s'est tellement amélioré depuis un an! Tu as presque plus d'accent."<br>"Merci! C'est gentil. J'écoute beaucoup la radio et je lis les journaux tous les matins."<br>"Ça paraît. Tu as une très bonne syntaxe. Tu te sens prêt pour le niveau avancé?"<br>"Oui, mais il me manque encore du vocabulaire pour discuter de sujets complexes, comme l'économie ou la politique internationale."<br>"C'est normal. Au niveau B2, c'est surtout une question d'enrichir ton vocabulaire et de comprendre les subtilités de la langue. Lâche pas la patate!"</p>
+<p><em>(You discuss your French with a francophone colleague. "Your French has improved so much over the past year! You have almost no accent." "Thank you! That's kind. I listen to the radio a lot and I read the newspapers every morning." "It shows. You have very good syntax. Do you feel ready for the advanced level?" "Yes, but I still lack vocabulary to discuss complex subjects, like the economy or international politics." "That's normal. At the B2 level, it's mostly a matter of enriching your vocabulary and understanding the subtleties of the language. Don't give up!")</em></p>
+<hr>
+
+<h1 id="h-b1-conclusion">CONCLUSION</h1>
+<p><strong>Félicitations!</strong> You have completed the B1 level. You are now an independent user of the French language. You can express your opinions, understand the news, discuss Quebec culture, handle complex real-life situations like job interviews and relationship issues, and describe events with nuanced time frames.</p>
+<p>Reaching B1 is a massive achievement. You are now fully equipped to live, work, and thrive in a francophone environment. Prenez le temps de célébrer vos efforts! (Take the time to celebrate your efforts!)</p>
+
+            </div>
+        </main>
+    </div>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', () => {
+          const contentArea = document.querySelector('.content-area');
+          const contentWrapper = document.querySelector('.content-wrapper');
+          const sidebar = document.getElementById('sidebar');
+          const toggleBtn = document.getElementById('sidebarToggle');
+          const navLinks = document.querySelectorAll('.nav-link');
+          const toc = document.querySelector('.toc');
+
+          // --- 1. Structure Units into Accordions ---
+          const headers = Array.from(contentWrapper.querySelectorAll('h2'));
+          const units = headers.filter(h => h.textContent.includes('UNIT'));
+
+          units.forEach((unitHeader, index) => {
+              unitHeader.classList.add('unit-header');
+              
+              // Create wrapper for unit content
+              const wrapper = document.createElement('div');
+              wrapper.className = 'unit-content';
+              wrapper.id = 'content-' + unitHeader.id;
+
+              // Move siblings until next unit or major header into wrapper
+              let curr = unitHeader.nextElementSibling;
+              while (curr && !curr.matches('h1, h2')) {
+                  const next = curr.nextElementSibling;
+                  wrapper.appendChild(curr);
+                  curr = next;
+              }
+              unitHeader.parentNode.insertBefore(wrapper, curr);
+
+              // Click to toggle
+              unitHeader.addEventListener('click', () => {
+                  const isExpanded = unitHeader.classList.contains('expanded');
+                  
+                  // Collapse all
+                  units.forEach(u => {
+                      u.classList.remove('expanded');
+                      const c = document.getElementById('content-' + u.id);
+                      if (c) c.classList.remove('expanded');
+                  });
+
+                  // If it wasn't expanded, expand now
+                  if (!isExpanded) {
+                      unitHeader.classList.add('expanded');
+                      wrapper.classList.add('expanded');
+                      unitHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+              });
+          });
+
+          const overlay = document.getElementById('sidebarOverlay');
+          
+          function toggleSidebar(forceCollapse) {
+              const isCollapsed = sidebar.classList.contains('collapsed');
+              const shouldCollapse = forceCollapse !== undefined ? forceCollapse : !isCollapsed;
+              
+              if (shouldCollapse) {
+                  sidebar.classList.add('collapsed');
+                  overlay.classList.remove('visible');
+                  setTimeout(() => { if (!overlay.classList.contains('visible')) overlay.style.display = 'none'; }, 300);
+              } else {
+                  sidebar.classList.remove('collapsed');
+                  if (window.innerWidth <= 768) {
+                      overlay.style.display = 'block';
+                      setTimeout(() => overlay.classList.add('visible'), 10);
+                  }
+              }
+          }
+
+          // --- 2. Side Menu Click Handling ---
+          document.querySelectorAll('.nav-link').forEach(link => {
+              link.addEventListener('click', function (e) {
+                  const href = this.getAttribute('href');
+                  if (!href.startsWith('#')) return;
+                  
+                  e.preventDefault();
+                  const targetId = href.substring(1);
+                  const targetElement = document.getElementById(targetId);
+                  
+                  if (targetElement) {
+                      // Find which unit this element belongs to
+                      let unitToExpand = null;
+                      if (targetElement.classList.contains('unit-header')) {
+                          unitToExpand = targetElement;
+                      } else {
+                          // Check if it's inside a unit-content
+                          const parentContent = targetElement.closest('.unit-content');
+                          if (parentContent) {
+                              const headerId = parentContent.id.replace('content-', '');
+                              unitToExpand = document.getElementById(headerId);
+                          } else {
+                              // If not in content, maybe it's a section before any unit
+                          }
+                      }
+
+                      if (unitToExpand) {
+                          // Collapse all first
+                          units.forEach(u => {
+                              u.classList.remove('expanded');
+                              const c = document.getElementById('content-' + u.id);
+                              if (c) c.classList.remove('expanded');
+                          });
+                          
+                          // Expand the correct one
+                          unitToExpand.classList.add('expanded');
+                          const content = document.getElementById('content-' + unitToExpand.id);
+                          if (content) content.classList.add('expanded');
+                      }
+
+                      // Wait a bit for expansion before scrolling if needed, but smooth scroll handles it usually
+                      setTimeout(() => {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                      }, 50);
+                  }
+
+                  // Mobile handling
+                  if (window.innerWidth <= 768) {
+                      toggleSidebar(true);
+                  }
+              });
+          });
+
+          // --- 3. Sidebar Toggle ---
+          toggleBtn.addEventListener('click', () => {
+              toggleSidebar();
+          });
+
+          overlay.addEventListener('click', () => {
+              toggleSidebar(true);
+          });
+
+          if (window.innerWidth <= 768) {
+              sidebar.classList.add('collapsed');
+          }
+
+          // --- 4. Orientation & Resize Handling ---
+          let lastWidth = window.innerWidth;
+          window.addEventListener('resize', () => {
+              if (window.innerWidth !== lastWidth) {
+                  if (window.innerWidth > 768 && lastWidth <= 768) {
+                      // Moving to desktop
+                      sidebar.classList.remove('collapsed');
+                      overlay.classList.remove('visible');
+                      overlay.style.display = 'none';
+                  } else if (window.innerWidth <= 768 && lastWidth > 768) {
+                      // Moving to mobile
+                      sidebar.classList.add('collapsed');
+                  }
+                  lastWidth = window.innerWidth;
+              }
+          });
+
+          // --- 5. Scrollspy ---
+          const sections = Array.from(document.querySelectorAll('h1[id], h2[id], h3[id]'));
+          
+          if (contentArea && sections.length > 0) {
+              contentArea.addEventListener('scroll', () => {
+                  let currentSectionId = '';
+                  
+                  for (const section of sections) {
+                      const rect = section.getBoundingClientRect();
+                      if (rect.top <= 150) {
+                          currentSectionId = section.id;
+                      } else {
+                          break;
+                      }
+                  }
+                  
+                  if (!currentSectionId && sections.length > 0) {
+                     currentSectionId = sections[0].id;
+                  }
+
+                  navLinks.forEach(link => {
+                      if (link.getAttribute('href') === '#' + currentSectionId) {
+                          if (!link.classList.contains('active')) {
+                              link.classList.add('active');
+                              
+                              const linkRect = link.getBoundingClientRect();
+                              const tocRect = toc.getBoundingClientRect();
+                              
+                              if (linkRect.top < tocRect.top) {
+                                  toc.scrollTop -= (tocRect.top - linkRect.top) + 20;
+                              } else if (linkRect.bottom > tocRect.bottom) {
+                                  toc.scrollTop += (linkRect.bottom - tocRect.bottom) + 20;
+                              }
+                          }
+                      } else {
+                          link.classList.remove('active');
+                      }
+                  });
+              });
+          }
+      });
+    
+    </script>
 </body>
 </html>

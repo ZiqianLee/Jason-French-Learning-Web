@@ -3,63 +3,1617 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2 Level - French Journey</title>
+    <title>Canadian French B2 Level Complete Textbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --accent-base: #3b82f6;
-            --font-heading: 'Outfit', sans-serif;
-            --font-body: 'Inter', sans-serif;
-        }
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --accent-base: #3b82f6;
+  
+  --title-h1: linear-gradient(135deg, #f43f5e, #ec4899);
+  --title-h2: linear-gradient(135deg, #6366f1, #a855f7);
+  --title-h3: linear-gradient(135deg, #10b981, #14b8a6);
+  --title-h4: linear-gradient(135deg, #f59e0b, #f43f5e);
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-body);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            padding: 2rem;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        h1 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #f59e0b, #f43f5e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
 
-        .btn-home {
-            margin-top: 2rem;
-            padding: 0.75rem 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--bg-tertiary);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
 
-        .btn-home:hover {
-            background: var(--accent-base);
-            transform: translateY(-2px);
-        }
+.sidebar {
+  width: 320px;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--bg-tertiary);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--bg-tertiary);
+}
+
+.sidebar-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.toc {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.nav-link:hover {
+  background-color: var(--bg-tertiary);
+  color: #fff;
+}
+
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  scroll-behavior: smooth;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+/* Typography & Markdown Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+h1 { font-size: 2.5rem; background-image: var(--title-h1); }
+h2 { font-size: 2rem; background-image: var(--title-h2); }
+h3 { font-size: 1.5rem; background-image: var(--title-h3); }
+h4 { font-size: 1.25rem; background-image: var(--title-h4); }
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 2rem 0;
+  border-radius: 8px;
+  overflow-x: auto;
+  display: block;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table-container table {
+  margin: 0;
+  display: table;
+}
+
+th {
+  background-color: var(--bg-tertiary);
+  color: #fff;
+  text-align: left;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+td {
+  background-color: rgba(30, 41, 59, 0.5);
+  padding: 1rem;
+  border-bottom: 1px solid var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--bg-tertiary);
+  margin: 3rem 0;
+}
+
+ul, ol {
+  margin-bottom: 1.25rem;
+  padding-left: 2rem;
+  color: var(--text-secondary);
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Animations */
+.content-wrapper {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary); 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary); 
+}
+
+/* Sidebar Toggle and Responsiveness */
+.sidebar {
+  transition: margin-left 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+.sidebar.collapsed {
+  margin-left: -320px;
+}
+.sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background 0.2s ease;
+}
+.sidebar-toggle:hover {
+  background: var(--bg-tertiary);
+}
+.sidebar-header {
+  padding: 1.5rem 1.5rem 1.5rem 4rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100vh;
+    z-index: 1100;
+    left: 0;
+    width: 280px;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+  }
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+  .content-area {
+    padding: 1rem;
+    padding-top: 4rem;
+  }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.1rem; }
+  
+  .sidebar-header {
+    padding: 1rem 1rem 1rem 3.5rem;
+  }
+  
+  .sidebar-header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-area {
+    padding: 0.75rem;
+    padding-top: 4rem;
+  }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  p, li { font-size: 0.95rem; }
+}
+
+.nav-link.active {
+  background-color: var(--bg-tertiary);
+  color: #fff;
+  font-weight: 600;
+  border-left: 3px solid var(--accent-base);
+}
+
+.home-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-tertiary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.home-btn:hover {
+  background: var(--accent-base);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* TOC Hierarchy */
+.nav-link.depth-1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  color: var(--text-primary);
+}
+
+.nav-link.depth-2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding-left: 2rem;
+}
+
+.nav-link.depth-3 {
+  font-size: 0.85rem;
+  padding-left: 3rem;
+  opacity: 0.9;
+}
+
+/* Accordion Styles */
+.unit-header {
+  cursor: pointer;
+  position: relative;
+  padding-right: 2.5rem;
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.unit-header:hover {
+  opacity: 0.8;
+}
+
+/* Sidebar Overlay for Mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+  display: block;
+  opacity: 1;
+}
+
+.unit-header::after {
+  content: '▼';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.unit-header.expanded::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.unit-content {
+  display: none;
+  overflow: hidden;
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+.unit-content.expanded {
+  display: block;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+    
     </style>
 </head>
 <body>
-    <h1>B2 Level Content</h1>
-    <p>Advance to fluency with our upcoming B2 guide. Under development!</p>
-    <a href="index.html" class="btn-home">Return to Home</a>
+    <button class="sidebar-toggle" id="sidebarToggle" title="Toggle Menu">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>📚 French Journey</h2>
+            </div>
+            <a href="index.html" class="home-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Return to Home
+            </a>
+            <nav class="toc">
+                <ul>
+<li><a href="#h-b2-textbook" class="nav-link depth-1">Canadian French B2 Level</a></li>
+<li><a href="#h-b2-guide" class="nav-link depth-2">A Comprehensive Guide</a></li>
+<li><a href="#h-b2-toc" class="nav-link depth-2">TABLE OF CONTENTS</a></li>
+<li><a href="#h-b2-part-i" class="nav-link depth-1">PART I: ADVANCED DISCOURSE</a></li>
+<li><a href="#h-b2-u1" class="nav-link depth-2">UNIT 1: SUBJONCTIF PASSÉ</a></li>
+<li><a href="#h-b2-1-1" class="nav-link depth-3">1.1 Introduction &amp; Formation</a></li>
+<li><a href="#h-b2-1-2" class="nav-link depth-3">1.2 Usage and Concordance</a></li>
+<li><a href="#h-b2-1-3" class="nav-link depth-3">1.3 Practice Examples</a></li>
+<li><a href="#h-b2-1-4" class="nav-link depth-3">1.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u2" class="nav-link depth-2">UNIT 2: THE PASSIVE VOICE</a></li>
+<li><a href="#h-b2-2-1" class="nav-link depth-3">2.1 Advanced Passive Structures</a></li>
+<li><a href="#h-b2-2-2" class="nav-link depth-3">2.2 Avoiding the Passive (On, Se)</a></li>
+<li><a href="#h-b2-2-3" class="nav-link depth-3">2.3 Use in Media and Formal Texts</a></li>
+<li><a href="#h-b2-2-4" class="nav-link depth-3">2.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u3" class="nav-link depth-2">UNIT 3: DISCOURSE MARKERS</a></li>
+<li><a href="#h-b2-3-1" class="nav-link depth-3">3.1 Structuring an Argument</a></li>
+<li><a href="#h-b2-3-2" class="nav-link depth-3">3.2 Concession &amp; Opposition</a></li>
+<li><a href="#h-b2-3-3" class="nav-link depth-3">3.3 Emphasizing a Point</a></li>
+<li><a href="#h-b2-3-4" class="nav-link depth-3">3.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u4" class="nav-link depth-2">UNIT 4: NUANCED OPINIONS</a></li>
+<li><a href="#h-b2-4-1" class="nav-link depth-3">4.1 Beyond Good and Bad</a></li>
+<li><a href="#h-b2-4-2" class="nav-link depth-3">4.2 Expressing Certainty &amp; Doubt</a></li>
+<li><a href="#h-b2-4-3" class="nav-link depth-3">4.3 Participating in Debates</a></li>
+<li><a href="#h-b2-4-4" class="nav-link depth-3">4.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-part-ii" class="nav-link depth-1">PART II: PROFESSIONAL &amp; ACADEMIC</a></li>
+<li><a href="#h-b2-u5" class="nav-link depth-2">UNIT 5: BUSINESS FRENCH</a></li>
+<li><a href="#h-b2-5-1" class="nav-link depth-3">5.1 Corporate Vocabulary</a></li>
+<li><a href="#h-b2-5-2" class="nav-link depth-3">5.2 Formal Emails</a></li>
+<li><a href="#h-b2-5-3" class="nav-link depth-3">5.3 Running a Meeting</a></li>
+<li><a href="#h-b2-5-4" class="nav-link depth-3">5.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u6" class="nav-link depth-2">UNIT 6: LAW &amp; RIGHTS</a></li>
+<li><a href="#h-b2-6-1" class="nav-link depth-3">6.1 Legal Vocabulary</a></li>
+<li><a href="#h-b2-6-2" class="nav-link depth-3">6.2 Understanding Contracts</a></li>
+<li><a href="#h-b2-6-3" class="nav-link depth-3">6.3 Civil Rights &amp; Duties</a></li>
+<li><a href="#h-b2-6-4" class="nav-link depth-3">6.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u7" class="nav-link depth-2">UNIT 7: SCIENCE &amp; TECH</a></li>
+<li><a href="#h-b2-7-1" class="nav-link depth-3">7.1 Scientific Vocabulary</a></li>
+<li><a href="#h-b2-7-2" class="nav-link depth-3">7.2 Information Technology</a></li>
+<li><a href="#h-b2-7-3" class="nav-link depth-3">7.3 Discussing Innovation</a></li>
+<li><a href="#h-b2-7-4" class="nav-link depth-3">7.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u8" class="nav-link depth-2">UNIT 8: HIGHER EDUCATION</a></li>
+<li><a href="#h-b2-8-1" class="nav-link depth-3">8.1 Academic Research Terminology</a></li>
+<li><a href="#h-b2-8-2" class="nav-link depth-3">8.2 Writing Essays (Dissertations)</a></li>
+<li><a href="#h-b2-8-3" class="nav-link depth-3">8.3 Defending a Thesis</a></li>
+<li><a href="#h-b2-8-4" class="nav-link depth-3">8.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-part-iii" class="nav-link depth-1">PART III: CULTURE &amp; IDENTITY</a></li>
+<li><a href="#h-b2-u9" class="nav-link depth-2">UNIT 9: LITERATURE</a></li>
+<li><a href="#h-b2-9-1" class="nav-link depth-3">9.1 Literary Analysis</a></li>
+<li><a href="#h-b2-9-2" class="nav-link depth-3">9.2 Classic vs Modern Authors</a></li>
+<li><a href="#h-b2-9-3" class="nav-link depth-3">9.3 The Passé Simple</a></li>
+<li><a href="#h-b2-9-4" class="nav-link depth-3">9.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u10" class="nav-link depth-2">UNIT 10: CINEMA &amp; MEDIA</a></li>
+<li><a href="#h-b2-10-1" class="nav-link depth-3">10.1 Advanced Media Critique</a></li>
+<li><a href="#h-b2-10-2" class="nav-link depth-3">10.2 Analyzing Bias in News</a></li>
+<li><a href="#h-b2-10-3" class="nav-link depth-3">10.3 Francophone Cinema</a></li>
+<li><a href="#h-b2-10-4" class="nav-link depth-3">10.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u11" class="nav-link depth-2">UNIT 11: SOCIAL DEBATES</a></li>
+<li><a href="#h-b2-11-1" class="nav-link depth-3">11.1 Immigration &amp; Integration</a></li>
+<li><a href="#h-b2-11-2" class="nav-link depth-3">11.2 The Healthcare System</a></li>
+<li><a href="#h-b2-11-3" class="nav-link depth-3">11.3 Urban Living vs Rural Life</a></li>
+<li><a href="#h-b2-11-4" class="nav-link depth-3">11.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u12" class="nav-link depth-2">UNIT 12: QUEBEC IDENTITY</a></li>
+<li><a href="#h-b2-12-1" class="nav-link depth-3">12.1 Language Laws (Loi 101)</a></li>
+<li><a href="#h-b2-12-2" class="nav-link depth-3">12.2 The Sovereignist Movement</a></li>
+<li><a href="#h-b2-12-3" class="nav-link depth-3">12.3 Cultural Protectionism</a></li>
+<li><a href="#h-b2-12-4" class="nav-link depth-3">12.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-part-iv" class="nav-link depth-1">PART IV: MASTERING NUANCE</a></li>
+<li><a href="#h-b2-u13" class="nav-link depth-2">UNIT 13: HUMOR &amp; SARCASM</a></li>
+<li><a href="#h-b2-13-1" class="nav-link depth-3">13.1 Play on Words &amp; Puns</a></li>
+<li><a href="#h-b2-13-2" class="nav-link depth-3">13.2 Irony and Sarcasm</a></li>
+<li><a href="#h-b2-13-3" class="nav-link depth-3">13.3 Stand-up Comedy Conventions</a></li>
+<li><a href="#h-b2-13-4" class="nav-link depth-3">13.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u14" class="nav-link depth-2">UNIT 14: IDIOMS &amp; SLANG</a></li>
+<li><a href="#h-b2-14-1" class="nav-link depth-3">14.2 Advanced Idioms</a></li>
+<li><a href="#h-b2-14-2" class="nav-link depth-3">14.3 Familiar and Slang Registers (Argot/Joual)</a></li>
+<li><a href="#h-b2-14-3" class="nav-link depth-3">14.4 Swearing Appropriately</a></li>
+<li><a href="#h-b2-14-4" class="nav-link depth-3">14.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u15" class="nav-link depth-2">UNIT 15: FORMAL WRITING</a></li>
+<li><a href="#h-b2-15-1" class="nav-link depth-3">15.1 La Synthèse (Synthesis)</a></li>
+<li><a href="#h-b2-15-2" class="nav-link depth-3">15.2 Le Compte-Rendu (Report)</a></li>
+<li><a href="#h-b2-15-3" class="nav-link depth-3">15.3 Complex Sentence Structure</a></li>
+<li><a href="#h-b2-15-4" class="nav-link depth-3">15.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u16" class="nav-link depth-2">UNIT 16: PRONUNCIATION</a></li>
+<li><a href="#h-b2-16-1" class="nav-link depth-3">16.1 Liaisons (Obligatory vs Optional)</a></li>
+<li><a href="#h-b2-16-2" class="nav-link depth-3">16.2 Intonation and Rhythm</a></li>
+<li><a href="#h-b2-16-3" class="nav-link depth-3">16.3 Vowel Shifts</a></li>
+<li><a href="#h-b2-16-4" class="nav-link depth-3">16.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-part-v" class="nav-link depth-1">PART V: REVIEW</a></li>
+<li><a href="#h-b2-u17" class="nav-link depth-2">UNIT 17: GRAMMAR CAPSTONE</a></li>
+<li><a href="#h-b2-17-1" class="nav-link depth-3">17.1 The Subjunctive vs Indicative Check</a></li>
+<li><a href="#h-b2-17-2" class="nav-link depth-3">17.2 Preposition Pitfalls</a></li>
+<li><a href="#h-b2-17-3" class="nav-link depth-3">17.3 Advanced Pronouns (y/en placement)</a></li>
+<li><a href="#h-b2-17-4" class="nav-link depth-3">17.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u18" class="nav-link depth-2">UNIT 18: VOCAB CAPSTONE</a></li>
+<li><a href="#h-b2-18-1" class="nav-link depth-3">18.1 False Friends (Faux Amis)</a></li>
+<li><a href="#h-b2-18-2" class="nav-link depth-3">18.2 Anglicisms</a></li>
+<li><a href="#h-b2-18-3" class="nav-link depth-3">18.3 Synonyms for Better Expression</a></li>
+<li><a href="#h-b2-18-4" class="nav-link depth-3">18.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u19" class="nav-link depth-2">UNIT 19: EXAM STRATEGIES</a></li>
+<li><a href="#h-b2-19-1" class="nav-link depth-3">19.1 Listening Comprehension (TEFAQ)</a></li>
+<li><a href="#h-b2-19-2" class="nav-link depth-3">19.2 Oral Expression</a></li>
+<li><a href="#h-b2-19-3" class="nav-link depth-3">19.3 Written Comprehension</a></li>
+<li><a href="#h-b2-19-4" class="nav-link depth-3">19.4 Canadian French Notes (🍁)</a></li>
+<li><a href="#h-b2-u20" class="nav-link depth-2">UNIT 20: THE FINAL TEST</a></li>
+<li><a href="#h-b2-20-1" class="nav-link depth-3">20.1 Oral Debate Simulation</a></li>
+<li><a href="#h-b2-20-2" class="nav-link depth-3">20.2 Written Synthesis Practice</a></li>
+<li><a href="#h-b2-20-3" class="nav-link depth-3">20.3 Next Steps: Towards C1</a></li>
+<li><a href="#h-b2-20-4" class="nav-link depth-3">20.4 Goodbye and Good Luck</a></li>
+<li><a href="#h-b2-conclusion" class="nav-link depth-1">CONCLUSION</a></li>
+</ul>
+            </nav>
+        </aside>
+        <main class="content-area">
+            <div class="content-wrapper">
+
+<h1 id="h-b2-textbook">Canadian French B2 Level Complete Textbook</h1>
+<h2 id="h-b2-guide">A Comprehensive Guide to Fluency &amp; Nuance</h2>
+<hr>
+<h2 id="h-b2-toc">TABLE OF CONTENTS</h2>
+<p><strong>PART I: ADVANCED DISCOURSE</strong> – Subjonctif Passé, Passive Voice, Discourse Markers, Nuanced Opinions</p>
+<p><strong>PART II: PROFESSIONAL &amp; ACADEMIC</strong> – Business, Law, Science, Higher Education</p>
+<p><strong>PART III: CULTURE &amp; IDENTITY</strong> – Literature, Cinema, Social Debates, Quebec Identity</p>
+<p><strong>PART IV: MASTERING NUANCE</strong> – Humor, Idioms, Formal Writing, Pronunciation</p>
+<p><strong>PART V: REVIEW</strong> – Grammar/Vocab Capstone, Exam Strategies</p>
+<hr>
+
+<h1 id="h-b2-part-i">PART I: ADVANCED DISCOURSE</h1>
+
+<h2 id="h-b2-u1">UNIT 1: LE SUBJONCTIF PASSÉ (PAST SUBJUNCTIVE)</h2>
+
+<h3 id="h-b2-1-1">1.1 Introduction &amp; Formation</h3>
+<p>At the B2 level, expressing emotion or doubt about an event that occurred <em>in the past</em> requires the <strong>subjonctif passé</strong>.</p>
+<p><strong>Formation:</strong> Subjonctif présent of être or avoir + past participle.</p>
+<ul>
+<li><strong>Avoir:</strong> que j'aie parlé, que tu aies fini, qu'il ait vendu.</li>
+<li><strong>Être:</strong> que je sois allé(e), qu'elle se soit lavée, que nous soyons partis.</li>
+</ul>
+
+<h3 id="h-b2-1-2">1.2 Usage and Concordance</h3>
+<p>Use the past subjunctive when the main clause (trigger) is in the present, but the dependent clause refers to a completed past action.</p>
+<ul>
+<li><strong>Je suis déçu qu'ils n'aient pas gagné le match hier.</strong> (I am disappointed that they did not win the game yesterday.)</li>
+<li><strong>Il est dommage que tu sois tombé malade pendant tes vacances.</strong> (It is a shame that you fell sick during your vacation.)</li>
+<li><strong>Bien qu'elle ait beaucoup étudié, elle a échoué à l'examen.</strong> (Although she studied a lot, she failed the exam.)</li>
+</ul>
+
+<h3 id="h-b2-1-3">1.3 Practice Examples</h3>
+<ul>
+<li><strong>Je doute qu'il ait lu ce rapport avant la réunion.</strong> (I doubt he read this report before the meeting.)</li>
+<li><strong>Le professeur exige que le devoir ait été soumis avant minuit.</strong> (The professor demands that the assignment have been submitted before midnight. - <em>Note the passive past subjunctive here!</em>)</li>
+<li><strong>C'est le meilleur film québécois que j'aie jamais vu.</strong> (It is the best Québécois film I have ever seen.) - <em>Superlatives often trigger the subjunctive.</em></li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing a Concluded Project:</strong></p>
+<p><em>Deux cadres analysent les résultats décevants du dernier trimestre.</em></p>
+<p>"Je suis vraiment contrarié que notre campagne marketing n'ait pas généré les ventes escomptées."<br>"Moi aussi. Je suis étonné que les consommateurs n'aient pas réagi à la promotion."<br>"Il est possible que nous ayons mal ciblé notre clientèle. Bien que l'équipe ait travaillé sans relâche, les résultats ne sont pas là."<br>"Je propose qu'on révise la stratégie. Il faut absolument que nous ayons corrigé le tir avant le mois prochain."</p>
+<p><em>(Two executives analyze the disappointing results of the last quarter. "I am really upset that our marketing campaign did not generate the anticipated sales." "Me too. I am surprised that consumers did not react to the promotion." "It is possible that we wrongly targeted our clientele. Although the team worked relentlessly, the results are not there." "I propose we revise the strategy. We absolutely must have corrected our course before next month.")</em></p>
+
+<h3 id="h-b2-1-4">1.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In everyday spoken Quebec French, the subjonctif passé is often replaced by a simpler construction, such as using the indicative: <strong>"Je suis fâché que t'as pas fait la vaisselle."</strong> (Instead of the correct: "que tu n'aies pas fait"). However, at the B2 level, particularly in writing or formal situations, mastering the proper subjunctive is crucial.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u2">UNIT 2: THE PASSIVE VOICE IN DEPTH</h2>
+
+<h3 id="h-b2-2-1">2.1 Advanced Passive Structures</h3>
+<p>In B2, you will encounter the passive voice across all tenses, particularly in bureaucratic texts and journalism. <br>
+<strong>Formation:</strong> Conjugate <strong>être</strong> in the desired tense + past participle (agreed with the subject).</p>
+<ul>
+<li><strong>Imparfait:</strong> L'immeuble <strong>était rénové</strong> par la ville. (The building was being renovated by the city.)</li>
+<li><strong>Futur:</strong> La décision <strong>sera prise</strong> la semaine prochaine. (The decision will be made next week.)</li>
+<li><strong>Conditionnel:</strong> Des mesures plus strictes <strong>seraient adoptées</strong>. (Stricter measures would be adopted.)</li>
+<li><strong>Passé Composé:</strong> Le suspect <strong>a été arrêté</strong>. (The suspect was arrested.)</li>
+</ul>
+
+<h3 id="h-b2-2-2">2.2 Avoiding the Passive (On, Se)</h3>
+<p>French strongly prefers the active voice. Instead of the passive, B2 speakers often use <strong>"On"</strong> or reflexive verbs (la voix pronominale).</p>
+<ul>
+<li><em>Passive:</em> Cette porte est fermée à 18h.</li>
+<li><em>With "On":</em> <strong>On</strong> ferme cette porte à 18h. (They close this door at 6pm.)</li>
+<li><em>With "Se":</em> Cette porte <strong>se ferme</strong> à 18h. (This door closes [itself] at 6pm.)</li>
+</ul>
+<p>Another example:</p>
+<ul>
+<li><em>Passive:</em> Le français est parlé au Québec.</li>
+<li><em>Reflexive:</em> Le français <strong>se parle</strong> au Québec.</li>
+</ul>
+
+<h3 id="h-b2-2-3">2.3 Use in Media and Formal Texts</h3>
+<p>In news, the passive emphasizes the action rather than the doer:</p>
+<ul>
+<li><strong>Une entente a été conclue entre le gouvernement et le syndicat tard hier soir. Les détails seront dévoilés demain matin.</strong> (An agreement was reached between the government and the union late last night. The details will be revealed tomorrow morning.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Listening to the Traffic Report:</strong></p>
+<p><em>Vous écoutez le bulletin de circulation à ICI Première.</em></p>
+<p>"Et maintenant, la circulation: L'autoroute 40 en direction est <strong>a été complètement bloquée</strong> à la hauteur du boulevard Saint-Michel à cause d'un carambolage. Plusieurs véhicules <strong>sont impliqués</strong>. Il <strong>est conseillé</strong> de prendre l'avenue Papineau, bien que celle-ci <strong>soit également congestionnée</strong>."</p>
+<p><em>(You are listening to the traffic report on ICI Première. "And now, traffic: Highway 40 Eastbound has been completely blocked near Saint-Michel Boulevard because of a pile-up. Several vehicles are involved. It is advised to take Papineau Avenue, although it is also congested.")</em></p>
+
+<h3 id="h-b2-2-4">2.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec journalism, the passive voice is as common as in France. However, pay attention to specific administrative vocabulary. For example, a contract might be <strong>"octroyé"</strong> (granted/awarded) rather than just "donné".</li>
+<li><strong>"À la hauteur de"</strong> is a very common spatial expression in Quebec meaning "at the level of" or "near" (often used when giving directions on a highway).</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u3">UNIT 3: COMPLEX DISCOURSE MARKERS</h2>
+
+<h3 id="h-b2-3-1">3.1 Structuring a Nuanced Argument</h3>
+<p>To pass a B2 exam (like the DELF or TEFAQ), you must string ideas together logically.</p>
+<ul>
+<li><strong>Pour commencer:</strong> En premier lieu, tout d'abord, à première vue.</li>
+<li><strong>Pour ajouter une idée:</strong> De plus, par ailleurs, en outre.</li>
+<li><strong>Pour illustrer:</strong> À titre d'exemple, notamment, en d'autres termes.</li>
+<li><strong>Pour conclure:</strong> En définitive, tout bien considéré, en somme.</li>
+</ul>
+
+<h3 id="h-b2-3-2">3.2 Concession &amp; Opposition</h3>
+<p>Concession allows you to acknowledge a counter-argument before refuting it, a hallmark of advanced speech.</p>
+<ul>
+<li><strong>Bien que / Quoique (+ subjonctif):</strong> Although. <em>Bien qu'il soit cher, ce quartier est idéal.</em></li>
+<li><strong>Cependant / Néanmoins / Toutefois:</strong> However / Nevertheless. <em>Il pleuvait; néanmoins, nous sommes sortis.</em></li>
+<li><strong>En revanche / Par contre:</strong> On the other hand.</li>
+<li><strong>Malgré (+ nom):</strong> Despite. <em>Malgré la grève, les cours ont eu lieu.</em></li>
+<li><strong>Certes..., mais...:</strong> Admittedly..., but... <em>Certes, l'intelligence artificielle présente des risques, mais elle offre aussi des opportunités immenses.</em></li>
+</ul>
+
+<h3 id="h-b2-3-3">3.3 Emphasizing a Point</h3>
+<ul>
+<li><strong>Il va de soi que...</strong> (It goes without saying that...)</li>
+<li><strong>Il n'en reste pas moins que...</strong> (The fact remains that...)</li>
+<li><strong>Quoi qu'il en soit,</strong> (Be that as it may, / Anyway,)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Defending an Urban Planning Choice:</strong></p>
+<p><em>Lors d'une assemblée citoyenne, un élu défend un nouveau parc.</em></p>
+<p>"<strong>Certes</strong>, ce projet de réaménagement coûtera cher aux contribuables. <strong>Cependant</strong>, il faut voir cela comme un investissement à long terme. <strong>En effet</strong>, l'ajout d'espaces verts réduira les îlots de chaleur. <strong>Bien que</strong> certains commerçants craignent une perte de stationnement, <strong>il n'en reste pas moins que</strong> la majorité des résidents réclament un milieu de vie plus sain. <strong>En définitive</strong>, l'amélioration de la qualité de vie compensera largement les inconvénients initiaux."</p>
+<p><em>(During a town hall meeting, an elected official defends a new park. "Admittedly, this redevelopment project will be expensive for taxpayers. However, we must see this as a long-term investment. Indeed, the addition of green spaces will reduce heat islands. Although some merchants fear a loss of parking, the fact remains that the majority of residents are demanding a healthier living environment. Ultimately, the improvement in quality of life will largely compensate for the initial inconveniences.")</em></p>
+
+<h3 id="h-b2-3-4">3.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>"Dans le fond"</strong> is widely used in spoken Quebec French as a filler or a concluding discourse marker, meaning "basically," "essentially," or "in the end."</li>
+<li><strong>"Par contre"</strong> is used much more frequently than "en revanche" in Quebec.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u4">UNIT 4: EXPRESSING NUANCED OPINIONS</h2>
+
+<h3 id="h-b2-4-1">4.1 Beyond Good and Bad</h3>
+<p>At B2, you must evaluate situations with nuance rather than simple approval or disapproval.</p>
+<ul>
+<li><strong>Je suis partagé(e) sur la question.</strong> (I have mixed feelings on the issue.)</li>
+<li><strong>Cette mesure soulève plusieurs interrogations essentielles.</strong> (This measure raises several essential questions.)</li>
+<li><strong>D'un côté..., mais de l'autre...</strong> (On one hand..., but on the other...)</li>
+<li><strong>Il faut nuancer ce propos.</strong> (We must add nuance to this statement.)</li>
+<li><strong>Ce n'est ni tout blanc ni tout noir.</strong> (It's not black and white.)</li>
+</ul>
+
+<h3 id="h-b2-4-2">4.2 Expressing Certainty &amp; Doubt</h3>
+<p><strong>Certainty (Indicatif):</strong></p>
+<ul>
+<li>Il est indéniable que (It is undeniable that)</li>
+<li>Il est évident que (It is obvious that)</li>
+<li>Je suis persuadé(e) que (I am convinced that)</li>
+</ul>
+<p><strong>Doubt (Subjonctif):</strong></p>
+<ul>
+<li>Il est peu probable que (It is unlikely that)</li>
+<li>Je ne suis pas certain(e) que (I am not sure that)</li>
+<li>Il se peut que (It is possible that)</li>
+</ul>
+
+<h3 id="h-b2-4-3">4.3 Participating in Debates</h3>
+<ul>
+<li><strong>Interrupting politely:</strong> <em>Si je peux me permettre, je voudrais ajouter que...</em> (If I may, I would like to add that...)</li>
+<li><strong>Asking for clarification:</strong> <em>Pouvez-vous préciser votre pensée?</em> (Can you clarify your thought?)</li>
+<li><strong>Refuting an argument:</strong> <em>Je comprends l'idée, mais force est de constater que la réalité est bien différente.</em> (I understand the idea, but it must be noted that reality is quite different.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A Radio Talk Show (Ligne Ouverte):</strong></p>
+<p><em>Un auditeur appelle à la radio pour débattre d'une loi sur la langue.</em></p>
+<p>"Bonjour. Écoutez, je suis assez partagé sur ce nouveau projet de loi. <strong>D'un côté</strong>, il est indéniable qu'il faut protéger la langue française au Québec. C'est notre identité. <strong>Mais de l'autre côté</strong>, je ne suis pas certain que contraindre les petites entreprises soit la bonne approche."<br>"Vous pensez donc que le gouvernement va trop loin?" (Animateur)<br>"<strong>Il faut nuancer.</strong> Le gouvernement a raison d'agir, mais <strong>il se pourrait que</strong> cette loi nuise à l'attraction de talents internationaux. <strong>Quoi qu'il en soit</strong>, nous avons besoin d'un vrai débat de société sur la question et non de lois précipitées."</p>
+<p><em>(A listener calls the radio to debate a language law. "Hello. Listen, I have mixed feelings about this new bill. On one hand, it is undeniable that we must protect the French language in Quebec. It is our identity. But on the other hand, I am not certain that constraining small businesses is the right approach." "So you think the government is going too far?" (Host) "We must nuance this. The government is right to act, but it could be that this law harms the attraction of international talent. Be that as it may, we need a real societal debate on the issue and not rushed laws.")</em></p>
+
+<h3 id="h-b2-4-4">4.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>Talk radio, or <strong>"les radios d'opinion"</strong> (sometimes critically called "les radios poubelles" if they are sensationalist), is a massive part of Quebec culture, especially in Quebec City.</li>
+<li>Debating politics and language rights is a favorite pastime in Quebec society. Being able to formulate balanced, nuanced arguments (using "d'un côté," "de l'autre") is the key to participating in these passionate discussions effectively.</li>
+</ul>
+
+<h1 id="h-b2-part-ii">PART II: PROFESSIONAL &amp; ACADEMIC</h1>
+
+<h2 id="h-b2-u5">UNIT 5: BUSINESS FRENCH</h2>
+
+<h3 id="h-b2-5-1">5.1 Corporate Vocabulary</h3>
+<p>To succeed in a francophone workplace, you must master the jargon of business.</p>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>le chiffre d'affaires</td><td>turnover / revenue</td></tr>
+<tr><td>une succursale / une filiale</td><td>a branch / subsidiary</td></tr>
+<tr><td>les ressources humaines (RH)</td><td>human resources (HR)</td></tr>
+<tr><td>le conseil d'administration</td><td>board of directors</td></tr>
+<tr><td>un ordre du jour</td><td>an agenda (for a meeting)</td></tr>
+<tr><td>un procès-verbal</td><td>minutes (of a meeting)</td></tr>
+<tr><td>un actionnaire</td><td>a shareholder</td></tr>
+<tr><td>la rentabilité</td><td>profitability</td></tr>
+<tr><td>un bilan financier</td><td>a financial statement</td></tr>
+<tr><td>un siège social</td><td>headquarters</td></tr>
+</tbody></table>
+
+<h3 id="h-b2-5-2">5.2 Formal Emails (Les courriels professionnels)</h3>
+<p>B2 requires you to write formal, nuanced emails without sounding robotic.</p>
+<ul>
+<li><strong>Opening:</strong> Bonjour Madame/Monsieur [Nom], Suite à notre conversation téléphonique... (Following our telephone conversation...)</li>
+<li><strong>Making a request:</strong> Je vous serais reconnaissant(e) de bien vouloir m'envoyer... (I would be grateful if you would send me...)</li>
+<li><strong>Attaching a file:</strong> Veuillez trouver ci-joint le dossier en question. (Please find attached the file in question.)</li>
+<li><strong>Following up:</strong> Je me permets de vous relancer concernant... (Allow me to follow up with you regarding...)</li>
+<li><strong>Closing:</strong> Cordialement, (Regards,) ou Salutations distinguées, (Sincerely, - formal).</li>
+</ul>
+
+<h3 id="h-b2-5-3">5.3 Running a Meeting (Animer une réunion)</h3>
+<ul>
+<li><strong>Opening:</strong> Merci à tous d'être présents. L'objectif de la réunion d'aujourd'hui est de... (Thank you all for being here. The objective of today's meeting is to...)</li>
+<li><strong>Transitioning:</strong> Passons maintenant au deuxième point de l'ordre du jour. (Let's move now to the second item on the agenda.)</li>
+<li><strong>Dealing with interruptions:</strong> Si vous permettez, j'aimerais terminer mon explication avant de prendre vos questions. (If you'll allow it, I would like to finish my explanation before taking your questions.)</li>
+<li><strong>Concluding:</strong> Pour résumer, nous avons convenu que... (To summarize, we have agreed that...)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing Quarterly Results:</strong></p>
+<p><em>Une réunion de gestion dans une grande entreprise.</em></p>
+<p>"Bienvenue à tous. Tel qu'indiqué à l'ordre du jour, nous allons examiner les résultats du troisième trimestre. Comme vous pouvez le constater dans le rapport ci-joint, notre chiffre d'affaires a augmenté de 5%."<br>"C'est une excellente nouvelle. Cependant, la rentabilité de notre filiale ontarienne a chuté. Quelles en sont les causes?"<br>"Il semblerait que les coûts d'exploitation aient considérablement augmenté cette année. Le conseil d'administration exige que nous présentions un plan de restructuration d'ici vendredi."<br>"Je vais charger l'équipe des finances de préparer une analyse détaillée. Nous ferons un suivi lors de la prochaine réunion."</p>
+<p><em>(A management meeting in a large company. "Welcome everyone. As indicated on the agenda, we are going to examine the third quarter results. As you can observe in the attached report, our revenue has increased by 5%." "This is excellent news. However, the profitability of our Ontario subsidiary has dropped. What are the causes of this?" "It would seem that operating costs have increased considerably this year. The board of directors demands that we present a restructuring plan by Friday." "I am going to task the finance team with preparing a detailed analysis. We will follow up at the next meeting.")</em></p>
+
+<h3 id="h-b2-5-4">5.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, the word <strong>"courriel"</strong> (a blend of courrier + électronique) is universally used instead of the English "e-mail/mail" used in France.</li>
+<li>A meeting is universally referred to as <strong>"un meeting"</strong> or <strong>"une rencontre"</strong> in spoken Quebec French, though <strong>"une réunion"</strong> remains standard in writing.</li>
+<li><strong>Le PDG</strong> (Président-directeur général) is the equivalent of the CEO.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u6">UNIT 6: LAW &amp; RIGHTS</h2>
+
+<h3 id="h-b2-6-1">6.1 Legal Vocabulary</h3>
+<p>Understanding basic legal and administrative terminology is crucial at the B2 level.</p>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>un avocat / une avocate</td><td>a lawyer</td></tr>
+<tr><td>les droits de la personne</td><td>human rights</td></tr>
+<tr><td>un procès</td><td>a trial / lawsuit</td></tr>
+<tr><td>un tribunal / une cour</td><td>a court</td></tr>
+<tr><td>le code civil / criminel</td><td>the civil / criminal code</td></tr>
+<tr><td>coupable / innocent(e)</td><td>guilty / innocent</td></tr>
+<tr><td>un témoin</td><td>a witness</td></tr>
+<tr><td>poursuivre (en justice)</td><td>to sue</td></tr>
+<tr><td>un bail (des baux)</td><td>a lease (rent agreement)</td></tr>
+<tr><td>le droit du travail</td><td>labor law</td></tr>
+</tbody></table>
+
+<h3 id="h-b2-6-2">6.2 Understanding Contracts</h3>
+<p>B2 learners should be able to read standard clauses in leases or employment contracts.</p>
+<ul>
+<li><strong>Conformément à l'alinéa 3...</strong> (In accordance with paragraph 3...)</li>
+<li><strong>Sous réserve de modifications...</strong> (Subject to modifications...)</li>
+<li><strong>Les parties s'engagent à...</strong> (The parties commit to...)</li>
+<li><strong>En cas de litige...</strong> (In the event of a dispute...)</li>
+<li><strong>Il est formellement interdit de...</strong> (It is strictly forbidden to...)</li>
+</ul>
+
+<h3 id="h-b2-6-3">6.3 Civil Rights &amp; Duties</h3>
+<ul>
+<li><strong>Tout individu a droit à la liberté d'expression, sous réserve des limites imposées par la loi.</strong> (Every individual has the right to freedom of expression, subject to the limits imposed by law.)</li>
+<li><strong>Le suspect a été acquitté faute de preuves suffisantes.</strong> (The suspect was acquitted due to a lack of sufficient evidence.)</li>
+<li><strong>En tant que citoyen, vous avez le devoir de respecter le code de la route.</strong> (As a citizen, you have the duty to respect the highway code.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing a Tenancy Dispute:</strong></p>
+<p><em>Un locataire consulte un avocat au sujet d'une éviction.</em></p>
+<p>"Maître, mon propriétaire m'a envoyé un avis d'éviction la semaine dernière. Il prétend vouloir loger sa fille dans mon appartement."<br>"Je comprends. Au Québec, la reprise de logement est encadrée de façon très stricte par le Tribunal administratif du logement. Avez-vous signé le document?"<br>"Non, j'ai refusé de le signer car je doute de ses intentions. Je crois qu'il veut simplement rénover et augmenter le loyer."<br>"Vous avez bien fait. Selon la loi, vous avez un mois pour refuser. S'il maintient sa décision, c'est à lui de prouver sa bonne foi devant le juge. Dans l'intervalle, continuez de payer votre loyer normalement."</p>
+<p><em>(A tenant consults a lawyer regarding an eviction. "Counsel, my landlord sent me an eviction notice last week. He claims he wants to house his daughter in my apartment." "I understand. In Quebec, repossession of a dwelling is very strictly regulated by the Administrative Housing Tribunal. Did you sign the document?" "No, I refused to sign it because I doubt his intentions. I believe he simply wants to renovate and raise the rent." "You did well. According to the law, you have one month to refuse. If he maintains his decision, it is up to him to prove his good faith before the judge. In the meantime, continue paying your rent normally.")</em></p>
+
+<h3 id="h-b2-6-4">6.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>Quebec has a <strong>bijuridical</strong> system: It uses the <strong>Code civil du Québec</strong> (derived from French law) for private/civil matters (contracts, property, family), and the <strong>Common Law</strong> (British) for criminal matters.</li>
+<li>Lawyers and notaries are addressed as <strong>"Maître"</strong> (Master) in formal or professional contexts.</li>
+<li>The <strong>TAL</strong> (Tribunal administratif du logement, formerly La Régie du logement) is the provincial body that governs relations between landlords (propriétaires) and tenants (locataires).</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u7">UNIT 7: SCIENCE &amp; TECH</h2>
+
+<h3 id="h-b2-7-1">7.1 Scientific Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>la recherche et développement (R&amp;D)</td><td>research and development</td></tr>
+<tr><td>une expérience / une expérimentation</td><td>an experiment</td></tr>
+<tr><td>un chercheur / une chercheuse</td><td>a researcher</td></tr>
+<tr><td>l'intelligence artificielle (IA)</td><td>artificial intelligence (AI)</td></tr>
+<tr><td>les données (f. pl.)</td><td>data</td></tr>
+<tr><td>une percée scientifique</td><td>a scientific breakthrough</td></tr>
+<tr><td>le génie (logiciel/mécanique)</td><td>(software/mechanical) engineering</td></tr>
+<tr><td>l'espace (m.) / un astronaute</td><td>space / an astronaut</td></tr>
+<tr><td>une découverte</td><td>a discovery</td></tr>
+</tbody></table>
+
+<h3 id="h-b2-7-2">7.2 Information Technology</h3>
+<ul>
+<li><strong>Une mise à jour:</strong> Il est recommandé d'installer la dernière mise à jour de sécurité. (It is recommended to install the latest security update.)</li>
+<li><strong>Un logiciel:</strong> Ce logiciel open-source permet de traiter des milliers de données à la seconde. (This open-source software allows processing thousands of data points per second.)</li>
+<li><strong>Le télétravail / le réseau:</strong> Depuis la pandémie, la sécurité des réseaux informatiques est devenue un enjeu majeur pour les entreprises. (Since the pandemic, the security of IT networks has become a major issue for companies.)</li>
+<li><strong>Un algorithme:</strong> L'algorithme de ce réseau social favorise le contenu controversé. (This social network's algorithm favors controversial content.)</li>
+</ul>
+
+<h3 id="h-b2-7-3">7.3 Discussing Innovation</h3>
+<p>At B2, you should be able to argue the pros and cons of technological advances.</p>
+<ul>
+<li><strong>Si le développement de l'IA promet des avancées médicales spectaculaires, il soulève également d'importantes questions éthiques quant à la vie privée.</strong> (While the development of AI promises spectacular medical advances, it also raises important ethical questions regarding privacy.)</li>
+<li><strong>L'intégration de la robotique dans le secteur manufacturier pourrait entraîner des pertes d'emplois massives.</strong> (The integration of robotics in the manufacturing sector could lead to massive job losses.)</li>
+<li><strong>Les chercheurs ont publié une étude démontrant l'efficacité de ce nouveau vaccin.</strong> (Researchers have published a study demonstrating the efficacy of this new vaccine.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing AI in the Workplace:</strong></p>
+<p><em>Lors d'un congrès sur les technologies de l'information à Montréal.</em></p>
+<p>"Pensez-vous que l'intelligence artificielle générative finira par remplacer les programmeurs?"<br>"Non, je ne le crois pas. L'IA est un outil extrêmement puissant pour automatiser les tâches répétitives, mais elle manque de créativité et de pensée critique. Les ingénieurs logiciels devront simplement s'adapter et apprendre à collaborer avec ces algorithmes."<br>"C'est un point de vue optimiste. Toutefois, plusieurs experts craignent une fracture numérique entre ceux qui maîtrisent cette technologie et ceux qui seront laissés pour compte."<br>"C'est effectivement un risque. C'est pourquoi la formation continue sera la clé dans les prochaines décennies."</p>
+<p><em>(During an IT conference in Montreal. "Do you think generative artificial intelligence will eventually replace programmers?" "No, I don't believe so. AI is an extremely powerful tool to automate repetitive tasks, but it lacks creativity and critical thinking. Software engineers will simply have to adapt and learn to collaborate with these algorithms." "That is an optimistic point of view. However, several experts fear a digital divide between those who master this technology and those who will be left behind." "That is indeed a risk. That is why continuing education will be key in the coming decades.")</em></p>
+
+<h3 id="h-b2-7-4">7.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>Montreal is considered one of the leading global hubs for Artificial Intelligence research (e.g., the Mila institute).</li>
+<li>Quebec's Office québécois de la langue française (OQLF) often creates French equivalents for English tech terms. For example, <strong>"courriel"</strong> (email), <strong>"clavardage"</strong> (chatting, from clavier + bavardage), and <strong>"balado"</strong> (podcast).</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u8">UNIT 8: HIGHER EDUCATION</h2>
+
+<h3 id="h-b2-8-1">8.1 Academic Research Terminology</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>une thèse de doctorat</td><td>a PhD thesis</td></tr>
+<tr><td>un mémoire de maîtrise</td><td>a Master's thesis/dissertation</td></tr>
+<tr><td>une bourse de recherche</td><td>a research grant</td></tr>
+<tr><td>un comité d'évaluation</td><td>an evaluation committee</td></tr>
+<tr><td>la méthodologie</td><td>the methodology</td></tr>
+<tr><td>une bibliographie / les sources</td><td>a bibliography / the sources</td></tr>
+<tr><td>la rentrée universitaire</td><td>the start of the university year</td></tr>
+<tr><td>le plagiat</td><td>plagiarism</td></tr>
+</tbody></table>
+
+<h3 id="h-b2-8-2">8.2 Writing Essays (Dissertations)</h3>
+<p>The French educational system strongly values rhetorical structure. A classic essay format is:</p>
+<ol>
+<li><strong>Introduction:</strong> Amener le sujet (hook), poser la problématique (the central question), annoncer le plan (outline the structure).</li>
+<li><strong>Thèse:</strong> Argument in favor.</li>
+<li><strong>Antithèse:</strong> Counter-argument (nuance).</li>
+<li><strong>Synthèse:</strong> Resolving the paradox or offering a compromise.</li>
+<li><strong>Conclusion:</strong> Résumé (summary) AND ouverture (opening to a broader topic).</li>
+</ol>
+<p><em>Note: This rigid "thèse-antithèse-synthèse" structure is less mandatory in Quebec than in France, but knowing it is essential for B2/C1 exams.</em></p>
+
+<h3 id="h-b2-8-3">8.3 Defending a Thesis</h3>
+<ul>
+<li><strong>L'objectif primaire de cette étude était de déterminer les causes de...</strong> (The primary objective of this study was to determine the causes of...)</li>
+<li><strong>Les résultats préliminaires contredisent notre hypothèse initiale.</strong> (The preliminary results contradict our initial hypothesis.)</li>
+<li><strong>En conclusion, cette recherche ouvre la voie à de nouvelles avenues thérapeutiques.</strong> (In conclusion, this research paves the way for new therapeutic avenues.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A meeting with a Thesis Advisor:</strong></p>
+<p><em>Une étudiante à la maîtrise discute de son projet avec son directeur de recherche.</em></p>
+<p>"J'ai lu la première ébauche de votre cadre théorique, Camille. C'est intéressant, mais je trouve que la problématique manque un peu de précision."<br>"D'accord. Voulez-vous que je restreigne mon champ d'étude à une période historique plus courte?"<br>"Oui, exactement. Par ailleurs, votre méthodologie est très solide. Avez-vous terminé la collecte de données qualitatives?"<br>"Presque. Il me reste deux entrevues à mener la semaine prochaine. Ensuite, je commencerai l'analyse des résultats."<br>"Parfait. N'oubliez pas de bien citer vos sources; le comité est très strict sur le plagiat. On se revoit dans deux semaines pour faire le point."</p>
+<p><em>(A master's student discusses her project with her research director. "I read the first draft of your theoretical framework, Camille. It's interesting, but I find that the research question lacks a bit of precision." "Okay. Do you want me to restrict my field of study to a shorter historical period?" "Yes, exactly. Furthermore, your methodology is very solid. Have you finished collecting qualitative data?" "Almost. I have two interviews left to conduct next week. Then, I will start analyzing the results." "Perfect. Don't forget to cite your sources properly; the committee is very strict about plagiarism. We will meet again in two weeks to take stock.")</em></p>
+
+<h3 id="h-b2-8-4">8.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, degrees are named slightly differently than in France.
+<ul>
+<li><strong>Le baccalauréat (le bac):</strong> A 3-4 year undergraduate university degree (Bachelor's).</li>
+<li><strong>La maîtrise:</strong> A 1-2 year graduate degree (Master's).</li>
+<li><strong>Le doctorat (un Ph.D.):</strong> A doctoral degree.</li>
+</ul></li>
+<li><strong>"Une session"</strong> is the term used for a semester at university (Session d'automne, session d'hiver).</li>
+</ul>
+
+<h1 id="h-b2-part-iii">PART III: CULTURE &amp; IDENTITY</h1>
+
+<h2 id="h-b2-u9">UNIT 9: LITERATURE</h2>
+
+<h3 id="h-b2-9-1">9.1 Literary Analysis Vocabulary</h3>
+<table>
+<thead><tr><th>French</th><th>English</th></tr></thead>
+<tbody>
+<tr><td>une figure de style</td><td>a figure of speech</td></tr>
+<tr><td>une métaphore / une comparaison</td><td>a metaphor / a simile</td></tr>
+<tr><td>le point de vue (omniscient/interne)</td><td>point of view (omniscient/internal)</td></tr>
+<tr><td>l'intrigue (f.)</td><td>the plot</td></tr>
+<tr><td>le protagoniste / l'antagoniste</td><td>the protagonist / antagonist</td></tr>
+<tr><td>le ton (ironique, dramatique)</td><td>the tone (ironic, dramatic)</td></tr>
+<tr><td>le genre (littéraire)</td><td>the (literary) genre</td></tr>
+<tr><td>un extrait</td><td>an excerpt</td></tr>
+</tbody></table>
+
+<h3 id="h-b2-9-2">9.2 Classic vs Modern Authors</h3>
+<p>To pass a B2 exam, you must be able to discuss a book you've read. You should know the basics of both French and Québécois literature.</p>
+<ul>
+<li><strong>France:</strong> Victor Hugo (<em>Les Misérables</em>), Albert Camus (<em>L'Étranger</em>), Marcel Proust, Simone de Beauvoir.</li>
+<li><strong>Québec:</strong> Michel Tremblay (<em>Les Belles-Sœurs</em>, <em>La grosse femme d'à côté...</em>), Gabrielle Roy (<em>Bonheur d'occasion</em>), Dany Laferrière (<em>Comment faire l'amour avec un Nègre sans se fatiguer</em>), Kim Thúy (<em>Ru</em>).</li>
+</ul>
+
+<h3 id="h-b2-9-3">9.3 The Passé Simple</h3>
+<p>You do not need to <em>speak</em> or <em>write</em> in the <strong>passé simple</strong>, but at B2, you MUST be able to recognize it when reading literature.</p>
+<p>It replaces the passé composé in formal, written, historical narratives.</p>
+<ul>
+<li>Il parla (He spoke / Il a parlé)</li>
+<li>Elle finit (She finished / Elle a fini)</li>
+<li>Il fut (He was / Il a été)</li>
+<li>Ils eurent (They had / Ils ont eu)</li>
+<li>Je vis (I saw / J'ai vu)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A Book Club Meeting (Club de lecture):</strong></p>
+<p><em>Des amis discutent du roman "Ru" de Kim Thúy.</em></p>
+<p>"J'ai trouvé la structure du livre fascinante. L'auteure ne suit pas une trame narrative chronologique, elle procède plutôt par vignettes."<br>"Tout à fait. C'est un style très poétique. Les métaphores qu'elle utilise pour décrire son exil du Vietnam sont bouleversantes."<br>"Personnellement, j'ai eu un peu de difficulté à m'investir au début à cause de la fragmentation de l'intrigue, mais le ton intime a fini par me captiver."<br>"C'est le génie de cette œuvre. Elle réussit à transmettre la lourdeur du traumatisme avec une incroyable légèreté de style."</p>
+<p><em>(Friends discuss the novel "Ru" by Kim Thúy. "I found the structure of the book fascinating. The author does not follow a chronological narrative thread, she proceeds rather by vignettes." "Absolutely. It's a very poetic style. The metaphors she uses to describe her exile from Vietnam are deeply moving." "Personally, I had a little difficulty getting invested at the beginning because of the fragmentation of the plot, but the intimate tone ended up captivating me." "That's the genius of this work. She succeeds in transmitting the heaviness of trauma with an incredible lightness of style.")</em></p>
+
+<h3 id="h-b2-9-4">9.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>"Bonheur d'occasion"</strong> (The Tin Flute) by Gabrielle Roy is widely considered the first great urban novel of Quebec, depicting the working-class Saint-Henri neighborhood in Montreal during WWII.</li>
+<li><strong>La Grande Bibliothèque (BAnQ)</strong> in Montreal is a cultural institution and the largest library in the francophone Americas.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u10">UNIT 10: CINEMA &amp; MEDIA</h2>
+
+<h3 id="h-b2-10-1">10.1 Advanced Media Critique</h3>
+<p>Discussing films and media requires expressing subjective but analytical opinions.</p>
+<ul>
+<li><strong>Le jeu des acteurs:</strong> La performance de l'actrice principale était absolument nuancée et juste. (The lead actress's performance was absolutely nuanced and on point.)</li>
+<li><strong>La réalisation:</strong> La mise en scène était audacieuse, mais parfois un peu lourde. (The direction was bold, but sometimes a bit heavy-handed.)</li>
+<li><strong>Le rythme:</strong> J'ai trouvé que le film souffrait de longueurs au deuxième acte. (I found that the film suffered from slow pacing in the second act.)</li>
+<li><strong>Le message:</strong> L'œuvre dénonce avec brio les dérives du capitalisme moderne. (The work brilliantly denounces the excesses of modern capitalism.)</li>
+</ul>
+
+<h3 id="h-b2-10-2">10.2 Analyzing Bias in News</h3>
+<p>You must be able to read an article and identify the journalist's stance.</p>
+<ul>
+<li><strong>L'impartialité / La partialité:</strong> Cet article manque d'impartialité; le ton est clairement biaisé. (This article lacks impartiality; the tone is clearly biased.)</li>
+<li><strong>Sensationalisme:</strong> La une du journal est racoleuse et cherche à choquer le lecteur. (The newspaper's front page is sensationalist and seeks to shock the reader.)</li>
+<li><strong>Une chronique:</strong> À la différence d'un reportage objectif, la chronique reflète l'opinion personnelle de l'auteur. (Unlike an objective report, the column reflects the author's personal opinion.)</li>
+</ul>
+
+<h3 id="h-b2-10-3">10.3 Francophone Cinema</h3>
+<p>A B2 student should know some major figures:</p>
+<ul>
+<li><strong>Denis Villeneuve:</strong> A Québécois director famous globally (<em>Dune, Arrival, Incendies</em>).</li>
+<li><strong>Jean-Marc Vallée:</strong> Québécois director known for <em>C.R.A.Z.Y., Dallas Buyers Club, Big Little Lies</em>.</li>
+<li><strong>Xavier Dolan:</strong> The "enfant terrible" of Quebec cinema (<em>Mommy, Laurence Anyways</em>).</li>
+<li><strong>Denys Arcand:</strong> Legendary director of <em>Le Déclin de l'empire américain</em> and <em>Les Invasions barbares</em> (Oscar winner).</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Critiquing a Documentary:</strong></p>
+<p><em>À la sortie d'un festival du film documentaire.</em></p>
+<p>"Quel documentaire percutant! Le réalisateur a vraiment réussi à capturer l'essence du mouvement social."<br>"Je suis d'accord en partie, mais j'ai trouvé qu'il manquait cruellement d'objectivité. Il n'a interrogé que des militants favorables à la cause."<br>"C'est le propre du cinéma militant. Il ne se cache pas de prendre parti. D'ailleurs, la cinématographie était très soignée."<br>"Certes, sur le plan visuel, c'était impeccable. La bande sonore sublimait vraiment le propos. Mais j'aurais aimé une approche plus journalistique."</p>
+<p><em>(Leaving a documentary film festival. "What a striking documentary! The director really succeeded in capturing the essence of the social movement." "I agree in part, but I found that it severely lacked objectivity. He only interviewed activists favorable to the cause." "That is characteristic of activist cinema. It doesn't hide taking a side. Besides, the cinematography was very polished." "Admittedly, visually, it was impeccable. The soundtrack really enhanced the message. But I would have preferred a more journalistic approach.")</em></p>
+
+<h3 id="h-b2-10-4">10.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, movies are dubbed locally. A film dubbed in France will say "V.F." (Version Française), while one dubbed in Quebec will say "V.Q." (Version Québécoise). V.Q. dubbings generally use international French but without Parisian slang, and occasionally adapt humor using Québécois cultural references (e.g., <em>The Simpsons</em> is famously dubbed in heavily accented joual in Quebec).</li>
+<li>Movie titles are rigidly translated in Quebec, unlike in France where English titles are often kept. E.g., <em>Pulp Fiction</em> is <em>Fiction Pulpeuse</em> in Quebec. <em>The Hangover</em> is <em>Lendemain de veille</em>.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u11">UNIT 11: SOCIAL DEBATES</h2>
+
+<h3 id="h-b2-11-1">11.1 Immigration &amp; Integration</h3>
+<p>This is a major topic in all B2 DELF/TEFAQ exams.</p>
+<ul>
+<li><strong>L'intégration économique:</strong> La reconnaissance des diplômes étrangers demeure le principal obstacle à l'intégration des nouveaux arrivants. (The recognition of foreign degrees remains the main obstacle to the integration of newcomers.)</li>
+<li><strong>Le multiculturalisme vs. l'interculturalisme:</strong> Le Canada favorise le multiculturalisme, mais le Québec défend une politique d'interculturalisme, où le français est la langue commune de convergence sociale. (Canada favors multiculturalism, but Quebec defends a policy of interculturalism, where French is the common language of social convergence.)</li>
+<li><strong>La pénurie de main-d'œuvre:</strong> L'immigration est souvent présentée comme la solution à la pénurie de main-d'œuvre, mais elle doit s'accompagner d'infrastructures adéquates. (Immigration is often presented as the solution to the labor shortage, but it must be accompanied by adequate infrastructure.)</li>
+</ul>
+
+<h3 id="h-b2-11-2">11.2 The Healthcare System (Le système de santé)</h3>
+<ul>
+<li><strong>L'accessibilité:</strong> Le principe fondamental du système de santé public est l'accessibilité universelle et gratuite. (The fundamental principle of the public healthcare system is universal and free accessibility.)</li>
+<li><strong>Les listes d'attente:</strong> Le temps d'attente aux urgences et pour les chirurgies spécialisées est problématique. (Wait times in ERs and for specialized surgeries is problematic.)</li>
+<li><strong>La privatisation:</strong> Certains proposent une plus grande place au privé pour désengorger le système, tandis que d'autres craignent l'instauration d'une médecine à deux vitesses. (Some propose a larger role for the private sector to relieve the system, while others fear the establishment of two-tier medicine.)</li>
+</ul>
+
+<h3 id="h-b2-11-3">11.3 Urban Living vs Rural Life</h3>
+<ul>
+<li><strong>L'étalement urbain (Urban sprawl):</strong> L'étalement urbain détruit les terres agricoles et augmente la dépendance à l'automobile. (Urban sprawl destroys agricultural lands and increases dependence on the automobile.)</li>
+<li><strong>L'exode rural (Rural exodus):</strong> Les jeunes quittent massivement les régions éloignées pour s'installer dans les grandes métropoles à la recherche d'emplois. (Young people are leaving remote regions en masse to settle in major metropolises in search of jobs.)</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A Televised Debate on Healthcare:</strong></p>
+<p><em>Un panel de discussion à la télévision.</em></p>
+<p>"Monsieur le ministre, comment justifiez-vous que des patients doivent attendre un an pour voir un spécialiste?"<br>"Je conçois tout à fait que la situation est inacceptable. C'est la raison pour laquelle nous avons injecté un milliard de dollars pour embaucher plus d'infirmières."<br>"Mais l'argent ne résout pas tout! Le système est paralysé par la bureaucratie. Il faut revoir le mode de gestion des hôpitaux de fond en comble."<br>"C'est trop facile de critiquer sans proposer d'alternatives viables. La privatisation partielle, que vous suggérez, ne ferait que drainer le personnel du réseau public."</p>
+<p><em>(A televised panel discussion. "Minister, how do you justify that patients must wait a year to see a specialist?" "I entirely concede that the situation is unacceptable. That is the reason why we injected a billion dollars to hire more nurses." "But money doesn't solve everything! The system is paralyzed by bureaucracy. We must revise the management model of hospitals from top to bottom." "It is too easy to criticize without proposing viable alternatives. The partial privatization that you suggest would only drain staff from the public network.")</em></p>
+
+<h3 id="h-b2-11-4">11.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>Le réseau de la santé:</strong> In Quebec, the healthcare system is managed by regional boards called CISSS or CIUSSS (Centres intégrés universitaires de santé et de services sociaux).</li>
+<li><strong>Avoir un médecin de famille</strong> (having a family doctor) is a major issue; a significant portion of the population is on a waiting list (le guichet d'accès à un médecin de famille) to get one. Many turn to <strong>les cliniques sans rendez-vous</strong> (walk-in clinics).</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u12">UNIT 12: QUEBEC IDENTITY</h2>
+
+<h3 id="h-b2-12-1">12.1 Language Laws (La Charte de la langue française)</h3>
+<p>You cannot understand Quebec without understanding <strong>La Loi 101</strong> (Bill 101), passed in 1977.</p>
+<ul>
+<li>It made French the sole official language of the state, courts, and workplaces.</li>
+<li>It requires all commercial signage to be predominantly in French (l'affichage commercial).</li>
+<li>It mandates that children of immigrants attend French-language schools (les enfants d'allophones doivent fréquenter l'école francophone) until the end of high school. Children whose parents studied in English in Canada can attend English schools.</li>
+</ul>
+<p><strong>Vocabulary:</strong></p>
+<ul>
+<li><strong>Un francophone:</strong> whose mother tongue is French.</li>
+<li><strong>Un anglophone:</strong> whose mother tongue is English.</li>
+<li><strong>Un allophone:</strong> whose mother tongue is neither French nor English.</li>
+</ul>
+
+<h3 id="h-b2-12-2">12.2 The Sovereignist Movement</h3>
+<p>The debate over whether Quebec should separate from Canada and become an independent country has dominated politics for decades.</p>
+<ul>
+<li><strong>Les souverainistes / indépendantistes:</strong> Believe Quebec should be a sovereign nation to protect its language, culture, and economic interests.</li>
+<li><strong>Les fédéralistes:</strong> Believe Quebec should remain a province within the Canadian federation.</li>
+<li><strong>Les référendums:</strong> 1980 (60% No) and 1995 (50.58% No). The debate has since cooled, but the structural tension remains.</li>
+</ul>
+
+<h3 id="h-b2-12-3">12.3 Cultural Protectionism</h3>
+<p>Quebec acts effectively like a nation-state within a state to protect its culture from American and English-Canadian influence. The concept of <strong>"l'exception culturelle"</strong> is vital: the idea that cultural goods (music, TV, books) should not be treated merely as commercial products but must be subsidized and protected by quotas.</p>
+
+<p><strong>🇫🇷 Real-Life Scene – Discussing Language Laws:</strong></p>
+<p><em>Deux collègues discutent d'un projet de loi pour renforcer le français.</em></p>
+<p>"As-tu vu qu'ils veulent imposer des quotas de francophones dans les petites entreprises?"<br>"Oui, c'est indispensable. On constate un déclin de l'usage du français au travail à Montréal, surtout dans le domaine technologique."<br>"C'est vrai, mais j'ai peur que ça décourage les investisseurs étrangers. Les affaires internationales se font en anglais."<br>"Bien sûr que l'anglais est utile, personne ne nie ça. Mais le Québec est le seul territoire francophone en Amérique du Nord. Si l'État n'intervient pas pour protéger la langue commune, l'assimilation est inévitable sur le long terme."</p>
+<p><em>(Two colleagues discuss a bill to strengthen French. "Did you see that they want to impose francophone quotas in small businesses?" "Yes, it is indispensable. We are seeing a decline in the use of French at work in Montreal, especially in the tech sector." "It's true, but I fear it will discourage foreign investors. International business is done in English." "Of course English is useful, no one denies that. But Quebec is the only francophone territory in North America. If the state does not intervene to protect the common language, assimilation is inevitable in the long term.")</em></p>
+
+<h3 id="h-b2-12-4">12.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>La laïcité:</strong> In 2019, Quebec passed <em>Loi 21</em> on the secularism of the state (la laïcité de l'État), banning certain public servants in positions of authority (like police officers, judges, and teachers) from wearing visible religious symbols at work. It was a massive and polarizing societal debate.</li>
+<li><strong>"Le deux solitudes":</strong> A famous expression referring to the lack of communication and understanding between French-speaking and English-speaking Canadians.</li>
+</ul>
+<hr>
+
+<h1 id="h-b2-part-iv">PART IV: MASTERING NUANCE</h1>
+
+<h2 id="h-b2-u13">UNIT 13: HUMOR &amp; SARCASM</h2>
+
+<h3 id="h-b2-13-1">13.1 Humor in Quebec</h3>
+<p>Stand-up comedy is arguably the most popular art form in Quebec. To understand humor in a second language is proof of C1 fluency, but at B2, you should start recognizing the structures.</p>
+<ul>
+<li><strong>L'autodérision (Self-deprecation):</strong> Quebec humor relies heavily on making fun of oneself, rather than mocking the audience aggressively.</li>
+<li><strong>L'absurde (Absurdity):</strong> Situational comedy that escalates to ridiculous extremes.</li>
+</ul>
+
+<h3 id="h-b2-13-2">13.2 Irony and Sarcasm</h3>
+<p>Francophones frequently use sarcasm, often without changing their tone of voice. Context is key.</p>
+<ul>
+<li><strong>C'est ça, oui.</strong> (Yeah, right.)</li>
+<li><strong>Tu parles d'une bonne idée!</strong> (What a great idea! → Meaning: What a terrible idea).</li>
+<li><strong>On est bien barrés.</strong> (We're in a great spot. → Meaning: We're doomed / stuck).</li>
+<li><strong>C'est le fun en maudit!</strong> (That's so fun! → If said with rolling eyes while shoveling snow, it means the opposite).</li>
+</ul>
+
+<h3 id="h-b2-13-3">13.3 Expressing Irony in Debate</h3>
+<ul>
+<li><strong>C'est la meilleure!</strong> (That's the best one yet! / That takes the cake!)</li>
+<li><strong>Et on s'étonne que...</strong> (And we wonder why...) <em>Et on s'étonne que les jeunes ne veuillent plus travailler dans la restauration!</em></li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – A Sarcastic Response to Winter:</strong></p>
+<p><em>Vous déneigez votre entrée après la troisième tempête de la semaine.</em></p>
+<p>"Salut! Méchante belle journée, hein?" (Voisin)<br>"Ah, tu parles! Y a rien que j'aime plus que de me lever à 5h du matin pour pelleter de la gadoue. C'est vraiment l'exercice physique idéal!"<br>"Hahaha! Au moins, tu gardes le sourire."<br>"C'est l'hiver québécois, qu'est-ce que tu veux. Si je ne riais pas, je pleurerais. Hey, t'as pas besoin de la souffleuse par hasard?"<br>"Non, c'est beau, l'entreprise de déneigement vient de passer. Bonne chance avec ton banc de neige!"</p>
+<p><em>(You are shoveling your driveway after the third storm of the week. "Hi! Mighty nice day, eh?" (Neighbor) "Oh, you bet! There's nothing I love more than getting up at 5am to shovel slush. It's really the ideal physical exercise!" "Hahaha! At least you keep your smile." "It's Quebec winter, what do you want. If I didn't laugh, I'd cry. Hey, you don't need the snowblower by chance?" "No, I'm good, the snow removal company just came by. Good luck with your snowbank!")</em></p>
+
+<h3 id="h-b2-13-4">13.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>"Qu'est-ce que tu veux"</strong> or <strong>"Que veux-tu"</strong> is a very common fatalistic expression when you can't change a bad situation. Like a verbal shrug.</li>
+<li><strong>"C'est beau"</strong> literally means "it is beautiful," but in Quebec, it mostly means "It's fine," "It's all good," or "No thank you" (if refusing more coffee, for example).</li>
+<li>The idiom <strong>"un banc de neige"</strong> means a snowbank left by the plows.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u14">UNIT 14: IDIOMS &amp; SLANG (ARGOT &amp; JOUAL)</h2>
+
+<h3 id="h-b2-14-1">14.1 Advanced Idioms</h3>
+<p>To sound natural, you must sprinkle your speech with idioms.</p>
+<table>
+<thead><tr><th>Idiom</th><th>Literal Translation</th><th>Actual Meaning</th></tr></thead>
+<tbody>
+<tr><td>Mettre des gants blancs</td><td>To put on white gloves</td><td>To handle a situation very delicately / to beat around the bush. (Souvent utilisé au négatif : Il ne met pas de gants blancs).</td></tr>
+<tr><td>Faire la grasse matinée</td><td>To do the fat morning</td><td>To sleep in late on a weekend.</td></tr>
+<tr><td>C'est pas la mer à boire</td><td>It's not the sea to drink</td><td>It's not that difficult / It's manageable.</td></tr>
+<tr><td>Avoir le bras long</td><td>To have a long arm</td><td>To have influence/connections in high places.</td></tr>
+<tr><td>Mettre la charrue avant les bœufs</td><td>To put the plow before the oxen</td><td>To do things in the wrong order.</td></tr>
+<tr><td>Passer une nuit blanche</td><td>To spend a white night</td><td>To pull an all-nighter (not sleep).</td></tr>
+</tbody></table>
+
+<h3 id="h-b2-14-2">14.2 Familiar and Slang Registers (Joual)</h3>
+<p>Understanding informal spoken Quebec French (le joual) is essential for living there, even if you shouldn't write it.</p>
+<ul>
+<li><strong>Les chums / la gang:</strong> The guys / the crew. <em>Je sors avec la gang ce soir.</em></li>
+<li><strong>Capoter:</strong> To freak out (positive or negative). <em>J'ai capoté quand j'ai vu le prix! / Ce film-là est capotant!</em></li>
+<li><strong>Écoeuré(e):</strong> Sick of it / disgusted. <em>Je suis tanné, je suis à bout, je suis écoeuré de la pluie.</em></li>
+<li><strong>Pantoute:</strong> Not at all (pas du tout). <em>Ça ne me dérange pas pantoute.</em></li>
+<li><strong>C'est plate:</strong> It's boring / It's sad. <em>C'est plate que tu ne puisses pas venir.</em></li>
+<li><strong>Une piastre (pronounced "piasse"):</strong> A dollar (a buck). <em>Ça m'a coûté vingt piasses.</em></li>
+</ul>
+
+<h3 id="h-b2-14-3">14.3 Swearing Appropriately (Les Sacres)</h3>
+<p>Quebec swearing is unique in the world, originating entirely from Catholic Church terminology. A B2 speaker should NEVER use them in a professional setting, but you MUST understand them to watch TV or go to a hockey game.</p>
+<ul>
+<li><strong>Tabarnak</strong> (from tabernacle)</li>
+<li><strong>Calisse</strong> (from chalice)</li>
+<li><strong>Osti</strong> (from host/communion wafer)</li>
+<li><strong>Câlisse que oui / Osti que c'est beau:</strong> Used as adjectives/adverbs of intensity, meaning "effing yes" or "effing beautiful."</li>
+<li><strong>Je m'en sacre:</strong> I don't give a damn.</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Venting at the Bar:</strong></p>
+<p><em>Deux amis discutent de leur exaspération face aux rénovations.</em></p>
+<p>"Comment ça avance avec ton contracteur?"<br>"M'en parles pas. Le gars ne m'a pas rappelé depuis mardi, je suis carrément écoeuré. C'est plate parce que la job avait bien commencé."<br>"T'as pas de chance, pantoute. T'aurais peut-être pas dû lui donner une avance."<br>"Je sais, j'ai mis la charrue avant les bœufs. Mais il avait l'air tellement fiable! Bref, <em>anyways</em>, s'il ne revient pas demain, je le poursuis. En attendant, commande-moi une autre pinte, j'en ai besoin."</p>
+<p><em>(Two friends discuss their exasperation with renovations. "How's it going with your contractor?" "Don't talk to me about it. The guy hasn't called me back since Tuesday, I'm downright sick of it. It sucks because the job had started out well." "You have no luck at all. Maybe you shouldn't have given him an advance." "I know, I put the cart before the horse. But he seemed so reliable! In short, anyways, if he doesn't come back tomorrow, I'm suing him. In the meantime, order me another pint, I need one.")</em></p>
+
+<h3 id="h-b2-14-4">14.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li><strong>"Anyways" / "En tk" (En tout cas):</strong> Very common conversational signposts in Quebec. "Anyways" is pronounced with a French accent.</li>
+<li><strong>"M'en parles pas"</strong> is a contraction of "Ne m'en parle pas". Contractions are the rule in spoken joual.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u15">UNIT 15: FORMAL WRITING (L'ÉCRIT)</h2>
+
+<h3 id="h-b2-15-1">15.1 La Synthèse (Synthesis)</h3>
+<p>A classic B2/C1 academic exercise. You receive 3 documents on a topic and must write a cohesive essay summarizing the debate without giving your own opinion.</p>
+<ul>
+<li><strong>Introduction:</strong> Les trois documents étudiés traitent du thème de... Le premier, un article du Devoir, souligne que... Le second... Enfin, le troisième...</li>
+<li><strong>Phrases clés:</strong> <em>À la lecture de ces textes, il ressort que... / Les auteurs s'accordent pour dire que... / En revanche, le document C remet en question la théorie de l'auteur du document A.</em></li>
+</ul>
+
+<h3 id="h-b2-15-2">15.2 Le Compte-Rendu (Report / Minutes)</h3>
+<p>Writing a formal report or meeting minutes requires the use of reported speech and formal vocabulary.</p>
+<ul>
+<li><strong>Opening:</strong> La séance a été ouverte à 9h00.</li>
+<li><strong>Body:</strong> M. Lavoie a exposé la situation financière. Ensuite, Mme Côté a proposé de... Une discussion s'en est suivie concernant...</li>
+<li><strong>Closing:</strong> Le comité a statué que... La séance a été levée à 11h30.</li>
+</ul>
+
+<h3 id="h-b2-15-3">15.3 Complex Sentence Structure</h3>
+<p>To achieve a high B2 score in writing, use relative pronouns (qui, que, dont, où) and participial phrases (Le gérant ayant refusé notre offre, nous...) to combine simple sentences.</p>
+<ul>
+<li><em>Simple:</em> J'ai acheté un livre. L'auteur a gagné un prix. Je vais lire son livre ce soir.</li>
+<li><em>Complex B2:</em> J'ai acheté le roman de cet auteur <strong>dont</strong> on parle beaucoup et <strong>qui</strong> a récemment gagné un prix, roman <strong>que</strong> je compte dévorer dès ce soir.</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Writing a Letter to the Editor (Une lettre d'opinion):</strong></p>
+<p><em>Vous écrivez un courriel à La Presse concernant les pistes cyclables.</em></p>
+<p>"Monsieur le rédacteur en chef,<br><br>C'est avec un vif intérêt que j'ai lu la chronique de votre journaliste concernant l'aménagement des nouvelles voies cyclables sur l'artère principale. Bien que je conçoive la nécessité de sécuriser les déplacements à vélo, il n'en demeure pas moins que l'exécution de ce projet laisse à désirer.<br><br>En effet, les commerçants, dont la survie dépend en grande partie du stationnement, ont été écartés des consultations publiques. Il aurait été judicieux de trouver un compromis respectant à la fois les cyclistes et l'économie locale.<br><br>Veuillez agréer, Monsieur, l'expression de mes salutations distinguées."</p>
+<p><em>(You write an email to La Presse regarding bike paths. "Mr. Editor-in-Chief, It is with keen interest that I read your journalist's column regarding the development of the new bike lanes on the main artery. Although I conceive the necessity of securing bicycle travel, the fact remains that the execution of this project leaves something to be desired. Indeed, the merchants, whose survival depends largely on parking, were excluded from the public consultations. It would have been judicious to find a compromise respecting both cyclists and the local economy. Please accept, Sir, the expression of my highest regards.")</em></p>
+
+<h3 id="h-b2-15-4">15.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, standardized French writing is called <strong>"le français normatif"</strong> or <strong>"le français international."</strong> A Quebec newspaper article is written in the exact same grammar and spelling as a French one, but with slight vocabulary differences (e.g., using <em>la fin de semaine</em> instead of <em>le week-end</em>). All the slang/joual covered in Unit 14 disappears in professional writing.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u16">UNIT 16: PRONUNCIATION &amp; REGISTER (PHONÉTIQUE)</h2>
+
+<h3 id="h-b2-16-1">16.1 Liaisons (Obligatory vs. Optional)</h3>
+<p>At B2, you should know when a liaison is required, forbidden, or optional (formal register).</p>
+<ul>
+<li><strong>Obligatory:</strong> After pronouns (Nous_avons), after determiners (les_amis), after short adjectives (un petit_arbre).</li>
+<li><strong>Forbidden:</strong> After "et" (un chat et / un chien), before aspirated H (les / homards), after a singular noun (un chat / intelligent).</li>
+<li><strong>Optional (Marks high register):</strong> After plural nouns (des amis_intimes), after verbs (il faut_y aller), after polysyllabic adverbs (cependant_il est venu).</li>
+</ul>
+
+<h3 id="h-b2-16-2">16.2 Quebec Vowel Diphthongization</h3>
+<p>Quebec French is characterized by the lengthening and diphthongizing of long vowels, especially on stressed syllables (at the end of rhythmic groups). Understanding this is key to B2 listening comprehension.</p>
+<ul>
+<li><strong>Père:</strong> pronounced roughly like /paɛ̯ʁ/ (sounding almost like 'pair' but stretched).</li>
+<li><strong>Fête:</strong> pronounced /faɛ̯t/ (almost like 'fight' in some regions).</li>
+<li><strong>Chose:</strong> pronounced /ʃoʊ̯z/ (like the English 'shows').</li>
+</ul>
+
+<h3 id="h-b2-16-3">16.3 Affrication (Ts and Dz)</h3>
+<p>The single most defining feature of the Quebec accent is the affrication of T and D before "i" and "u" sounds.</p>
+<ul>
+<li>T becomes TS: <strong>Petit</strong> is pronounced "ptsi". <strong>Tu</strong> is pronounced "tsu". <strong>Parti</strong> is "partsi."</li>
+<li>D becomes DZ: <strong>Dieu</strong> is pronounced "Dzieu." <strong>Du</strong> is pronounced "Dzu." <strong>Mardi</strong> is "Mardzi."</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Recognizing Spoken Contractions:</strong></p>
+<p><em>In written formal French vs. spoken Quebec street French.</em></p>
+<p><strong>Formal:</strong> Il faut que je te dise ce que je suis en train de faire. Il est complètement fou.<br><strong>Spoken France:</strong> Faut qu'j'te dise c'que j'suis en train d'faire. Il est complètement fou.<br><strong>Spoken Quebec (Joual):</strong> Faut qu'j'te dise c'que j't'en train d'faire. Y'est ben effrayant.</p>
+<p><em>Notes:</em> "Je suis" becomes "j'sus" or "chu", or "j't'". "Il" often becomes "y" before a vowel.</p>
+
+<h3 id="h-b2-16-4">16.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>When immigrants arrive in Quebec, the hardest part is bridging the gap between the "international French" they learned in books (or that I'm teaching you here) and the reality of colloquial speech on the street.</li>
+<li>Don't try to fake a thick Quebec accent if you are a learner; focus on clear pronunciation. However, you <em>must</em> train your ear to understand the vowel shifts and affrication to succeed in interactions.</li>
+</ul>
+
+<h1 id="h-b2-part-v">PART V: REVIEW &amp; B2 EXAM PREP</h1>
+
+<h2 id="h-b2-u17">UNIT 17: GRAMMAR CAPSTONE</h2>
+
+<h3 id="h-b2-17-1">17.1 The Subjunctive vs. Indicative Check</h3>
+<p>In B2, you are expected to switch effortlessly between moods based on the trigger phrase.</p>
+<ul>
+<li><strong>Indicatif (Certainty):</strong> Je pense que, je crois que, j'espère que, il est clair que.
+<ul><li><em>Je pense qu'il vient ce soir.</em> (I think he is coming tonight.)</li></ul></li>
+<li><strong>Subjonctif (Doubt/Emotion/Necessity):</strong> Je ne pense pas que, il faut que, je suis content que, bien que.
+<ul><li><em>Je ne pense pas qu'il vienne ce soir.</em> (I don't think he is coming tonight.)</li></ul></li>
+</ul>
+
+<h3 id="h-b2-17-2">17.2 Preposition Pitfalls</h3>
+<ul>
+<li><strong>À vs. De:</strong> Continuer <strong>à</strong> faire qch, vs. Essayer <strong>de</strong> faire qch.
+<ul><li><em>J'ai réussi à le convaincre de venir.</em> (I succeeded in convincing him to come.)</li></ul></li>
+<li><strong>Pour vs. Pendant:</strong> Use <em>pour</em> for planned future duration; use <em>pendant</em> for completed past duration.
+<ul><li><em>Je pars au Québec pour deux abs.</em> (I am leaving for Quebec for two years.)</li>
+<li><em>J'ai habité à Montréal pendant cinq ans.</em> (I lived in Montreal for five years.)</li></ul></li>
+</ul>
+
+<h3 id="h-b2-17-3">17.3 Advanced Pronouns (Y / En placement)</h3>
+<ul>
+<li><strong>Y</strong> replaces <em>à + noun</em> (ideas/places). <em>Tu penses à ton avenir? Oui, j'<strong>y</strong> pense.</em></li>
+<li><strong>En</strong> replaces <em>de + noun</em> (quantities/ideas). <em>Tu as besoin de ce dossier? Oui, j'<strong>en</strong> ai besoin.</em></li>
+<li><strong>Order:</strong> Subject + (me/te/se/nous/vous) + (le/la/les) + (lui/leur) + (y) + (en) + Verb.
+<ul><li><em>Il y a des pommes? Donne-m'<strong>en</strong> deux.</em> (Are there apples? Give me two of them.)</li></ul></li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Correcting a Colleague:</strong></p>
+<p><em>Correction bienveillante entre collègues.</em></p>
+<p>"J'ai dit au client qu'il faut qu'il est patient."<br>"Attention! Après 'il faut que', tu dois utiliser le subjonctif. Tu devrais dire : il faut qu'il <strong>soit</strong> patient."<br>"Ah oui, c'est vrai. Et pour le contrat, je lui ai demandé de m'y envoyer."<br>"Presque! Tu demandes à envoyer <em>le contrat</em> (le) <em>à toi</em> (me). Donc: Tu lui as demandé de <strong>te l'envoyer</strong>."</p>
+<p><em>(Kind correction between colleagues. "I told the client that he must is patient." "Careful! After 'il faut que', you must use the subjunctive. You should say: he must *be* patient." "Ah yes, it's true. And for the contract, I asked him to send there to me." "Almost! You ask to send *the contract* (it) *to you* (me). So: You asked him to send *it to you*.")</em></p>
+
+<h3 id="h-b2-17-4">17.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In spoken Quebec French, prepositions are often mashed together or skipped entirely. "Je vais <strong>à la</strong> maison" often sounds like "j'va <strong>a'</strong> maison" or even "m'a aller chez nous."</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u18">UNIT 18: VOCABULARY CAPSTONE</h2>
+
+<h3 id="h-b2-18-1">18.1 False Friends (Faux Amis)</h3>
+<p>Watch out for words that look like English but mean something completely different.</p>
+<table>
+<thead><tr><th>French Word</th><th>Does NOT mean...</th><th>Actually means...</th><th>How to say the English word</th></tr></thead>
+<tbody>
+<tr><td>Actuellement</td><td>Actually</td><td>Currently</td><td>En fait / En réalité</td></tr>
+<tr><td>Éventuellement</td><td>Eventually</td><td>Possibly / Perhaps</td><td>Finalement / Tôt ou tard</td></tr>
+<tr><td>Une location</td><td>A location</td><td>A rental</td><td>Un endroit / Un lieu</td></tr>
+<tr><td>Assister à (un événement)</td><td>To assist someone</td><td>To attend (an event)</td><td>Aider qqn</td></tr>
+<tr><td>Une librairie</td><td>A library</td><td>A bookstore</td><td>Une bibliothèque</td></tr>
+<tr><td>Formidable</td><td>Formidable (scary)</td><td>Wonderful / Great</td><td>Redoutable</td></tr>
+</tbody></table>
+
+<h3 id="h-b2-18-2">18.2 Anglicisms to Avoid in Writing</h3>
+<p>While anglicisms are common in spoken Quebec French, you must avoid them in B2 writing.</p>
+<ul>
+<li><em>Avoid:</em> Prendre pour acquis. <em>Use:</em> <strong>Tenir pour acquis</strong> (To take for granted).</li>
+<li><em>Avoid:</em> Faire du sens. <em>Use:</em> <strong>Avoir du sens / Être logique</strong> (To make sense).</li>
+<li><em>Avoid:</em> Céduler une rencontre. <em>Use:</em> <strong>Planifier une réunion</strong> (To schedule a meeting).</li>
+</ul>
+
+<h3 id="h-b2-18-3">18.3 Synonyms for Better Expression</h3>
+<p>Stop using "bon," "mauvais," "très," and "beaucoup." Upgrade your vocabulary!</p>
+<ul>
+<li><strong>Bon →</strong> Excellent, remarquable, pertinent, efficace.</li>
+<li><strong>Mauvais →</strong> Médiocre, néfaste, désastreux, défectueux.</li>
+<li><strong>Très →</strong> Extrêmement, profondément, particulièrement.</li>
+<li><strong>Beaucoup de →</strong> Une multitude de, un grand nombre de, abondamment.</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Revising an Essay:</strong></p>
+<p><em>Un professeur corrige le texte d'un étudiant.</em></p>
+<p>"Dans votre introduction, vous écrivez : 'Les téléphones intelligents ont beaucoup de mauvais effets.' C'est grammaticalement correct, mais trop simple pour le niveau B2. Essayez plutôt : 'Les téléphones intelligents ont des répercussions néfastes sur la santé mentale.'"<br>"Je comprends. C'est plus précis. Et pour ma transition, est-ce que je peux dire 'actuellement, les jeunes...'"<br>"Seulement si vous voulez dire 'en ce moment' (currently). Si vous vouliez dire 'in fact', vous devez utiliser 'en réalité' ou 'de fait'."</p>
+<p><em>(A teacher corrects a student's text. "In your introduction, you write: 'Smartphones have a lot of bad effects.' It is grammatically correct, but too simple for the B2 level. Try instead: 'Smartphones have detrimental repercussions on mental health.'" "I understand. It is more precise. And for my transition, can I say 'actuellement, young people...'" "Only if you mean 'currently'. If you meant 'in fact', you must use 'en réalité' or 'de fait'.")</em></p>
+
+<h3 id="h-b2-18-4">18.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>In Quebec, there is a strong linguistic effort to replace English tech terms with French ones to fight anglicisms. For example, <em>un courriel</em> (email), <em>le clavardage</em> (chat), <em>un mot-clic</em> (hashtag), <em>un balado</em> (podcast). The OQLF (Office québécois de la langue française) is responsible for this.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u19">UNIT 19: EXAM STRATEGIES (DELF/TEFAQ)</h2>
+
+<h3 id="h-b2-19-1">19.1 Listening Comprehension (TEFAQ)</h3>
+<p>If you are applying for Quebec immigration, the TEFAQ (Test d'évaluation de français pour l'accès au Québec) is your goal. A B2 score earns you maximum points.</p>
+<ul>
+<li><strong>Strategy:</strong> Read the questions <em>before</em> the audio starts to anticipate the topic.</li>
+<li><strong>Trap:</strong> The audio will often mention numbers or names that are in the wrong answers just to trick you. Listen for synonyms, not exact matches.</li>
+</ul>
+
+<h3 id="h-b2-19-2">19.2 Oral Expression</h3>
+<p>The DELF B2 involves a 20-minute monologue and debate based on an article.</p>
+<ul>
+<li><strong>Strategy 1: Plan your structure.</strong> Introduction (hook, source, thesis), Body (2-3 arguments clearly separated by discourse markers), Conclusion.</li>
+<li><strong>Strategy 2: Self-correction.</strong> If you make a grammar mistake, correct yourself immediately! (e.g., "Il faut que je fais... pardon, il faut que je fasse"). Examiners reward self-awareness.</li>
+<li><strong>Strategy 3: Engage the examiner.</strong> When they challenge you, use concession ("Je comprends votre point de vue, cependant...").</li>
+</ul>
+
+<h3 id="h-b2-19-3">19.3 Written Comprehension &amp; Expression</h3>
+<ul>
+<li><strong>Expression:</strong> You will usually write a formal letter (e.g., to a mayor to complain about a city project). Use formal greetings (Veuillez agréer...), structure your paragraphs, and use the conditional for politeness (Je souhaiterais vous faire part de...).</li>
+</ul>
+
+<p><strong>🇫🇷 Real-Life Scene – Before the Exam:</strong></p>
+<p><em>Deux candidats stressent avant l'épreuve orale du TEFAQ.</em></p>
+<p>"Je suis tellement nerveux. Et s'ils me posent des questions sur un sujet que je ne connais pas, comme la politique étrangère?"<br>"Ne t'inquiète pas. Ils n'évaluent pas tes connaissances générales, mais ta capacité à argumenter. Si tu manques d'idées, structure bien tes phrases. Utilise des mots de liaison : d'une part, d'autre part..."<br>"Tu as raison. Je vais essayer de placer quelques subjonctifs et un conditionnel passé pour montrer que je maîtrise la grammaire complexe."<br>"Exactement! Et surtout, n'oublie pas de respirer et de parler lentement. Bonne chance!"</p>
+<p><em>(Two candidates stress before the TEFAQ oral exam. "I am so nervous. What if they ask me questions on a subject I don't know, like foreign policy?" "Don't worry. They are not evaluating your general knowledge, but your ability to argue. If you lack ideas, structure your sentences well. Use linking words: on the one hand, on the other hand..." "You are right. I will try to throw in a few subjunctives and a past conditional to show that I master complex grammar." "Exactly! And above all, don't forget to breathe and speak slowly. Good luck!")</em></p>
+
+<h3 id="h-b2-19-4">19.4 Canadian French Notes (🍁)</h3>
+<p><strong>Canadian French Note (🍁):</strong></p>
+<ul>
+<li>The TEFAQ audio specifically features <strong>accents from Quebec and France</strong>. You must be comfortable hearing both. Do not rely solely on Parisian audio materials to prepare.</li>
+</ul>
+<hr>
+
+<h2 id="h-b2-u20">UNIT 20: THE FINAL TEST</h2>
+
+<h3 id="h-b2-20-1">20.1 Oral Debate Simulation</h3>
+<p><em>Exercise:</em> Imagine you are arguing with a municipal councilor who wants to cut funding for public libraries. Defend the libraries using:</p>
+<ol>
+<li>Une concession (Certes...)</li>
+<li>Un subjonctif (Il est indispensable que...)</li>
+<li>Une phrase passive (Les bibliothèques sont fréquentées par...)</li>
+</ol>
+<p><em>(Example answer: Certes, le budget de la ville est serré, mais il est indispensable que ces espaces de culture restent ouverts. Elles sont fréquentées quotidiennement par les étudiants et les aînés, et une coupure serait catastrophique pour la cohésion sociale.)</em></p>
+
+<h3 id="h-b2-20-2">20.2 Written Synthesis Practice</h3>
+<p>Review the themes we've covered (Education, Environment, Tech, Immigration). Ensure you can write a 250-word letter taking a clear stance on any of these issues using B2-level transitions (En outre, Néanmoins, En définitive).</p>
+
+<h3 id="h-b2-20-3">20.3 Next Steps: Towards C1</h3>
+<p>What separates a B2 from a C1 (Advanced)?</p>
+<ul>
+<li><strong>B2:</strong> You can communicate clearly, argue effectively, and understand most of the news. You make occasional errors but can self-correct.</li>
+<li><strong>C1:</strong> You have fluid, spontaneous expression. You understand cultural references, humor, idioms, and fast-paced slang seamlessly. You can read complex literary or academic texts without a dictionary.</li>
+</ul>
+
+<h3 id="h-b2-20-4">20.4 Goodbye and Good Luck</h3>
+<p>You have reached the end of the Canadian French textbook series! To progress further, you no longer need textbooks. You need immersion. Watch Quebec television (Tou.tv), read La Presse, listen to Radio-Canada, and most importantly, speak with francophones every day.</p>
+<hr>
+
+<h1 id="h-b2-conclusion">CONCLUSION</h1>
+<p><strong>Félicitations! Toutes nos félicitations!</strong></p>
+<p>Reaching the B2 level is the holy grail of language learning. You are now officially fluent enough to immigrate to Quebec, study at a francophone university like l'UdeM or l'UQAM, and hold a professional job entirely in French.</p>
+<p>Soyez fiers de votre parcours. Le français est une langue riche, complexe, et parfois frustrante, mais elle ouvre les portes de toute une culture vibrante en Amérique du Nord.</p>
+<p><strong>Merci, bravo, et à la prochaine!</strong></p>
+
+            </div>
+        </main>
+    </div>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', () => {
+          const contentArea = document.querySelector('.content-area');
+          const contentWrapper = document.querySelector('.content-wrapper');
+          const sidebar = document.getElementById('sidebar');
+          const toggleBtn = document.getElementById('sidebarToggle');
+          const navLinks = document.querySelectorAll('.nav-link');
+          const toc = document.querySelector('.toc');
+
+          // --- 1. Structure Units into Accordions ---
+          const headers = Array.from(contentWrapper.querySelectorAll('h2'));
+          const units = headers.filter(h => h.textContent.includes('UNIT'));
+
+          units.forEach((unitHeader, index) => {
+              unitHeader.classList.add('unit-header');
+              
+              // Create wrapper for unit content
+              const wrapper = document.createElement('div');
+              wrapper.className = 'unit-content';
+              wrapper.id = 'content-' + unitHeader.id;
+
+              // Move siblings until next unit or major header into wrapper
+              let curr = unitHeader.nextElementSibling;
+              while (curr && !curr.matches('h1, h2')) {
+                  const next = curr.nextElementSibling;
+                  wrapper.appendChild(curr);
+                  curr = next;
+              }
+              unitHeader.parentNode.insertBefore(wrapper, curr);
+
+              // Click to toggle
+              unitHeader.addEventListener('click', () => {
+                  const isExpanded = unitHeader.classList.contains('expanded');
+                  
+                  // Collapse all
+                  units.forEach(u => {
+                      u.classList.remove('expanded');
+                      const c = document.getElementById('content-' + u.id);
+                      if (c) c.classList.remove('expanded');
+                  });
+
+                  // If it wasn't expanded, expand now
+                  if (!isExpanded) {
+                      unitHeader.classList.add('expanded');
+                      wrapper.classList.add('expanded');
+                      unitHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+              });
+          });
+
+          const overlay = document.getElementById('sidebarOverlay');
+          
+          function toggleSidebar(forceCollapse) {
+              const isCollapsed = sidebar.classList.contains('collapsed');
+              const shouldCollapse = forceCollapse !== undefined ? forceCollapse : !isCollapsed;
+              
+              if (shouldCollapse) {
+                  sidebar.classList.add('collapsed');
+                  overlay.classList.remove('visible');
+                  setTimeout(() => { if (!overlay.classList.contains('visible')) overlay.style.display = 'none'; }, 300);
+              } else {
+                  sidebar.classList.remove('collapsed');
+                  if (window.innerWidth <= 768) {
+                      overlay.style.display = 'block';
+                      setTimeout(() => overlay.classList.add('visible'), 10);
+                  }
+              }
+          }
+
+          // --- 2. Side Menu Click Handling ---
+          document.querySelectorAll('.nav-link').forEach(link => {
+              link.addEventListener('click', function (e) {
+                  const href = this.getAttribute('href');
+                  if (!href.startsWith('#')) return;
+                  
+                  e.preventDefault();
+                  const targetId = href.substring(1);
+                  const targetElement = document.getElementById(targetId);
+                  
+                  if (targetElement) {
+                      // Find which unit this element belongs to
+                      let unitToExpand = null;
+                      if (targetElement.classList.contains('unit-header')) {
+                          unitToExpand = targetElement;
+                      } else {
+                          // Check if it's inside a unit-content
+                          const parentContent = targetElement.closest('.unit-content');
+                          if (parentContent) {
+                              const headerId = parentContent.id.replace('content-', '');
+                              unitToExpand = document.getElementById(headerId);
+                          } else {
+                              // If not in content, maybe it's a section before any unit
+                          }
+                      }
+
+                      if (unitToExpand) {
+                          // Collapse all first
+                          units.forEach(u => {
+                              u.classList.remove('expanded');
+                              const c = document.getElementById('content-' + u.id);
+                              if (c) c.classList.remove('expanded');
+                          });
+                          
+                          // Expand the correct one
+                          unitToExpand.classList.add('expanded');
+                          const content = document.getElementById('content-' + unitToExpand.id);
+                          if (content) content.classList.add('expanded');
+                      }
+
+                      // Wait a bit for expansion before scrolling if needed, but smooth scroll handles it usually
+                      setTimeout(() => {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                      }, 50);
+                  }
+
+                  // Mobile handling
+                  if (window.innerWidth <= 768) {
+                      toggleSidebar(true);
+                  }
+              });
+          });
+
+          // --- 3. Sidebar Toggle ---
+          toggleBtn.addEventListener('click', () => {
+              toggleSidebar();
+          });
+
+          overlay.addEventListener('click', () => {
+              toggleSidebar(true);
+          });
+
+          if (window.innerWidth <= 768) {
+              sidebar.classList.add('collapsed');
+          }
+
+          // --- 4. Orientation & Resize Handling ---
+          let lastWidth = window.innerWidth;
+          window.addEventListener('resize', () => {
+              if (window.innerWidth !== lastWidth) {
+                  if (window.innerWidth > 768 && lastWidth <= 768) {
+                      // Moving to desktop
+                      sidebar.classList.remove('collapsed');
+                      overlay.classList.remove('visible');
+                      overlay.style.display = 'none';
+                  } else if (window.innerWidth <= 768 && lastWidth > 768) {
+                      // Moving to mobile
+                      sidebar.classList.add('collapsed');
+                  }
+                  lastWidth = window.innerWidth;
+              }
+          });
+
+          // --- 5. Scrollspy ---
+          const sections = Array.from(document.querySelectorAll('h1[id], h2[id], h3[id]'));
+          
+          if (contentArea && sections.length > 0) {
+              contentArea.addEventListener('scroll', () => {
+                  let currentSectionId = '';
+                  
+                  for (const section of sections) {
+                      const rect = section.getBoundingClientRect();
+                      if (rect.top <= 150) {
+                          currentSectionId = section.id;
+                      } else {
+                          break;
+                      }
+                  }
+                  
+                  if (!currentSectionId && sections.length > 0) {
+                     currentSectionId = sections[0].id;
+                  }
+
+                  navLinks.forEach(link => {
+                      if (link.getAttribute('href') === '#' + currentSectionId) {
+                          if (!link.classList.contains('active')) {
+                              link.classList.add('active');
+                              
+                              const linkRect = link.getBoundingClientRect();
+                              const tocRect = toc.getBoundingClientRect();
+                              
+                              if (linkRect.top < tocRect.top) {
+                                  toc.scrollTop -= (tocRect.top - linkRect.top) + 20;
+                              } else if (linkRect.bottom > tocRect.bottom) {
+                                  toc.scrollTop += (linkRect.bottom - tocRect.bottom) + 20;
+                              }
+                          }
+                      } else {
+                          link.classList.remove('active');
+                      }
+                  });
+              });
+          }
+      });
+    
+    </script>
 </body>
 </html>
