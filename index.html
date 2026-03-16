@@ -70,9 +70,9 @@
         .card {
             background: var(--bg-secondary);
             border: 1px solid var(--bg-tertiary);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             color: inherit;
@@ -80,8 +80,9 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            height: 220px;
+            justify-content: flex-start;
+            height: auto;
+            min-height: 200px;
         }
 
         .card::before {
@@ -108,22 +109,46 @@
 
         .card h2 {
             font-family: var(--font-heading);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
             color: #fff;
+            margin-top: 1rem;
         }
 
         .card p {
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.5rem;
+        }
+
+        .card ul li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            color: var(--accent-base);
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
         }
 
         .card .badge {
             position: absolute;
             top: 1rem;
-            right: 1rem;
+            right: 1.5rem;
             background: var(--bg-tertiary);
-            padding: 0.25rem 0.75rem;
+            padding: 0.25rem 0.6rem;
             border-radius: 999px;
             font-size: 0.75rem;
             font-weight: 600;
@@ -175,32 +200,56 @@
 
     <main class="grid-container">
         <a href="a1.html" class="card">
-            <span class="badge">A1 Level</span>
-            <h2>Beginner</h2>
-            <p>Foundations, greetings, and basic communication. (Completed)</p>
+            <span class="badge" style="background-color: rgba(16, 185, 129, 0.2); color: #10b981;">Beginner</span>
+            <h2>A1 Level</h2>
+            <p>Kickstart your journey with the absolute fundamentals. Perfect for complete beginners.</p>
+            <ul>
+                <li>Alphabet, phonetics &amp; liaison rules</li>
+                <li>Greetings, family &amp; professions</li>
+                <li>Key verbs (Être, Avoir, -ER/-IR/-RE)</li>
+                <li>Daily routines &amp; basic past tense</li>
+            </ul>
         </a>
 
         <a href="a2.html" class="card">
-            <span class="badge">A2 Level</span>
-            <h2>Elementary</h2>
-            <p>Expanding your daily vocabulary and grammar. (Coming Soon)</p>
+            <span class="badge" style="background-color: rgba(59, 130, 246, 0.2); color: #3b82f6;">Elementary</span>
+            <h2>A2 Level</h2>
+            <p>Expand your survival skills to form complex sentences and navigate daily life.</p>
+            <ul>
+                <li>Imparfait vs Passé Composé</li>
+                <li>Travel, housing &amp; health vocabulary</li>
+                <li>Object pronouns (le, la, lui, leur)</li>
+                <li>Real-life scenarios (shopping, doctor)</li>
+            </ul>
         </a>
 
         <a href="b1.html" class="card">
-            <span class="badge">B1 Level</span>
-            <h2>Intermediate</h2>
-            <p>Sharing opinions and describing experiences. (Coming Soon)</p>
+            <span class="badge" style="background-color: rgba(245, 158, 11, 0.2); color: #f59e0b;">Intermediate</span>
+            <h2>B1 Level</h2>
+            <p>Become an independent speaker capable of reasoning and expressing opinions.</p>
+            <ul>
+                <li>The Subjunctive &amp; Conditional moods</li>
+                <li>Expressing opinions on society &amp; media</li>
+                <li>Quebec history, politics &amp; arts</li>
+                <li>Handling complaints and conflicts</li>
+            </ul>
         </a>
 
         <a href="b2.html" class="card">
-            <span class="badge">B2 Level</span>
-            <h2>Upper Intermediate</h2>
-            <p>Complex interactions and fluent conversations. (Coming Soon)</p>
+            <span class="badge" style="background-color: rgba(236, 72, 153, 0.2); color: #ec4899;">Upper Intermediate</span>
+            <h2>B2 Level</h2>
+            <p>Master nuanced French, slang, and prepare for academic or professional environments.</p>
+            <ul>
+                <li>Advanced discourse markers &amp; passive voice</li>
+                <li>Business, Law, Science &amp; Higher Ed</li>
+                <li>Quebec identity, humour &amp; Joual (slang)</li>
+                <li>TEFAQ/DELF B2 exam preparation</li>
+            </ul>
         </a>
 
         <a href="discrepancies.html" class="card special-link">
             <h2>France French vs. Quebec French 🍁🇫🇷</h2>
-            <p>A comprehensive list of differences in vocabulary, pronunciation, and expressions.</p>
+            <p>Essential reading for learners moving to Canada. Discover the massive differences in vocabulary, pronunciation shifts (like ts/dz affrication), idioms, and cultural references.</p>
         </a>
     </main>
 
