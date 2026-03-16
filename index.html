@@ -139,8 +139,21 @@ table {
   border-spacing: 0;
   margin: 2rem 0;
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: auto;
+  display: block;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.table-container table {
+  margin: 0;
+  display: table;
 }
 
 th {
@@ -248,20 +261,42 @@ li {
 
 @media (max-width: 768px) {
   .sidebar {
-    position: absolute;
+    position: fixed;
     height: 100vh;
-    z-index: 900;
+    z-index: 1100;
     left: 0;
-    margin-left: 0;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    width: 280px;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.5);
   }
   .sidebar.collapsed {
     transform: translateX(-100%);
-    margin-left: 0;
   }
-  .app-container {
-    position: relative;
+  .content-area {
+    padding: 1rem;
+    padding-top: 4rem;
   }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.1rem; }
+  
+  .sidebar-header {
+    padding: 1rem 1rem 1rem 3.5rem;
+  }
+  
+  .sidebar-header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-area {
+    padding: 0.75rem;
+    padding-top: 4rem;
+  }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  p, li { font-size: 0.95rem; }
 }
 
 .nav-link.active {
@@ -306,6 +341,26 @@ li {
   opacity: 0.8;
 }
 
+/* Sidebar Overlay for Mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+  display: block;
+  opacity: 1;
+}
+
 .unit-header::after {
   content: '▼';
   position: absolute;
@@ -346,6 +401,7 @@ li {
             <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
     </button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="app-container">
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
@@ -9800,9 +9856,32 @@ Level: CEFR A1 (Elementary)</p>
               });
           });
 
+          const overlay = document.getElementById('sidebarOverlay');
+          
+          function toggleSidebar(forceCollapse) {
+              const isCollapsed = sidebar.classList.contains('collapsed');
+              const shouldCollapse = forceCollapse !== undefined ? forceCollapse : !isCollapsed;
+              
+              if (shouldCollapse) {
+                  sidebar.classList.add('collapsed');
+                  overlay.classList.remove('visible');
+                  setTimeout(() => { if (!overlay.classList.contains('visible')) overlay.style.display = 'none'; }, 300);
+              } else {
+                  sidebar.classList.remove('collapsed');
+                  if (window.innerWidth <= 768) {
+                      overlay.style.display = 'block';
+                      setTimeout(() => overlay.classList.add('visible'), 10);
+                  }
+              }
+          }
+
           // --- 3. Sidebar Toggle ---
           toggleBtn.addEventListener('click', () => {
-              sidebar.classList.toggle('collapsed');
+              toggleSidebar();
+          });
+
+          overlay.addEventListener('click', () => {
+              toggleSidebar(true);
           });
 
           if (window.innerWidth <= 768) {
