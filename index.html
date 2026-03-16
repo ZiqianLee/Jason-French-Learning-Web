@@ -9888,7 +9888,24 @@ Level: CEFR A1 (Elementary)</p>
               sidebar.classList.add('collapsed');
           }
 
-          // --- 4. Scrollspy ---
+          // --- 4. Orientation & Resize Handling ---
+          let lastWidth = window.innerWidth;
+          window.addEventListener('resize', () => {
+              if (window.innerWidth !== lastWidth) {
+                  if (window.innerWidth > 768 && lastWidth <= 768) {
+                      // Moving to desktop
+                      sidebar.classList.remove('collapsed');
+                      overlay.classList.remove('visible');
+                      overlay.style.display = 'none';
+                  } else if (window.innerWidth <= 768 && lastWidth > 768) {
+                      // Moving to mobile
+                      sidebar.classList.add('collapsed');
+                  }
+                  lastWidth = window.innerWidth;
+              }
+          });
+
+          // --- 5. Scrollspy ---
           const sections = Array.from(document.querySelectorAll('h1[id], h2[id], h3[id]'));
           
           if (contentArea && sections.length > 0) {
