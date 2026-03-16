@@ -9800,6 +9800,25 @@ Level: CEFR A1 (Elementary)</p>
               });
           });
 
+          const overlay = document.getElementById('sidebarOverlay');
+          
+          function toggleSidebar(forceCollapse) {
+              const isCollapsed = sidebar.classList.contains('collapsed');
+              const shouldCollapse = forceCollapse !== undefined ? forceCollapse : !isCollapsed;
+              
+              if (shouldCollapse) {
+                  sidebar.classList.add('collapsed');
+                  overlay.classList.remove('visible');
+                  setTimeout(() => { if (!overlay.classList.contains('visible')) overlay.style.display = 'none'; }, 300);
+              } else {
+                  sidebar.classList.remove('collapsed');
+                  if (window.innerWidth <= 768) {
+                      overlay.style.display = 'block';
+                      setTimeout(() => overlay.classList.add('visible'), 10);
+                  }
+              }
+          }
+
           // --- 2. Side Menu Click Handling ---
           document.querySelectorAll('.nav-link').forEach(link => {
               link.addEventListener('click', function (e) {
@@ -9851,29 +9870,10 @@ Level: CEFR A1 (Elementary)</p>
 
                   // Mobile handling
                   if (window.innerWidth <= 768) {
-                      sidebar.classList.add('collapsed');
+                      toggleSidebar(true);
                   }
               });
           });
-
-          const overlay = document.getElementById('sidebarOverlay');
-          
-          function toggleSidebar(forceCollapse) {
-              const isCollapsed = sidebar.classList.contains('collapsed');
-              const shouldCollapse = forceCollapse !== undefined ? forceCollapse : !isCollapsed;
-              
-              if (shouldCollapse) {
-                  sidebar.classList.add('collapsed');
-                  overlay.classList.remove('visible');
-                  setTimeout(() => { if (!overlay.classList.contains('visible')) overlay.style.display = 'none'; }, 300);
-              } else {
-                  sidebar.classList.remove('collapsed');
-                  if (window.innerWidth <= 768) {
-                      overlay.style.display = 'block';
-                      setTimeout(() => overlay.classList.add('visible'), 10);
-                  }
-              }
-          }
 
           // --- 3. Sidebar Toggle ---
           toggleBtn.addEventListener('click', () => {
