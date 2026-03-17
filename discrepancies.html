@@ -107,6 +107,7 @@
         h1, h2, h3, h4 {
             font-family: var(--font-heading); margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 700;
             color: transparent; -webkit-background-clip: text; background-clip: text; display: inline-block;
+            position: relative;
         }
         h1 { font-size: 2.5rem; background-image: var(--title-h1); }
         h2 { font-size: 2rem; background-image: var(--title-h2); }
@@ -124,7 +125,8 @@
         th { background: var(--bg-tertiary); padding: 1rem; text-align: left; color: #fff; font-weight: 600; }
         td { padding: 1rem; border-bottom: 1px solid var(--bg-tertiary); color: var(--text-secondary); }
 
-        .note-box { background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--accent-base); padding: 1rem; border-radius: 8px; margin: 1.5rem 0; }
+        .note-box { background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--accent-base); padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; }
+        .warning-box { background: rgba(244, 63, 94, 0.1); border-left: 4px solid #f43f5e; padding: 1.25rem; border-radius: 8px; margin: 1.5rem 0; }
 
         .unit-header {
             cursor: pointer; position: relative; padding-right: 2.5rem; width: 100%;
@@ -136,8 +138,11 @@
         }
         .unit-header.expanded::after { transform: translateY(-50%) rotate(180deg); }
 
-        .unit-content { overflow: hidden; max-height: 0; transition: max-height 0.4s ease-out, padding 0.4s ease; padding: 0 1rem; }
-        .unit-content.expanded { max-height: 5000px; padding: 1rem; border-bottom: 1px solid var(--bg-tertiary); }
+        .unit-content { overflow: hidden; max-height: 0; transition: max-height 0.5s ease-out, padding 0.5s ease; padding: 0 1rem; }
+        .unit-content.expanded { max-height: 10000px; padding: 1.5rem 1rem; border-bottom: 1px solid var(--bg-tertiary); }
+
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1.25rem; }
+        li { margin-bottom: 0.75rem; color: var(--text-secondary); }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -182,11 +187,11 @@
 
         <main class="content-area" id="contentArea">
             <div class="content-wrapper">
-                <h1 id="h-intro">France vs. Quebec: The Comprehensive Guide</h1>
-                <p>While sharing a common core, Metropolitan French and Québécois French have diverged over 400 years of unique history. Use this guide to master the nuances of daily life in Quebec.</p>
+                <h1 id="h-intro">Metropolitan vs. Québécois: 400 Years of Evolution</h1>
+                <p>French is not a monolith. While the written standards are almost identical, the spoken languages of Paris and Montreal have diverged into unique, vibrant dialects. This guide is your map for navigating those differences.</p>
 
                 <div class="note-box">
-                    <strong>Historical Context:</strong> Quebec French preserved many 17th-century Parisian vowel sounds and terms while France modernized. Today, it stands as a proud emblem of French identity in North America.
+                    <strong>The 1763 Factor:</strong> After the British conquest, Quebec was isolated from the French Academy's "modernization" of Paris French. This is why Quebecers often use terms and sounds that Parisians now find "archaic" or "historical."
                 </div>
 
                 <hr>
@@ -194,123 +199,140 @@
                 <!-- UNIT 1 -->
                 <h2 id="h-u1" class="unit-header">UNIT 1: THE BASICS - MEALS & TRAVEL</h2>
                 <div class="unit-content" id="content-h-u1">
-                    <h3>1.1 The Mealtime Confusion</h3>
-                    <p>The naming of meals is perhaps the most famous difference. Quebec uses the archaic (and logically sequential) naming system.</p>
+                    <h3>1.1 The Great Mealtime Trap</h3>
+                    <p>Learners often get confused when invited to lunch in Quebec. If a Quebecer says "On se voit pour le dîner?", they mean <strong>noon</strong>. If they were in France, that would mean <strong>evening</strong>!</p>
+                    
                     <table>
-                        <thead><tr><th>Meal</th><th>Quebec Term</th><th>France Term</th></tr></thead>
+                        <thead><tr><th>Time</th><th>Quebec Term</th><th>France Term</th></tr></thead>
                         <tbody>
-                            <tr><td>Breakfast</td><td><strong>Le déjeuner</strong></td><td>Le petit-déjeuner</td></tr>
-                            <tr><td>Lunch</td><td><strong>Le dîner</strong></td><td>Le déjeuner</td></tr>
-                            <tr><td>Dinner/Supper</td><td><strong>Le souper</strong></td><td>Le dîner</td></tr>
+                            <tr><td>Morning</td><td><strong>Le déjeuner</strong></td><td>Le petit-déjeuner</td></tr>
+                            <tr><td>Noon</td><td><strong>Le dîner</strong></td><td>Le déjeuner</td></tr>
+                            <tr><td>Evening</td><td><strong>Le souper</strong></td><td>Le dîner</td></tr>
                         </tbody>
                     </table>
-                    <p><em>Example: "On va dîner au resto?" (Shall we have lunch at the restaurant?)</em></p>
+                    
+                    <div class="warning-box">
+                        <strong>Cultural Risk:</strong> If a Frenchman invites you for 'déjeuner' at 12:00 PM and you arrive at 8:00 AM (because you're used to Quebec), you'll be waiting a long time for your coffee!
+                    </div>
 
-                    <h3>1.2 On the Road</h3>
-                    <p>Quebec has many unique terms for transportation, influenced by its history and environment.</p>
+                    <h3>1.2 On the Road & Shopping</h3>
+                    <p>Quebec terminology for the road is distinct and often avoids the English loanwords common in France.</p>
                     <ul>
-                        <li><strong>Car:</strong> Un char (QC) vs Une voiture (FR)</li>
-                        <li><strong>Parking:</strong> Un stationnement (QC) vs Un parking (FR)</li>
-                        <li><strong>Shopping:</strong> Magasiner (QC) vs Faire du shopping (FR)</li>
-                        <li><strong>Job:</strong> La job (QC, feminine) vs Le boulot / travail (FR, masculine)</li>
+                        <li><strong>The Car:</strong> "Un char" (QC) vs "Une voiture" (FR). *Char* comes from older French for chariot/carriage.</li>
+                        <li><strong>Traffic Light:</strong> "Une lumière" (QC) vs "Un feu rouge" (FR).</li>
+                        <li><strong>Fuel:</strong> "Du gaz" (QC - influenced by English 'gas') vs "De l'essence" (FR).</li>
+                        <li><strong>Parking Lot:</strong> "Un stationnement" (QC) vs "Un parking" (FR).</li>
+                        <li><strong>The Job:</strong> "La job" (QC - feminine) vs "Le boulot" (FR - masculine).</li>
                     </ul>
+                    <p><em>Example: "J'ai stationné mon char sous la lumière." (I parked my car under the traffic light.)</em></p>
                 </div>
 
                 <!-- UNIT 2 -->
-                <h2 id="h-u2" class="unit-header">UNIT 2: HOME & DAILY OBJECTS</h2>
+                <h2 id="h-u2" class="unit-header">UNIT 2: HOME, PEOPLE & OBJECTS</h2>
                 <div class="unit-content" id="content-h-u2">
-                    <h3>2.1 Household Items</h3>
+                    <h3>2.1 Personal Relationships</h3>
+                    <p>In Quebec, the terms for romantic partners are very specific and do not depend on hair color!</p>
+                    <ul>
+                        <li><strong>Girlfriend:</strong> "Ma blonde" (QC) vs "Ma copine/petite-amie" (FR). Even if she's a brunette, she is still *ma blonde*.</li>
+                        <li><strong>Boyfriend:</strong> "Mon chum" (QC) vs "Mon mec/petit-ami" (FR).</li>
+                    </ul>
+
+                    <h3>2.2 The Quebec Winter Closet</h3>
+                    <p>Quebec's harsh winters have created a specialized vocabulary for clothing that differs significantly from France.</p>
                     <table>
-                        <thead><tr><th>Object</th><th>Quebec French</th><th>France French</th></tr></thead>
+                        <thead><tr><th>Item</th><th>Quebec French</th><th>France French</th></tr></thead>
                         <tbody>
-                            <tr><td>Cellphone</td><td><strong>Un cellulaire</strong></td><td>Un portable</td></tr>
-                            <tr><td>Corner Store</td><td><strong>Le dépanneur</strong></td><td>L'épicerie / Superrette</td></tr>
-                            <tr><td>Stuffed Animal</td><td><strong>Un toutou</strong></td><td>Une peluche</td></tr>
-                            <tr><td>Snack</td><td><strong>Une collation</strong></td><td>Le goûter</td></tr>
+                            <tr><td>Winter Hat</td><td><strong>Une tuque</strong></td><td>Un bonnet</td></tr>
+                            <tr><td>Mittens</td><td><strong>Des mitaines</strong></td><td>Des moufles*</td></tr>
+                            <tr><td>Sweater</td><td><strong>Un chandail</strong></td><td>Un pull / Sweat</td></tr>
+                            <tr><td>Sneakers</td><td><strong>Des espadrilles</strong></td><td>Des baskets</td></tr>
+                            <tr><td>Shoes</td><td><strong>Des souliers</strong></td><td>Des chaussures</td></tr>
                         </tbody>
                     </table>
+                    <p><small>*In France, *mitaines* specifically means fingerless gloves.</small></p>
 
-                    <h3>2.2 Weather & Nature</h3>
-                    <p>Nature terms in Quebec often reflect its rugged environment.</p>
+                    <h3>2.3 Daily Tech & Nature</h3>
                     <ul>
-                        <li><strong>It's freezing cold:</strong> Il fait frette (QC) vs Il fait froid (FR)</li>
-                        <li><strong>Mosquito:</strong> Un maringouin (QC) vs Un moustique (FR)</li>
-                        <li><strong>Blueberries:</strong> Des bleuets (QC) vs Des myrtilles (FR)</li>
+                        <li><strong>Cellphone:</strong> "Un cellulaire" (QC) vs "Un portable" (FR). *Note: In QC, a 'portable' is a laptop computer.*</li>
+                        <li><strong>Blueberries:</strong> "Des bleuets" (QC) vs "Des myrtilles" (FR). *In QC, myrtilles refer to a smaller, wilder variety.*</li>
+                        <li><strong>Cold Weather:</strong> "Il fait frette!" (QC - very cold) vs "Il fait froid" (FR).</li>
                     </ul>
                 </div>
 
                 <!-- UNIT 3 -->
                 <h2 id="h-u3" class="unit-header">UNIT 3: LINGUISTIC MECHANICS</h2>
                 <div class="unit-content" id="content-h-u3">
-                    <h3>3.1 Pronouns & Questions</h3>
-                    <p>Quebec French adds specific markers to spoken questions for emphasis.</p>
-                    <p><strong>The "-tu" addition:</strong> In casual speech, Quebecers add "-tu" after the verb, even if "tu" isn't the subject.</p>
+                    <h3>3.1 The "Tu" Culture</h3>
+                    <p>One of the biggest social shocks for Parisians in Montreal is the <strong>Tutoiement</strong>. Quebecers use "tu" almost immediately with colleagues, neighbors, and even strangers in casual settings.</p>
+                    <div class="note-box">
+                        <strong>Rule of Thumb:</strong> In Quebec, using "Vous" for a long time can sometimes feel cold or distant. In France, using "Tu" too early is often seen as rude or overly familiar.
+                    </div>
+
+                    <h3>3.2 Spoken Pronouns (The "Y" and "A")</h3>
+                    <p>Native Quebec speakers significantly shorten pronouns in daily conversation, which can be hard for learners to hear.</p>
                     <ul>
-                        <li><strong>Tu m'écoutes-tu?</strong> (Are you listening to me?)</li>
-                        <li><strong>Il vient-tu?</strong> (Is he coming?)</li>
-                        <li><strong>C'est-tu vrai?</strong> (Is it true?)</li>
+                        <li><strong>He / He is:</strong> Becomes <strong>"Y"</strong>. (*Y’est fatigué* = Il est fatigué).</li>
+                        <li><strong>She / She is:</strong> Becomes <strong>"A"</strong>. (*A’part* = Elle part).</li>
+                        <li><strong>There are:</strong> Becomes <strong>"Y’a"</strong>. (*Y’a du monde* = Il y a du monde).</li>
                     </ul>
 
-                    <h3>3.2 Common Contractions</h3>
-                    <p>Spoken QC French is highly efficient. Learn these to understand native speakers:</p>
-                    <table>
-                        <thead><tr><th>Form</th><th>Standard</th><th>Spoken (QC)</th></tr></thead>
-                        <tbody>
-                            <tr><td>I am</td><td>Je suis</td><td><strong>Chu</strong></td></tr>
-                            <tr><td>You have</td><td>Tu as</td><td><strong>T'as</strong></td></tr>
-                            <li><strong>He is:</strong> Y'est</li>
-                            <li><strong>She is:</strong> A'est</li>
-                        </tbody>
-                    </table>
+                    <h3>3.3 The "-Tu" Interrogative Particle</h3>
+                    <p>Quebecers often add a second "-tu" at the end of a verb to signal a question. This does **not** mean "you"—it is a question marker.</p>
+                    <ul>
+                        <li><strong>C'est-tu vrai?</strong> (Is it true?)</li>
+                        <li><strong>Il pleut-tu?</strong> (Is it raining?)</li>
+                        <li><strong>Ils sont-tu arrivés?</strong> (Have they arrived?)</li>
+                    </ul>
+                    <p><em>Compare to France: "Est-ce que c'est vrai?" or inversion "Est-ce vrai?".</em></p>
                 </div>
 
                 <!-- UNIT 4 -->
                 <h2 id="h-u4" class="unit-header">UNIT 4: THE SOUND OF QUEBEC</h2>
                 <div class="unit-content" id="content-h-u4">
-                    <h3>4.1 Assibilation (T & D)</h3>
-                    <p>This is the most distinctive sound of the accent. Add a slight "s" or "z" before the vowels 'i' and 'u'.</p>
-                    <ul>
-                        <li><strong>Tu es:</strong> sounds like <em>Tsu es</em></li>
-                        <li><strong>Dimanche:</strong> sounds like <em>Dziman-che</em></li>
-                        <li><strong>Nature:</strong> sounds like <em>Natsu-re</em></li>
-                    </ul>
+                    <h3>4.1 Assibilation (The TS and DZ Sounds)</h3>
+                    <p>This is the most iconic part of the accent. When the letters <strong>T</strong> or <strong>D</strong> are followed by the vowels <strong>i</strong> or <strong>u</strong>, they gain a slight 's' or 'z' sound.</p>
+                    <table>
+                        <thead><tr><th>Word</th><th>Standard spelling</th><th>Sounds in Quebec like</th></tr></thead>
+                        <tbody>
+                            <tr><td>You</td><td>Tu</td><td><strong>Tsu</strong></td></tr>
+                            <tr><td>Sunday</td><td>Dimanche</td><td><strong>Dziman-che</strong></td></tr>
+                            <tr><td>Canadian</td><td>Canadien</td><td>Canad-<strong>zi</strong>-en</td></tr>
+                        </tbody>
+                    </table>
 
-                    <h3>4.2 Vowel Distinctions</h3>
-                    <p>Quebecers distinguish between certain vowels that are now homophones (sound the same) in Paris.</p>
+                    <h3>4.2 Vowel Laxing & Diphthongs</h3>
+                    <p>Quebec French "stretches" its vowels more than the sharp, clipped Parisian accent.</p>
                     <ul>
-                        <li><strong>Pâte</strong> (long, nasal 'a') vs <strong>Patte</strong> (short 'a')</li>
-                        <li><strong>Maître</strong> (long 'e') vs <strong>Mettre</strong> (short 'e')</li>
+                        <li><strong>High Vowel Laxing:</strong> In closed syllables, vowels like *i* and *u* become flatter. *Minute* (Standard) sounds like *Min-ut* (QC).</li>
+                        <li><strong>Diphthongs:</strong> Long vowels often split into two sounds. The word <strong>Père</strong> (Standard) can sound like <strong>Pa-ïr</strong> in Montreal.</li>
+                        <li><strong>Nasal Depth:</strong> Nasal sounds (an, en, in, on) are often much deeper and more resonance in Quebec.</li>
                     </ul>
                 </div>
 
                 <!-- UNIT 5 -->
                 <h2 id="h-u5" class="unit-header">UNIT 5: CULTURAL NUANCES & SLANG</h2>
                 <div class="unit-content" id="content-h-u5">
-                    <h3>5.1 Semantic Shifts (False Friends)</h3>
-                    <p>The same word can have wildly different meanings depending on where you are.</p>
-                    <table>
-                        <thead><tr><th>Word</th><th>In Quebec means...</th><th>In France means...</th></tr></thead>
-                        <tbody>
-                            <tr><td><strong>Gosses</strong></td><td>Testicles ⚠️</td><td>Kids</td></tr>
-                            <tr><td><strong>Bourré</strong></td><td>Full (from food)</td><td>Drunk ⚠️</td></tr>
-                            <tr><td><strong>Towler</strong></td><td>To tow a car</td><td>To house/shell (archaic)</td></tr>
-                        </tbody>
-                    </table>
-
-                    <h3>5.2 The "Sacres" (Profanity)</h3>
-                    <p>Quebec curses are derived from Catholic liturgy. They are very colorful but considered strong!</p>
+                    <h3>5.1 Semantic Shifts (The "Gosse" Incident)</h3>
+                    <div class="warning-box">
+                        <strong>Critical Warning:</strong> Never say "J'aime mes gosses" (I love my kids) in Quebec. In Quebec, *gosses* is a slang term for testicles! Use *enfants* instead.
+                    </div>
+                    
+                    <h3>5.2 More Expressive Slang</h3>
                     <ul>
-                        <li><strong>Tabarnak!</strong> (Tabernacle)</li>
-                        <li><strong>Câlice!</strong> (Chalice)</li>
-                        <li><strong>Ostie!</strong> (Host/Wafer)</li>
+                        <li><strong>C'est tiguidou!</strong> - It's perfect! (One of the most uniquely Quebec expressions).</li>
+                        <li><strong>C'est plate.</strong> - It's boring / That sucks. (In France, *plat* only means flat).</li>
+                        <li><strong>Niaiser.</strong> - To mess around / To joke / To waste time. (*Arrête de me niaiser!* = Stop kidding me!)</li>
+                        <li><strong>Avoir de la misère.</strong> - To struggle or have difficulty. (*J'ai de la misère avec ce cours.*)</li>
                     </ul>
 
-                    <h3>5.3 Popular Expressions</h3>
+                    <h3>5.3 The "Sacres" (A Linguistic Mystery)</h3>
+                    <p>While France uses sexual or anatomical swears (Merde, Putain), Quebec's strongest swears are religious items. They are used to express intensity, not blasphemy.</p>
                     <ul>
-                        <li><strong>C'est le fun!</strong> (It's fun!) - Quebec uses the English "fun".</li>
-                        <li><strong>Lâche pas la patate!</strong> (Don't give up!) - Don't drop the potato.</li>
-                        <li><strong>Tire-toi une bûche!</strong> (Take a seat!) - Pull yourself a log.</li>
+                        <li><strong>Tabarnak</strong> (Tabernacle) - The most "versatile" swear.</li>
+                        <li><strong>Câlice</strong> (Chalice)</li>
+                        <li><strong>Ostie</strong> (The Host/Wafer)</li>
                     </ul>
+                    <p><em>Learner Note: Do not use these in professional or polite settings! They are extremely strong.</em></p>
                 </div>
             </div>
         </main>
