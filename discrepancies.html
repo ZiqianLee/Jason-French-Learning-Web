@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discrepancies: France vs. Quebec French - French Journey</title>
+    <title>France vs. Quebec French: Key Differences</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -13,53 +13,221 @@
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
             --accent-base: #3b82f6;
+            --title-h1: linear-gradient(135deg, #f43f5e, #ec4899);
+            --title-h2: linear-gradient(135deg, #6366f1, #a855f7);
+            --title-h3: linear-gradient(135deg, #10b981, #14b8a6);
             --font-heading: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
             font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        .app-container { display: flex; height: 100vh; overflow: hidden; }
+
+        .sidebar {
+            width: 320px;
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--bg-tertiary);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            padding: 2rem;
+            transition: transform 0.3s ease;
+            z-index: 1000;
         }
 
-        h1 {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #10b981, #f59e0b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .sidebar-header { padding: 1.5rem; border-bottom: 1px solid var(--bg-tertiary); }
+        .sidebar-header h2 { font-family: var(--font-heading); font-size: 1.5rem; }
 
-        .btn-home {
-            margin-top: 2rem;
-            padding: 0.75rem 2rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--bg-tertiary);
-            color: #fff;
+        .toc { flex: 1; overflow-y: auto; padding: 1rem 0; }
+        .toc ul { list-style: none; }
+        .nav-link {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-secondary);
             text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 0.95rem;
         }
+        .nav-link:hover { background: var(--bg-tertiary); color: #fff; }
 
-        .btn-home:hover {
-            background: var(--accent-base);
-            transform: translateY(-2px);
+        .content-area { flex: 1; overflow-y: auto; padding: 2rem; scroll-behavior: smooth; }
+        .content-wrapper { max-width: 900px; margin: 0 auto; }
+
+        h1 { font-family: var(--font-heading); font-size: 2.5rem; background: var(--title-h1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
+        h2 { font-family: var(--font-heading); font-size: 1.8rem; background: var(--title-h2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 2rem 0 1rem; }
+        h3 { font-family: var(--font-heading); font-size: 1.4rem; background: var(--title-h3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 1.5rem 0 0.75rem; }
+
+        p { margin-bottom: 1rem; color: var(--text-secondary); }
+        hr { border: 0; border-top: 1px solid var(--bg-tertiary); margin: 2rem 0; }
+
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--bg-secondary); border-radius: 12px; overflow: hidden; }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--bg-tertiary); }
+        th { background: var(--bg-tertiary); color: #fff; font-weight: 600; }
+
+        .note-box { background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--accent-base); padding: 1rem; border-radius: 4px; margin: 1.5rem 0; }
+        
+        .toggle-btn { display: none; position: fixed; top: 1rem; left: 1rem; z-index: 1100; background: var(--accent-base); border: none; padding: 0.5rem; border-radius: 4px; color: white; cursor: pointer; }
+        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
+
+        @media (max-width: 768px) {
+            .sidebar { position: fixed; left: -320px; height: 100%; }
+            .sidebar.active { transform: translateX(320px); }
+            .toggle-btn { display: block; }
+            .overlay.active { display: block; }
         }
     </style>
 </head>
 <body>
-    <h1>France French vs. Quebec French 🍁🇫🇷</h1>
-    <p>Discover the unique differences in vocabulary, pronunciation, and expressions. Full guide coming soon!</p>
-    <a href="index.html" class="btn-home">Return to Home</a>
+    <button class="toggle-btn" id="menuToggle">☰</button>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Differences</h2>
+            </div>
+            <nav class="toc">
+                <ul>
+                    <li><a href="index.html" class="nav-link">🏠 Return Home</a></li>
+                    <li><a href="#intro" class="nav-link">1. Intro & History</a></li>
+                    <li><a href="#daily-life" class="nav-link">2. Daily Life Scenarios</a></li>
+                    <li><a href="#grammar" class="nav-link">3. Grammar & Structure</a></li>
+                    <li><a href="#pronunciation" class="nav-link">4. Pronunciation</a></li>
+                    <li><a href="#slang" class="nav-link">5. Slang & Expressions</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <div class="content-wrapper">
+                <h1 id="intro">France vs. Quebec: The Big Split</h1>
+                <p>French is a global language, but the variation spoken in Quebec is not just an accent—it's a historical time capsule and a cultural badge of honor. To understand the differences, we must look at both <strong>daily life</strong> and <strong>linguistic evolution</strong>.</p>
+                
+                <div class="note-box">
+                    <strong>Historical Insight:</strong> After the British conquest of 1763, the French in Quebec were isolated from France for over 200 years. This led to Quebec French preserving 17th-century Parisian features while also naturally evolving alongside North American English.
+                </div>
+
+                <hr>
+
+                <h2 id="daily-life">Scenario 1: At the Table 🍽️</h2>
+                <p>One of the most immediate points of confusion for travelers is the naming of meals. Quebec uses the older, more logical French naming system.</p>
+                
+                <table>
+                    <thead><tr><th>Meal</th><th>Quebec Term</th><th>France Term</th></tr></thead>
+                    <tbody>
+                        <tr><td>Morning (Breakfast)</td><td><strong>Déjeuner</strong></td><td>Petit-déjeuner</td></tr>
+                        <tr><td>Noon (Lunch)</td><td><strong>Dîner</strong></td><td>Déjeuner</td></tr>
+                        <tr><td>Evening (Dinner/Supper)</td><td><strong>Souper</strong></td><td>Dîner</td></tr>
+                    </tbody>
+                </table>
+                <p><em>Example: "Viens souper à la maison!" (Come have dinner/supper at the house!)</em></p>
+
+                <h3 id="food-items">Food Vocabulary Discrepancies</h3>
+                <ul>
+                    <li><strong>Blueberries:</strong> Bleuets (QC) vs Myrtilles (FR)</li>
+                    <li><strong>Watermelon:</strong> Melon d'eau (QC) vs Pastèque (FR)</li>
+                    <li><strong>Drinking:</strong> Un breuvage (QC) vs Une boisson (FR)</li>
+                </ul>
+
+                <h2 id="transport">Scenario 2: On the Road 🚗</h2>
+                <p>Quebec terminology often leans on older naval terms or specialized vocabulary to describe modern transportation.</p>
+                
+                <table>
+                    <thead><tr><th>Object</th><th>Quebec French</th><th>France French</th></tr></thead>
+                    <tbody>
+                        <tr><td>Car</td><td><strong>Un char</strong></td><td>Une voiture</td></tr>
+                        <tr><td>Parking</td><td><strong>Le stationnement</strong></td><td>Le parking</td></tr>
+                        <tr><td>Corner Store</td><td><strong>Le dépanneur</strong></td><td>Une épicerie / Superrette</td></tr>
+                        <tr><td>The Job</td><td><strong>La job</strong> (Fem.)</td><td>Le travail (Masc.)</td></tr>
+                    </tbody>
+                </table>
+                <p><em>Example: "J'ai laissé mon char dans le stationnement." (I left my car in the parking lot.)</em></p>
+
+                <hr>
+
+                <h2 id="grammar">Linguistic Mechanics: Grammar & Structure ⚙️</h2>
+                <h3 id="pronouns">Pronoun Usage</h3>
+                <p>In Quebec, <strong>"on"</strong> is the universal pronoun for "we" in speech, almost completely replacing "nous."</p>
+                <ul>
+                    <li><strong>On y va?</strong> (Shall we go?) - Universal in QC.</li>
+                    <li><strong>Nous y allons?</strong> - Very rare in spoken QC.</li>
+                </ul>
+
+                <h3 id="contractions">Informal Contractions</h3>
+                <p>Spoken Quebec French is highly contracted. This can make it sound much faster than France French.</p>
+                <table>
+                    <thead><tr><th>Form</th><th>Standard French</th><th>Quebec Spoken</th></tr></thead>
+                    <tbody>
+                        <tr><td>I am</td><td>Je suis</td><td><strong>Chu</strong></td></tr>
+                        <tr><td>You have</td><td>Tu as</td><td><strong>T'as</strong></td></tr>
+                        <tr><td>He is</td><td>Il est</td><td><strong>Y'est</strong></td></tr>
+                        <tr><td>She is</td><td>Elle est</td><td><strong>A'est</strong> (Sharp 'A' sound)</td></tr>
+                    </tbody>
+                </table>
+                <p><em>Example: "Chu fatigué." (I am tired.)</em></p>
+
+                <hr>
+
+                <h2 id="pronunciation">The "Sounds" of Quebec 🗣️</h2>
+                <h3 id="assibilation">Assibilation (T and D)</h3>
+                <p>The most distinctive feature of the Quebec accent is the adding of a "s" or "z" sound before 'i' and 'u'.</p>
+                <ul>
+                    <li><strong>Tu</strong> sounds like <strong>Tsu</strong></li>
+                    <li><strong>Dix</strong> sounds like <strong>Dzix</strong></li>
+                    <li><strong>Étudiant</strong> sounds like <strong>Étsudziant</strong></li>
+                </ul>
+
+                <h3 id="vowels">Vowel Length</h3>
+                <p>Quebec French distinguishes between short and long vowels much more than modern Paris French. Words like <strong>maître</strong> (long) and <strong>mettre</strong> (short) sound distinctly different in Quebec, but nearly identical in Paris.</p>
+
+                <hr>
+
+                <h2 id="slang">Cultural Mastery: Slang & Idioms 🎭</h2>
+                <h3 id="sacres">The "Sacres" (Quebec Swears)</h3>
+                <p>Quebec's unique profanities are derived from church items. <em>Caution: These are strong and should be avoided in polite company!</em></p>
+                <ul>
+                    <li><strong>Tabarnak!</strong> (Tabernacle) - The most versatile and powerful.</li>
+                    <li><strong>Câlice!</strong> (Chalice)</li>
+                    <li><strong>Ostie!</strong> (Host/Wafer)</li>
+                </ul>
+
+                <h3 id="fun-idioms">Popular Daily Idioms</h3>
+                <ul>
+                    <li><strong>C'est le fun!</strong> - It's fun! (Quebec loves the word "fun", whereas France says "C'est amusant").</li>
+                    <li><strong>Lâche pas la patate!</strong> - Don't give up! (Literally: Don't let go of the potato).</li>
+                    <li><strong>Tire-toi une bûche!</strong> - Pull up a chair/Take a seat! (Literally: Pull yourself a log).</li>
+                </ul>
+                
+                <p><em>Example: "Tire-toi une bûche, on va prendre un café." (Take a seat, we're going to have a coffee.)</em></p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu on link click (mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth <= 768) toggleMenu();
+            });
+        });
+    </script>
 </body>
 </html>
