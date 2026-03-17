@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>France vs. Quebec French: Key Differences</title>
+    <title>France vs. Quebec French: Comprehensive Discrepancies</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -16,6 +16,7 @@
             --title-h1: linear-gradient(135deg, #f43f5e, #ec4899);
             --title-h2: linear-gradient(135deg, #6366f1, #a855f7);
             --title-h3: linear-gradient(135deg, #10b981, #14b8a6);
+            --title-h4: linear-gradient(135deg, #f59e0b, #f43f5e);
             --font-heading: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
         }
@@ -37,197 +38,373 @@
             border-right: 1px solid var(--bg-tertiary);
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            transition: margin-left 0.3s ease, transform 0.3s ease;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 100;
+        }
+        .sidebar.collapsed { margin-left: -320px; }
+
+        .sidebar-header { padding: 1.5rem 1.5rem 1.5rem 4rem; border-bottom: 1px solid var(--bg-tertiary); }
+        .sidebar-header h2 { font-family: var(--font-heading); font-size: 1.5rem; }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
             z-index: 1000;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--bg-tertiary);
+            border-radius: 4px;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .sidebar-header { padding: 1.5rem; border-bottom: 1px solid var(--bg-tertiary); }
-        .sidebar-header h2 { font-family: var(--font-heading); font-size: 1.5rem; }
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1050;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .sidebar-overlay.visible { display: block; opacity: 1; }
 
         .toc { flex: 1; overflow-y: auto; padding: 1rem 0; }
         .toc ul { list-style: none; }
         .nav-link {
             display: block;
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1.5rem;
             color: var(--text-secondary);
             text-decoration: none;
             transition: all 0.2s;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
-        .nav-link:hover { background: var(--bg-tertiary); color: #fff; }
+        .nav-link.depth-1 { font-size: 1.1rem; font-weight: 700; margin-top: 0.75rem; color: var(--text-primary); }
+        .nav-link:hover, .nav-link.active { background: var(--bg-tertiary); color: #fff; border-left: 3px solid var(--accent-base); }
+
+        .home-btn {
+            display: flex; align-items: center; gap: 0.5rem;
+            margin: 1rem; padding: 0.75rem 1rem;
+            background: var(--bg-tertiary); color: #fff;
+            text-decoration: none; border-radius: 8px;
+            font-weight: 600; font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+        .home-btn:hover { background: var(--accent-base); transform: translateY(-2px); }
 
         .content-area { flex: 1; overflow-y: auto; padding: 2rem; scroll-behavior: smooth; }
-        .content-wrapper { max-width: 900px; margin: 0 auto; }
+        .content-wrapper { max-width: 800px; margin: 0 auto; animation: fadeIn 0.8s ease-out; }
 
-        h1 { font-family: var(--font-heading); font-size: 2.5rem; background: var(--title-h1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; }
-        h2 { font-family: var(--font-heading); font-size: 1.8rem; background: var(--title-h2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 2rem 0 1rem; }
-        h3 { font-family: var(--font-heading); font-size: 1.4rem; background: var(--title-h3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 1.5rem 0 0.75rem; }
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading); margin-top: 2.5rem; margin-bottom: 1rem; font-weight: 700;
+            color: transparent; -webkit-background-clip: text; background-clip: text; display: inline-block;
+        }
+        h1 { font-size: 2.5rem; background-image: var(--title-h1); }
+        h2 { font-size: 2rem; background-image: var(--title-h2); }
+        h3 { font-size: 1.5rem; background-image: var(--title-h3); }
+        h4 { font-size: 1.25rem; background-image: var(--title-h4); }
 
-        p { margin-bottom: 1rem; color: var(--text-secondary); }
-        hr { border: 0; border-top: 1px solid var(--bg-tertiary); margin: 2rem 0; }
-
-        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--bg-secondary); border-radius: 12px; overflow: hidden; }
-        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--bg-tertiary); }
-        th { background: var(--bg-tertiary); color: #fff; font-weight: 600; }
-
-        .note-box { background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--accent-base); padding: 1rem; border-radius: 4px; margin: 1.5rem 0; }
+        p { color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 1.05rem; }
+        strong { color: #fff; }
+        hr { border: none; height: 1px; background-color: var(--bg-tertiary); margin: 3rem 0; }
         
-        .toggle-btn { display: none; position: fixed; top: 1rem; left: 1rem; z-index: 1100; background: var(--accent-base); border: none; padding: 0.5rem; border-radius: 4px; color: white; cursor: pointer; }
-        .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; }
+        table {
+            width: 100%; border-collapse: separate; border-spacing: 0; margin: 2rem 0;
+            border-radius: 8px; overflow: hidden; background: rgba(30, 41, 59, 0.5);
+        }
+        th { background: var(--bg-tertiary); padding: 1rem; text-align: left; color: #fff; font-weight: 600; }
+        td { padding: 1rem; border-bottom: 1px solid var(--bg-tertiary); color: var(--text-secondary); }
+
+        .note-box { background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--accent-base); padding: 1rem; border-radius: 8px; margin: 1.5rem 0; }
+
+        .unit-header {
+            cursor: pointer; position: relative; padding-right: 2.5rem; width: 100%;
+            text-align: left; transition: all 0.3s ease; border-bottom: 2px solid transparent;
+        }
+        .unit-header::after {
+            content: '▼'; position: absolute; right: 10px; top: 50%;
+            transform: translateY(-50%); font-size: 1rem; transition: transform 0.3s ease;
+        }
+        .unit-header.expanded::after { transform: translateY(-50%) rotate(180deg); }
+
+        .unit-content { overflow: hidden; max-height: 0; transition: max-height 0.4s ease-out, padding 0.4s ease; padding: 0 1rem; }
+        .unit-content.expanded { max-height: 5000px; padding: 1rem; border-bottom: 1px solid var(--bg-tertiary); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 768px) {
-            .sidebar { position: fixed; left: -320px; height: 100%; }
-            .sidebar.active { transform: translateX(320px); }
-            .toggle-btn { display: block; }
-            .overlay.active { display: block; }
+            .sidebar { 
+                position: fixed; 
+                height: 100vh; 
+                left: 0; 
+                width: 280px; 
+                box-shadow: 5px 0 15px rgba(0,0,0,0.5); 
+                z-index: 1100;
+                transform: translateX(0);
+            }
+            .sidebar.collapsed { transform: translateX(-100%); }
+            .content-area { padding: 1rem; padding-top: 4rem; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <button class="toggle-btn" id="menuToggle">☰</button>
-    <div class="overlay" id="overlay"></div>
+    <button class="sidebar-toggle" id="toggleSidebar">☰</button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <div class="app-container">
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <h2>Differences</h2>
             </div>
-            <nav class="toc">
+            <a href="index.html" class="home-btn">🏠 Return Home</a>
+            <nav class="toc" id="toc">
                 <ul>
-                    <li><a href="index.html" class="nav-link">🏠 Return Home</a></li>
-                    <li><a href="#intro" class="nav-link">1. Intro & History</a></li>
-                    <li><a href="#daily-life" class="nav-link">2. Daily Life Scenarios</a></li>
-                    <li><a href="#grammar" class="nav-link">3. Grammar & Structure</a></li>
-                    <li><a href="#pronunciation" class="nav-link">4. Pronunciation</a></li>
-                    <li><a href="#slang" class="nav-link">5. Slang & Expressions</a></li>
+                    <li><a href="#h-intro" class="nav-link depth-1">OVERVIEW</a></li>
+                    <li><a href="#h-u1" class="nav-link depth-1">UNIT 1: DAILY LIFE</a></li>
+                    <li><a href="#h-u2" class="nav-link depth-1">UNIT 2: HOME & OBJECTS</a></li>
+                    <li><a href="#h-u3" class="nav-link depth-1">UNIT 3: GRAMMAR & SYNTAX</a></li>
+                    <li><a href="#h-u4" class="nav-link depth-1">UNIT 4: PRONUNCIATION</a></li>
+                    <li><a href="#h-u5" class="nav-link depth-1">UNIT 5: SLANG & IDIOMS</a></li>
                 </ul>
             </nav>
         </aside>
 
-        <main class="content-area">
+        <main class="content-area" id="contentArea">
             <div class="content-wrapper">
-                <h1 id="intro">France vs. Quebec: The Big Split</h1>
-                <p>French is a global language, but the variation spoken in Quebec is not just an accent—it's a historical time capsule and a cultural badge of honor. To understand the differences, we must look at both <strong>daily life</strong> and <strong>linguistic evolution</strong>.</p>
-                
+                <h1 id="h-intro">France vs. Quebec: The Comprehensive Guide</h1>
+                <p>While sharing a common core, Metropolitan French and Québécois French have diverged over 400 years of unique history. Use this guide to master the nuances of daily life in Quebec.</p>
+
                 <div class="note-box">
-                    <strong>Historical Insight:</strong> After the British conquest of 1763, the French in Quebec were isolated from France for over 200 years. This led to Quebec French preserving 17th-century Parisian features while also naturally evolving alongside North American English.
+                    <strong>Historical Context:</strong> Quebec French preserved many 17th-century Parisian vowel sounds and terms while France modernized. Today, it stands as a proud emblem of French identity in North America.
                 </div>
 
                 <hr>
 
-                <h2 id="daily-life">Scenario 1: At the Table 🍽️</h2>
-                <p>One of the most immediate points of confusion for travelers is the naming of meals. Quebec uses the older, more logical French naming system.</p>
-                
-                <table>
-                    <thead><tr><th>Meal</th><th>Quebec Term</th><th>France Term</th></tr></thead>
-                    <tbody>
-                        <tr><td>Morning (Breakfast)</td><td><strong>Déjeuner</strong></td><td>Petit-déjeuner</td></tr>
-                        <tr><td>Noon (Lunch)</td><td><strong>Dîner</strong></td><td>Déjeuner</td></tr>
-                        <tr><td>Evening (Dinner/Supper)</td><td><strong>Souper</strong></td><td>Dîner</td></tr>
-                    </tbody>
-                </table>
-                <p><em>Example: "Viens souper à la maison!" (Come have dinner/supper at the house!)</em></p>
+                <!-- UNIT 1 -->
+                <h2 id="h-u1" class="unit-header">UNIT 1: THE BASICS - MEALS & TRAVEL</h2>
+                <div class="unit-content" id="content-h-u1">
+                    <h3>1.1 The Mealtime Confusion</h3>
+                    <p>The naming of meals is perhaps the most famous difference. Quebec uses the archaic (and logically sequential) naming system.</p>
+                    <table>
+                        <thead><tr><th>Meal</th><th>Quebec Term</th><th>France Term</th></tr></thead>
+                        <tbody>
+                            <tr><td>Breakfast</td><td><strong>Le déjeuner</strong></td><td>Le petit-déjeuner</td></tr>
+                            <tr><td>Lunch</td><td><strong>Le dîner</strong></td><td>Le déjeuner</td></tr>
+                            <tr><td>Dinner/Supper</td><td><strong>Le souper</strong></td><td>Le dîner</td></tr>
+                        </tbody>
+                    </table>
+                    <p><em>Example: "On va dîner au resto?" (Shall we have lunch at the restaurant?)</em></p>
 
-                <h3 id="food-items">Food Vocabulary Discrepancies</h3>
-                <ul>
-                    <li><strong>Blueberries:</strong> Bleuets (QC) vs Myrtilles (FR)</li>
-                    <li><strong>Watermelon:</strong> Melon d'eau (QC) vs Pastèque (FR)</li>
-                    <li><strong>Drinking:</strong> Un breuvage (QC) vs Une boisson (FR)</li>
-                </ul>
+                    <h3>1.2 On the Road</h3>
+                    <p>Quebec has many unique terms for transportation, influenced by its history and environment.</p>
+                    <ul>
+                        <li><strong>Car:</strong> Un char (QC) vs Une voiture (FR)</li>
+                        <li><strong>Parking:</strong> Un stationnement (QC) vs Un parking (FR)</li>
+                        <li><strong>Shopping:</strong> Magasiner (QC) vs Faire du shopping (FR)</li>
+                        <li><strong>Job:</strong> La job (QC, feminine) vs Le boulot / travail (FR, masculine)</li>
+                    </ul>
+                </div>
 
-                <h2 id="transport">Scenario 2: On the Road 🚗</h2>
-                <p>Quebec terminology often leans on older naval terms or specialized vocabulary to describe modern transportation.</p>
-                
-                <table>
-                    <thead><tr><th>Object</th><th>Quebec French</th><th>France French</th></tr></thead>
-                    <tbody>
-                        <tr><td>Car</td><td><strong>Un char</strong></td><td>Une voiture</td></tr>
-                        <tr><td>Parking</td><td><strong>Le stationnement</strong></td><td>Le parking</td></tr>
-                        <tr><td>Corner Store</td><td><strong>Le dépanneur</strong></td><td>Une épicerie / Superrette</td></tr>
-                        <tr><td>The Job</td><td><strong>La job</strong> (Fem.)</td><td>Le travail (Masc.)</td></tr>
-                    </tbody>
-                </table>
-                <p><em>Example: "J'ai laissé mon char dans le stationnement." (I left my car in the parking lot.)</em></p>
+                <!-- UNIT 2 -->
+                <h2 id="h-u2" class="unit-header">UNIT 2: HOME & DAILY OBJECTS</h2>
+                <div class="unit-content" id="content-h-u2">
+                    <h3>2.1 Household Items</h3>
+                    <table>
+                        <thead><tr><th>Object</th><th>Quebec French</th><th>France French</th></tr></thead>
+                        <tbody>
+                            <tr><td>Cellphone</td><td><strong>Un cellulaire</strong></td><td>Un portable</td></tr>
+                            <tr><td>Corner Store</td><td><strong>Le dépanneur</strong></td><td>L'épicerie / Superrette</td></tr>
+                            <tr><td>Stuffed Animal</td><td><strong>Un toutou</strong></td><td>Une peluche</td></tr>
+                            <tr><td>Snack</td><td><strong>Une collation</strong></td><td>Le goûter</td></tr>
+                        </tbody>
+                    </table>
 
-                <hr>
+                    <h3>2.2 Weather & Nature</h3>
+                    <p>Nature terms in Quebec often reflect its rugged environment.</p>
+                    <ul>
+                        <li><strong>It's freezing cold:</strong> Il fait frette (QC) vs Il fait froid (FR)</li>
+                        <li><strong>Mosquito:</strong> Un maringouin (QC) vs Un moustique (FR)</li>
+                        <li><strong>Blueberries:</strong> Des bleuets (QC) vs Des myrtilles (FR)</li>
+                    </ul>
+                </div>
 
-                <h2 id="grammar">Linguistic Mechanics: Grammar & Structure ⚙️</h2>
-                <h3 id="pronouns">Pronoun Usage</h3>
-                <p>In Quebec, <strong>"on"</strong> is the universal pronoun for "we" in speech, almost completely replacing "nous."</p>
-                <ul>
-                    <li><strong>On y va?</strong> (Shall we go?) - Universal in QC.</li>
-                    <li><strong>Nous y allons?</strong> - Very rare in spoken QC.</li>
-                </ul>
+                <!-- UNIT 3 -->
+                <h2 id="h-u3" class="unit-header">UNIT 3: LINGUISTIC MECHANICS</h2>
+                <div class="unit-content" id="content-h-u3">
+                    <h3>3.1 Pronouns & Questions</h3>
+                    <p>Quebec French adds specific markers to spoken questions for emphasis.</p>
+                    <p><strong>The "-tu" addition:</strong> In casual speech, Quebecers add "-tu" after the verb, even if "tu" isn't the subject.</p>
+                    <ul>
+                        <li><strong>Tu m'écoutes-tu?</strong> (Are you listening to me?)</li>
+                        <li><strong>Il vient-tu?</strong> (Is he coming?)</li>
+                        <li><strong>C'est-tu vrai?</strong> (Is it true?)</li>
+                    </ul>
 
-                <h3 id="contractions">Informal Contractions</h3>
-                <p>Spoken Quebec French is highly contracted. This can make it sound much faster than France French.</p>
-                <table>
-                    <thead><tr><th>Form</th><th>Standard French</th><th>Quebec Spoken</th></tr></thead>
-                    <tbody>
-                        <tr><td>I am</td><td>Je suis</td><td><strong>Chu</strong></td></tr>
-                        <tr><td>You have</td><td>Tu as</td><td><strong>T'as</strong></td></tr>
-                        <tr><td>He is</td><td>Il est</td><td><strong>Y'est</strong></td></tr>
-                        <tr><td>She is</td><td>Elle est</td><td><strong>A'est</strong> (Sharp 'A' sound)</td></tr>
-                    </tbody>
-                </table>
-                <p><em>Example: "Chu fatigué." (I am tired.)</em></p>
+                    <h3>3.2 Common Contractions</h3>
+                    <p>Spoken QC French is highly efficient. Learn these to understand native speakers:</p>
+                    <table>
+                        <thead><tr><th>Form</th><th>Standard</th><th>Spoken (QC)</th></tr></thead>
+                        <tbody>
+                            <tr><td>I am</td><td>Je suis</td><td><strong>Chu</strong></td></tr>
+                            <tr><td>You have</td><td>Tu as</td><td><strong>T'as</strong></td></tr>
+                            <li><strong>He is:</strong> Y'est</li>
+                            <li><strong>She is:</strong> A'est</li>
+                        </tbody>
+                    </table>
+                </div>
 
-                <hr>
+                <!-- UNIT 4 -->
+                <h2 id="h-u4" class="unit-header">UNIT 4: THE SOUND OF QUEBEC</h2>
+                <div class="unit-content" id="content-h-h4">
+                    <h3>4.1 Assibilation (T & D)</h3>
+                    <p>This is the most distinctive sound of the accent. Add a slight "s" or "z" before the vowels 'i' and 'u'.</p>
+                    <ul>
+                        <li><strong>Tu es:</strong> sounds like <em>Tsu es</em></li>
+                        <li><strong>Dimanche:</strong> sounds like <em>Dziman-che</em></li>
+                        <li><strong>Nature:</strong> sounds like <em>Natsu-re</em></li>
+                    </ul>
 
-                <h2 id="pronunciation">The "Sounds" of Quebec 🗣️</h2>
-                <h3 id="assibilation">Assibilation (T and D)</h3>
-                <p>The most distinctive feature of the Quebec accent is the adding of a "s" or "z" sound before 'i' and 'u'.</p>
-                <ul>
-                    <li><strong>Tu</strong> sounds like <strong>Tsu</strong></li>
-                    <li><strong>Dix</strong> sounds like <strong>Dzix</strong></li>
-                    <li><strong>Étudiant</strong> sounds like <strong>Étsudziant</strong></li>
-                </ul>
+                    <h3>4.2 Vowel Distinctions</h3>
+                    <p>Quebecers distinguish between certain vowels that are now homophones (sound the same) in Paris.</p>
+                    <ul>
+                        <li><strong>Pâte</strong> (long, nasal 'a') vs <strong>Patte</strong> (short 'a')</li>
+                        <li><strong>Maître</strong> (long 'e') vs <strong>Mettre</strong> (short 'e')</li>
+                    </ul>
+                </div>
 
-                <h3 id="vowels">Vowel Length</h3>
-                <p>Quebec French distinguishes between short and long vowels much more than modern Paris French. Words like <strong>maître</strong> (long) and <strong>mettre</strong> (short) sound distinctly different in Quebec, but nearly identical in Paris.</p>
+                <!-- UNIT 5 -->
+                <h2 id="h-u5" class="unit-header">UNIT 5: CULTURAL NUANCES & SLANG</h2>
+                <div class="unit-content" id="content-h-u5">
+                    <h3>5.1 Semantic Shifts (False Friends)</h3>
+                    <p>The same word can have wildly different meanings depending on where you are.</p>
+                    <table>
+                        <thead><tr><th>Word</th><th>In Quebec means...</th><th>In France means...</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Gosses</strong></td><td>Testicles ⚠️</td><td>Kids</td></tr>
+                            <tr><td><strong>Bourré</strong></td><td>Full (from food)</td><td>Drunk ⚠️</td></tr>
+                            <tr><td><strong>Towler</strong></td><td>To tow a car</td><td>To house/shell (archaic)</td></tr>
+                        </tbody>
+                    </table>
 
-                <hr>
+                    <h3>5.2 The "Sacres" (Profanity)</h3>
+                    <p>Quebec curses are derived from Catholic liturgy. They are very colorful but considered strong!</p>
+                    <ul>
+                        <li><strong>Tabarnak!</strong> (Tabernacle)</li>
+                        <li><strong>Câlice!</strong> (Chalice)</li>
+                        <li><strong>Ostie!</strong> (Host/Wafer)</li>
+                    </ul>
 
-                <h2 id="slang">Cultural Mastery: Slang & Idioms 🎭</h2>
-                <h3 id="sacres">The "Sacres" (Quebec Swears)</h3>
-                <p>Quebec's unique profanities are derived from church items. <em>Caution: These are strong and should be avoided in polite company!</em></p>
-                <ul>
-                    <li><strong>Tabarnak!</strong> (Tabernacle) - The most versatile and powerful.</li>
-                    <li><strong>Câlice!</strong> (Chalice)</li>
-                    <li><strong>Ostie!</strong> (Host/Wafer)</li>
-                </ul>
-
-                <h3 id="fun-idioms">Popular Daily Idioms</h3>
-                <ul>
-                    <li><strong>C'est le fun!</strong> - It's fun! (Quebec loves the word "fun", whereas France says "C'est amusant").</li>
-                    <li><strong>Lâche pas la patate!</strong> - Don't give up! (Literally: Don't let go of the potato).</li>
-                    <li><strong>Tire-toi une bûche!</strong> - Pull up a chair/Take a seat! (Literally: Pull yourself a log).</li>
-                </ul>
-                
-                <p><em>Example: "Tire-toi une bûche, on va prendre un café." (Take a seat, we're going to have a coffee.)</em></p>
+                    <h3>5.3 Popular Expressions</h3>
+                    <ul>
+                        <li><strong>C'est le fun!</strong> (It's fun!) - Quebec uses the English "fun".</li>
+                        <li><strong>Lâche pas la patate!</strong> (Don't give up!) - Don't drop the potato.</li>
+                        <li><strong>Tire-toi une bûche!</strong> (Take a seat!) - Pull yourself a log.</li>
+                    </ul>
+                </div>
             </div>
         </main>
     </div>
 
     <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
+      document.addEventListener('DOMContentLoaded', () => {
+          const units = document.querySelectorAll('.unit-header');
+          const sidebar = document.getElementById('sidebar');
+          const toggleBtn = document.getElementById('toggleSidebar');
+          const overlay = document.getElementById('sidebarOverlay');
+          const contentArea = document.getElementById('contentArea');
+          const navLinks = document.querySelectorAll('.nav-link');
+          const toc = document.getElementById('toc');
 
-        function toggleMenu() {
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
+          // --- 1. Accordion Toggle ---
+          units.forEach(unit => {
+              unit.addEventListener('click', () => {
+                  const content = document.getElementById('content-' + unit.id);
+                  const isExpanded = unit.classList.contains('expanded');
+                  
+                  // Collapse all first for clean navigation
+                  units.forEach(u => {
+                      u.classList.remove('expanded');
+                      const c = document.getElementById('content-' + u.id);
+                      if (c) c.classList.remove('expanded');
+                  });
 
-        menuToggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
+                  if (!isExpanded) {
+                      unit.classList.add('expanded');
+                      if (content) content.classList.add('expanded');
+                  }
+              });
+          });
 
-        // Close menu on link click (mobile)
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if(window.innerWidth <= 768) toggleMenu();
-            });
-        });
+          // --- 2. Sidebar Logic ---
+          function toggleSidebar(forceCollapse) {
+              const isCollapsed = sidebar.classList.contains('collapsed');
+              const shouldCollapse = forceCollapse !== undefined ? forceCollapse : !isCollapsed;
+              
+              if (shouldCollapse) {
+                  sidebar.classList.add('collapsed');
+                  overlay.classList.remove('visible');
+                  setTimeout(() => { if (!overlay.classList.contains('visible')) overlay.style.display = 'none'; }, 300);
+              } else {
+                  sidebar.classList.remove('collapsed');
+                  if (window.innerWidth <= 768) {
+                      overlay.style.display = 'block';
+                      setTimeout(() => overlay.classList.add('visible'), 10);
+                  }
+              }
+          }
+
+          toggleBtn.addEventListener('click', () => toggleSidebar());
+          overlay.addEventListener('click', () => toggleSidebar(true));
+
+          // --- 3. TOC Navigation ---
+          navLinks.forEach(link => {
+              link.addEventListener('click', (e) => {
+                  const href = link.getAttribute('href');
+                  if (!href.startsWith('#')) return;
+                  e.preventDefault();
+                  
+                  const targetId = href.substring(1);
+                  const target = document.getElementById(targetId);
+                  
+                  if (target) {
+                      if (target.classList.contains('unit-header')) {
+                          target.click(); // Trigger accordion
+                          setTimeout(() => {
+                              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }, 100);
+                      } else {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
+                      if (window.innerWidth <= 768) toggleSidebar(true);
+                  }
+              });
+          });
+
+          // Mobile default
+          if (window.innerWidth <= 768) sidebar.classList.add('collapsed');
+
+          // Handle Resize
+          window.addEventListener('resize', () => {
+              if (window.innerWidth > 768) {
+                  sidebar.classList.remove('collapsed');
+                  overlay.classList.remove('visible');
+                  overlay.style.display = 'none';
+              } else {
+                  sidebar.classList.add('collapsed');
+              }
+          });
+      });
     </script>
 </body>
 </html>
