@@ -1,0 +1,61 @@
+:root {
+  --bg-gradient-1: linear-gradient(180deg, rgba(10,14,28,0.85), rgba(15,23,42,0.95));
+  --glass: rgba(255,255,255,0.03);
+  --muted: #9fb0c8;
+  --accent: #3b82f6;
+  --radius: 12px;
+}
+
+/* Global refinements that enhance existing styles without breaking layout */
+html,body { height: 100%; }
+body {
+  background-image: var(--bg-gradient-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-ligatures: common-ligatures;
+}
+
+/* Links & buttons */
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.home-btn, .sidebar-toggle { transition: transform .15s ease, box-shadow .15s ease; }
+.home-btn:active, .sidebar-toggle:active { transform: translateY(1px); }
+
+/* Cards / panels: gentle glass effect */
+.card, .note-box, .warning-box, .table-container, .special-link {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Improve headings for small screens */
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.9rem !important; }
+  .hero p, .content-wrapper p { font-size: 1rem !important; }
+}
+
+/* Tweak tables for readability */
+th, td { white-space: pre-wrap; word-break: break-word; }
+table { border-radius: calc(var(--radius) - 4px); }
+
+/* Subtle focus styles for accessibility */
+:focus { outline: 3px solid rgba(59,130,246,0.18); outline-offset: 2px; }
+
+/* Make images responsive by default */
+img { max-width: 100%; height: auto; border-radius: 8px; }
+
+/* Footer polish */
+.footer { opacity: 0.9; color: var(--muted); }
+
+/* Utility: center main content on very large screens */
+main, .content-wrapper { margin-left: auto; margin-right: auto; }
+
+/* Keep layout stable: improve stacking context for overlays */
+.sidebar, .sidebar-overlay { -webkit-transform: translateZ(0); transform: translateZ(0); }
+
+/* Minimal utility classes */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mb-2 { margin-bottom: 1rem; }
+
+/* End of global site refinements */
