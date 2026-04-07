@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Par ici A1 Quebec French Course</title>
+    <meta
+      name="description"
+      content="A responsive Quebec French A1 learning site with units, vocabulary, grammar, examples, dialogues, and guided practice."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar__brand">
+          <p class="eyebrow">Quebec French A1</p>
+          <h1>Par ici A1 Course</h1>
+          <p class="sidebar__intro">
+            Jump between episodes from the menu. On mobile, the sidebar becomes a slide-out drawer.
+          </p>
+        </div>
+
+        <label class="search-card" for="searchInput">
+          <span>Search lessons or keywords</span>
+          <input id="searchInput" type="search" placeholder="time, restaurant, health, venir de" />
+        </label>
+
+        <nav class="sidebar__nav" aria-label="Course navigation">
+          <a class="sidebar__link sidebar__link--home" href="#top">Course Overview</a>
+          <div id="sidebarLinks" class="sidebar__links"></div>
+        </nav>
+
+        <div class="sidebar__footnote" id="sidebarNote"></div>
+      </aside>
+
+      <div class="overlay" id="overlay" hidden></div>
+
+      <main class="content">
+        <header class="topbar">
+          <a id="top" class="skip-anchor" aria-hidden="true"></a>
+          <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="sidebar">
+            Menu
+          </button>
+          <div class="topbar__copy">
+            <p class="eyebrow">Mobile Friendly Course Site</p>
+            <h2>Par ici A1 Learning Map</h2>
+          </div>
+        </header>
+
+        <section class="hero" id="hero"></section>
+        <section class="overview-grid" id="overviewGrid"></section>
+        <section class="lesson-list" id="lessonList"></section>
+      </main>
+    </div>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
